@@ -38,7 +38,7 @@ Bộ dữ liệu thu thập thủ công (ground truth) có quy mô nhỏ: **2,32
 - **Overfitting:** Mô hình ghi nhớ pattern cụ thể thay vì học đặc trưng tổng quát.
 - **Bias:** Mô hình không nhận diện được các biến thể mới của smishing (concept drift).
 
-Kỹ thuật **Tăng Cường Dữ Liệu bằng LLM (LLM-based Data Augmentation)** được áp dụng để sinh thêm dữ liệu tổng hợp (synthetic data) bổ sung cho ground truth, hướng tới tổng cộng **3,000 mẫu mỗi nhãn**.
+Kỹ thuật **Tăng Cường Dữ Liệu bằng LLM (LLM-based Data Augmentation)** được áp dụng để sinh thêm dữ liệu tổng hợp (synthetic data) bổ sung cho ground truth, hướng tới tổng cộng **3,000 mẫu cho nhãn 0 và 5,000 mẫu cho nhãn 1**.
 
 ---
 
@@ -89,27 +89,26 @@ Các nghiên cứu trước tập trung vào binary classification (ham vs. spam
 
 | Category | Mẫu | % | Ghi chú |
 |---|---|---|---|
-| Viễn thông | 966 | 41.5% | Dominant — Viettel chiếm đa số |
-| Cá nhân & OTP | 252 | 10.8% | Personal chat + OTP từ GitHub/Microsoft |
-| Quảng cáo hợp lệ | 169 | 7.3% | MoMo chiếm nhiều mẫu lặp |
-| Dịch vụ công thật | 67 | 2.9% | DHCNTT, PCGV, MTTQ, Bộ Công an |
-| Ngân hàng thật | 35 | 1.5% | Chủ yếu OTP + cảnh báo bảo mật |
-| Thương mại điện tử | 12 | 0.5% | Chỉ OTP xác minh, thiếu đơn hàng |
-| Y tế | 8 | 0.3% | Gần như vắng |
-| **Vận chuyển** | **0** | **0%** | **Hoàn toàn không có mẫu thực** |
+| Viễn thông | 1061 | 45.63% | Dominant — Viettel chiếm đa số |
+| Cá nhân & OTP | 303 | 13.03% | Personal chat + OTP từ các tổ chức/dịch vụ không phải ngân hàng|
+| Dịch vụ công thật | 174 | 7.48% | PCGV, MTTQ, Bộ Công an |
+| Quảng cáo hợp lệ | 135 | 5.81% | MoMo chiếm nhiều mẫu lặp |
+| Ngân hàng thật | 125 | 5.38% | Chủ yếu OTP + cảnh báo bảo mật |
+| Vận chuyển | 18 | 0.77% | Rất ít mẫu thực |
+| Thương mại điện tử | 1 | 0.04% | Gần như không có mẫu thực |
+| Y tế | 1 | 0.04% | Gần như không có mẫu thực |
+
 
 **Thống kê metadata:**
 
-| Chỉ số | Giá trị |
-|---|---|
-| sender_type: brandname | 75.6% |
-| sender_type: shortcode | 19.9% |
-| sender_type: personal_number | 4.6% |
-| has_url = 1 | 49% |
-| has_phone_number = 1 | 41% |
-| Content length (mean) | 229 ký tự |
+| Bên gửi | Số lượng | Tỷ lệ URL (%) | Tỷ lệ SĐT (%) | Content length (mean) |
+|---|---|---|---|---|
+| brandname | 1757 | 53.78 | 41.61 | 235.64 |
+| shortcode | 462 | 40.04 | 48.27 | 237.82 |
+| personal_number | 106 | 3.77 | 4.72 | 80.80 |
 
-**Quan sát quan trọng:** `has_url = 49%` và `has_phone = 41%` cao hơn dự đoán ban đầu. Nguyên nhân: dataset nặng về Viễn thông (Viettel luôn kèm link nạp thẻ và hotline). Dataset thiếu hẳn giao dịch ngân hàng (số dư, chuyển khoản) — vì hầu hết ngân hàng đã chuyển thông báo giao dịch sang app riêng, SMS chỉ còn dùng cho OTP.
+
+**Quan sát quan trọng:** Các mẩu tin nhắn về Y tế hay sàn TMĐT cũng như Vận chuyển có rất ít — vì hầu hết để đã có app riêng, nội dung vận đơn thì thường gọi điện trực tiếp chứ không nhắn tin SMS.
 
 ### 3.2 Label 1 – Smishing SMS
 

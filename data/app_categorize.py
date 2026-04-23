@@ -72,6 +72,9 @@ def load_data(input_path, output_path):
     df = pd.read_csv(input_path)
     if "category_label" not in df.columns:
         df["category_label"] = None
+
+    if "smishing_type" not in df.columns:
+        df["smishing_type"] = None
     return df
 
 if 'current_file' not in st.session_state or st.session_state.current_file != selected_file:
@@ -90,8 +93,8 @@ categories = [
     "Y tế", "Vận chuyển", "Khác"
 ]
 
-# --- TẠO 2 TABS CHO 2 TÍNH NĂNG KHÁC NHAU ---
-tab_label, tab_review = st.tabs(["🏷️ GÁN NHÃN MỚI", "🔍 SOI LỖI & SỬA NHÃN (QA)"])
+# --- TẠO 3 TABS CHO 3 TÍNH NĂNG KHÁC NHAU ---
+tab_label, tab_review, tab_smish = st.tabs(["🏷️ GÁN NHÃN MỚI", "🔍 SOI LỖI & SỬA NHÃN", "☠️ PHÂN LOẠI LỪA ĐẢO"])
 
 # ==========================================
 # TAB 1: GÁN NHÃN (Logic cũ)
@@ -177,3 +180,64 @@ with tab_review:
             st.session_state.df.to_csv(OUTPUT_FILE, index=False)
             st.success("✅ Đã cập nhật nhãn thành công! Dữ liệu đã được lưu.")
             st.rerun() # Tải lại trang để cập nhật giao diện
+
+
+# ==========================================
+# TAB 3: PHÂN LOẠI LỪA ĐẢO (SMISHING)
+# ==========================================
+with tab_smish:
+    st.write("### ☠️ Phân loại chi tiết các tin nhắn Lừa đảo/Độc hại")
+    
+    # Logic lọc "Tin nhắn label 1": 
+    # Ưu tiên tìm cột 'label' == 1 (Nếu CSV có sẵn). Nếu không, lấy các tin đã gán nhóm "Khác"
+    if "label" in df.columns:
+        target_df = df[df["label"] == 1]
+    else:
+        target_df = df[df["category_label"] == "Khác"]
+        
+    if target_df.empty:
+        st.success("✨ Hiện chưa có tin nhắn nào thuộc nhóm cần phân loại lừa đảo!")
+    else:
+        smish_categories = [
+            "Giả mạo ngân hàng", 
+            "Đòi nợ/Đe doạ", 
+            "Tuyển dụng giả", 
+            "Cờ bạc/Betting", 
+            "Nội dung nhạy cảm", 
+            "Dịch vụ công giả", 
+            "BHXH/Trợ cấp giả", 
+            "Đầu tư/Crypto giả",
+            "Khác" # Đề phòng trường hợp gán nhầm ở Tab 1
+        ]
+        
+        st.info(f"💡 Đang hiển thị **{len(target_df)}** tin nhắn. Em hãy chọn loại lừa đảo tương ứng trong cột bên phải và bấm Lưu.")
+        
+        # Chỉ cho phép sửa cột smishing_type
+        disabled_cols_smish = [col for col in df.columns if col != "smishing_type"]
+        
+        # Bảng dữ liệu tương tác
+        edited_smish_df = st.data_editor(
+            target_df,
+            column_config={
+                "smishing_type": st.column_config.SelectboxColumn(
+                    "Loại hình lừa đảo (Sửa tại đây)",
+                    help="Chọn 1 trong các kịch bản lừa đảo",
+                    options=smish_categories,
+                    required=True,
+                )
+            },
+            disabled=disabled_cols_smish,
+            use_container_width=True,
+            hide_index=False,
+            height=500,
+            key="smish_editor" # Key độc lập để không đụng hàng với Tab 2
+        )
+        
+        # Nút lưu dữ liệu
+        if st.button("💾 Lưu phân loại lừa đảo", type="primary"):
+            for index, row in edited_smish_df.iterrows():
+                st.session_state.df.at[index, "smishing_type"] = row["smishing_type"]
+            
+            st.session_state.df.to_csv(OUTPUT_FILE, index=False)
+            st.success("✅ Đã cập nhật nhãn lừa đảo thành công! Dữ liệu đã được lưu vào file CSV.")
+            st.rerun()

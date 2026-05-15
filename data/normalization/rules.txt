@@ -1,0 +1,6 @@
+[TB] : thông báo
+TB giữa câu: thuê bao
+{num}K : ngàn đồng
+{num}đ : đồng
+LH : liên hệ
+CT : chương trình

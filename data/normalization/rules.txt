@@ -4,3 +4,5 @@ TB giữa câu: thuê bao
 {num}đ : đồng
 LH : liên hệ
 CT : chương trình
+[QC] : quảng cáo
+{num}h : giờ

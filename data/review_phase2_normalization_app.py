@@ -1,9 +1,9 @@
 """
-Local review app for manually correcting Phase 2 Vietnamese normalization pairs.
+Local review app for manually correcting Phase 2 label 0 normalization rows.
 
-The app keeps the generated accent-restoration pair file untouched. On first
-run it creates a manual working CSV with review columns, then saves each edit
-back to that working file.
+The app edits the label 0 full-normalization working CSV directly. It defaults
+to rows marked needs_review, then saves manual corrections back to
+normalized_text, manual_status, review_note, validation_status, and updated_at.
 
 Run from repository root:
     python data/review_phase2_normalization_app.py
@@ -23,17 +23,18 @@ import re
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
+from build_phase2_full_normalization_dataset_label0 import validate_normalization
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 NORMALIZATION_DIR = DATA_DIR / "normalization"
-DEFAULT_INPUT = NORMALIZATION_DIR / "phase2_accent_restore_pairs.csv"
-DEFAULT_WORKING = NORMALIZATION_DIR / "phase2_accent_restore_manual.csv"
+DEFAULT_WORKING = NORMALIZATION_DIR / "phase2_full_normalization_working.csv"
 
 BASE_COLUMNS = [
-    "pair_id",
+    "norm_id",
     "source_text",
-    "target_text",
+    "normalized_text",
     "task_type",
     "label",
     "category",
@@ -46,7 +47,14 @@ BASE_COLUMNS = [
     "source_dataset",
     "source_row_id",
 ]
-REVIEW_COLUMNS = ["generated_target_text", "manual_status", "review_note", "updated_at"]
+REVIEW_COLUMNS = [
+    "generated_normalized_text",
+    "validation_status",
+    "validation_issues",
+    "manual_status",
+    "review_note",
+    "updated_at",
+]
 ALL_COLUMNS = BASE_COLUMNS + REVIEW_COLUMNS
 
 VIETNAMESE_ACCENT_RE = re.compile(
@@ -70,7 +78,7 @@ HTML = r"""<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Phase 2 Normalization Review</title>
+    <title>Phase 2 Label 0 Normalization Review</title>
   <style>
     :root {
       --bg: #f6f7f9;
@@ -289,7 +297,7 @@ HTML = r"""<!doctype html>
 </head>
 <body>
   <header>
-    <h1>Phase 2 Vietnamese SMS Normalization Review</h1>
+    <h1>Phase 2 Label 0 SMS Normalization Review</h1>
     <div id="saveState" class="status">Loading...</div>
   </header>
   <main>
@@ -305,33 +313,36 @@ HTML = r"""<!doctype html>
         <div class="bar-group">
           <input id="queryInput" type="search" placeholder="Search source, target, category...">
           <select id="filterSelect">
+            <option value="needs_review">Needs review</option>
+            <option value="warning">Warning</option>
             <option value="all">All</option>
             <option value="pending">Pending</option>
-            <option value="reviewed">Reviewed</option>
-            <option value="needs_fix">Needs fix</option>
+            <option value="generated">Generated</option>
+            <option value="manual_reviewed">Manual reviewed</option>
           </select>
         </div>
       </div>
       <div class="meta" id="meta"></div>
       <div class="editors">
         <div class="editor">
-          <label for="sourceText">Non-accented / Obfuscated</label>
+          <label for="sourceText">Source SMS</label>
           <textarea id="sourceText"></textarea>
         </div>
         <div class="editor">
-          <label for="targetText">Corrected</label>
+          <label for="targetText">Normalized text</label>
           <textarea id="targetText"></textarea>
         </div>
       </div>
       <div class="actions">
         <div class="bar-group">
           <select id="statusSelect">
+            <option value="needs_review">Needs review</option>
+            <option value="manual_reviewed">Manual reviewed</option>
+            <option value="generated">Generated</option>
             <option value="pending">Pending</option>
-            <option value="reviewed">Reviewed</option>
-            <option value="needs_fix">Needs fix</option>
           </select>
           <button id="copySourceBtn">Copy source &rarr; target</button>
-          <button id="resetBtn">Reset to generated target</button>
+          <button id="resetBtn">Reset to generated</button>
         </div>
         <div class="bar-group">
           <button id="saveBtn" class="primary">Save</button>
@@ -405,8 +416,9 @@ function renderStats(summary) {
   const stats = [
     ["Total", summary.total],
     ["Pending", summary.pending],
-    ["Reviewed", summary.reviewed],
-    ["Needs fix", summary.needs_fix],
+    ["Needs review", summary.needs_review],
+    ["Manual", summary.manual_reviewed],
+    ["Generated", summary.generated],
   ];
   el("stats").innerHTML = stats.map(([label, value]) =>
     `<div class="stat"><span>${label}</span><strong>${value}</strong></div>`
@@ -425,18 +437,18 @@ function renderRow(payload) {
   el("position").textContent = `${payload.filtered_position} / ${payload.filtered_total}`;
   el("jumpInput").value = payload.filtered_position || 1;
   el("sourceText").value = row.source_text || "";
-  el("targetText").value = row.target_text || "";
-  el("statusSelect").value = row.manual_status || "pending";
+  el("targetText").value = row.normalized_text || "";
+  el("statusSelect").value = row.manual_status || "needs_review";
   el("noteText").value = row.review_note || "";
   el("prevBtn").disabled = payload.filtered_position <= 1;
   el("nextBtn").disabled = payload.filtered_position >= payload.filtered_total;
 
   el("meta").innerHTML = [
-    ["Pair", row.pair_id],
+    ["ID", row.norm_id],
     ["Label", row.label],
-    ["Category", row.category],
+    ["Validation", row.validation_status],
+    ["Issues", row.validation_issues],
     ["Origin", row.data_origin],
-    ["Source", row.source_dataset],
     ["Obfuscation", row.obfuscation_level],
   ].map(([k, v]) => `<div>${k}<strong>${v}</strong></div>`).join("");
 
@@ -471,13 +483,13 @@ async function move(delta) {
 
 async function save(moveNext = false) {
   if (!state.row) return;
-  if (moveNext) el("statusSelect").value = "reviewed";
+  if (moveNext) el("statusSelect").value = "manual_reviewed";
   setStatus("Saving...");
   const payload = await api("/api/save", {
     method: "POST",
     body: JSON.stringify({
-      pair_id: state.row.pair_id,
-      target_text: el("targetText").value,
+      norm_id: state.row.norm_id,
+      normalized_text: el("targetText").value,
       manual_status: el("statusSelect").value,
       review_note: el("noteText").value,
     }),
@@ -515,7 +527,7 @@ el("copySourceBtn").addEventListener("click", () => {
 });
 el("resetBtn").addEventListener("click", async () => {
   if (!state.row) return;
-  el("targetText").value = state.row.generated_target_text || state.row.target_text || "";
+  el("targetText").value = state.row.generated_normalized_text || state.row.normalized_text || "";
   markDirty();
 });
 
@@ -544,10 +556,10 @@ document.addEventListener("keydown", async (event) => {
   } else if (event.altKey && (event.code === "Minus" || event.code === "NumpadSubtract")) {
     event.preventDefault();
     await move(-1);
-  // Alt+G — Mark reviewed & save
+  // Alt+G — Mark manual reviewed & save
   } else if (event.altKey && event.code === "KeyG") {
     event.preventDefault();
-    el("statusSelect").value = "reviewed";
+    el("statusSelect").value = "manual_reviewed";
     markDirty();
     await save(false);
   }
@@ -567,30 +579,18 @@ loadRow(1).catch(error => setStatus(error.message, "error"));
 
 
 class ReviewStore:
-    def __init__(self, input_path: Path, working_path: Path) -> None:
-        self.input_path = input_path
+    def __init__(self, working_path: Path) -> None:
         self.working_path = working_path
         self.rows: list[dict[str, str]] = []
-        self.by_pair_id: dict[str, int] = {}
+        self.by_norm_id: dict[str, int] = {}
         self.load()
 
     def load(self) -> None:
-        if not self.input_path.exists():
-            raise FileNotFoundError(f"Missing input CSV: {self.input_path}")
-        NORMALIZATION_DIR.mkdir(parents=True, exist_ok=True)
         if not self.working_path.exists():
-            self._initialize_working_file()
+            raise FileNotFoundError(f"Missing working CSV: {self.working_path}")
+        NORMALIZATION_DIR.mkdir(parents=True, exist_ok=True)
         self.rows = self._read_rows(self.working_path)
-        self.by_pair_id = {row["pair_id"]: idx for idx, row in enumerate(self.rows)}
-
-    def _initialize_working_file(self) -> None:
-        base_rows = self._read_rows(self.input_path)
-        for row in base_rows:
-            row["generated_target_text"] = row.get("target_text", "")
-            row["manual_status"] = "pending"
-            row["review_note"] = ""
-            row["updated_at"] = ""
-        self._write_rows(base_rows)
+        self.by_norm_id = {row["norm_id"]: idx for idx, row in enumerate(self.rows)}
 
     def _read_rows(self, path: Path) -> list[dict[str, str]]:
         with path.open("r", encoding="utf-8-sig", newline="") as handle:
@@ -606,7 +606,11 @@ class ReviewStore:
                 clean["manual_status"] = row.get("manual_status") or "pending"
                 clean["review_note"] = row.get("review_note") or ""
                 clean["updated_at"] = row.get("updated_at") or ""
-                clean["generated_target_text"] = row.get("generated_target_text") or row.get("target_text", "")
+                clean["generated_normalized_text"] = (
+                    row.get("generated_normalized_text") or row.get("normalized_text", "")
+                )
+                clean["validation_status"] = row.get("validation_status") or "pending"
+                clean["validation_issues"] = row.get("validation_issues") or ""
                 rows.append(clean)
             return rows
 
@@ -621,7 +625,13 @@ class ReviewStore:
         tmp_path.replace(self.working_path)
 
     def summary(self) -> dict[str, int]:
-        counts = {"total": len(self.rows), "pending": 0, "reviewed": 0, "needs_fix": 0}
+        counts = {
+            "total": len(self.rows),
+            "pending": 0,
+            "generated": 0,
+            "needs_review": 0,
+            "manual_reviewed": 0,
+        }
         for row in self.rows:
             status = row.get("manual_status") or "pending"
             counts[status] = counts.get(status, 0) + 1
@@ -632,16 +642,21 @@ class ReviewStore:
         indices = []
         for idx, row in enumerate(self.rows):
             status = row.get("manual_status") or "pending"
-            if status_filter != "all" and status != status_filter:
+            validation_status = row.get("validation_status") or "pending"
+            if status_filter == "warning":
+                if validation_status != "warning":
+                    continue
+            elif status_filter != "all" and status != status_filter:
                 continue
             if query_norm:
                 haystack = " ".join(
                     [
                         row.get("source_text", ""),
-                        row.get("target_text", ""),
+                        row.get("normalized_text", ""),
                         row.get("category", ""),
-                        row.get("pair_id", ""),
+                        row.get("norm_id", ""),
                         row.get("source_dataset", ""),
+                        row.get("validation_issues", ""),
                     ]
                 ).lower()
                 if query_norm not in haystack:
@@ -667,14 +682,19 @@ class ReviewStore:
             "tokens": tokens[:30],
         }
 
-    def save_row(self, pair_id: str, target_text: str, manual_status: str, review_note: str) -> dict[str, object]:
-        if pair_id not in self.by_pair_id:
-            raise ValueError(f"Unknown pair_id: {pair_id}")
-        if manual_status not in {"pending", "reviewed", "needs_fix"}:
+    def save_row(self, norm_id: str, normalized_text: str, manual_status: str, review_note: str) -> dict[str, object]:
+        if norm_id not in self.by_norm_id:
+            raise ValueError(f"Unknown norm_id: {norm_id}")
+        if manual_status not in {"pending", "generated", "needs_review", "manual_reviewed"}:
             raise ValueError(f"Invalid manual_status: {manual_status}")
-        target_text = target_text.strip()
-        row = self.rows[self.by_pair_id[pair_id]]
-        row["target_text"] = target_text
+        normalized_text = normalized_text.strip()
+        row = self.rows[self.by_norm_id[norm_id]]
+        validation_status, issues = validate_normalization(row.get("source_text", ""), normalized_text)
+        row["normalized_text"] = normalized_text
+        if not row.get("generated_normalized_text"):
+            row["generated_normalized_text"] = normalized_text
+        row["validation_status"] = "manual_pass" if manual_status == "manual_reviewed" else validation_status
+        row["validation_issues"] = "" if manual_status == "manual_reviewed" else ";".join(issues)
         row["manual_status"] = manual_status
         row["review_note"] = review_note.strip()
         row["updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -684,13 +704,13 @@ class ReviewStore:
     @staticmethod
     def validation_warnings(row: dict[str, str]) -> list[str]:
         warnings = []
-        target = row.get("target_text", "")
+        target = row.get("normalized_text", "")
         if not target:
-            warnings.append("Target is empty.")
+            warnings.append("Normalized text is empty.")
         if target == row.get("source_text", ""):
-            warnings.append("Target matches source.")
-        if row.get("manual_status") == "reviewed" and not VIETNAMESE_ACCENT_RE.search(target):
-            warnings.append("Reviewed target has no Vietnamese accents.")
+            warnings.append("Normalized text matches source.")
+        if row.get("manual_status") == "manual_reviewed" and not VIETNAMESE_ACCENT_RE.search(target):
+            warnings.append("Manual reviewed text has no Vietnamese accents.")
         return warnings
 
 
@@ -739,8 +759,8 @@ def make_handler(store: ReviewStore) -> type[BaseHTTPRequestHandler]:
                 length = int(self.headers.get("Content-Length", "0"))
                 payload = json.loads(self.rfile.read(length).decode("utf-8"))
                 result = store.save_row(
-                    pair_id=str(payload.get("pair_id", "")),
-                    target_text=str(payload.get("target_text", "")),
+                    norm_id=str(payload.get("norm_id", "")),
+                    normalized_text=str(payload.get("normalized_text", "")),
                     manual_status=str(payload.get("manual_status", "pending")),
                     review_note=str(payload.get("review_note", "")),
                 )
@@ -755,9 +775,8 @@ def make_handler(store: ReviewStore) -> type[BaseHTTPRequestHandler]:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Review Phase 2 Vietnamese normalization pairs.")
-    parser.add_argument("--input", type=Path, default=DEFAULT_INPUT, help="Generated pair CSV to review.")
-    parser.add_argument("--output", type=Path, default=DEFAULT_WORKING, help="Manual working CSV to update.")
+    parser = argparse.ArgumentParser(description="Review Phase 2 label 0 full-normalization rows.")
+    parser.add_argument("--working", type=Path, default=DEFAULT_WORKING, help="Working CSV to update.")
     parser.add_argument("--host", default="127.0.0.1", help="Host to bind.")
     parser.add_argument("--port", type=int, default=8765, help="Port to bind.")
     return parser.parse_args()
@@ -765,11 +784,10 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    store = ReviewStore(args.input, args.output)
+    store = ReviewStore(args.working)
     server = ThreadingHTTPServer((args.host, args.port), make_handler(store))
     print(f"Review app: http://{args.host}:{args.port}")
-    print(f"Input: {args.input}")
-    print(f"Working CSV: {args.output}")
+    print(f"Working CSV: {args.working}")
     print("Press Ctrl+C to stop.")
     server.serve_forever()
 

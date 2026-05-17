@@ -203,3 +203,63 @@ Generated:
 
 - `data/reports/level1_correction_report.md`
 - `data/reports/level1_correction_changed_rows.csv`
+
+## Phase 2 Full Normalization - Label 0 Completion
+
+Decision: finish label 1 before reorganizing the repository. Do not move folders/scripts yet, because label 1 will need a separate prompt, validator, and possibly review workflow. Reorganize only after both label 0 and label 1 are finalized.
+
+Label 0 full normalization is complete and finalized.
+
+Current label 0 outputs:
+
+- Working CSV: `data/normalization/phase2_full_normalization_working.csv`
+- Final CSV: `data/normalization/phase2_full_normalization_final.csv`
+- Final plain text lines: `data/normalization/phase2_full_normalization_lines.txt`
+- Report: `data/reports/phase2_full_normalization_report.md`
+- Pilot/review CSV: `data/reports/phase2_full_normalization_pilot_review.csv`
+- Build script: `data/build_phase2_full_normalization_dataset_label0.py`
+- Manual review app: `data/review_phase2_normalization_app.py`
+
+Final label 0 status:
+
+- Source label: 0 only.
+- Source rows: 5320.
+- Completed normalized rows: 5320.
+- Validation status: 5267 `pass`, 53 `manual_pass`.
+- Manual status: 5184 `generated`, 83 `llm_revised`, 53 `manual_reviewed`.
+- `needs_review`: 0.
+- `fail`: 0.
+- `warning`: 0.
+- Residual `LH` in `working` and `final`: 0.
+
+Important label 0 implementation notes:
+
+- The original combined full-normalization script was replaced by `data/build_phase2_full_normalization_dataset_label0.py`.
+- The label 0 script intentionally only builds/loads label 0 rows and rejects working files containing non-label-0 rows.
+- The prompt and validator were hardened for label 0 sender/brand tag preservation.
+- Protected sender tags such as `[VCB]`, `[MSB]`, `[HDBank]`, `[VNU-HCM]`, `[MTTQ Viet Nam]`, `[GHN]`, `[EVN]`, etc. should not be converted to `[Thông báo]` or `[Quảng cáo]` unless the source tag is truly `[TB]`, `(TB)`, `[T.B]`, `(T.B)`, `[QC]`, or `(QC)`.
+- The validator catches sender tag changes, missing sender tags, protected token loss, hallucinated `Số điện thoại: 00`, and other known label 0 issues.
+- Masked bank-account forms such as `TK ****3392` are accepted and should not be treated as remaining obfuscation.
+- `manual_reviewed` rows are preserved as `manual_pass` during `--validate` / `--finalize` so rule-based warnings do not override manual review.
+
+Manual review app notes:
+
+- `data/review_phase2_normalization_app.py` was repurposed for full-normalization label 0 review.
+- It edits `data/normalization/phase2_full_normalization_working.csv` directly.
+- It supports filters such as `needs_review`, `warning`, `generated`, and `manual_reviewed`.
+- `Save & Next` marks a row as `manual_reviewed`.
+- The review server on port `8765` was stopped at the end of the session.
+
+Cleanup / repo hygiene notes:
+
+- `data/__pycache__` was removed.
+- Because two `.pyc` files were tracked previously, git currently shows deleted tracked pycache files unless they are restored or removed from tracking.
+- Recommended next cleanup before commit: add `.gitignore` with `__pycache__/`, `*.py[cod]`, `.env`, `.env.*`, and `!.env.example`.
+- The Mistral API key was pasted directly into `data/build_phase2_full_normalization_dataset_label0.py` during local experimentation. Before committing or sharing, remove it from the script and use `MISTRAL_API_KEY` from environment variables or a local ignored `.env` file.
+- `data/normalization/phase2_accent_restore_manual.csv` and `data/normalization/rules.txt` had pre-existing/side changes; do not revert or delete them casually.
+
+Recommended next step:
+
+- Start a separate label 1 full-normalization pipeline, likely by creating `data/build_phase2_full_normalization_dataset_label1.py` from the label 0 script but with label-1-specific prompt and validator.
+- Label 1 should be treated as a distinct problem because smishing/obfuscated messages need different preservation rules for URLs/domains, random suffix tokens, leet digits inside Vietnamese words, threat/scam content, and hallucination risk.
+- After label 1 is finalized, reorganize the repo into cleaner `scripts/`, `data/outputs/phase2_label0`, `data/outputs/phase2_label1`, and per-phase report folders.

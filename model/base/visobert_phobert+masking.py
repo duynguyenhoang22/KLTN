@@ -1,14 +1,16 @@
+import re
 import pandas as pd
 import torch
 import os
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, confusion_matrix
 from datasets import Dataset
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
 from pyvi import ViTokenizer
+
+from layer1_masking import AggressiveMasker   # <-- import lớp masking
 
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
@@ -19,6 +21,15 @@ df = pd.read_csv("vismishds_phase1_final.csv")
 
 # Đảm bảo dữ liệu ở dạng chuỗi và xử lý các giá trị rỗng (nếu có)
 df['content'] = df['content'].astype(str).fillna("")
+
+# ---------------------------------------------------------
+# 1.5. MASKING (Layer 1)
+# ---------------------------------------------------------
+print("[INFO] Đang áp dụng AggressiveMasker lên toàn bộ content...")
+masker = AggressiveMasker()
+masked_texts, _ = masker._mask_batch(df['content'].tolist())
+df['content'] = masked_texts
+print(f"[INFO] Masking hoàn tất. Ví dụ:\n  Gốc   : {df['content'].iloc[0]}\n  Masked: {masked_texts[0]}")
 
 # ---------------------------------------------------------
 # Split: train = 100% synthetic, val = 100% real
@@ -66,28 +77,43 @@ def plot_confusion_matrix(labels, preds, model_name, save_path):
 
 
 # =========================================================
+# 4. NHÁNH 1: PHOBERT
+# =========================================================
 def run_phobert_baseline(train_data, val_data):
     print(f"\n{'='*50}\n[RUNNING] PHOBERT BASELINE\n{'='*50}")
-    
+
     model_name = "vinai/phobert-base"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2)
-    
-    # Hàm gán token đặc thù cho PhoBERT: NỐI TỪ BẰNG VITOKENIZER TRƯỚC
+
+    # PhoBERT yêu cầu word-segment bằng ViTokenizer trước khi tokenize.
+    # Tách special tokens ra trước để ViTokenizer không làm hỏng chúng,
+    # chỉ segment phần text thuần, rồi ghép lại.
+    _SPECIAL_TOK_PATTERN = r'(<URL>|<PHONE>|<EMAIL>|<BANK_ACC>|<MONEY>|<CODE>|<TIME>|<APP_LINK>)'
+    _SPECIAL_TOK_SET = {"<URL>", "<PHONE>", "<EMAIL>",
+                        "<BANK_ACC>", "<MONEY>", "<CODE>",
+                        "<TIME>", "<APP_LINK>"}
+
     def phobert_tokenize_fn(examples):
-        segmented_texts = [ViTokenizer.tokenize(text) for text in examples['content']]
+        segmented_texts = []
+        for text in examples['content']:
+            parts = re.split(_SPECIAL_TOK_PATTERN, text)
+            processed = [
+                part if part in _SPECIAL_TOK_SET else ViTokenizer.tokenize(part)
+                for part in parts
+            ]
+            segmented_texts.append("".join(processed))
         return tokenizer(segmented_texts, padding="max_length", truncation=True, max_length=128)
-    
-    # Chuyển đổi Dataset
+
     train_ds = Dataset.from_pandas(train_data)
     val_ds = Dataset.from_pandas(val_data)
-    
+
     train_ds = train_ds.map(phobert_tokenize_fn, batched=True)
     val_ds = val_ds.map(phobert_tokenize_fn, batched=True)
-    
+
     train_ds.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
     val_ds.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
-    
+
     training_args = TrainingArguments(
         output_dir='./results_phobert',
         num_train_epochs=3,
@@ -99,7 +125,7 @@ def run_phobert_baseline(train_data, val_data):
         load_best_model_at_end=True,
         logging_dir='./logs_phobert',
     )
-    
+
     trainer = Trainer(
         model=model,
         args=training_args,
@@ -107,10 +133,9 @@ def run_phobert_baseline(train_data, val_data):
         eval_dataset=val_ds,
         compute_metrics=compute_metrics,
     )
-    
+
     trainer.train()
 
-    # Vẽ confusion matrix
     preds_output = trainer.predict(val_ds)
     preds  = preds_output.predictions.argmax(-1)
     labels = preds_output.label_ids
@@ -118,30 +143,30 @@ def run_phobert_baseline(train_data, val_data):
 
     return trainer.evaluate()
 
+
 # =========================================================
-# 4. NHÁNH 2: VISOBERT
+# 5. NHÁNH 2: VISOBERT
 # =========================================================
 def run_visobert_baseline(train_data, val_data):
     print(f"\n{'='*50}\n[RUNNING] VISOBERT BASELINE\n{'='*50}")
-    
+
     model_name = "uitnlp/visobert"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2)
-    
-    # Hàm gán token cho ViSoBERT: Dùng luôn chuỗi text gốc
+
+    # ViSoBERT dùng thẳng text gốc (đã masked)
     def visobert_tokenize_fn(examples):
         return tokenizer(examples['content'], padding="max_length", truncation=True, max_length=128)
-        
-    # Chuyển đổi Dataset
+
     train_ds = Dataset.from_pandas(train_data)
     val_ds = Dataset.from_pandas(val_data)
-    
+
     train_ds = train_ds.map(visobert_tokenize_fn, batched=True)
     val_ds = val_ds.map(visobert_tokenize_fn, batched=True)
-    
+
     train_ds.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
     val_ds.set_format(type='torch', columns=['input_ids', 'attention_mask', 'label'])
-    
+
     training_args = TrainingArguments(
         output_dir='./results_visobert',
         num_train_epochs=3,
@@ -153,7 +178,7 @@ def run_visobert_baseline(train_data, val_data):
         load_best_model_at_end=True,
         logging_dir='./logs_visobert',
     )
-    
+
     trainer = Trainer(
         model=model,
         args=training_args,
@@ -161,10 +186,9 @@ def run_visobert_baseline(train_data, val_data):
         eval_dataset=val_ds,
         compute_metrics=compute_metrics,
     )
-    
+
     trainer.train()
 
-    # Vẽ confusion matrix
     preds_output = trainer.predict(val_ds)
     preds  = preds_output.predictions.argmax(-1)
     labels = preds_output.label_ids
@@ -172,23 +196,22 @@ def run_visobert_baseline(train_data, val_data):
 
     return trainer.evaluate()
 
+
 # ---------------------------------------------------------
-# 5. MAIN
+# 6. MAIN
 # ---------------------------------------------------------
 if __name__ == "__main__":
-    phobert_results = run_phobert_baseline(train_df, val_df)
+    phobert_results  = run_phobert_baseline(train_df, val_df)
     visobert_results = run_visobert_baseline(train_df, val_df)
-    
+
     print(f"\n{'='*50}\nTHỐNG KÊ KẾT QUẢ BASELINE\n{'='*50}")
-    
+
     print("\n[THỐNG KÊ PHOBERT]")
     for key, value in phobert_results.items():
         if key.startswith("eval_"):
-            metric_name = key.replace("eval_", "").capitalize()
-            print(f"- {metric_name:<15}: {value:.4f}")
-            
+            print(f"- {key.replace('eval_', '').capitalize():<15}: {value:.4f}")
+
     print("\n[THỐNG KÊ VISOBERT]")
     for key, value in visobert_results.items():
         if key.startswith("eval_"):
-            metric_name = key.replace("eval_", "").capitalize()
-            print(f"- {metric_name:<15}: {value:.4f}")
+            print(f"- {key.replace('eval_', '').capitalize():<15}: {value:.4f}")

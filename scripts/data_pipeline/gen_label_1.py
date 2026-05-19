@@ -1,4 +1,4 @@
-"""
+﻿"""
 Sinh dữ liệu SMS lừa đảo tổng hợp (Label = 1) dùng Gemini API.
 
 Chạy độc lập:

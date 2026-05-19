@@ -8,3 +8,4 @@ __pycache__/
 *.log
 
 bartpho-normalization/
+data/interim/bartpho_normalization/

@@ -1,8 +1,8 @@
 import csv
 import re
 
-content_only_path = r'c:\KLTN\KLTN\data\normalization\phase2_full_normalization_content_only.csv'
-ds345_path = r'c:\KLTN\KLTN\data\final\ds345.csv'
+content_only_path = r'data\normalization\phase2_full_normalization_content_only.csv'
+ds345_path = r'data\interim\phase2_append\ds345.csv'
 
 # Get last norm_id number
 with open(content_only_path, encoding='utf-8', newline='') as f:

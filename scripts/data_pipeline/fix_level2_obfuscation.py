@@ -1,4 +1,4 @@
-"""
+﻿"""
 Repair LEVEL 2 obfuscation style in the synthetic smishing dataset.
 
 This is a post-augmentation correction pass. It does not regenerate messages and
@@ -12,7 +12,7 @@ Rationale:
               as the default pattern.
 
 Run:
-    python data/fix_level2_obfuscation.py
+    python scripts/data_pipeline/fix_level2_obfuscation.py
 
 Inputs:
     data/synthetic/synthetic_label_1.csv
@@ -31,7 +31,7 @@ from pathlib import Path
 import pandas as pd
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 DATA_PATH = ROOT / "data" / "synthetic" / "synthetic_label_1.csv"
 REPORT_PATH = ROOT / "data" / "reports" / "level2_correction_report.md"
 CHANGED_ROWS_PATH = ROOT / "data" / "reports" / "level2_correction_changed_rows.csv"

@@ -1,4 +1,4 @@
-"""
+﻿"""
 Repair LEVEL 1 obfuscation style in the synthetic smishing dataset.
 
 This is a conservative post-augmentation correction pass. It does not regenerate
@@ -7,7 +7,7 @@ LEVEL 1 content so LEVEL 1 better means sparse intentional homoglyph use,
 usually on one or two sensitive terms.
 
 Run:
-    python data/fix_level1_obfuscation.py
+    python scripts/data_pipeline/fix_level1_obfuscation.py
 
 Inputs:
     data/synthetic/synthetic_label_1.csv
@@ -27,7 +27,7 @@ from pathlib import Path
 import pandas as pd
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 DATA_PATH = ROOT / "data" / "synthetic" / "synthetic_label_1.csv"
 REPORT_PATH = ROOT / "data" / "reports" / "level1_correction_report.md"
 CHANGED_ROWS_PATH = ROOT / "data" / "reports" / "level1_correction_changed_rows.csv"

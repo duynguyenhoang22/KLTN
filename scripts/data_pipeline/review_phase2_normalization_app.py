@@ -1,4 +1,4 @@
-"""
+﻿"""
 Local review app for manually correcting Phase 2 label 0 normalization rows.
 
 The app edits the label 0 full-normalization working CSV directly. It defaults
@@ -6,7 +6,7 @@ to rows marked needs_review, then saves manual corrections back to
 normalized_text, manual_status, review_note, validation_status, and updated_at.
 
 Run from repository root:
-    python data/review_phase2_normalization_app.py
+    python scripts/data_pipeline/review_phase2_normalization_app.py
 
 Open:
     http://127.0.0.1:8765
@@ -26,7 +26,7 @@ from urllib.parse import parse_qs, urlparse
 from build_phase2_full_normalization_dataset_label0 import validate_normalization
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT / "data"
 NORMALIZATION_DIR = DATA_DIR / "normalization"
 DEFAULT_WORKING = NORMALIZATION_DIR / "phase2_full_normalization_working.csv"

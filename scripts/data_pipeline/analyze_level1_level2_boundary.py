@@ -1,11 +1,11 @@
-"""
+﻿"""
 Compare synthetic LEVEL 1 and repaired LEVEL 2 obfuscation boundaries.
 
 This script evaluates whether LEVEL 2 is now sufficiently distinct from LEVEL 1
 and whether LEVEL 1 itself contains rows that are too heavily obfuscated.
 
 Run:
-    python data/analyze_level1_level2_boundary.py
+    python scripts/data_pipeline/analyze_level1_level2_boundary.py
 
 Outputs:
     data/reports/level1_level2_boundary_report.md
@@ -21,7 +21,7 @@ from pathlib import Path
 import pandas as pd
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 DATA_PATH = ROOT / "data" / "synthetic" / "synthetic_label_1.csv"
 REPORT_PATH = ROOT / "data" / "reports" / "level1_level2_boundary_report.md"
 BORDERLINE_PATH = ROOT / "data" / "reports" / "level1_level2_borderline_rows.csv"

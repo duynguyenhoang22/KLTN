@@ -131,7 +131,7 @@ for row in reader:
 print(f"Parsed {len(update_map)} entries to update")
 
 # Read the original CSV
-csv_path = r'c:\KLTN\KLTN\data\final\ds345.csv'
+csv_path = r'data\interim\phase2_append\ds345.csv'
 with open(csv_path, encoding='utf-8', newline='') as f:
     reader = csv.DictReader(f)
     fieldnames = reader.fieldnames

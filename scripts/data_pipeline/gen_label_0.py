@@ -1,4 +1,4 @@
-"""
+﻿"""
 Sinh dữ liệu SMS hợp lệ tổng hợp (Label = 0) dùng Gemini API.
 
 Kiến trúc kế thừa từ gen_label_1.py:

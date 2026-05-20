@@ -48,13 +48,10 @@ KEYWORDS: dict[str, list[str]] = {
         " ib ",
         " ib.",
         " ib,",
-        " dm ",
         "nhan tin rieng",
         "nhắn tin riêng",
     ],
     "cta": [
-        "bam",
-        "bấm",
         "click",
         "truy cap",
         "truy cập",
@@ -62,9 +59,6 @@ KEYWORDS: dict[str, list[str]] = {
         "đăng nhập",
         "lien he",
         "liên hệ",
-        "nhan tin",
-        "nhắn tin",
-        "tham gia",
         "đăng ký",
         "dang ky",
         "nhan ngay",
@@ -88,8 +82,6 @@ KEYWORDS: dict[str, list[str]] = {
         "bán thời gian",
         "lam tai nha",
         "làm tại nhà",
-        "cong viec",
-        "công việc",
     ],
     "money": [
         "kiem tien",
@@ -197,6 +189,37 @@ KEYWORDS: dict[str, list[str]] = {
         "hẹn hò 18",
         "massage kich duc",
         "massage kích dục",
+    ],
+    "sensitive_review": [
+        "đéo",
+        "deo",
+        "cc",
+        "cmn",
+        "vcl",
+        "vãi",
+        "vch",
+        "phò",
+        "fò",
+        "chym",
+        "chim",
+        "tội phạm",
+        "toi pham",
+        "lên phường",
+        "len phuong",
+    ],
+    "soft_cta": [
+        "bam",
+        "bấm",
+        "nhan tin",
+        "nhắn tin",
+        "nt ",
+        "tham gia",
+    ],
+    "soft_job": [
+        "cv",
+        "c việc",
+        "cong viec",
+        "công việc",
     ],
 }
 
@@ -373,7 +396,15 @@ def reject_reason(flags: set[str]) -> str | None:
     if "mostly_symbolic" in flags:
         return "mostly_symbolic"
     if "has_gambling_keyword" in flags:
-        return "has_gambling_keyword"
+        strong_gambling_context = {
+            "has_url",
+            "has_cta_keyword",
+            "has_contact_platform_keyword",
+            "has_money_keyword",
+            "has_money_amount",
+        }
+        if flags.intersection(strong_gambling_context):
+            return "has_gambling_keyword"
     if "has_sensitive_strong_keyword" in flags:
         return "has_sensitive_strong_keyword"
     if "has_url" in flags and "has_cta_keyword" in flags:
@@ -404,8 +435,40 @@ def hard_case_type(flags: set[str]) -> str:
         "has_money_keyword": "money_like",
         "has_money_amount": "money_like",
         "has_cta_keyword": "cta_like",
+        "has_soft_cta_keyword": "cta_like",
+        "has_soft_job_keyword": "job_like",
+        "has_gambling_keyword": "gambling_like",
+        "has_sensitive_review_keyword": "sensitive_review",
     }
-    types = [case_type for flag, case_type in mapping.items() if flag in flags]
+    types = []
+    for flag, case_type in mapping.items():
+        if flag not in flags:
+            continue
+        if flag == "has_soft_cta_keyword" and not flags.intersection(
+            {
+                "has_url",
+                "has_phone_number",
+                "has_email",
+                "has_contact_platform_keyword",
+                "has_money_keyword",
+                "has_money_amount",
+                "has_finance_keyword",
+                "has_job_keyword",
+                "has_authority_keyword",
+                "has_warning_keyword",
+            }
+        ):
+            continue
+        if flag == "has_soft_job_keyword" and not flags.intersection(
+            {
+                "has_money_keyword",
+                "has_money_amount",
+                "has_contact_platform_keyword",
+                "has_cta_keyword",
+            }
+        ):
+            continue
+        types.append(case_type)
     return ";".join(dict.fromkeys(types))
 
 
@@ -500,6 +563,48 @@ def write_csv(path: Path, rows: list[dict[str, str]], fields: list[str]) -> None
         writer.writerows(rows)
 
 
+def _pick_stratified(
+    rows: list[dict[str, str]],
+    quota: int,
+    stratify_field: str,
+    fallback_field: str = "flags",
+) -> list[dict[str, str]]:
+    if quota <= 0:
+        return []
+
+    buckets: dict[str, list[dict[str, str]]] = defaultdict(list)
+    for row in rows:
+        values = [value for value in row.get(stratify_field, "").split(";") if value]
+        if not values and fallback_field:
+            values = [value for value in row.get(fallback_field, "").split(";") if value]
+        if not values:
+            values = ["_none"]
+        buckets[values[0]].append(row)
+
+    selected: list[dict[str, str]] = []
+    seen: set[int] = set()
+    bucket_names = sorted(buckets, key=lambda name: (-len(buckets[name]), name))
+
+    while len(selected) < quota and bucket_names:
+        progressed = False
+        for name in bucket_names:
+            bucket = buckets[name]
+            while bucket and id(bucket[0]) in seen:
+                bucket.pop(0)
+            if not bucket:
+                continue
+            row = bucket.pop(0)
+            selected.append(row)
+            seen.add(id(row))
+            progressed = True
+            if len(selected) >= quota:
+                break
+        if not progressed:
+            break
+
+    return selected
+
+
 def take_preview(rows_by_type: dict[str, list[dict[str, str]]], preview_size: int) -> list[dict[str, str]]:
     quotas = {
         "clean_p2p": round(preview_size * 0.4),
@@ -507,8 +612,27 @@ def take_preview(rows_by_type: dict[str, list[dict[str, str]]], preview_size: in
         "rejected": preview_size - round(preview_size * 0.4) * 2,
     }
     selected: list[dict[str, str]] = []
-    for candidate_type in ["clean_p2p", "hard_negative", "rejected"]:
-        selected.extend(rows_by_type[candidate_type][: quotas[candidate_type]])
+    selected.extend(
+        _pick_stratified(
+            rows_by_type["clean_p2p"],
+            quotas["clean_p2p"],
+            stratify_field="text_variant_type",
+        )
+    )
+    selected.extend(
+        _pick_stratified(
+            rows_by_type["hard_negative"],
+            quotas["hard_negative"],
+            stratify_field="hard_case_type",
+        )
+    )
+    selected.extend(
+        _pick_stratified(
+            rows_by_type["rejected"],
+            quotas["rejected"],
+            stratify_field="reject_reason",
+        )
+    )
 
     if len(selected) < preview_size:
         seen = {id(row) for row in selected}

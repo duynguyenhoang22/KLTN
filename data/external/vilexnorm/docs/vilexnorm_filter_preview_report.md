@@ -12,29 +12,30 @@ Total routed rows: 10,467
 
 | Candidate type | Rows |
 |:--|--:|
-| clean_p2p | 9,856 |
-| hard_negative | 581 |
-| rejected | 30 |
+| clean_p2p | 9,622 |
+| hard_negative | 816 |
+| rejected | 29 |
 
 ## Top reject reasons
 
 | Value | Rows |
 |:--|--:|
 | too_long | 28 |
-| has_gambling_keyword | 1 |
 | has_contact_platform_keyword+has_money_keyword | 1 |
 
 ## Hard-case types
 
 | Value | Rows |
 |:--|--:|
+| sensitive_review | 332 |
 | money_like | 269 |
 | finance_like | 139 |
-| job_like | 70 |
-| cta_like | 70 |
+| job_like | 42 |
 | authority_like | 34 |
 | warning_like | 28 |
-| contact_like | 6 |
+| cta_like | 19 |
+| contact_like | 4 |
+| gambling_like | 1 |
 | phone_like | 1 |
 
 ## Text variant types
@@ -55,18 +56,21 @@ Total routed rows: 10,467
 | has_abbreviation | 3,456 |
 | has_teencode | 2,730 |
 | has_slang | 342 |
+| has_sensitive_review_keyword | 336 |
 | has_informal_spelling | 335 |
 | has_dialectal_variant | 259 |
 | has_money_amount | 200 |
 | has_money_keyword | 158 |
 | has_finance_keyword | 143 |
-| has_job_keyword | 74 |
+| has_soft_cta_keyword | 74 |
 | long_for_clean | 73 |
-| has_cta_keyword | 70 |
+| has_soft_job_keyword | 56 |
+| has_job_keyword | 40 |
 | has_authority_keyword | 36 |
 | has_warning_keyword | 28 |
 | too_long | 28 |
-| has_contact_platform_keyword | 7 |
+| has_cta_keyword | 9 |
+| has_contact_platform_keyword | 5 |
 | has_gambling_keyword | 1 |
 | has_phone_number | 1 |
 
@@ -80,11 +84,11 @@ Total routed rows: 10,467
 - `no_risk_flags` | Có biến gì hong dẫy :))
 
 ### hard_negative
-- `money_like` | Thế nào đc 9.5 thật đó đỉnh vãi ò, đã v mk điểm cao nhất lớp chứ đc cô thưởng 300k
+- `sensitive_review` | Hjc ai cần gia sư mà diệt fò giỏi hơn dạy học thì gọi mình nhé
+- `money_like;sensitive_review` | Thế nào đc 9.5 thật đó đỉnh vãi ò, đã v mk điểm cao nhất lớp chứ đc cô thưởng 300k
 - `authority_like` | bạn mình bị ồi, nhờ CA thì phải chung nhìu tiền.
-- `finance_like` | Ko cho vay thì ngại cho vay oy tới lúc đòi thì sợ giận mà ko đòi ngta cg ko có suy nghĩ muốn trả mà kb lm tn
-- `job_like` | Dẫu biết là cv của a nhìu
-- `finance_like` | May ghê t hướng nội nhưng k có tiền cho ng ta vay
+- `sensitive_review` | Cho lên phường cmn đi.
+- `sensitive_review` | tâm lí tội phạm đây r :)))
 
 ### rejected
 - `too_long` | Đợt rồi mình đi xem concert Mỹ Tâm một mình ngoài lí do mình là fan ra thì còn là vì ko quen thân người bạn nào cũng thích MT nên ko biết rũ ai, hồi concert Hearbeat 2014 của chỉ đ

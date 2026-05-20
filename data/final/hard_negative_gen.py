@@ -58,7 +58,7 @@ generated_data = []
 # Có thể thiết lập seed để tái lập kết quả cố định
 random.seed(42)
 
-for i in range(500):
+for i in range(200):
     template, category, has_url, has_phone = random.choice(templates)
     
     # Random các thông tin
@@ -83,14 +83,13 @@ for i in range(500):
         'obfuscation_level': 'LEVEL 0 – Không obfuscation (formal)',
         'data_origin': 'synthetic',
         'source_dataset': 'synthetic_hard_label_1',
-        'source_file': 'generated_by_python',
         'source_row_id': i
     }
     generated_data.append(row)
 
 # Chuyển đổi thành DataFrame và xuất file
-df_hard_500 = pd.DataFrame(generated_data)
-output_file = 'hard_negative_label_1_500.csv'
-df_hard_500.to_csv(output_file, index=False, encoding='utf-8')
+df_hard = pd.DataFrame(generated_data)
+output_file = 'hard_negative_label_1.csv'
+df_hard.to_csv(output_file, index=False, encoding='utf-8')
 
-print(f"Hoàn tất tạo file: {output_file} với {len(df_hard_500)} dòng.")
+print(f"Hoàn tất tạo file: {output_file} với {len(df_hard)} dòng.")

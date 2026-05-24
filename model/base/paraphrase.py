@@ -9,8 +9,7 @@ from pathlib import Path
 from datetime import datetime
 
 # ==================== CONFIG ====================
-#MISTRAL_API_KEY = "Stne7NJP4Tmhb31316V5Te5xdhZ6226S"  
-MISTRAL_API_KEY = "kzizQuKZvCWDX6niV8M4MtEgJ9t0qTzb"
+MISTRAL_API_KEY = ""
 MISTRAL_API_URL = "https://api.mistral.ai/v1/chat/completions"
 MISTRAL_MODEL = "mistral-small-latest"      # hoặc "mistral-medium-latest" / "mistral-large-latest"
 

@@ -7,9 +7,13 @@ import os
 import logging
 from pathlib import Path
 from datetime import datetime
+from dotenv import load_dotenv
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+load_dotenv(PROJECT_ROOT / ".env")
 
 # ==================== CONFIG ====================
-MISTRAL_API_KEY = ""
+MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY") or ""
 MISTRAL_API_URL = "https://api.mistral.ai/v1/chat/completions"
 MISTRAL_MODEL = "mistral-small-latest"      # hoặc "mistral-medium-latest" / "mistral-large-latest"
 
@@ -197,6 +201,12 @@ def run_pipeline(
     sample_limit: int = None,   # None = xử lý toàn bộ; hoặc số lượng để test
     resume: bool = True,        # True = tiếp tục từ checkpoint
 ):
+    if not MISTRAL_API_KEY:
+        raise ValueError(
+            "MISTRAL_API_KEY chưa được thiết lập. "
+            "Thêm key vào file .env ở thư mục gốc project hoặc biến môi trường."
+        )
+
     logger.info("=" * 60)
     logger.info("BẮT ĐẦU PIPELINE PARAPHRASE MISTRAL AI")
     logger.info(f"Model: {MISTRAL_MODEL}")

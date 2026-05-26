@@ -19,7 +19,7 @@ MISTRAL_MODEL = "mistral-small-latest"      # hoặc "mistral-medium-latest" / "
 
 INPUT_FILE = "model\\base\\merged_dataset_label1_synthetic.csv"
 OUTPUT_FILE = f"paraphrased_dataset_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
-CHECKPOINT_FILE = "checkpoint.json"         
+CHECKPOINT_FILE = "checkpoint.json"     
 
 # Số lần paraphrase mỗi sample (tạo N bản biến thể)
 NUM_PARAPHRASES_PER_SAMPLE = 1

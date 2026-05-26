@@ -1,0 +1,15 @@
+setup,metric,mean,std,is_primary,seed_42,seed_123,seed_2025
+B1_class_weight_default,macro_f1,0.951,0.003,True,0.9483,0.9552,0.9495
+B1_class_weight_default,f1_label1,0.9116,0.0053,True,0.9067,0.9189,0.9091
+B1_class_weight_default,recall_label1,0.9279,0.0127,True,0.9189,0.9189,0.9459
+B1_class_weight_default,precision_label1,0.8962,0.018,True,0.8947,0.9189,0.875
+B1_class_weight_default,auprc,0.9854,0.0028,True,0.9819,0.9853,0.9889
+B1_class_weight_default,accuracy,0.9827,0.0012,False,0.9819,0.9845,0.9819
+B1_class_weight_default,auroc,0.9982,0.0004,False,0.9977,0.9982,0.9986
+B2_class_weight_threshold,macro_f1,0.9423,0.0091,True,0.9351,0.9552,0.9365
+B2_class_weight_threshold,f1_label1,0.896,0.0162,True,0.8831,0.9189,0.8861
+B2_class_weight_threshold,recall_label1,0.9279,0.0127,True,0.9189,0.9189,0.9459
+B2_class_weight_threshold,precision_label1,0.8674,0.037,True,0.85,0.9189,0.8333
+B2_class_weight_threshold,auprc,0.9854,0.0028,True,0.9819,0.9853,0.9889
+B2_class_weight_threshold,accuracy,0.9793,0.0037,False,0.9767,0.9845,0.9767
+B2_class_weight_threshold,auroc,0.9982,0.0004,False,0.9977,0.9982,0.9986

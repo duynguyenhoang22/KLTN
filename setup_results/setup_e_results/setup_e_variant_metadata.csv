@@ -1,0 +1,5 @@
+variant,requested_synthetic_label1,actual_synthetic_label1,train_total,train_label0,train_label1,train_file
+E1_500,500,500,2296,1624,672,/content/drive/MyDrive/KLTN/setup_e_results/setup_e_train_E1_500.csv
+E2_1000,1000,1000,2796,1624,1172,/content/drive/MyDrive/KLTN/setup_e_results/setup_e_train_E2_1000.csv
+E3_2000,2000,2000,3796,1624,2172,/content/drive/MyDrive/KLTN/setup_e_results/setup_e_train_E3_2000.csv
+E4_all,all,4996,6792,1624,5168,/content/drive/MyDrive/KLTN/setup_e_results/setup_e_train_E4_all.csv

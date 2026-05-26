@@ -1,0 +1,13 @@
+setup,variant,seed,best_epoch,macro_f1,f1_label1,recall_label1,precision_label1,auprc,accuracy,auroc
+E_real_plus_synthetic_label1,E1_500,42,/content/tmp_checkpoints_setup_e/E1_500/seed_42/checkpoint-720,0.9612,0.9296,0.8919,0.9706,0.9659,0.987,0.9928
+E_real_plus_synthetic_label1,E1_500,123,/content/tmp_checkpoints_setup_e/E1_500/seed_123/checkpoint-720,0.9562,0.9211,0.9459,0.8974,0.9706,0.9845,0.9881
+E_real_plus_synthetic_label1,E1_500,2025,/content/tmp_checkpoints_setup_e/E1_500/seed_2025/checkpoint-720,0.9379,0.8889,0.973,0.8182,0.9485,0.9767,0.9897
+E_real_plus_synthetic_label1,E2_1000,42,/content/tmp_checkpoints_setup_e/E2_1000/seed_42/checkpoint-1225,0.9612,0.9296,0.8919,0.9706,0.921,0.987,0.9869
+E_real_plus_synthetic_label1,E2_1000,123,/content/tmp_checkpoints_setup_e/E2_1000/seed_123/checkpoint-875,0.9622,0.9315,0.9189,0.9444,0.9665,0.987,0.9922
+E_real_plus_synthetic_label1,E2_1000,2025,/content/tmp_checkpoints_setup_e/E2_1000/seed_2025/checkpoint-875,0.9379,0.8889,0.973,0.8182,0.9506,0.9767,0.9918
+E_real_plus_synthetic_label1,E3_2000,42,/content/tmp_checkpoints_setup_e/E3_2000/seed_42/checkpoint-714,0.9483,0.9067,0.9189,0.8947,0.9501,0.9819,0.9923
+E_real_plus_synthetic_label1,E3_2000,123,/content/tmp_checkpoints_setup_e/E3_2000/seed_123/checkpoint-952,0.9402,0.8919,0.8919,0.8919,0.9636,0.9793,0.9931
+E_real_plus_synthetic_label1,E3_2000,2025,/content/tmp_checkpoints_setup_e/E3_2000/seed_2025/checkpoint-1904,0.9416,0.8947,0.9189,0.8718,0.9623,0.9793,0.9934
+E_real_plus_synthetic_label1,E4_all,42,/content/tmp_checkpoints_setup_e/E4_all/seed_42/checkpoint-2125,0.9416,0.8947,0.9189,0.8718,0.9639,0.9793,0.9936
+E_real_plus_synthetic_label1,E4_all,123,/content/tmp_checkpoints_setup_e/E4_all/seed_123/checkpoint-1700,0.9694,0.9444,0.9189,0.9714,0.9581,0.9896,0.9905
+E_real_plus_synthetic_label1,E4_all,2025,/content/tmp_checkpoints_setup_e/E4_all/seed_2025/checkpoint-1275,0.9529,0.9143,0.8649,0.9697,0.9579,0.9845,0.9916

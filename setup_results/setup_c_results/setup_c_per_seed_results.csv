@@ -1,0 +1,4 @@
+setup,seed,best_epoch,macro_f1,f1_label1,recall_label1,precision_label1,auprc,accuracy,auroc
+C_tstr_matched,42,/content/tmp_checkpoints_setup_c/seed_42/checkpoint-113,0.5555,0.2308,0.3243,0.1791,0.2534,0.7927,0.6816
+C_tstr_matched,123,/content/tmp_checkpoints_setup_c/seed_123/checkpoint-678,0.6419,0.3478,0.3243,0.375,0.3886,0.8834,0.736
+C_tstr_matched,2025,/content/tmp_checkpoints_setup_c/seed_2025/checkpoint-452,0.5951,0.3256,0.5676,0.2283,0.4064,0.7746,0.7803

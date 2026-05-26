@@ -1,0 +1,8 @@
+setup,metric,mean,std,is_primary,seed_42,seed_123,seed_2025
+D1_tstr_balanced,macro_f1,0.7041,0.0487,True,0.7638,0.6445,0.704
+D1_tstr_balanced,f1_label1,0.4938,0.0716,True,0.5783,0.4032,0.5
+D1_tstr_balanced,recall_label1,0.7117,0.0709,True,0.6486,0.6757,0.8108
+D1_tstr_balanced,precision_label1,0.3902,0.0978,True,0.5217,0.2874,0.3614
+D1_tstr_balanced,auprc,0.6415,0.0234,True,0.6213,0.6288,0.6743
+D1_tstr_balanced,accuracy,0.8541,0.0418,False,0.9093,0.8083,0.8446
+D1_tstr_balanced,auroc,0.8754,0.0166,False,0.8855,0.852,0.8888

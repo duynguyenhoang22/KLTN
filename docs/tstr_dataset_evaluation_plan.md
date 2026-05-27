@@ -271,28 +271,36 @@ Nên thử nhiều mức bổ sung:
 
 Lý do cần thử nhiều mức: dùng toàn bộ synthetic data không phải lúc nào cũng tốt. Nếu synthetic có pattern lặp lại, thêm quá nhiều có thể làm mô hình overfit vào văn phong giả hoặc shortcut token.
 
-### 4.6 Setup F - Real + Synthetic balanced
+### 4.6 Setup F - Real + external/synthetic Label 0 augmentation
 
 ```text
-Train: Real Train + Synthetic Label 0 + Synthetic Label 1
+Train: Real Train + các nguồn augmentation theo từng biến thể
 Validation: Real Validation
 Test: Real Test
 ```
 
-Mục đích: kiểm tra giá trị của synthetic data khi bổ sung cả hai lớp.
+Mục đích: kiểm tra giá trị của từng nguồn bổ sung `Label 0`, đặc biệt tách riêng
+`external_real` và `external_curated` lấy từ ViLexNorm, khi kết hợp với synthetic
+`Label 1` cố định.
 
 Quyết định: setup này nên chạy sau Setup E, không thay thế Setup E.
 
-Lý do: nếu chỉ thêm synthetic `Label 1`, mô hình có thể lệch về positive class. Thêm synthetic `Label 0` có thể giúp giữ lại ranh giới giữa tin nhắn hợp lệ và tin nhắn lừa đảo, nhất là các nhóm dễ nhầm như ngân hàng thật/giả, dịch vụ công thật/giả, quảng cáo hợp lệ/cờ bạc.
+Lý do: nếu chỉ thêm synthetic `Label 1`, mô hình có thể lệch về positive class.
+Thêm miền `Label 0` từ ViLexNorm có thể giúp giữ ranh giới giữa tin nhắn hợp lệ
+và tin nhắn lừa đảo ổn định hơn so với chỉ dùng synthetic `Label 0`. Riêng
+`external_curated` cần tách riêng vì đây là nhóm bình luận đã vượt câu hỏi
+"có thể coi như tin nhắn P2P hay không" và có nhiều cue dễ nhầm với `Label 1`
+như lương, số tiền, nợ.
 
-Nên thử các tỷ lệ:
+Các biến thể cần chạy:
 
-| Biến thể | Synthetic Label 0 | Synthetic Label 1 | Ghi chú |
-|---|---:|---:|---|
-| F1 | 500 | 500 | Cân bằng nhỏ |
-| F2 | 1000 | 1000 | Cân bằng vừa |
-| F3 | 3000 | 3000 | Cân bằng lớn |
-| F4 | 3000 | 5000 | Gần toàn bộ synthetic |
+| Biến thể | Train augmentation | Ghi chú |
+|---|---|---|
+| F1 | Synthetic Label 0 + Synthetic Label 1 | Synthetic Label 0 đối chứng |
+| F2a | external_real Label 0 + Synthetic Label 1 | Kiểm tra external real Label 0 |
+| F2b | external_curated Label 0 + Synthetic Label 1 | Kiểm tra hard-negative/P2P-like external curated |
+| F2c | external_real + external_curated Label 0 + Synthetic Label 1 | Kiểm tra toàn bộ external Label 0 |
+| F3 | external_real + external_curated Label 0 + Synthetic Label 0 + Synthetic Label 1 | Kiểm tra kết hợp external và synthetic Label 0 |
 
 ---
 
@@ -382,7 +390,7 @@ Sau khi có kết quả, cần tính các khoảng cách:
 Gap A = TRTR Real-only - TSTR matched
 Gap B = TRTR Real-only - TSTR balanced
 Gap C = Real + Synthetic Label 1 - TRTR Real-only
-Gap D = Real + Synthetic balanced - TRTR imbalance handling
+Gap D = Label 0 source augmentation - TRTR imbalance handling
 ```
 
 Nên tính gap theo:
@@ -455,7 +463,7 @@ Lý do: chỉ số tổng hợp như F1 không cho biết synthetic data đang g
 | C | TSTR matched distribution | Synthetic có tỷ lệ/kích thước gần Real Train | Real Validation | Real Test | Kiểm tra tín hiệu miền của synthetic |
 | D | TSTR balanced synthetic | Synthetic cân bằng hoặc gần cân bằng | Real Validation | Real Test | Kiểm tra synthetic cho lớp thiểu số |
 | E | Real + Synthetic Label 1 | Real Train + Synthetic Label 1 | Real Validation | Real Test | Kiểm tra augmentation lớp thiểu số |
-| F | Real + Synthetic balanced | Real Train + Synthetic Label 0 + Label 1 | Real Validation | Real Test | Tìm tỷ lệ synthetic tối ưu |
+| F | Label 0 source augmentation | Real Train + external/synthetic Label 0 + Synthetic Label 1 | Real Validation | Real Test | Kiểm tra nguồn bổ sung Label 0 |
 
 ---
 
@@ -468,7 +476,7 @@ Lý do: chỉ số tổng hợp như F1 không cho biết synthetic data đang g
 | C - TSTR matched |  |  |  |  |  |  |  |
 | D - TSTR balanced |  |  |  |  |  |  |  |
 | E - Real + Synthetic Label 1 |  |  |  |  |  |  |  |
-| F - Real + Synthetic balanced |  |  |  |  |  |  |  |
+| F - Label 0 source augmentation |  |  |  |  |  |  |  |
 
 Mỗi ô kết quả chính nên báo cáo theo dạng:
 
@@ -531,7 +539,7 @@ Cần kết luận thận trọng nếu:
 6. Chạy Setup C để kiểm tra synthetic matched distribution.
 7. Chạy Setup D để kiểm tra synthetic balanced.
 8. Chạy Setup E với nhiều mức synthetic `Label 1`.
-9. Chạy Setup F với nhiều tỷ lệ balanced synthetic.
+9. Chạy Setup F với các nguồn bổ sung Label 0: synthetic, external ViLexNorm, và kết hợp cả hai.
 10. Lặp lại các setup chính với nhiều seed.
 11. Tổng hợp bảng kết quả `mean ± std`.
 12. Phân tích confusion matrix và lỗi trên `Real Test`.

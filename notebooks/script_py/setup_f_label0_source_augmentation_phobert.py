@@ -1,22 +1,23 @@
 # %% [markdown]
-# # Setup F — Real + Synthetic balanced augmentation (PhoBERT)
+# # Setup F — Label 0 source augmentation (PhoBERT)
 #
-# **Phương pháp:** Train on Real + Synthetic balanced, Test on Real  
+# **Phương pháp:** Train on Real + augmentation từ synthetic/external, Test on Real  
 # **Model:** `vinai/phobert-base` + `ViTokenizer`  
 # **Seeds:** `[42, 123, 2025]`  
 # **Real split:** dùng Real Test Set đã khóa từ Setup A; Real Validation lấy từ phần real còn lại  
-# **Synthetic augmentation:** thêm synthetic Label 0 và Label 1 theo nhiều mức F1/F2/F3/F4  
+# **Augmentation:** so sánh synthetic Label 0 với external Label 0 từ ViLexNorm  
 # **Báo cáo:** mean ± std trên Real Test Set
 #
 # ---
-# **Mục tiêu Setup F:** kiểm tra synthetic data có giá trị augmentation khi bổ sung
-# đồng thời cả hai lớp, trong khi Real Train vẫn giữ vai trò neo miền thật.
+# **Mục tiêu Setup F:** kiểm tra từng nguồn bổ sung Label 0 có giúp giữ ranh giới
+# phân loại ổn định hơn so với chỉ bổ sung synthetic Label 1 hay không.
 #
 # **Biến thể:**
-# - **F1:** Real Train + 500 synthetic Label 0 + 500 synthetic Label 1
-# - **F2:** Real Train + 1000 synthetic Label 0 + 1000 synthetic Label 1
-# - **F3:** Real Train + 3000 synthetic Label 0 + 3000 synthetic Label 1
-# - **F4:** Real Train + 3000 synthetic Label 0 + 5000 synthetic Label 1
+# - **F1:** Real Train + Synthetic Label 1 + Synthetic Label 0
+# - **F2a:** Real Train + Synthetic Label 1 + external_real Label 0
+# - **F2b:** Real Train + Synthetic Label 1 + external_curated Label 0
+# - **F2c:** Real Train + Synthetic Label 1 + external_real + external_curated Label 0
+# - **F3:** Real Train + Synthetic Label 1 + external_real + external_curated Label 0 + Synthetic Label 0
 #
 # **Chỉ số chính:**
 # - Macro-F1
@@ -63,20 +64,53 @@ CFG = dict(
     val_ratio               = 0.15,
     train_ratio             = 0.70,
 
-    # Synthetic balanced augmentation
+    # Setup F augmentation variants
     synthetic_sample_seed   = 0,
-    variants_to_run         = ["F1_500_500", "F2_1000_1000", "F3_3000_3000", "F4_3000_5000"],
-    variant_sizes           = {
-        "F1_500_500":   {"label0": 500,  "label1": 500},
-        "F2_1000_1000": {"label0": 1000, "label1": 1000},
-        "F3_3000_3000": {"label0": 3000, "label1": 3000},
-        "F4_3000_5000": {"label0": 3000, "label1": 5000},
+    variants_to_run         = [
+        "F1_synthetic_label0_control",
+        "F2a_external_real_label0",
+        "F2b_external_curated_label0",
+        "F2c_external_all_label0",
+        "F3_external_plus_synthetic_label0",
+    ],
+    variant_components      = {
+        "F1_synthetic_label0_control": {
+            "synthetic_label0": None,
+            "external_real_label0": 0,
+            "external_curated_label0": 0,
+            "synthetic_label1": None,
+        },
+        "F2a_external_real_label0": {
+            "synthetic_label0": 0,
+            "external_real_label0": None,
+            "external_curated_label0": 0,
+            "synthetic_label1": None,
+        },
+        "F2b_external_curated_label0": {
+            "synthetic_label0": 0,
+            "external_real_label0": 0,
+            "external_curated_label0": None,
+            "synthetic_label1": None,
+        },
+        "F2c_external_all_label0": {
+            "synthetic_label0": 0,
+            "external_real_label0": None,
+            "external_curated_label0": None,
+            "synthetic_label1": None,
+        },
+        "F3_external_plus_synthetic_label0": {
+            "synthetic_label0": None,
+            "external_real_label0": None,
+            "external_curated_label0": None,
+            "synthetic_label1": None,
+        },
     },
-    cap_to_available        = True,
 
     # data_origin mapping
     real_origin_values      = ["real"],
     synthetic_origin_values = ["synthetic", "paraphrased", "synthetic_hard_negative"],
+    external_real_origin_values = ["external_real"],
+    external_curated_origin_values = ["external_curated"],
 
     # Đường dẫn Google Drive
     drive_root              = "/content/drive/MyDrive/KLTN",
@@ -94,7 +128,6 @@ print(f"  seeds                 : {CFG['seeds']}")
 print(f"  variants_to_run       : {CFG['variants_to_run']}")
 print(f"  split_seed            : {CFG['split_seed']}")
 print(f"  synthetic_sample_seed : {CFG['synthetic_sample_seed']}")
-print(f"  cap_to_available      : {CFG['cap_to_available']}")
 print(f"  max_length            : {CFG['max_length']}")
 print(f"  num_epochs (max)      : {CFG['num_epochs']}")
 print(f"  learning_rate         : {CFG['learning_rate']}")
@@ -138,21 +171,41 @@ print(pd.crosstab(df_all["data_origin"], df_all["label"]).to_string())
 # %%
 # Cell 4 — Tách real/synthetic theo data_origin
 #
-# Setup F dùng Real Train đầy đủ và bổ sung synthetic ở cả Label 0 và Label 1.
+# Setup F dùng Real Train đầy đủ và bổ sung các nguồn Label 0/Label 1 theo từng variant.
 
 real_origins = set(CFG["real_origin_values"])
 synthetic_origins = set(CFG["synthetic_origin_values"])
+external_real_origins = set(CFG["external_real_origin_values"])
+external_curated_origins = set(CFG["external_curated_origin_values"])
 
 df_real = df_all[df_all["data_origin"].isin(real_origins)].copy()
 df_synthetic_candidates = df_all[df_all["data_origin"].isin(synthetic_origins)].copy()
+df_external_real_label0_candidates = df_all[df_all["data_origin"].isin(external_real_origins)].copy()
+df_external_curated_label0_candidates = df_all[df_all["data_origin"].isin(external_curated_origins)].copy()
+df_external_label0_candidates = pd.concat(
+    [df_external_real_label0_candidates, df_external_curated_label0_candidates],
+    axis=0,
+).copy()
 
 assert len(df_real) > 0, "Không có mẫu real nào sau khi lọc data_origin."
 assert len(df_synthetic_candidates) > 0, "Không có mẫu synthetic nào sau khi lọc data_origin."
+assert len(df_external_real_label0_candidates) > 0, "Không có mẫu external_real Label 0 nào sau khi lọc data_origin."
+assert len(df_external_curated_label0_candidates) > 0, "Không có mẫu external_curated Label 0 nào sau khi lọc data_origin."
+assert len(df_external_label0_candidates) > 0, "Không có mẫu external Label 0 nào sau khi lọc data_origin."
+assert set(df_external_label0_candidates["label"].unique().tolist()) <= {0}, (
+    "Nhóm external_curated/external_real chỉ được chứa Label 0 trong Setup F."
+)
 
 print("\nReal origins dùng cho train/validation/test:")
 print(df_real["data_origin"].value_counts().to_string())
 print("\nSynthetic origins dùng cho Setup F:")
 print(df_synthetic_candidates["data_origin"].value_counts().to_string())
+print("\nExternal real Label 0 origins dùng cho Setup F:")
+print(df_external_real_label0_candidates["data_origin"].value_counts().to_string())
+print("\nExternal curated Label 0 origins dùng cho Setup F:")
+print(df_external_curated_label0_candidates["data_origin"].value_counts().to_string())
+print("\nExternal all Label 0 origins dùng cho Setup F:")
+print(df_external_label0_candidates["data_origin"].value_counts().to_string())
 
 def print_label_info(name, frame):
     counts = frame["label"].value_counts().sort_index()
@@ -162,6 +215,9 @@ def print_label_info(name, frame):
 
 print_label_info("Real data", df_real)
 print_label_info("Synthetic candidates", df_synthetic_candidates)
+print_label_info("External real Label 0 candidates", df_external_real_label0_candidates)
+print_label_info("External curated Label 0 candidates", df_external_curated_label0_candidates)
+print_label_info("External Label 0 candidates", df_external_label0_candidates)
 
 # %%
 # Cell 5 — Tạo Real Train/Validation/Test
@@ -252,7 +308,7 @@ print_split_info("Real Test", df_test)
 # %%
 # Cell 6 — Kiểm tra duplicate giữa synthetic candidates và Real Test
 #
-# Setup F loại exact duplicate và normalized duplicate trước khi chọn synthetic augmentation.
+# Setup F loại exact duplicate và normalized duplicate trước khi chọn augmentation.
 
 import re
 
@@ -264,8 +320,13 @@ def normalize_text_for_leak_check(text):
 real_test_exact = set(df_test["content"].astype(str))
 real_test_norm = set(df_test["content"].map(normalize_text_for_leak_check))
 
+df_augmentation_candidates = pd.concat(
+    [df_synthetic_candidates, df_external_label0_candidates],
+    axis=0,
+).copy()
+
 leak_rows = []
-for idx, row in df_synthetic_candidates.iterrows():
+for idx, row in df_augmentation_candidates.iterrows():
     content = str(row["content"])
     exact_match = content in real_test_exact
     normalized_match = normalize_text_for_leak_check(content) in real_test_norm
@@ -283,28 +344,50 @@ leakage_report = pd.DataFrame(leak_rows)
 leakage_path = os.path.join(CFG["output_dir"], "setup_f_leakage_report.csv")
 leakage_report.to_csv(leakage_path, index=False)
 print(f"Leakage report đã lưu tại: {leakage_path}")
-print(f"Số synthetic candidate trùng Real Test: {len(leakage_report)}")
+print(f"Số augmentation candidate trùng Real Test: {len(leakage_report)}")
 
 if len(leakage_report) > 0:
     leaked_indices = set(leakage_report["source_index"].tolist())
-    df_synthetic_clean = df_synthetic_candidates.drop(index=leaked_indices).copy()
+    df_synthetic_clean = df_synthetic_candidates.drop(
+        index=df_synthetic_candidates.index.intersection(leaked_indices)
+    ).copy()
+    df_external_real_label0_clean = df_external_real_label0_candidates.drop(
+        index=df_external_real_label0_candidates.index.intersection(leaked_indices)
+    ).copy()
+    df_external_curated_label0_clean = df_external_curated_label0_candidates.drop(
+        index=df_external_curated_label0_candidates.index.intersection(leaked_indices)
+    ).copy()
 else:
     df_synthetic_clean = df_synthetic_candidates.copy()
+    df_external_real_label0_clean = df_external_real_label0_candidates.copy()
+    df_external_curated_label0_clean = df_external_curated_label0_candidates.copy()
 
 df_synthetic_label0 = df_synthetic_clean[df_synthetic_clean["label"] == 0].copy()
 df_synthetic_label1 = df_synthetic_clean[df_synthetic_clean["label"] == 1].copy()
+df_external_real_label0_clean = df_external_real_label0_clean[df_external_real_label0_clean["label"] == 0].copy()
+df_external_curated_label0_clean = df_external_curated_label0_clean[df_external_curated_label0_clean["label"] == 0].copy()
+df_external_label0_clean = pd.concat(
+    [df_external_real_label0_clean, df_external_curated_label0_clean],
+    axis=0,
+).copy()
 print_label_info("Synthetic candidates sau khi loại duplicate với Real Test", df_synthetic_clean)
 print_label_info("Synthetic Label 0 sạch", df_synthetic_label0)
 print_label_info("Synthetic Label 1 sạch", df_synthetic_label1)
+print_label_info("External real Label 0 sạch", df_external_real_label0_clean)
+print_label_info("External curated Label 0 sạch", df_external_curated_label0_clean)
+print_label_info("External all Label 0 sạch", df_external_label0_clean)
 
 # %%
 # Cell 7 — Tạo train dataframe cho từng biến thể F
 #
-# Synthetic Label 0 và Label 1 được sample lồng nhau bằng cùng một thứ tự shuffle cố định
-# theo từng label. F1 là prefix của F2, F2 là prefix của F3/F4.
+# Các pool augmentation được shuffle cố định theo nguồn và label.
+# Giá trị None trong CFG["variant_components"] nghĩa là dùng toàn bộ pool sạch.
 
 assert len(df_synthetic_label0) > 0, "Không có synthetic Label 0 sạch để augmentation."
 assert len(df_synthetic_label1) > 0, "Không có synthetic Label 1 sạch để augmentation."
+assert len(df_external_real_label0_clean) > 0, "Không có external_real Label 0 sạch để augmentation."
+assert len(df_external_curated_label0_clean) > 0, "Không có external_curated Label 0 sạch để augmentation."
+assert len(df_external_label0_clean) > 0, "Không có external Label 0 sạch để augmentation."
 
 synthetic_label0_pool = (
     df_synthetic_label0
@@ -316,40 +399,63 @@ synthetic_label1_pool = (
     .sample(frac=1.0, random_state=CFG["synthetic_sample_seed"])
     .reset_index(drop=True)
 )
+external_real_label0_pool = (
+    df_external_real_label0_clean
+    .sample(frac=1.0, random_state=CFG["synthetic_sample_seed"])
+    .reset_index(drop=True)
+)
+external_curated_label0_pool = (
+    df_external_curated_label0_clean
+    .sample(frac=1.0, random_state=CFG["synthetic_sample_seed"])
+    .reset_index(drop=True)
+)
 
 variant_train_frames = {}
 variant_metadata_rows = []
 
-def resolve_requested_size(requested_size, available_size, variant_name, label):
-    requested_size = int(requested_size)
-    if requested_size <= available_size:
-        return requested_size
-    if CFG["cap_to_available"]:
-        print(
-            f"[WARNING] {variant_name}: yêu cầu {requested_size} synthetic Label {label}, "
-            f"nhưng chỉ có {available_size}. Sẽ dùng toàn bộ mẫu sạch hiện có."
-        )
+def resolve_component_size(requested_size, available_size, variant_name, component_name):
+    if requested_size is None:
         return available_size
-    raise AssertionError(
-        f"{variant_name} cần {requested_size} synthetic Label {label}, "
+    requested_size = int(requested_size)
+    assert 0 <= requested_size <= available_size, (
+        f"{variant_name} cần {requested_size} mẫu {component_name}, "
         f"nhưng chỉ có {available_size} mẫu sạch."
     )
+    return requested_size
 
 for variant_name in CFG["variants_to_run"]:
-    requested_sizes = CFG["variant_sizes"][variant_name]
-    requested_label0 = int(requested_sizes["label0"])
-    requested_label1 = int(requested_sizes["label1"])
-    n_label0 = resolve_requested_size(
-        requested_label0, len(synthetic_label0_pool), variant_name, 0
+    requested_components = CFG["variant_components"][variant_name]
+    n_synthetic_label0 = resolve_component_size(
+        requested_components["synthetic_label0"],
+        len(synthetic_label0_pool),
+        variant_name,
+        "synthetic Label 0",
     )
-    n_label1 = resolve_requested_size(
-        requested_label1, len(synthetic_label1_pool), variant_name, 1
+    n_external_real_label0 = resolve_component_size(
+        requested_components["external_real_label0"],
+        len(external_real_label0_pool),
+        variant_name,
+        "external_real Label 0",
+    )
+    n_external_curated_label0 = resolve_component_size(
+        requested_components["external_curated_label0"],
+        len(external_curated_label0_pool),
+        variant_name,
+        "external_curated Label 0",
+    )
+    n_synthetic_label1 = resolve_component_size(
+        requested_components["synthetic_label1"],
+        len(synthetic_label1_pool),
+        variant_name,
+        "synthetic Label 1",
     )
 
     synthetic_part = pd.concat(
         [
-            synthetic_label0_pool.head(n_label0).copy(),
-            synthetic_label1_pool.head(n_label1).copy(),
+            synthetic_label0_pool.head(n_synthetic_label0).copy(),
+            external_real_label0_pool.head(n_external_real_label0).copy(),
+            external_curated_label0_pool.head(n_external_curated_label0).copy(),
+            synthetic_label1_pool.head(n_synthetic_label1).copy(),
         ],
         axis=0,
     )
@@ -366,11 +472,15 @@ for variant_name in CFG["variants_to_run"]:
     counts = train_frame["label"].value_counts().sort_index()
     variant_metadata_rows.append({
         "variant": variant_name,
-        "requested_synthetic_label0": requested_label0,
-        "requested_synthetic_label1": requested_label1,
-        "actual_synthetic_label0": n_label0,
-        "actual_synthetic_label1": n_label1,
-        "capped_to_available": (n_label0 != requested_label0) or (n_label1 != requested_label1),
+        "requested_synthetic_label0": requested_components["synthetic_label0"] if requested_components["synthetic_label0"] is not None else "all",
+        "requested_external_real_label0": requested_components["external_real_label0"] if requested_components["external_real_label0"] is not None else "all",
+        "requested_external_curated_label0": requested_components["external_curated_label0"] if requested_components["external_curated_label0"] is not None else "all",
+        "requested_synthetic_label1": requested_components["synthetic_label1"] if requested_components["synthetic_label1"] is not None else "all",
+        "actual_synthetic_label0": n_synthetic_label0,
+        "actual_external_real_label0": n_external_real_label0,
+        "actual_external_curated_label0": n_external_curated_label0,
+        "actual_external_all_label0": n_external_real_label0 + n_external_curated_label0,
+        "actual_synthetic_label1": n_synthetic_label1,
         "train_total": len(train_frame),
         "train_label0": int(counts.get(0, 0)),
         "train_label1": int(counts.get(1, 0)),
@@ -378,8 +488,10 @@ for variant_name in CFG["variants_to_run"]:
     })
 
     print_split_info(f"Train {variant_name}", train_frame)
-    print(f"  Synthetic Label 0 thêm vào: {n_label0}")
-    print(f"  Synthetic Label 1 thêm vào: {n_label1}")
+    print(f"  Synthetic Label 0 thêm vào: {n_synthetic_label0}")
+    print(f"  External real Label 0 thêm vào   : {n_external_real_label0}")
+    print(f"  External curated Label 0 thêm vào: {n_external_curated_label0}")
+    print(f"  Synthetic Label 1 thêm vào: {n_synthetic_label1}")
     print(f"  Train file: {out_path}")
 
 variant_metadata = pd.DataFrame(variant_metadata_rows)
@@ -508,7 +620,7 @@ def _free_gpu():
 
 def train_one_seed(variant_name: str, seed: int, train_ds, val_ds, test_ds):
     print(f"\n{'='*80}")
-    print(f"  VARIANT {variant_name} | SEED {seed} — Setup F: Real + Synthetic balanced")
+    print(f"  VARIANT {variant_name} | SEED {seed} — Setup F: Label 0 source augmentation")
     print(f"{'='*80}")
 
     set_seed_everything(seed)
@@ -571,7 +683,7 @@ def train_one_seed(variant_name: str, seed: int, train_ds, val_ds, test_ds):
              if k not in ("test_loss", "test_runtime",
                           "test_samples_per_second", "test_steps_per_second")}
 
-    clean["setup"]            = "F_real_plus_synthetic_balanced"
+    clean["setup"]            = "F_label0_source_augmentation"
     clean["variant"]          = variant_name
     clean["seed"]             = seed
     clean["confusion_matrix"] = cm
@@ -634,8 +746,8 @@ print(f"\nHoàn thành {len(all_results)}/{expected_results} lượt train.")
 # Cell 15 — Tổng hợp kết quả: per-seed và mean ± std
 
 print("\n" + "="*82)
-print("  SETUP F — Real + Synthetic balanced augmentation (PhoBERT)")
-print("  Train: Real Train + Synthetic Label 0 + Label 1 | Validation/Test: Real")
+print("  SETUP F — Label 0 source augmentation (PhoBERT)")
+print("  Train: Real Train + selected synthetic/external augmentation | Validation/Test: Real")
 print("  Kết quả trên Real Test Set")
 print("="*82)
 
@@ -681,7 +793,7 @@ for variant_name in CFG["variants_to_run"]:
         marker = " *" if k in PRIMARY_METRICS else ""
         print(f"{k:<22}  {mean:.3f} ± {std:.3f}{marker}")
         summary_rows.append({
-            "setup": "F_real_plus_synthetic_balanced",
+            "setup": "F_label0_source_augmentation",
             "variant": variant_name,
             "metric": k,
             "mean": round(mean, 4),
@@ -712,7 +824,7 @@ def plot_aggregated_confusion_matrix(variant_name):
 
     fig, axes = plt.subplots(1, 2, figsize=(13, 5))
     fig.suptitle(
-        f"Setup F — {variant_name} Real + Synthetic balanced\n"
+        f"Setup F — {variant_name} Label 0 source augmentation\n"
         f"Seeds: {CFG['seeds']}  |  Confusion Matrix (aggregated, n={len(variant_results)} seeds)",
         fontsize=12, fontweight="bold",
     )

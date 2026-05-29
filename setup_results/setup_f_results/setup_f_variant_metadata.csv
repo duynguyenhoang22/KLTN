@@ -1,0 +1,6 @@
+variant,requested_synthetic_label0,requested_external_real_label0,requested_external_curated_label0,requested_synthetic_label1,actual_synthetic_label0,actual_external_real_label0,actual_external_curated_label0,actual_external_all_label0,actual_synthetic_label1,train_total,train_label0,train_label1,train_file
+F1_synthetic_label0_control,all,0,0,all,1998,0,0,0,4996,8790,3622,5168,/content/drive/MyDrive/KLTN/setup_f_results/setup_f_train_F1_synthetic_label0_control.csv
+F2a_external_real_label0,0,all,0,all,0,500,0,500,4996,7292,2124,5168,/content/drive/MyDrive/KLTN/setup_f_results/setup_f_train_F2a_external_real_label0.csv
+F2b_external_curated_label0,0,0,all,all,0,0,501,501,4996,7293,2125,5168,/content/drive/MyDrive/KLTN/setup_f_results/setup_f_train_F2b_external_curated_label0.csv
+F2c_external_all_label0,0,all,all,all,0,500,501,1001,4996,7793,2625,5168,/content/drive/MyDrive/KLTN/setup_f_results/setup_f_train_F2c_external_all_label0.csv
+F3_external_plus_synthetic_label0,all,all,all,all,1998,500,501,1001,4996,9791,4623,5168,/content/drive/MyDrive/KLTN/setup_f_results/setup_f_train_F3_external_plus_synthetic_label0.csv

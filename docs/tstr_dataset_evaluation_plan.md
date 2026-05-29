@@ -302,6 +302,146 @@ Các biến thể cần chạy:
 | F2c | external_real + external_curated Label 0 + Synthetic Label 1 | Kiểm tra toàn bộ external Label 0 |
 | F3 | external_real + external_curated Label 0 + Synthetic Label 0 + Synthetic Label 1 | Kiểm tra kết hợp external và synthetic Label 0 |
 
+### 4.7 Setup G - External Challenge Evaluation
+
+```text
+Nền tảng chạy: Kaggle
+Mục tiêu: đánh giá trên Challenge Test có chứa external ViLexNorm
+```
+
+Mục đích: kiểm tra liệu mô hình có thật sự chống chịu tốt hơn khi gặp miền
+`external_real` và `external_curated` từ ViLexNorm hay không. Miền external hiện
+khác khá nhiều so với miền `Real Validation` và `Real Test` SMS. Vì vậy, nếu chỉ
+đưa external vào train rồi vẫn đánh giá trên `Real Test` cũ, kết quả có thể thấp
+hơn không phải vì external vô ích, mà vì test cũ không đo đúng năng lực cần kiểm
+tra.
+
+Quyết định: Setup G là một benchmark challenge riêng, chạy sau Setup F. Test set
+mới phải có thêm external từ ViLexNorm, đồng thời vẫn báo cáo riêng kết quả trên
+miền SMS thật và miền external.
+
+Lưu ý quan trọng: các setup A-F hiện chỉ lưu kết quả, train dataframe, metadata
+và confusion matrix; không lưu lại model/checkpoint sau khi chạy. Do đó, để có
+mô hình đại diện tốt nhất từ Setup E tham gia challenge, Setup G phải chạy lại
+biến thể `E4_all` trước.
+
+#### G0 - Rerun Champion E4
+
+```text
+Train: Real Train cũ + toàn bộ Synthetic Label 1
+Validation: Real Validation cũ
+Test: Challenge Test mới = Real Test cũ + external test split
+```
+
+Vai trò: tái tạo mô hình tốt nhất của Setup E để làm baseline thi đấu. G0 không
+được dùng external trong train, nhằm đo khả năng zero-shot của mô hình E4 khi
+gặp external ở test.
+
+#### G1 - External all
+
+```text
+Train: Real + Synthetic Label 1 + external_real Label 0 + external_curated Label 0
+Validation: Challenge Validation
+Test: Challenge Test
+```
+
+Vai trò: kiểm tra tác động tổng thể của việc đưa toàn bộ external Label 0 vào
+train khi test cũng chứa external.
+
+#### G2 - External curated only
+
+```text
+Train: Real + Synthetic Label 1 + external_curated Label 0
+Validation: Challenge Validation
+Test: Challenge Test
+```
+
+Vai trò: kiểm tra riêng `external_curated`, vì trong Setup F đây là nguồn
+external ổn nhất và có tính hard-negative/P2P-like cao hơn.
+
+#### G3 - External + Synthetic Label 0
+
+```text
+Train: Real + Synthetic Label 1 + external_real Label 0 + external_curated Label 0 + Synthetic Label 0
+Validation: Challenge Validation
+Test: Challenge Test
+```
+
+Vai trò: phiên bản tương ứng với F3 nhưng đánh giá trong điều kiện đúng hơn, vì
+test set cũng có external.
+
+#### Tạo Challenge Split
+
+Challenge pool nên được tạo bằng cách giữ nguyên split real cũ của Setup E và
+chỉ split thêm phần external:
+
+```text
+Real Train/Validation/Test: tái tạo từ split cũ của Setup E
+external_real Label 0: chia 70/15/15
+external_curated Label 0: chia 70/15/15
+```
+
+Sau đó ghép thành challenge split:
+
+```text
+Challenge Train = Real Train cũ + external train
+Challenge Validation = Real Validation cũ + external validation
+Challenge Test = Real Test cũ + external test
+```
+
+Synthetic `Label 1` chỉ dùng làm augmentation cho train, không đưa vào Challenge
+Validation/Test. Cần giữ cột `data_origin` để báo cáo theo từng miền:
+
+```text
+real
+external_real
+external_curated
+```
+
+#### Báo cáo bắt buộc cho Setup G
+
+Ngoài kết quả tổng thể trên `Challenge Test`, phải báo cáo tách theo subset:
+
+```text
+Challenge Test All
+Real SMS subset
+external_real subset
+external_curated subset
+```
+
+Các chỉ số cần ưu tiên:
+
+- `Macro-F1`;
+- `F1`, `Recall`, `Precision` của `Label 1`;
+- `AUPRC`;
+- false positive rate trên external `Label 0`;
+- confusion matrix tổng thể và theo từng subset.
+
+Điểm cần trả lời:
+
+- G0/E4 có tạo nhiều false positive trên external hay không?
+- G1/G2/G3 có giảm false positive trên external không?
+- Việc giảm false positive external có làm giảm `Recall Label 1` trên SMS thật không?
+- `external_curated` có hữu ích hơn `external_real` không?
+- Trộn thêm Synthetic Label 0 ở G3 có giúp hay gây nhiễu thêm?
+
+Vì Setup G tốn thời gian chạy hơn các setup trước, khuyến nghị triển khai bằng
+Kaggle Notebook, lưu kết quả và checkpoint theo seed:
+
+```text
+setup_results/setup_g_results/
+  setup_g_challenge_split_metadata.csv
+  setup_g_train_G0_E4_champion.csv
+  setup_g_train_G1_external_all.csv
+  setup_g_train_G2_external_curated.csv
+  setup_g_train_G3_external_plus_synthetic_label0.csv
+  setup_g_per_seed_results.csv
+  setup_g_results.csv
+  setup_g_subset_results.csv
+  setup_g_confusion_matrix_*.png
+  models/
+```
+
 ---
 
 ## 5. Chuẩn hóa điều kiện huấn luyện
@@ -319,6 +459,10 @@ Tất cả setup phải giữ cố định các thành phần sau:
 | Early stopping | Dùng cùng tiêu chí trên validation |
 | Random seed | Chạy cùng danh sách seed |
 | Real Test Set | Tuyệt đối cố định |
+
+Riêng Setup G là benchmark challenge bổ sung, nên không dùng `Real Test Set` cũ
+làm test chính. Setup G phải khóa `Challenge Test` mới trước khi chạy và không
+dùng tập này để chọn threshold, checkpoint hoặc hyperparameter.
 
 ### 5.1 Không cần train model từ đầu
 
@@ -464,6 +608,7 @@ Lý do: chỉ số tổng hợp như F1 không cho biết synthetic data đang g
 | D | TSTR balanced synthetic | Synthetic cân bằng hoặc gần cân bằng | Real Validation | Real Test | Kiểm tra synthetic cho lớp thiểu số |
 | E | Real + Synthetic Label 1 | Real Train + Synthetic Label 1 | Real Validation | Real Test | Kiểm tra augmentation lớp thiểu số |
 | F | Label 0 source augmentation | Real Train + external/synthetic Label 0 + Synthetic Label 1 | Real Validation | Real Test | Kiểm tra nguồn bổ sung Label 0 |
+| G | External Challenge Evaluation | G0 rerun E4 hoặc Real + Synthetic Label 1 + external Label 0 | Challenge Validation | Challenge Test | Kiểm tra khả năng chịu miền external ViLexNorm |
 
 ---
 
@@ -477,6 +622,7 @@ Lý do: chỉ số tổng hợp như F1 không cho biết synthetic data đang g
 | D - TSTR balanced |  |  |  |  |  |  |  |
 | E - Real + Synthetic Label 1 |  |  |  |  |  |  |  |
 | F - Label 0 source augmentation |  |  |  |  |  |  |  |
+| G - External Challenge Evaluation |  |  |  |  |  |  |  |
 
 Mỗi ô kết quả chính nên báo cáo theo dạng:
 
@@ -540,10 +686,11 @@ Cần kết luận thận trọng nếu:
 7. Chạy Setup D để kiểm tra synthetic balanced.
 8. Chạy Setup E với nhiều mức synthetic `Label 1`.
 9. Chạy Setup F với các nguồn bổ sung Label 0: synthetic, external ViLexNorm, và kết hợp cả hai.
-10. Lặp lại các setup chính với nhiều seed.
-11. Tổng hợp bảng kết quả `mean ± std`.
-12. Phân tích confusion matrix và lỗi trên `Real Test`.
-13. Kết luận synthetic data thuộc mức nào: thay thế một phần, hữu ích cho augmentation, hay chưa hữu ích.
+10. Nếu cần kiểm tra miền external, chạy Setup G trên Kaggle: tạo Challenge Split, chạy lại G0/E4 champion, rồi chạy các biến thể có external.
+11. Lặp lại các setup chính với nhiều seed.
+12. Tổng hợp bảng kết quả `mean ± std`.
+13. Phân tích confusion matrix và lỗi trên `Real Test`; riêng Setup G phân tích thêm `Challenge Test` theo từng `data_origin`.
+14. Kết luận synthetic data thuộc mức nào: thay thế một phần, hữu ích cho augmentation, hay chưa hữu ích; với Setup G, kết luận riêng về giá trị của external ViLexNorm.
 
 ---
 

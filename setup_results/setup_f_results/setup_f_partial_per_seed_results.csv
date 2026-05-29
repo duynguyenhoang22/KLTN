@@ -1,0 +1,13 @@
+setup,variant,seed,best_epoch,tn,fp,fn,tp,macro_f1,f1_label1,recall_label1,precision_label1,auprc,accuracy,auroc
+F_label0_source_augmentation,F1_synthetic_label0_control,42,/content/tmp_checkpoints_setup_f/F1_synthetic_label0_control/seed_42/checkpoint-1100,345,4,4,33,0.9402,0.8919,0.8919,0.8919,0.9348,0.9793,0.9818
+F_label0_source_augmentation,F1_synthetic_label0_control,123,/content/tmp_checkpoints_setup_f/F1_synthetic_label0_control/seed_123/checkpoint-2750,346,3,4,33,0.947,0.9041,0.8919,0.9167,0.9536,0.9819,0.985
+F_label0_source_augmentation,F1_synthetic_label0_control,2025,/content/tmp_checkpoints_setup_f/F1_synthetic_label0_control/seed_2025/checkpoint-3300,346,3,2,35,0.9631,0.9333,0.9459,0.9211,0.9562,0.987,0.9909
+F_label0_source_augmentation,F2a_external_real_label0,42,/content/tmp_checkpoints_setup_f/F2a_external_real_label0/seed_42/checkpoint-912,343,6,4,33,0.927,0.8684,0.8919,0.8462,0.9531,0.9741,0.9952
+F_label0_source_augmentation,F2a_external_real_label0,123,/content/tmp_checkpoints_setup_f/F2a_external_real_label0/seed_123/checkpoint-4104,344,5,2,35,0.9495,0.9091,0.9459,0.875,0.9638,0.9819,0.9907
+F_label0_source_augmentation,F2a_external_real_label0,2025,/content/tmp_checkpoints_setup_f/F2a_external_real_label0/seed_2025/checkpoint-912,343,6,4,33,0.927,0.8684,0.8919,0.8462,0.9151,0.9741,0.9921
+F_label0_source_augmentation,F2b_external_curated_label0,42,/content/tmp_checkpoints_setup_f/F2b_external_curated_label0/seed_42/checkpoint-4104,345,4,3,34,0.9483,0.9067,0.9189,0.8947,0.9678,0.9819,0.9947
+F_label0_source_augmentation,F2b_external_curated_label0,123,/content/tmp_checkpoints_setup_f/F2b_external_curated_label0/seed_123/checkpoint-4104,347,2,3,34,0.9622,0.9315,0.9189,0.9444,0.9656,0.987,0.9947
+F_label0_source_augmentation,F2b_external_curated_label0,2025,/content/tmp_checkpoints_setup_f/F2b_external_curated_label0/seed_2025/checkpoint-4104,343,6,3,34,0.9351,0.8831,0.9189,0.85,0.9572,0.9767,0.9939
+F_label0_source_augmentation,F2c_external_all_label0,42,/content/tmp_checkpoints_setup_f/F2c_external_all_label0/seed_42/checkpoint-976,344,5,4,33,0.9335,0.88,0.8919,0.8684,0.9323,0.9767,0.9916
+F_label0_source_augmentation,F2c_external_all_label0,123,/content/tmp_checkpoints_setup_f/F2c_external_all_label0/seed_123/checkpoint-2440,345,4,2,35,0.9562,0.9211,0.9459,0.8974,0.9825,0.9845,0.9978
+F_label0_source_augmentation,F2c_external_all_label0,2025,/content/tmp_checkpoints_setup_f/F2c_external_all_label0/seed_2025/checkpoint-4392,342,7,3,34,0.9287,0.8718,0.9189,0.8293,0.9656,0.9741,0.9961

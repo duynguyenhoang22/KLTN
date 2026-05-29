@@ -1,0 +1,5 @@
+variant,uses_external_real_label0,uses_external_curated_label0,uses_synthetic_label0,uses_synthetic_label1,train_total,train_label0,train_label1,train_real,train_external_real,train_external_curated,train_synthetic,train_paraphrased,train_synthetic_hard_negative,train_file,validation_frame
+G0_E4_champion,False,False,False,True,6792,1624,5168,1796,0,0,10,4333,653,/kaggle/working/setup_g_results/setup_g_train_G0_E4_champion.csv,e4_val_real
+G1_external_all,True,True,False,True,7492,2324,5168,1796,350,350,10,4333,653,/kaggle/working/setup_g_results/setup_g_train_G1_external_all.csv,challenge_val
+G2_external_curated,False,True,False,True,7142,1974,5168,1796,0,350,10,4333,653,/kaggle/working/setup_g_results/setup_g_train_G2_external_curated.csv,challenge_val
+G3_external_plus_synthetic_label0,True,True,True,True,9490,4322,5168,1796,350,350,2008,4333,653,/kaggle/working/setup_g_results/setup_g_train_G3_external_plus_synthetic_label0.csv,challenge_val

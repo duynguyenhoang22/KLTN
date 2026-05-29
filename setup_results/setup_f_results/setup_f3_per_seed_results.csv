@@ -1,0 +1,4 @@
+setup,variant,seed,best_epoch,tn,fp,fn,tp,macro_f1,f1_label1,recall_label1,precision_label1,auprc,accuracy,auroc
+F_label0_source_augmentation,F3_external_plus_synthetic_label0,42,/kaggle/working/tmp_checkpoints_setup_f3/F3_external_plus_synthetic_label0/seed_42/checkpoint-2142,346,3,3,34,0.9552,0.9189,0.9189,0.9189,0.9222,0.9845,0.9924
+F_label0_source_augmentation,F3_external_plus_synthetic_label0,123,/kaggle/working/tmp_checkpoints_setup_f3/F3_external_plus_synthetic_label0/seed_123/checkpoint-1530,345,4,2,35,0.9562,0.9211,0.9459,0.8974,0.8792,0.9845,0.9904
+F_label0_source_augmentation,F3_external_plus_synthetic_label0,2025,/kaggle/working/tmp_checkpoints_setup_f3/F3_external_plus_synthetic_label0/seed_2025/checkpoint-2754,341,8,2,35,0.9303,0.875,0.9459,0.814,0.8577,0.9741,0.9895

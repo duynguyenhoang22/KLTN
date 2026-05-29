@@ -1,0 +1,2 @@
+variant,actual_synthetic_label0,actual_external_real_label0,actual_external_curated_label0,actual_external_all_label0,actual_synthetic_label1,train_total,train_label0,train_label1,train_file
+F3_external_plus_synthetic_label0,1998,500,501,1001,4996,9791,4623,5168,/kaggle/working/setup_f3_results/setup_f3_train.csv

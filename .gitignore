@@ -6,6 +6,8 @@ __pycache__/
 !.env.example
 
 *.log
-
+model/teacher/
+model/teacher_v2/
+model/student/
 bartpho-normalization/
 data/interim/bartpho_normalization/

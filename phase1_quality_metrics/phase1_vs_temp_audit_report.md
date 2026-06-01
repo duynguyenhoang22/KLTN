@@ -13,8 +13,7 @@ Script sử dụng hai đầu vào:
 
 Cả hai bộ dữ liệu đều có 10.562 mẫu, cân bằng nhãn với 5.320 mẫu label 0 và 5.242 mẫu label 1. Các kiểm tra invariant đều đạt: file tồn tại, có đủ cột bắt buộc, nhãn hợp lệ `[0, 1]`, không có nội dung rỗng, và số mẫu label 1 synthetic-like của Phase 1 là 4.996 như kỳ vọng.
 
-Embedding audit sử dụng `vinai/phobert-base` từ Transformers, không dùng checkpoint PhoBERT đã fine-tune cho bài toán phân loại. Embedding được tính bằng mean pooling trên last hidden state và chuẩn hóa L2. Điều này giúp giảm nguy cơ metric bị thiên lệch bởi mô hình phân loại đã huấn luyện trước đó.
-
+Embedding audit sử dụng `vinai/phobert-base` từ Transformers, không dùng checkpoint PhoBERT đã fine-tune cho bài toán phân loại. Embedding được tính bằng mean pooling trên last hidden state và chuẩn hóa L2.
 ## Thay đổi về nguồn dữ liệu
 
 Phase 1 final chỉ gồm hai nguồn:

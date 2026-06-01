@@ -1,0 +1,324 @@
+{
+  "technical_decisions": {
+    "embedding_model": "vinai/phobert-base",
+    "embedding_source": "Transformers AutoTokenizer/AutoModel",
+    "fine_tuned_phobert_checkpoint_used": false,
+    "pooling": "L2-normalized mean pooling over last_hidden_state with attention mask",
+    "cache_embeddings": true,
+    "strict_invariants": false
+  },
+  "inputs": {
+    "phase1": "/kaggle/input/datasets/duynguynhoang/audit-dataset-validation/vismishds_phase1_final.csv",
+    "current": "/kaggle/input/datasets/duynguynhoang/audit-dataset-validation/temp.csv"
+  },
+  "invariant_checks": [
+    {
+      "name": "phase1_path",
+      "expected": "exists",
+      "actual": "/kaggle/input/datasets/duynguynhoang/audit-dataset-validation/vismishds_phase1_final.csv",
+      "severity": "hard",
+      "status": "pass"
+    },
+    {
+      "name": "current_path",
+      "expected": "exists",
+      "actual": "/kaggle/input/datasets/duynguynhoang/audit-dataset-validation/temp.csv",
+      "severity": "hard",
+      "status": "pass"
+    },
+    {
+      "name": "phase1_required_columns",
+      "expected": [],
+      "actual": [],
+      "severity": "hard",
+      "status": "pass"
+    },
+    {
+      "name": "phase1_labels",
+      "expected": [
+        0,
+        1
+      ],
+      "actual": [
+        0,
+        1
+      ],
+      "severity": "hard",
+      "status": "pass"
+    },
+    {
+      "name": "phase1_empty_content_rate",
+      "expected": "<=0.01",
+      "actual": 0.0,
+      "severity": "hard",
+      "status": "pass"
+    },
+    {
+      "name": "current_required_columns",
+      "expected": [],
+      "actual": [],
+      "severity": "hard",
+      "status": "pass"
+    },
+    {
+      "name": "current_labels",
+      "expected": [
+        0,
+        1
+      ],
+      "actual": [
+        0,
+        1
+      ],
+      "severity": "hard",
+      "status": "pass"
+    },
+    {
+      "name": "current_empty_content_rate",
+      "expected": "<=0.01",
+      "actual": 0.0,
+      "severity": "hard",
+      "status": "pass"
+    },
+    {
+      "name": "phase1_label_1_synthetic_like_non_empty",
+      "expected": ">0",
+      "actual": 4996,
+      "severity": "hard",
+      "status": "pass"
+    },
+    {
+      "name": "phase1_label_1_real_non_empty",
+      "expected": ">0",
+      "actual": 246,
+      "severity": "hard",
+      "status": "pass"
+    },
+    {
+      "name": "current_label_1_synthetic_like_non_empty",
+      "expected": ">0",
+      "actual": 4996,
+      "severity": "hard",
+      "status": "pass"
+    },
+    {
+      "name": "current_label_1_real_non_empty",
+      "expected": ">0",
+      "actual": 246,
+      "severity": "hard",
+      "status": "pass"
+    },
+    {
+      "name": "phase1_row_count",
+      "expected": 10562,
+      "actual": 10562,
+      "severity": "soft",
+      "status": "pass"
+    },
+    {
+      "name": "current_row_count",
+      "expected": 10562,
+      "actual": 10562,
+      "severity": "soft",
+      "status": "pass"
+    },
+    {
+      "name": "phase1_label_counts",
+      "expected": {
+        "0": 5320,
+        "1": 5242
+      },
+      "actual": {
+        "0": 5320,
+        "1": 5242
+      },
+      "severity": "soft",
+      "status": "pass"
+    },
+    {
+      "name": "phase1_label_1_synthetic_like_count",
+      "expected": "about 4996",
+      "actual": 4996,
+      "severity": "soft",
+      "status": "pass"
+    }
+  ],
+  "summary_rows": [
+    {
+      "metric_group": "embedding_similarity",
+      "dataset": "phase1",
+      "slice": "label_1_synthetic_like",
+      "mean": 0.9532725811004639,
+      "median": 0.9620931148529053,
+      "p75": 0.9768162369728088,
+      "p90": 0.9841468334197998,
+      "p95": 0.9886754751205444,
+      "max": 0.9996194243431091,
+      "rate_ge_0_80": 0.9983987189751802,
+      "rate_ge_0_85": 0.994995996797438,
+      "rate_ge_0_90": 0.927341873498799,
+      "rate_ge_0_95": 0.6317053642914331,
+      "ci_low": 0.9522775411605835,
+      "ci_high": 0.954169511795044
+    },
+    {
+      "metric_group": "embedding_similarity",
+      "dataset": "current",
+      "slice": "label_1_synthetic_like",
+      "mean": 0.9272500276565552,
+      "median": 0.9288427829742432,
+      "p75": 0.9528975486755371,
+      "p90": 0.9837712049484253,
+      "p95": 0.9922739863395691,
+      "max": 0.9994316697120667,
+      "rate_ge_0_80": 0.9977982385908727,
+      "rate_ge_0_85": 0.9735788630904724,
+      "rate_ge_0_90": 0.7668134507606085,
+      "rate_ge_0_95": 0.27481985588470775,
+      "ci_low": 0.9261853694915771,
+      "ci_high": 0.9284002184867859
+    },
+    {
+      "metric_group": "leet_obfuscation",
+      "dataset": "phase1",
+      "slice": "all",
+      "row_with_leet_rate": 0.7210755538723727,
+      "leet_token_rate": 0.09709766182337012,
+      "mean_leet_density": 0.153107805228561,
+      "special_char_row_rate": 0.6939026699488733,
+      "leet_token_rate_ci_low": 0.14870617648637707,
+      "leet_token_rate_ci_high": 0.1578192071182402
+    },
+    {
+      "metric_group": "leet_obfuscation",
+      "dataset": "phase1",
+      "slice": "label_1_all",
+      "row_with_leet_rate": 0.8193437619229301,
+      "leet_token_rate": 0.17672209026128266,
+      "mean_leet_density": 0.26147712062387163,
+      "special_char_row_rate": 0.7685997710797405,
+      "leet_token_rate_ci_low": 0.2539547638743589,
+      "leet_token_rate_ci_high": 0.26905861078326454
+    },
+    {
+      "metric_group": "leet_obfuscation",
+      "dataset": "phase1",
+      "slice": "label_1_synthetic_like",
+      "row_with_leet_rate": 0.8244595676541233,
+      "leet_token_rate": 0.18872426439943318,
+      "mean_leet_density": 0.2700112465715688,
+      "special_char_row_rate": 0.767013610888711,
+      "leet_token_rate_ci_low": 0.2618984218230608,
+      "leet_token_rate_ci_high": 0.27736436826317545
+    },
+    {
+      "metric_group": "leet_obfuscation",
+      "dataset": "phase1",
+      "slice": "label_1_real",
+      "row_with_leet_rate": 0.7154471544715447,
+      "leet_token_rate": 0.05251240025878801,
+      "mean_leet_density": 0.08815804243405435,
+      "special_char_row_rate": 0.8008130081300813,
+      "leet_token_rate_ci_low": 0.07130901377276384,
+      "leet_token_rate_ci_high": 0.10509342693879983
+    },
+    {
+      "metric_group": "leet_obfuscation",
+      "dataset": "phase1",
+      "slice": "label_0_synthetic_like",
+      "row_with_leet_rate": 0.5115038346115371,
+      "leet_token_rate": 0.0362382782704934,
+      "mean_leet_density": 0.03844884356674227,
+      "special_char_row_rate": 0.4924974991663888,
+      "leet_token_rate_ci_low": 0.03679006615620377,
+      "leet_token_rate_ci_high": 0.04014369190582937
+    },
+    {
+      "metric_group": "leet_obfuscation",
+      "dataset": "phase1",
+      "slice": "label_0_real",
+      "row_with_leet_rate": 0.7699267557087462,
+      "leet_token_rate": 0.05509056717755844,
+      "mean_leet_density": 0.05650732040373372,
+      "special_char_row_rate": 0.7854373115036622,
+      "leet_token_rate_ci_low": 0.053753750676352074,
+      "leet_token_rate_ci_high": 0.059131137716268024
+    },
+    {
+      "metric_group": "leet_obfuscation",
+      "dataset": "current",
+      "slice": "all",
+      "row_with_leet_rate": 0.6365271728839235,
+      "leet_token_rate": 0.047601396706339685,
+      "mean_leet_density": 0.05443147246495505,
+      "special_char_row_rate": 0.6599128952849839,
+      "leet_token_rate_ci_low": 0.05270535314040305,
+      "leet_token_rate_ci_high": 0.05630513806874198
+    },
+    {
+      "metric_group": "leet_obfuscation",
+      "dataset": "current",
+      "slice": "label_1_all",
+      "row_with_leet_rate": 0.7272033574971385,
+      "leet_token_rate": 0.049289797548615795,
+      "mean_leet_density": 0.06807658849121927,
+      "special_char_row_rate": 0.7808088515833651,
+      "leet_token_rate_ci_low": 0.06519417761428685,
+      "leet_token_rate_ci_high": 0.07122051476460932
+    },
+    {
+      "metric_group": "leet_obfuscation",
+      "dataset": "current",
+      "slice": "label_1_synthetic_like",
+      "row_with_leet_rate": 0.7277822257806245,
+      "leet_token_rate": 0.049091824432638674,
+      "mean_leet_density": 0.0670877899183735,
+      "special_char_row_rate": 0.7798238590872698,
+      "leet_token_rate_ci_low": 0.06389462754671509,
+      "leet_token_rate_ci_high": 0.07003860790999086
+    },
+    {
+      "metric_group": "leet_obfuscation",
+      "dataset": "current",
+      "slice": "label_1_real",
+      "row_with_leet_rate": 0.7154471544715447,
+      "leet_token_rate": 0.05251240025878801,
+      "mean_leet_density": 0.08815804243405434,
+      "special_char_row_rate": 0.8008130081300813,
+      "leet_token_rate_ci_low": 0.07287057189051821,
+      "leet_token_rate_ci_high": 0.10459230852779423
+    },
+    {
+      "metric_group": "leet_obfuscation",
+      "dataset": "current",
+      "slice": "label_0_synthetic_like",
+      "row_with_leet_rate": 0.506006006006006,
+      "leet_token_rate": 0.0359247634746088,
+      "mean_leet_density": 0.038056488370467954,
+      "special_char_row_rate": 0.4824824824824825,
+      "leet_token_rate_ci_low": 0.036040557996925474,
+      "leet_token_rate_ci_high": 0.04008257134032674
+    },
+    {
+      "metric_group": "leet_obfuscation",
+      "dataset": "current",
+      "slice": "label_0_real",
+      "row_with_leet_rate": 0.571944611679711,
+      "leet_token_rate": 0.04971764019293157,
+      "mean_leet_density": 0.04274860672477092,
+      "special_char_row_rate": 0.5758579169175195,
+      "leet_token_rate_ci_low": 0.04051164639387748,
+      "leet_token_rate_ci_high": 0.04483348222277669
+    },
+    {
+      "metric_group": "permutation_test",
+      "metric": "embedding_nn_mean_diff_label_1_synthetic_like",
+      "p_value": 0.000999000999000999
+    },
+    {
+      "metric_group": "permutation_test",
+      "metric": "leet_token_rate_diff_label_1_synthetic_like",
+      "p_value": 0.000999000999000999
+    }
+  ]
+}

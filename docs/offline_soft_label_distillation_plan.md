@@ -6,6 +6,72 @@
 
 ---
 
+## 0. Trang thai da chot sau Phase 1-4
+
+Tai thoi diem cap nhat hien tai, nghien cuu da chot dung **split v2** lam bo split chinh tu Phase 5 tro di.
+
+Ly do thay v1:
+
+- `test_mixed` v1 qua de vi chu yeu tach theo `synthetic/paraphrased`.
+- `test_challenge` v1 dat ket qua 1.0 do bi source/domain separation qua ro.
+- v2 tron nhieu `data_origin` hon trong `test_mixed` va dua cac mau hard/realistic hon vao `test_challenge`.
+
+Artifacts chinh da co:
+
+```text
+data/distillation/splits_v2/
+setup_results/distillation/split_report_v2.md
+
+data/distillation/teacher_outputs_v2/
+setup_results/distillation_v2/
+setup_results/distillation_v2/teacher_audit/
+```
+
+Ket qua audit teacher v2:
+
+| split | rows | macro-F1 | F1 label 1 | Recall label 1 | Precision label 1 |
+|---|---:|---:|---:|---:|---:|
+| train | 7,212 | 0.9978 | 0.9979 | 0.9974 | 0.9984 |
+| val | 1,186 | 0.9881 | 0.9870 | 0.9870 | 0.9870 |
+| test_real | 385 | 0.8807 | 0.7812 | 0.6757 | 0.9259 |
+| test_mixed | 1,059 | 0.9906 | 0.9905 | 0.9886 | 0.9924 |
+| test_challenge | 720 | 0.9899 | 0.9878 | 0.9861 | 0.9895 |
+
+Dien giai:
+
+- `test_real` van la benchmark chinh va kho nhat.
+- `test_mixed` v2 la mixed-domain holdout, khong con chi la synthetic/paraphrased.
+- `test_challenge` v2 khong con dat 1.0 tuyet doi, da co false positives/false negatives that.
+- Ket qua tren `test_mixed` va `test_challenge` van la phu; ket luan chinh ve kha nang tong quat phai dua vao `test_real`.
+
+Trang thai phase:
+
+```text
+Phase 1: Split dataset v2                 DONE
+Phase 2: Fine-tune PhoBERT-base teacher   DONE
+Phase 3: Generate teacher outputs v2      DONE
+Phase 4: Audit teacher outputs v2         DONE
+Phase 5: Student hard-label baseline      NEXT
+```
+
+Buoc tiep theo khi tiep tuc:
+
+```text
+Train Student 1 hard-label baseline:
+  TF-IDF + Logistic Regression
+
+Input:
+  data/distillation/splits_v2/train.csv
+  data/distillation/splits_v2/val.csv
+
+Evaluation:
+  data/distillation/splits_v2/test_real.csv
+  data/distillation/splits_v2/test_mixed.csv
+  data/distillation/splits_v2/test_challenge.csv
+```
+
+---
+
 ## 1. Boi canh du lieu hien tai
 
 Tap du lieu hien tai:

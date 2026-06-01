@@ -8,6 +8,83 @@
 
 ---
 
+## 0. Trang thai bat buoc sau khi chot split v2
+
+Tu thoi diem cap nhat nay, Codex phai coi **split v2** la bo split chinh.
+
+Khong mac dinh dung lai cac file v1:
+
+```text
+data/distillation/splits/
+data/distillation/teacher_outputs/
+setup_results/distillation/teacher_audit/
+```
+
+Tru khi nguoi dung yeu cau so sanh voi v1.
+
+Artifacts chinh can dung tu day:
+
+```text
+data/distillation/splits_v2/
+data/distillation/teacher_outputs_v2/
+setup_results/distillation/split_report_v2.md
+setup_results/distillation_v2/
+setup_results/distillation_v2/teacher_audit/
+```
+
+Trang thai phase da hoan thanh:
+
+```text
+Phase 1: Split dataset v2                 DONE
+Phase 2: Fine-tune PhoBERT-base teacher   DONE
+Phase 3: Generate teacher outputs v2      DONE
+Phase 4: Audit teacher outputs v2         DONE
+```
+
+Buoc tiep theo neu nguoi dung noi "tiep tuc" hoac "trien khai tiep":
+
+```text
+Phase 5: Train student hard-label baseline
+Student dau tien: TF-IDF + Logistic Regression
+```
+
+Du lieu cho Phase 5:
+
+```text
+Train:
+  data/distillation/splits_v2/train.csv
+
+Validation:
+  data/distillation/splits_v2/val.csv
+
+Test:
+  data/distillation/splits_v2/test_real.csv
+  data/distillation/splits_v2/test_mixed.csv
+  data/distillation/splits_v2/test_challenge.csv
+```
+
+Khi sang Phase 6 distilled student, dung teacher outputs v2:
+
+```text
+data/distillation/teacher_outputs_v2/train_teacher.csv
+data/distillation/teacher_outputs_v2/val_teacher.csv
+data/distillation/teacher_outputs_v2/test_real_teacher.csv
+data/distillation/teacher_outputs_v2/test_mixed_teacher.csv
+data/distillation/teacher_outputs_v2/test_challenge_teacher.csv
+```
+
+Ket qua audit teacher v2 can nho:
+
+```text
+test_real      macro-F1 0.8807, F1 label 1 0.7812
+test_mixed     macro-F1 0.9906, F1 label 1 0.9905
+test_challenge macro-F1 0.9899, F1 label 1 0.9878
+```
+
+Trong dien giai, `test_real` la benchmark chinh. `test_mixed` va `test_challenge` la danh gia phu.
+
+---
+
 ## 1. Huong di da chot
 
 Pipeline proof-of-concept mac dinh:

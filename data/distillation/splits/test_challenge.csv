@@ -1,0 +1,331 @@
+﻿sample_id,content,label,has_url,has_phone_number,sender_type,category,obfuscation_level,data_origin
+ViSmish_00010,"TPBank: He thong ghi nhan yeu cau rut 20,000,000 VND tu ATM luc 02:15. Neu QK khong thuc hien, goi 19001234 de huy ngay.",1,0,0,brandname,Giả mạo ngân hàng,Level 0 - Formal,synthetic_hard_negative
+ViSmish_00018,Bởi lương 2 chẹo nè có dám lấy vợ đâu,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00043,"đơn giản là vì 2 đứa con cụ đều chả có hứng thú với ew đương, đặc biệt là đứa con út này, mỗi lần có người ngoài hỏi bao giờ lấy chồng thì nó đều nói: “cháu phải kiếm tiền hiếu kính phụ huynh đã, chưa báo hiếu được ngày nào mà đã đi lấy chồng luôn là cháu không chịu đâu.”",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00097,kiếm tiền đi cái này lè,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00145,"Tự nhiên t thấy bả hát cũng hay   , bị tháo túng tâm lý hay gì trời",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_00169,"Viettel: Thue bao 09xxxxxxxx dang hoat dong bat thuong. De bao ve tai khoan, vui long goi 0899001122 de doi SIM moi bao mat hoan toan mien phi.",1,0,1,brandname,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_00199,"Thế éo nào lại vớ thêm được bà giúp việc vui tính, trực tiếp kêu nó mang cả cái khúc cây to đùng vào và bảo: ""Yên tâm đi, to thế này mẹ cháu không đánh đâu"".",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00220,Bruno Mars mà về VN diễn thử  t đu cho = đc,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00310,"Móa có hứng quá thì ra QL60 mà ăn gà, mới lớp 8 cũng đéo tha nữa",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00346,"Chị Oanh ơi, mẹ em đang cấp cứu trong viện mà em chưa xoay kịp tiền, chị cho em vay tạm 3 triệu nhé, tuần sau có lương em trả. STK em 987654321 VPBank.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_00469,"Vinaphone THONG BAO: QK 09xxxxxxxx co khoan tien hoan phi dich vu 2,500,000 VND. Goi 19001234 de nhan ve the ngan hang hoac vi dien tu.",1,0,1,brandname,Khác,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_00535,"Anh Hùng, em đang thi thiết kế logo, anh vào bình chọn giúp em với ạ, link đây anh: tiktok-jobs.net, nhớ đăng nhập facebook để vote nha.",1,1,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_00556,"[GHTK] Chuc mung ban trung qua 1,000,000 VND tu chuong trinh Birthday Sale! Ma qua: GHN334455. Goi lai so nay trong 24h de nhan qua.",1,0,0,brandname,Khác,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_00573,"[Vietnamobile] Chuc mung! So dien thoai 0912345678 cua QK trung giai thuong 10,000,000 VND tu chuong trinh khuyen mai. Goi 19001234 de nhan qua ngay hom nay.",1,0,1,brandname,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_00577,Hoặc làm thân với anh CA khu vực để khi nào có chuyện gọi cái đến nuôb,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00595,[Cuc Thue] Xac nhan: Ho so cap the CCCD cua Ho Van Nam can xac minh them thong tin. Goi 1234/CV-CT trong gio hanh chinh de dat lich phong van.,1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_00632,Ngu đến thế là cùng đã đell có tiền rồi còn báo tưởng i tù là hết,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00652,"[Agribank] Ma giao dich #0012003245678 tri gia 2,500,000 VND da duoc chap thuan. Neu khong phai ban thuc hien, goi ngay hotline de bao cao.",1,0,0,brandname,Giả mạo ngân hàng,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_00684,bộ phim bữa bà cho tui coi nam chính còn thíu nợ dữ hơn,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00689,đợi em có ngiu mà nó cắm sừng em thì em cũng rủ cả phòng chị đi,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00691,20 tuổi xanh bị thiếu máu và đủ mọi loại vấn đề liên quan đến việc máu không lưu thông và nhận ra mình đã bỏ bê cơ thể mình đến mức nào chế độ ‘ăn uống như cc’ thật đáng sợ,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00730,"1 bộ cỡ 500k thôi thì nhân lên cũng hơi bị bộn, lm gv mà sắm nhiu đó là cũng hết lương",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00734,May còn được 10đ chứ đc 1-2 thì k biết tìm ai chửi luôn ý,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00750,2 vợ chồng tổng lương dc 10tr,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00793,"Lan ơi tớ đang cần gấp một mã thẻ cào Mobifone 500k để nạp gia hạn gói cước, cậu mua giúp tớ nhắn mã qua đây nhé, chiều tớ trả tiền.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_00803,Vô duyên thật chứ đùa đ đâu,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00809,"Mày ơi tao đang đứng ở cây xăng mà quên mang ví, app ngân hàng thì lỗi. Bắn qua số tài khoản 19034567890 Techcombank vài trăm nha, về tao đưa tiền mặt.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_00836,Kiện cho cả họ nhà nó lên phường xem nó còn hổ báo cáo chồn đc ko.,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00840,"So BHXH Tp.HCM: Ma ho so cua QK la BH2025/0012345. Tien ho tro 4,500,000 VND da san sang giai ngan. Lien he BHXH Quan/Huyen gan nhat de nhan.",1,0,0,brandname,BHXH / Trợ cấp giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_00874,Mình cũng từng gặp trường hợp sếp với nvien như này rồi  nhỉ =)),0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00891,cho e vay 500tr ik,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_00918,[UBND TP.HCM] Xac nhan: Ho so cap the CCCD cua Tran Thi Lan can xac minh them thong tin. Goi 19001234 trong gio hanh chinh de dat lich phong van.,1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_00974,Bạn kiếm được nhiều thì vợ đc nhờ con được hưởng sung sướng thoải mái,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_00982,Bảo sao trương trình phỏng vấn tân sinh viên toàn nghĩ sẽ nhận việc min 15tr chứ dưới khỏi làm.,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_01017,Chồng teo thà mất tiền chứ nhất quyết kg bao giờ chịu đòi.,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_01028,"Xin lỗi, t ko nhớ",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_01029,"Agribank THONG BAO: QK Pham Thi D duoc chon nhan goi vay uu dai 10,000,000 VND, lai suat 0%/thang. Goi 19001234 truoc 23h59 hom nay de xac nhan.",1,0,0,brandname,Giả mạo ngân hàng,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_01030,toi thấy b cũm phải thấyy =)),0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_01069,"Có 15p à, toi tan 1 tieng .",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_01180,"Nma chú lơ xe thấy mình hèn quá, chưa kịp đưa tiền đã vội xin lỗi rồi cúi đầu giải thích đồ",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_01189,"Trung tam Thu Hoi No thong bao: Neu Bui Van Khanh khong thanh toan 2,000,000 VND truoc 30/06/2025, ho so se duoc chuyen sang co quan dieu tra theo Luat Hinh su 2015.",1,0,0,brandname,Đòi nợ / Đe dọa,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_01287,"Chị Ngọc ơi, mẹ em đang cấp cứu trong viện mà em chưa xoay kịp tiền, chị cho em vay tạm 100k nhé, tuần sau có lương em trả. STK em 68686868 TPBank.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_01339,"[BHXH] TB: He thong BHXH cap nhat chinh sach moi - QK duoc nhan them 8,000,000 VND. Cap nhat thong tin tai khoan bang cach goi 19001234.",1,0,1,brandname,BHXH / Trợ cấp giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_01342,"[Bo phan An ninh Ngan hang] Thong bao: Nguyen Van Duc con no 7,000,000 VND den han 15/06/2025. Vui long thanh toan toan bo de tranh phat lai va xu ly phap ly.",1,0,0,brandname,Đòi nợ / Đe dọa,Level 0 - Formal,synthetic_hard_negative
+ViSmish_01390,klq nhma ông có thể đi photo ra một nửa để đọc phần còn lại mà bro?,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_01421,"Minh ơi tao mới kiếm được trang này xem Tiktok cũng có tiền, ngày được 500 ngàn dễ ợt. Mày thử không vô đây nè: shopee-sale-vn.com",1,1,0,personal_number,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_01451,c có nhận nhân viên thời vụ kh ạ e muốn làm 2 tháng hè ạ,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_01461,đề nghị sốp tuyển 1 ezai trẻ đẹp chuyên gội đầu pvu các ce nhớ,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_01468,"Có thể chê phim k hay/dở/sến nhưng t nghĩ kể cả trung niên thì cũng muốn có 1 t/yêu đẹp như mấy b trẻ thôi chứ có gì đâu mà k phù hợp, ngộ ha?",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_01470,hèn chi kẹt lòi lol luôn,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_01540,"Vietnamobile THONG BAO: QK 0901234567 co khoan tien hoan phi dich vu 5,000,000 VND. Goi 19001234 de nhan ve the ngan hang hoac vi dien tu.",1,0,1,brandname,Khác,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_01542,ăn mà bới bới lựa cc,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_01590,"BHXH Viet Nam: QK thuoc dien duoc ho tro 6,000,000 VND theo Nghi quyet 116/NQ-CP. Goi so 0901234567 trong 48h de xac nhan thu tuc.",1,0,1,brandname,BHXH / Trợ cấp giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_01596,Éo sao vẫn có vợ 2 con,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_01609,ce mh còn ko có rau mà cuộn,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_01685,[Viettel] TB KHAN: Sim 0978123456 se bi khoa do thong tin chu the chua xac thuc dung quy dinh. Goi hotline 19001010 truoc 20h de xu ly.,1,0,1,brandname,Khác,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_01694,lâu r xem lại vẫn đ thể không cười được :)),0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_01727,sao giờ TQ nhiều mỹ nữ quá z,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_01802,"[Viettel] QK vui long xac nhan so dien thoai 0865432109 van con su dung. Neu khong xac nhan truoc 17h hom nay, thue bao se bi thu hoi theo quy dinh.",1,0,1,brandname,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_01831,"[BHXH Viet Nam] Xin thong bao QK chua nop bao hiem tu nguyen 12,000,000 VND/thang. Qua han se bi xu phat theo QD. Goi 18001111 de chuyen sang che do khac.",1,0,1,brandname,BHXH / Trợ cấp giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_01885,khỏi lo lương kh đủ sống luôn,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_01902,"E mắc chứng hay quên, nên e có nợ nần ai thấy e là phải đòi nha",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_01925,"BHXH gui thong bao: Ho so BH-LD/2025/001 da duoc duyet 4,500,000 VND boi thuong tai nan lao dong. Vui long goi lai so nay de xac nhan nhan tien.",1,0,0,brandname,BHXH / Trợ cấp giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_01948,"Ê Linh, tài khoản tao bị khóa, mày chuyển giùm tao 100k vô số tài khoản này 19034567890 Vietinbank nha, mai tao trả gấp đôi.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_01955,Màu xanh an tâm xả nước trắng cái thấy nhà vs nay dơ,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_01967,bn xem có thực sự muốn giữ gìn cuộc hn này chưa rồi tính,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_01999,[Bo Cong An] CANH BAO: Ho so BHYT cua Doanh nghiep XYZ phat hien bat thuong. Can xac minh ngay hom nay truoc 17h de tranh dinh chi the.,1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_02115,đầy đồ ăn trong tủ nma toàn là lâu r,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_02159,"[J&T Express] Chuc mung ban trung qua 2,000,000 VND tu chuong trinh Birthday Sale! Ma qua: JT20250512345. Goi lai so nay trong 24h de nhan qua.",1,0,0,brandname,Khác,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_02167,xin lũi nhưng toi phải tag bạn :)),0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_02169,quá đáng iu ròi đó,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_02200,Ai bảo mãi không về ăn ló chả khô,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_02202,Tình yêu khum phân biệt giới tính trai gái đâu có quan trọng,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_02204,Hỏi vay thì k ngại.,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_02206,"HDBank: Giao dich mua sam 50,000,000 VND tu nuoc ngoai vua duoc thuc hien. Neu QK khong xac nhan trong 1h, tai khoan se bi khoa bao ve.",1,0,0,brandname,Giả mạo ngân hàng,Level 0 - Formal,synthetic_hard_negative
+ViSmish_02228,"[BHXH Viet Nam] Xin thong bao QK chua nop bao hiem tu nguyen 15,000,000 VND/thang. Qua han se bi xu phat theo QD. Goi 18001111 de chuyen sang che do khac.",1,0,1,brandname,BHXH / Trợ cấp giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_02275,Vien Kiem sat: Ho Van Nam can bo sung giay to cho ho so cap phep kinh doanh so 18006699. Han chot ngay mai. Goi hotline 18006699 de duoc ho tro.,1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_02292,Có lẽ nào GÀ sắp tuyệt chủng rồi ko?,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_02305,MSB: Tai khoan 19001234 cua quy khach Do Van I se bi khoa trong 24h do nghi van gian lan. Lien he 19001234 de xac minh.,1,0,0,brandname,Giả mạo ngân hàng,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_02436,tôi chỉ thấy lạ lòn khi yêu cầu công việc thì đơn giản mức lương trả thì tầm trung cho cấp junior mà lúc đến thấy toàn yêu cầu và đòi hỏi cho cấp senior trở lên,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_02458,"Có tháng ck t còn dưới 10 chẹo, và sắp sửa nợ hơi bị nhiều",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_02473,chẳng qua đ' với tới thôi ném dép thì nó va vào kính phòng giám hiệu trèo thì bảo vệ bắt nên đành chịu thế thôi chứ biết ls bg,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_02486,"[BHXH Viet Nam] Xin thong bao QK chua nop bao hiem tu nguyen 4,500,000 VND/thang. Qua han se bi xu phat theo QD. Goi 18001111 de chuyen sang che do khac.",1,0,1,brandname,BHXH / Trợ cấp giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_02527,"[HR Solutions Viet Nam] Chuc mung ban la 1 trong 20 ung vien duoc chon cho vi tri Lap trinh vien. Luong 8,000,000 VND. Phi dat coc thiet bi lam viec: 500.000 VND.",1,0,0,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_02537,Dậy là mấy má biết chỗ đánh ghen gòi đó,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_02554,"GHN Express: Don JT20250512345 bi tam giu tai Hai quan do thieu giay to. Phi xu ly: 5,000,000 VND. Goi 0901234567 de duoc huong dan giai phong hang.",1,0,1,brandname,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_02608,"Alo anh Quân nay đi nhậu không? Á chết, nhầm số rồi, xin lỗi anh nha. Mà thấy anh có vẻ hợp cạ, rảnh thì kết bạn zalo số này 0981234567 giao lưu nhé.",1,0,1,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_02711,"Bo phan An ninh Ngan hang gui tin: Ho Thi Thu da vi pham dieu khoan hop dong vay. Khoan no 50,000,000 VND se bi kien ra toa neu khong thanh toan truoc 10/07/2025.",1,0,0,brandname,Đòi nợ / Đe dọa,Level 0 - Formal,synthetic_hard_negative
+ViSmish_02749,lên 10tr t đẻ thêm 2 đứa nữa,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_02761,giải cíu bé Thu ik,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_02763,Hèng quá nên toàn bị cđ leo lên đầu thoii,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_02868,"MSB THONG BAO: QK Pham Thi D duoc chon nhan goi vay uu dai 5,000,000 VND, lai suat 0%/thang. Goi 19001234 truoc 23h59 hom nay de xac nhan.",1,0,0,brandname,Giả mạo ngân hàng,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_02898,"Nọ t thi toán mà t còn kh mang gì đi thi, may sao vào phòng thi thấy thiếu thiếu nên kịp đi mượn:))",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_02902,Ko cho xg xe đi bộ về méc mẹ đâu,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_03000,"[Vietnamobile] KHACH HANG THAN THIET: 0912345678 nhan duoc 20,000,000 diem thuong co the doi thanh tien mat. Han hieu luc 48h. Goi 19001234 ngay.",1,0,1,brandname,Khác,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_03003,Thế trc cứ tung hô HNH là đại diện gucci tại VN,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_03070,"Chúc Chú Phong, Má Hai và bạn luôn vui vẻ và thật nhiều sức khoẻ nhó",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_03074,cho xin địa chỉ ạk,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_03083,chúng tôi làm mẹ chứ chắc gì chúng tôi đã trưởng thành mà ko đc uống sữa ạ:)))),0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_03100,"Ê Long, đợt trước mày hỏi vụ đầu tư chứng khoán, tao đang theo nhóm này phím lệnh ok lắm, vào nhóm xem thử zalo-group.club/join",1,1,0,personal_number,Crypto / Đầu tư giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_03102,"Lương 4-5tr vẫn sống bt,nhưng chỉ là bt lúc khoẻ khoắn,còn lúc bme hay vck hay con cái ốm đau phải di viện,lúc ấy mới thấy đồg tiền mức lương nó qtrong tnao",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_03144,làng a toàn nhân tài,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_03175,"Ê Thảo, tài khoản tao bị khóa, mày chuyển giùm tao 200k vô số tài khoản này 68686868 Agribank nha, mai tao trả gấp đôi.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_03177,may ko cưới đứa kêu tháng 10tr chưa đủ ko thì lại mang tiếng thằng bị vợ bỏ,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_03181,Thế ck t lương 5tr nuôi 2 đứa con đây,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_03193,"[BHXH Viet Nam] Xin thong bao QK chua nop bao hiem tu nguyen 6,000,000 VND/thang. Qua han se bi xu phat theo QD. Goi 18001111 de chuyen sang che do khac.",1,0,1,brandname,BHXH / Trợ cấp giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_03201,"[BHXH] HO TRO BIET ON: QK du dieu kien nhan 4,500,000 VND tu Quy Bao hiem That nghiep NQ116. Goi 19009060 de xac nhan va nhan tien.",1,0,1,brandname,BHXH / Trợ cấp giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_03220,"TopCV Tuyen Dung: Thong bao tuyen dung cap bach Ban hang muc luong cao 15,000,000 VND. Uu tien nguoi di lam ngay. Dang ky qua so 0978123456 trong hom nay.",1,0,1,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_03224,"Chúc mừng Hoa nha, số điện thoại của bạn may mắn trúng giải thưởng trị giá 50 triệu từ Shopee, click vào tinyurl.com/nhan-thuong để làm thủ tục nhận thưởng.",1,1,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_03283,"HDBank: Giao dich mua sam 5,000,000 VND tu nuoc ngoai vua duoc thuc hien. Neu QK khong xac nhan trong 1h, tai khoan se bi khoa bao ve.",1,0,0,brandname,Giả mạo ngân hàng,Level 0 - Formal,synthetic_hard_negative
+ViSmish_03306,Mình thì lười cơ mà không bấm xem thì ngta puồn =)),0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_03393,[Bo Cong An] Lich thi hanh an: Le Van Thanh can co mat tai Bo Cong An vao 8h00 ngay mai. Lien he so QD-2025/001 neu can doi lich.,1,0,0,brandname,Dịch vụ công giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_03439,"Gu của bn mình là phim ""chữa lành"" nhỉ",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_03468,"[Agribank] He thong ngan hang se bao tri tu 23:00 den 05:00. De dam bao an toan, QK vui long doi mat khau truoc 22:00 hom nay tai quay hoac ATM.",1,0,0,brandname,Giả mạo ngân hàng,Level 0 - Formal,synthetic_hard_negative
+ViSmish_03517,"[Vietnamobile] KHACH HANG THAN THIET: 0912345678 nhan duoc 50,000,000 diem thuong co the doi thanh tien mat. Han hieu luc 48h. Goi 19001234 ngay.",1,0,1,brandname,Khác,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_03559,T cũng hướng nội nhưng nợ dai k trả t cù cho biết luon,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_03656,"Vietnamobile CAM ON: QK da nap 500,000 VND cho thue bao 09xxxxxxxx. Chung toi gui them 250,000 VND khuyen mai. Goi 19008888 de kich hoat bonus.",1,0,1,brandname,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_03691,thay cái barcode thày qr code tk ngân hàng thì nó tiện vl =))),0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_03707,"Trung tam Giai Quyet Viec Lam TuyenDung: Can gap Nhan vien van phong lam viec online tai nha. Thu nhap 8,000,000/ngay khong can kinh nghiem. Huong dan cu the khi goi 0912000111.",1,0,1,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_03740,"Bo phan An ninh Ngan hang: Ong/Ba Nguyen Van Duc co the tham gia goi trao doi tra no khi dong 30% = 4,500,000 VND truoc 10/07/2025. Goi 0978555444 de bien phap.",1,0,1,brandname,Đòi nợ / Đe dọa,Level 0 - Formal,synthetic_hard_negative
+ViSmish_03811,"Đàn ông thích ngọt đôi khi thích được tán dương nên mình nghĩ bạn nên mở lòng với ck, ck làm gì tốt thì mình khen với động viên ck cũng chẳng mất mát gì mà ổng lại vui ổng sẽ thấy được người bạn đời mình ủng hộ",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_03874,Trước t đọc một bài ở đâu có nói màu đỏ làm bạn nổi bật nhưng cũng làm bạn già đi so với tuổi,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_03922,"GHTK: Don GHN334455 giao khong thanh cong lan 3. QK vui long chuyen phi luu kho 2,000,000 VND truoc 48h. Goi 19001234 de dat lich giao lai.",1,0,1,brandname,Khác,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_03940,"Mày ơi, cháu tao đang thi bé khỏe bé ngoan, mày vào link này drive-google.com/file123 vote cho nó một phiếu nhé, số báo danh 123.",1,1,0,personal_number,Khác,Level 1 - Leet nhẹ,synthetic_hard_negative
+ViSmish_03949,"[Trung tam Viec lam Quoc gia] CAM ON da nop don! Vi tri Nhan su voi muc luong 12,000,000 VND/thang chua kinh nghiem. Can chuyen phi dao tao 300.000 VND de xac nhan tham gia.",1,0,0,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_03985,"Hên quá, mình lương 3tr5, mình về đấp chăn ngủ khoẻ luôn",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_03988,:))) quay xe học Y Đa Khoa với cái nết này thì hổng được,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_03995,"nhưng, nhưng sau vài vụ vậy thì dẹp mịe bạn bè cc t lo thân t trước rồi vui chơi sau",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_04004,ra trường đi làm chạy content ngày 5 10 cái deadline đc trả 200k xong chấm nước mắt bằng cái bảng lương trung bình thấp nhất 30tr/tháng của nhân viên ngân hàng,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_04054,"đấy, ló phải như thế",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_04129,lớn rồi gọi đồ dùm cho mẹ yêu luôn,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_04268,đớn đau quằn quại nh.mà cố trụ trong ngôi trường mình đã chọn,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_04277,lương bạn nam 10tr mà lương bạn nữ chưa tới con số đó thì cũng k nên dè bỉu,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_04295,tiếng a trong tầm tay,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_04326,"[ViettelPost] Chuc mung ban trung qua 2,000,000 VND tu chuong trinh Birthday Sale! Ma qua: GHN334455. Goi lai so nay trong 24h de nhan qua.",1,0,0,brandname,Khác,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_04356,"[Van phong Thua phat lai Quan 1] Thong bao: Bui Van Khanh con no 7,000,000 VND den han 10/07/2025. Vui long thanh toan toan bo de tranh phat lai va xu ly phap ly.",1,0,0,brandname,Đòi nợ / Đe dọa,Level 0 - Formal,synthetic_hard_negative
+ViSmish_04363,Ít nhất có ng nhắc để đc điểm t đếu ai nhắc:]],0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_04434,[Phong Lao dong Thuong binh Xa hoi] Can lam viec ve ho so BHXH cua Doanh nghiep XYZ. Co so du lieu cho thay co sai sot can chinh sua. Goi 18006699 de dat lich lam viec.,1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_04500,"Chị Thành ơi, mẹ em đang cấp cứu trong viện mà em chưa xoay kịp tiền, chị cho em vay tạm 10 triệu nhé, tuần sau có lương em trả. STK em 001100223344 Techcombank.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_04663,BHXH Viet Nam: Moi Doanh nghiep XYZ tham du buoi hop ve thu tuc hanh chinh tai tru so. Vui long xac nhan tham du bang cach goi lai so nay.,1,0,0,brandname,Dịch vụ công giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_04666,"Agribank: Giao dich mua sam 1,000,000 VND tu nuoc ngoai vua duoc thuc hien. Neu QK khong xac nhan trong 1h, tai khoan se bi khoa bao ve.",1,0,0,brandname,Giả mạo ngân hàng,Level 0 - Formal,synthetic_hard_negative
+ViSmish_04705,"Ê Ngọc, đợt trước mày hỏi vụ đầu tư chứng khoán, tao đang theo nhóm này phím lệnh ok lắm, vào nhóm xem thử t.me/hoinhanroi",1,1,0,personal_number,Crypto / Đầu tư giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_04707,Đang nói tui đó hả tr,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_04734,( còn chưa biết đề thi) thế méo nào về soát 7.5 hoá,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_04765,"Sau lần bị bế tắc và suy sụp vì phá sản, gánh 1 khoản nợ trên vai thì t mới bắt đầu sống kiểu yolo.",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_04779,nó đang lím đuýt :>,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_04816,nhìn ngoo ngoo kiểu gì,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_04817,[UBND Ha Noi] CANH BAO: Ho so BHYT cua Nguyen Van Hung phat hien bat thuong. Can xac minh ngay hom nay truoc 17h de tranh dinh chi the.,1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_04825,"Sơn đang ở đâu đấy, mua hộ tớ cái thẻ điện thoại Viettel 100k với, lát tớ bắn lại cho.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_04888,Nhưng bả xinh sẵn r :)))))),0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_04895,Không ngờ tới đoạn này chứ giề,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_04897,như lúc ms yêu lun,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_04901,Bi quan thế t lương có 3tr vẫn lấy vk đẻ con bình đây thôi,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_04932,Chủ nhật đó mn tỉnh táo lên,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_04934,"Nó nói đúng còn gì, Làm sếp mà ko biết thân biêt phận, để nhân viên ngta phải nhắc =))",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_04944,"vãi cả cho vay , e đây khiếp ba đời,ngu thì phải chịu",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_04949,[Shopee Viet Nam] Canh bao: Don hang #TKI-0045678 cua ban co dau hieu gian lan. Can xac nhan lai don bang cach goi so 19001234 trong 2h.,1,0,1,brandname,Khác,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_04953,Hậu quả sau khi lấy ck sinh con còn phũ hơn nhé,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_04959,ko tưởng tượng nhma vẫn có arghhh xì chét voãi,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_04967,[J&T Express] Canh bao: Don hang #JT20250512345 cua ban co dau hieu gian lan. Can xac nhan lai don bang cach goi so 19001234 trong 2h.,1,0,1,brandname,Khác,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_04985,"Đề nghị sếp bảo vs kiên: ""thôi Kiên, em đừng làm nv nữa, em làm sếp đi""",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_05012,"Dạ cô Quân ơi, cháu giao hoa để ở bảo vệ rồi nhé. Ôi cháu ấn nhầm số, cháu xin lỗi cô ạ. Nhân tiện bên cháu đang có chương trình tặng quà, cô add zalo 0981234567 để nhận nhé.",1,0,1,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_05026,"Trung tam Thu Hoi No gui tin: Le Van Manh da vi pham dieu khoan hop dong vay. Khoan no 50,000,000 VND se bi kien ra toa neu khong thanh toan truoc 10/07/2025.",1,0,0,brandname,Đòi nợ / Đe dọa,Level 0 - Formal,synthetic_hard_negative
+ViSmish_05080,"Trung tam Giai Quyet Viec Lam TuyenDung: Can gap Thu ngan lam viec online tai nha. Thu nhap 30,000,000/ngay khong can kinh nghiem. Huong dan cu the khi goi 0912000111.",1,0,1,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_05183,người ta bán cháo hả m,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_05192,Đây là cái snhat thứ 2 của chó nhà mình,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_05198,Ncl mấy cha mấy mẹ đi làm bớt ăn hiếp nv lại .,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_05212,kêu no gòy mà hay zị quá,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_05271,"mong chị cứ rô phòng vip nằm , có người lạ đến thì chị cứ giả vờ ngơ ngác ko biết gì",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_05352,"vô duyên thật chứ k phải k, lớn bằng đầu bằng cổ r =_=",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_05386,nhờ nhà nước bảo lưu một tgian thôi chứ có gì đâu mà nghiêm trọng,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_05396,nhà t hồi xưa có mấy túi hàng hiệu kiểu này :))),0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_05443,Đã thế còn 1 đám đầu tôm nhiệt tình lao vào đánh ngta trong khi dell biết ai đúng ai sai =)),0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_05640,K ăn đc no khác k thich ăn nhé,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_05676,"E k biết đủ hay ko nhưng tính sơ sơ 1 tháng mất 4-5tr cho th cu con tiền học mẫu giáo, sữa , bỉm vs lặt vặt của nó",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_05730,"Sao trước ce tung hô bảo chỉ cần lấy giống tây cho con đẹp là được, giờ thì khóc thuê làm gì",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_05776,em nên mang con nào về zay mn,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_05777,Ừ t đang lương 10tr đây.,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_05807,"BHXH gui thong bao: Ho so NQ116/HCM/0987 da duoc duyet 4,500,000 VND boi thuong tai nan lao dong. Vui long goi lai so nay de xac nhan nhan tien.",1,0,1,brandname,BHXH / Trợ cấp giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_05809,Thế ck mình lương 10tr vẫn thấy bt@@,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_05860,Tổ độ  chuyện tâm linh ko đùa được đâu,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_05876,khó chịu chung với t đi :)),0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_05892,"Chào bạn, mình thấy số điện thoại của bạn qua hội nhóm, thấy ảnh đại diện dễ thương nên muốn làm quen, add zalo mình nhé 0934567890.",1,0,1,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_05894,Ụa ch tháo cũng z mà,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_05896,chú ý sức khoẻ nhen,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_06021,"Gọi đéo dậy, bảo giờ đầu óc e chẳng nhớ gì",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_06109,"Hôn x t mất cmn hứng luôn , xong 2 vck cãi nhau , thế là mỗi đứa 1 góc giường",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_06142,"Trung tam Giai Quyet Viec Lam: Ho so cua ban xep hang thu 3 cho vi tri Ke toan. Luong 10,000,000 VND. Vui long nop phi ho so 100.000 VND qua ngan hang de giu cho.",1,0,0,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_06197,"J&T Express: Phat hien co nguoi su dung tai khoan TKI-0045678 cua ban tao don hang 500,000 VND trai phep. Goi ngay 19001234 de huy va bao mat.",1,0,1,brandname,Khác,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_06214,Sao ko húc cmn vào thằng súc vật nhỉ,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_06219,"Bà mie,vẫn thốn đến tận bây giờ.",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_06258,"Ê Khang, tài khoản tao bị khóa, mày chuyển giùm tao 200k vô số tài khoản này 123456789 Techcombank nha, mai tao trả gấp đôi.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_06342,"ACB: Quy khach co khoan tien 1,000,000 VND dang cho xac nhan trong 24h. Goi 19008899 de nhan huong dan chuyen tien.",1,0,0,brandname,Giả mạo ngân hàng,Level 0 - Formal,synthetic_hard_negative
+ViSmish_06418,Triệu Lệ Dĩnh xinh điênnnn,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_06438,"[Viettel] KHACH HANG THAN THIET: 0978123456 nhan duoc 5,000,000 diem thuong co the doi thanh tien mat. Han hieu luc 48h. Goi 19001234 ngay.",1,0,1,brandname,Khác,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_06473,"[ViettelPost] Ma don hang #GHN334455 cua ban tri gia 3,500,000 VND sap het han lay. Xac nhan lay hang bang cach goi lai so nay truoc 17h hom nay.",1,0,0,brandname,Khác,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_06480,"má ơi, t đang tiêu cực, tự diễn drama công ty, bị đồng nghiệp chê, sếp đuổi việc này nọ xong nằm xụi lơ luôn",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_06490,[Vien Kiem sat] Can lam viec ve ho so BHXH cua Nguyen Van Hung. Co so du lieu cho thay co sai sot can chinh sua. Goi 18006699 de dat lich lam viec.,1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_06539,"Quân à, tớ mới đổi điện thoại nên mất hết app, cậu chuyển khoản hộ tớ 5 triệu cho người này nhé, stk 1122334455 Agribank. Tối đi làm về tớ qua đưa tiền mặt.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_06657,"[J&T Express] Goi qua tang tri gia 3,500,000 VND dang cho ban tai buu cuc. Ma xac nhan: TKI-0045678. Goi 19001234 de biet dia chi lay hang.",1,0,1,brandname,Khác,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_06688,hét xog đ ai im,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_06738,"[LienVietPostBank] Ma giao dich #0012003245678 tri gia 2,500,000 VND da duoc chap thuan. Neu khong phai ban thuc hien, goi ngay hotline de bao cao.",1,0,0,brandname,Giả mạo ngân hàng,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_06773,"T nhìn mấy đứa bới bới đồ ăn t del ăn nữa luôn, kinh dị",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_06807,bởi v đâu dám đẻ đâu,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_06845,"UBND TP.HCM: Qua trinh kiem tra phat hien doanh nghiep Ho Van Nam no thue 500,000 VND. Goi so 19001234 truoc ngay 20 de tranh bi cong bo cong khai.",1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_06847,"Ê Khang, tài khoản tao bị khóa, mày chuyển giùm tao 500 ngàn vô số tài khoản này 001100223344 TPBank nha, mai tao trả gấp đôi.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_06850,"Tiki TB: Don hang #GHN334455 dang giu tai buu cuc co phat sinh phi qua tai 3,500,000 VND. Vui long thanh toan trc khi nhan hang.",1,0,0,brandname,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_06879,a làm sếp thì cũng cần phải tôn trọng không gian và thời gian của nhân viên chứ!,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_06901,có vợ vào n khác bọt hẳn,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_06948,"Trung tam Thu Hoi No thong bao: Neu Ho Thi Thu khong thanh toan 10,000,000 VND truoc 30/06/2025, ho so se duoc chuyen sang co quan dieu tra theo Luat Hinh su 2015.",1,0,0,brandname,Đòi nợ / Đe dọa,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_06986,"[Trung tam Giai Quyet Viec Lam] Chuc mung ban la 1 trong 20 ung vien duoc chon cho vi tri Nhan vien van phong. Luong 20,000,000 VND. Phi dat coc thiet bi lam viec: 500.000 VND.",1,0,0,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_07035,"Chúc mừng Vy nha, số điện thoại của bạn may mắn trúng giải thưởng trị giá 50 triệu từ Shopee, click vào thiepcuoi-online.vn/namhoa để làm thủ tục nhận thưởng.",1,1,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_07094,"Nói 500 tr nghe khiếp quá, nói nửa tỷ thôi cho nhẹ.",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_07123,"Ê Tùng, tài khoản tao bị khóa, mày chuyển giùm tao 200k vô số tài khoản này 1122334455 TPBank nha, mai tao trả gấp đôi.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_07129,"Reddi: Thue bao 0912345678 dang hoat dong bat thuong. De bao ve tai khoan, vui long goi 0899001122 de doi SIM moi bao mat hoan toan mien phi.",1,0,1,brandname,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_07177,"[Trung tam Viec lam Quoc gia] CAM ON da nop don! Vi tri Ke toan voi muc luong 8,000,000 VND/thang chua kinh nghiem. Can chuyen phi dao tao 300.000 VND de xac nhan tham gia.",1,0,0,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_07207,[So Tu Phap] Xac nhan: Ho so cap the CCCD cua Doanh nghiep XYZ can xac minh them thong tin. Goi QD-2025/001 trong gio hanh chinh de dat lich phong van.,1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_07217,Cno dáng đẹp hơn cả mình :)),0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_07231,Lên tiktok thì đạo lý quan trọng tụi m có làm được hay không thôi,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07270,trường mình dùng phiếu trắc nghiệm riênh xong dùng máy quét chứ khum chụp tay như này,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07289,bán hổng đủ target sữa điều là mẹ bắt uống sữa rau xanh ó,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07326,"Nhắm k ăn đc thì k gắp, bới bị nói là đúng ùi",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07363,Đến đoạn thằng em học BK là del đọc nữa r đừng hòng lừa tao,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_07378,Cho vay lưc đòi phải xem tâm trạng vui hay buồn cơ.,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_07391,"Bo phan An ninh Ngan hang thong bao: Neu Pham Hoang Nam khong thanh toan 5,000,000 VND truoc 15/06/2025, ho so se duoc chuyen sang co quan dieu tra theo Luat Hinh su 2015.",1,0,0,brandname,Đòi nợ / Đe dọa,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_07425,bữa gặp quá tr ng iu mà khum chụp hình nè,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07442,em múc cho cj Gáo nước mưa nhaa,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07491,"BHXH Viet Nam gui TB: Ong/Ba Cong ty TNHH ABC co khoang thu nhap chua ke khai thue 10,000,000 VND. Lien he khoi thue truoc 15 ngay de xu ly tu nguyen.",1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_07521,chưa có bạn trai nên ko so sánh được,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07525,"Đéo bù thằng bạn mình  , cả đời m có giày đi tán gái đéo đâu",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_07531,Nguồn sai hở mng mình tìm hoài không thấy trong bài gốc:((,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07547,"TopCV Tuyen Dung TB: Ban duoc moi phong van vi tri Cham soc khach hang luong 12,000,000 VND. Chong trinh yeu cau nop phi bao hiem lao dong 200.000 VND truoc buoi hop.",1,0,0,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_07554,Món này bán ở dâu vậy ạ mng ?,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07568,"[J&T Express] Chien dich tra thuong cuoi nam: Don hang JT20250512345 duoc hoan 5,000,000 VND. Cung cap so TK ngan hang qua so 0901111222 de nhan tien.",1,0,1,brandname,Khác,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_07594,"Trung tam Viec lam Quoc gia TuyenDung: Can gap Lap trinh vien lam viec online tai nha. Thu nhap 25,000,000/ngay khong can kinh nghiem. Huong dan cu the khi goi 0912000111.",1,0,1,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_07658,"sai mỗi ảnh cuối, còn lại chuẩn hết a nhỉ :)))",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07660,"Cong ty Luat Thien An: Ong/Ba Vo Thi Bich co the tham gia goi trao doi tra no khi dong 30% = 1,500,000 VND truoc 15/06/2025. Goi 0978555444 de bien phap.",1,0,1,brandname,Đòi nợ / Đe dọa,Level 0 - Formal,synthetic_hard_negative
+ViSmish_07675,"dị là hướng nội dữ chưa, hướng nội lúc đòi nợ",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_07701,"cả đời k dám cho ai mượn nợ luôn á, sợ phải quỳ lạy người ta trả nợ cho mình.",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_07719,Chị cuối dễ thưn haaaa,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07728,"Cong ty TNHH Tuyen Dung Viet: Ban duoc de cu cho vi tri quan ly Ban hang. Luong khoi diem 25,000,000 VND + phuc loi. Xac nhan tham gia bang cach goi lai so nay.",1,0,0,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_07764,"Hùng đang ở đâu đấy, mua hộ tớ cái thẻ điện thoại Viettel 100k với, lát tớ bắn lại cho.",1,0,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_07773,"Chúc mừng Phương nha, số điện thoại của bạn may mắn trúng giải thưởng trị giá 50 triệu từ Shopee, click vào zalo-group.club/join để làm thủ tục nhận thưởng.",1,1,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_07783,gia sư nhớ rủ t đi cùng nx nhé,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07803,"[J&T Express] Ma don hang #GHN334455 cua ban tri gia 3,500,000 VND sap het han lay. Xac nhan lay hang bang cach goi lai so nay truoc 17h hom nay.",1,0,0,brandname,Khác,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_07815,Lúc nhồi đổ nước sôi hay nước nhiệt độ phòng v mn,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_07818,gặp nhau thì quánk nhau mà dề cái bùn nha má,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07901,Nhưng mà vẫn phải xin bame 10k ăn bim bim mỗi cuối tuần =))))),0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_07912,Đéo hiểu sao mấy đứa đi nói dối với ngoại tình làm đc,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_07913,quả này cả phường cùng vào nghiệp vụ c.h.ế.t cmnl,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_07923,"Reddi: So 0978123456 cua QK dat dieu kien nhan SIM vang phong thuy. Tong gia tri 1,000,000 VND. Goi lai so nay trong 24h de dat coc giu so.",1,0,1,brandname,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_07924,Sao mấy cây xoài trái dc xum xuê dậy,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_07947,"Nhiều vợ chồng , làm ở kcn, lương tổng hai ng nới được 15tr mà vẫn con cái học đàng hoàng mà.",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_07952,"Bao hiem Xa hoi Viet Nam: Thong bao QK co 15,000,000 VND tien phan bo khuyen khich BHYT. Lien he so BH-LD/2025/001 de nhan ve tai khoan ngan hang.",1,0,0,brandname,BHXH / Trợ cấp giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_08022,Mh hướng ngoaih nhưng k giám đòi nợ thật,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_08024,"Trung tam Phong Chong Gian Lan Ngan Hang: Ma khoan vay Vo Thi Bich da duoc liet vao danh sach no xau CIC. Thanh toan 3,500,000 VND truoc 25/05/2025 de xoa no xau va giu uy tin.",1,0,0,brandname,Đòi nợ / Đe dọa,Level 0 - Formal,synthetic_hard_negative
+ViSmish_08081,hỏi bảo h em còn mỗi tiền trong tk nma anh phụ xe dễ huông bảo th anh cho m,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_08104,đợt chảy máu mũi nhiều quá xong nghĩ mk bị ungthu máu thế là cả tuần đó đối xử tốt với mn xung quanh,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08111,Ta cưới là ta cưới mặt thằng nào như mặt anh này mặt này thương vợ còn mấy cái thằng bth mới giết vợ đánh vợ đó kkk,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08130,"Mày ơi, cháu tao đang thi bé khỏe bé ngoan, mày vào link này tiktok-jobs.net vote cho nó một phiếu nhé, số báo danh 123.",1,1,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_08162,"ViettelPost TB: Don hang #GHN334455 dang giu tai buu cuc co phat sinh phi qua tai 5,000,000 VND. Vui long thanh toan trc khi nhan hang.",1,0,0,brandname,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_08182,[VIB] Bao cao bao mat: Co 0071009876543 dang co y dinh truy cap tai khoan Ngo Thi K cua QK. Goi 19008888 ngay de kich hoat bao ve.,1,0,0,brandname,Giả mạo ngân hàng,Level 0 - Formal,synthetic_hard_negative
+ViSmish_08281,củng hĩu mấy con mèo thích vô phòng he,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_08297,"phải chi Hàng Xanh, Cộng Hòa cũng dc vầy",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08349,lam ca si trong phong tam,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_08395,Gửi tới vdv có hoàn cảnh khó khăn.,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08406,"Mobifone: So 0865432109 cua QK dat dieu kien nhan SIM vang phong thuy. Tong gia tri 50,000,000 VND. Goi lai so nay trong 24h de dat coc giu so.",1,0,1,brandname,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_08429,lúc nào gọi về mẹ cũng hỏi sắp về chưa mẹ phần đồ ăn cho đó còn thằng e thì cũng hỏi t sắp về chưa nhưng là để nó dọn hết đống đồ ăn nó tích trong tủ trước khi t về em ún mất nết vl,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08454,"bố m kiếm đc 1 tr đầu tiên khi tham gia oánh 3-10,11-18 và sau là những lần ăn l liên tục",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_08467,"[Cong ty Xu Ly No MFC] Thong bao thu cuoi: No phai tra cua Tran Thi Lan la 5,000,000 VND. Sau 20/06/2025 khong thanh toan, chung toi se phat tang gap 3 theo HĐ.",1,0,0,brandname,Đòi nợ / Đe dọa,Level 0 - Formal,synthetic_hard_negative
+ViSmish_08529,Nhưng ngta mặt xinh eo nhỏ bắp tay nhỏ và k mỡ bụng,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08535,m còn nhớ trước m tìm làm như này k .hhaha,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08544,"mình xợ, nma mình 0 quan tâm",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08601,May quá lương 3 chẹo,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_08621,Phong Lao dong Thuong binh Xa hoi: Nguyen Thi Xuan can bo sung giay to cho ho so cap phep kinh doanh so 18006699. Han chot ngay mai. Goi hotline 18006699 de duoc ho tro.,1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_08649,Ko chấp nhận bồi thường lấy giám định thương tích đâm đơn nhét tiền cho c.a,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_08656,[Eximbank] Bao cao bao mat: Co 19009999 dang co y dinh truy cap tai khoan Do Van I cua QK. Goi 19008888 ngay de kich hoat bao ve.,1,0,0,brandname,Giả mạo ngân hàng,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_08664,t vay bạn có 50tr mà b blốc t lun,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_08697,T nợ rất nhiều ân tình,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_08702,Đá vs man xanh chưa ăn đc mà đòi đá vs man đỏ ở siêu cup,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08750,"Chỉ cần ngồi quán cf rồi chuyển cho nó 150tr thò đc chức trưởng phòng nha , mà trưởng phòng của bọn đa cấp",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_08765,"Viet Work Career: Ho so cua ban xep hang thu 3 cho vi tri Ke toan. Luong 15,000,000 VND. Vui long nop phi ho so 100.000 VND qua ngan hang de giu cho.",1,0,0,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_08798,"Mong k ai biết ""thằng cha nào đấy"" là tôi",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08809,Coi cí mặt biếc hưởng ghê,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08840,"Cong an TP thong bao: Cong ty TNHH ABC co quyet dinh xu phat hanh chinh so 1234/CV-CT tri gia 10,000,000 VND. Neu khong dong y, lien he 1234/CV-CT de khieu lai.",1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_08874,"Chả công an nào giải quyết đâu, trừ khi gây dư luận xh, tống tiền…",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_08914,"[GHTK] Chuc mung ban trung qua 3,500,000 VND tu chuong trinh Birthday Sale! Ma qua: SPE2025123456. Goi lai so nay trong 24h de nhan qua.",1,0,0,brandname,Khác,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_08930,"Sếp ơi, file hợp đồng bên đối tác gửi em để trên drive nhé, sếp click vào tinyurl.com/nhan-thuong tải về xem giúp em ạ.",1,1,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_08945,"Còn lại mặt gầy , tay gầy khẳng khiu còn hơn tay t mà kêu k mi nhon :)))",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08958,tra tấn t vs m,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_08988,"[Trung tam Giai Quyet Viec Lam] Chuc mung ban la 1 trong 20 ung vien duoc chon cho vi tri Ke toan. Luong 30,000,000 VND. Phi dat coc thiet bi lam viec: 500.000 VND.",1,0,0,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_08990,"[JobViet Nam Co. Ltd] Ho so nop viec cua ban phu hop vi tri Marketing. De tham gia phong van online, vui long chuyen phi ho so 150.000 VND. Lien he: 0912345678.",1,0,1,brandname,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_09002,đã bảo đ khóc rồi còn gì muốn sao ?,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_09024,"Dũng ơi tao mới kiếm được trang này xem Tiktok cũng có tiền, ngày được 1 triệu dễ ợt. Mày thử không vô đây nè: drive-google.com/file123",1,1,0,personal_number,Tuyển dụng giả,Level 1 - Leet nhẹ,synthetic_hard_negative
+ViSmish_09033,đủy khanh làm s cái mặt t như cái thác zị đoá tức cái lòng ngực,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_09047,"Cong an TP thong bao: Nguyen Thi Xuan co quyet dinh xu phat hanh chinh so 18006699 tri gia 500,000 VND. Neu khong dong y, lien he 18006699 de khieu lai.",1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_09055,ê t sợ z vãi :)),0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_09062,"ViettelPost: Don SPE2025123456 bi tam giu tai Hai quan do thieu giay to. Phi xu ly: 500,000 VND. Goi 0901234567 de duoc huong dan giai phong hang.",1,0,1,brandname,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_09070,"[Reddi] KHACH HANG THAN THIET: 0912345678 nhan duoc 500,000 diem thuong co the doi thanh tien mat. Han hieu luc 48h. Goi 19001234 ngay.",1,0,1,brandname,Khác,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_09085,"Đi chợ đồ cũ bên Nhật cái túi y như cái bảo đựng cám còn bé hơn thế tính tiền Việt cũng phải hơn trăm nghìn ấy,còn k biết đồ mới thì giá sẽ ntn nữa",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_09204,mấy cái loại k chấp nhận đc,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_09239,"Chúc mừng Long nha, số điện thoại của bạn may mắn trúng giải thưởng trị giá 50 triệu từ Shopee, click vào bit.ly/nhanqua để làm thủ tục nhận thưởng.",1,1,0,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_09243,đi vệ sinh với cảm giác xoang chảnh của vàng 24k,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_09309,Ck nước mình chịu thương chịu khó thì đéo chịu lấy,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_09310,Chiến sĩ CAND này xịn như mấy a grab tất xanh luôn,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_09381,ở Úc mà ko bắt được em nào à?,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_09407,Mắc đ gì chê vậy,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_09419,"Chứ cưới xong thì vợ/chồng cũng là gia đình riêng của mình rồi, làm sao có thể mù quáng bất chấp tin người nhà xong chửi/giận ngược bạn đời hay đòi ly hôn nvay được.",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_09458,Thả 2 hlv 2 bên ra nào :))),0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_09502,"[BIDV] Ma giao dich #19008888 tri gia 10,000,000 VND da duoc chap thuan. Neu khong phai ban thuc hien, goi ngay hotline de bao cao.",1,0,0,brandname,Giả mạo ngân hàng,Level 4 - Mixed special characters,synthetic_hard_negative
+ViSmish_09541,m lm đc v thì cho 10 đ,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_09558,"ko đi con đường này ta đi con đường khác, lm j căng :"")))",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_09793,Cười ỉa cười tụt si lips cười đái tháo đường cười ko lối thoát,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_09864,"Khang ơi, tôi có món quà gửi tặng bạn từ nước ngoài, bạn liên hệ nhân viên hải quan số 0978123456 để làm thủ tục nhận nhé.",1,0,1,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_09902,máy sấy sắp hỏng gòy=)),0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_09964,"E cần giao bán 1 con capybara nặng 40 kí hơn,  ai có nhu cầu liên hệ e.",0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_09968,Chẳng chê 10tr nhưng thật sự là k đủ cho 1 giá đình độc lập nhé,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_10004,mới iu và iu lâu vẫn z nhỉ :3,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_10019,mẹ ơi con xin lõy,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_10076,"Cong ty Xu Ly No MFC gui tin: Bui Van Khanh da vi pham dieu khoan hop dong vay. Khoan no 5,000,000 VND se bi kien ra toa neu khong thanh toan truoc 30/06/2025.",1,0,0,brandname,Đòi nợ / Đe dọa,Level 0 - Formal,synthetic_hard_negative
+ViSmish_10078,"Cong an TP TB KHAN: Le Van Thanh co bien bao vi pham giao thong ngay 15/05/2025 chua thanh toan. So tien 50,000,000 VND. Goi 19001234 de thu xep.",1,0,0,brandname,Dịch vụ công giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_10099,"Dũng dạo này rảnh không, tớ đang làm thêm cái này thu nhập ổn lắm, ngày 2 triệu, rảnh thì tớ chỉ cho. Nhắn qua zalo 0981234567 nha.",1,0,1,personal_number,Tuyển dụng giả,Level 0 - Formal,synthetic_hard_negative
+ViSmish_10105,"Dạ cô Mai ơi, cháu giao hoa để ở bảo vệ rồi nhé. Ôi cháu ấn nhầm số, cháu xin lỗi cô ạ. Nhân tiện bên cháu đang có chương trình tặng quà, cô add zalo 0978123456 để nhận nhé.",1,0,1,personal_number,Khác,Level 0 - Formal,synthetic_hard_negative
+ViSmish_10160,Lương 15tr nhưng lỡ lấy phải cô vợ lương 30tr mất rùi :)),0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_10164,"Bới cũng đc thôi, bới xong mình bơi trong đồ ăn luôn vì mình bị úp cái mâm vào đầu",0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_10327,"[So BHXH] Ho so so NQ116/HCM/0987 cua QK bi thieu giay to. Vui long goi so 0978000111 de bo sung va tranh mat quyen loi 12,000,000 VND.",1,0,1,brandname,BHXH / Trợ cấp giả,Level 2 - Leet nặng,synthetic_hard_negative
+ViSmish_10330,"[VIB] Quy khach Dang Van G vui long xac thuc giao dich 50,000,000 VND vua thuc hien. Neu khong phai QK, goi ngay 19008888 de khoa the.",1,0,0,brandname,Giả mạo ngân hàng,Level 0 - Formal,synthetic_hard_negative
+ViSmish_10408,t còn cất công tìm video hoàn cảnh giống m nữa đó,0,0,0,personal_number,P2P hard negative,NONE,external_curated
+ViSmish_10485,Dô buồng tao nói chiện dí mày :))),0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real
+ViSmish_10527,Quá tr anh roi đó anh zai,0,0,0,personal_number,P2P hội thoại thông thường,NONE,external_real

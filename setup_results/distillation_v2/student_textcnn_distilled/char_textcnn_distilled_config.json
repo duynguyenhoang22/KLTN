@@ -1,0 +1,32 @@
+{
+  "architecture": "textcnn",
+  "mode": "distilled",
+  "split_dir": "data\\distillation\\splits_v2",
+  "teacher_dir": "data\\distillation\\teacher_outputs_v2",
+  "output_dir": "setup_results\\distillation_v2\\student_textcnn_distilled",
+  "baseline_dir": "setup_results\\distillation_v2\\student_textcnn_hard_label",
+  "seed": 42,
+  "max_len": 256,
+  "min_freq": 1,
+  "embed_dim": 64,
+  "hidden_dim": 64,
+  "num_filters": 96,
+  "kernel_sizes": "3,4,5",
+  "dropout": 0.3,
+  "batch_size": 128,
+  "epochs": 12,
+  "patience": 3,
+  "lr": 0.002,
+  "weight_decay": 0.0001,
+  "threshold": 0.5,
+  "alpha": 0.8,
+  "fn_distill_weight": 0.0,
+  "model_name": "char_textcnn_distilled",
+  "vocab_size": 192,
+  "device": "cpu",
+  "input_features": [
+    "content"
+  ],
+  "metadata_used_for_training": false,
+  "best_val_macro_f1": 0.9897876004592423
+}

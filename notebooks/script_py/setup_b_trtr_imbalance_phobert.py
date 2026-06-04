@@ -71,7 +71,6 @@ CFG = dict(
 )
 
 import os
-os.makedirs(CFG["output_dir"], exist_ok=True)
 print("Đã load CFG.")
 print(f"  model_name          : {CFG['model_name']}")
 print(f"  seeds               : {CFG['seeds']}")
@@ -94,6 +93,7 @@ mountpoint = "/content/drive"
 
 drive.flush_and_unmount()
 drive.mount(mountpoint, force_remount=True)
+os.makedirs(CFG["output_dir"], exist_ok=True)
 
 import pandas as pd
 
@@ -358,6 +358,69 @@ def _free_gpu():
         torch.cuda.empty_cache()
         torch.cuda.synchronize()
 
+
+def _prediction_probabilities(logits):
+    logits = np.asarray(logits)
+    shifted = logits - logits.max(axis=1, keepdims=True)
+    exp = np.exp(shifted)
+    return exp / exp.sum(axis=1, keepdims=True)
+
+def save_prediction_outputs(
+    eval_df,
+    logits,
+    labels,
+    preds,
+    output_dir,
+    file_stem,
+    setup_name,
+    seed,
+    variant_name=None,
+    subset_name="test",
+    threshold=None,
+    subset_series=None,
+):
+    labels = np.asarray(labels).astype(int)
+    preds = np.asarray(preds).astype(int)
+    probs = _prediction_probabilities(logits)
+
+    out_df = eval_df.reset_index(drop=True).copy()
+    if len(out_df) != len(labels):
+        raise ValueError(
+            f"Prediction length mismatch for {file_stem}: "
+            f"eval_df={len(out_df)} labels={len(labels)}"
+        )
+
+    out_df.insert(0, "setup", setup_name)
+    if variant_name is not None:
+        out_df.insert(1, "variant", variant_name)
+    out_df.insert(1 if variant_name is None else 2, "seed", seed)
+    out_df["eval_subset"] = subset_series if subset_series is not None else subset_name
+    if threshold is not None:
+        out_df["threshold"] = float(threshold)
+    out_df["true_label"] = labels
+    out_df["pred_label"] = preds
+    out_df["prob_label0"] = probs[:, 0]
+    out_df["prob_label1"] = probs[:, 1]
+    out_df["is_correct"] = out_df["true_label"].eq(out_df["pred_label"])
+    out_df["error_type"] = np.select(
+        [
+            out_df["true_label"].eq(0) & out_df["pred_label"].eq(1),
+            out_df["true_label"].eq(1) & out_df["pred_label"].eq(0),
+        ],
+        ["FP", "FN"],
+        default="correct",
+    )
+
+    pred_path = os.path.join(output_dir, f"{file_stem}_predictions.csv")
+    err_path = os.path.join(output_dir, f"{file_stem}_errors.csv")
+    out_df.to_csv(pred_path, index=False, encoding="utf-8-sig")
+    out_df[out_df["error_type"].isin(["FP", "FN"])].to_csv(
+        err_path, index=False, encoding="utf-8-sig"
+    )
+    print(f"[SAVE] Prediction-level output: {pred_path}")
+    print(f"[SAVE] Error-only output      : {err_path}")
+    return pred_path, err_path
+
 def compute_class_weights(train_df):
     counts = train_df["label"].value_counts().sort_index()
     assert set(counts.index.tolist()) == {0, 1}, "Real Train phải có đủ Label 0 và Label 1"
@@ -462,6 +525,19 @@ def train_one_seed(seed: int, train_ds, val_ds, test_ds):
     )
     threshold_preds = (test_probs >= tuned_threshold).astype(int)
     threshold_cm = confusion_matrix(test_labels, threshold_preds, labels=[0, 1])
+
+    save_prediction_outputs(
+        df_test, test_logits, test_labels, default_preds, CFG["output_dir"],
+        f"setup_b_B1_class_weight_default_seed_{seed}_real_test",
+        setup_name="B1_class_weight_default", seed=seed,
+        subset_name="real_test", threshold=0.5
+    )
+    save_prediction_outputs(
+        df_test, test_logits, test_labels, threshold_preds, CFG["output_dir"],
+        f"setup_b_B2_class_weight_threshold_seed_{seed}_real_test",
+        setup_name="B2_class_weight_threshold", seed=seed,
+        subset_name="real_test", threshold=tuned_threshold
+    )
 
     b1 = {
         **default_metrics,

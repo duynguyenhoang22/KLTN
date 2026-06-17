@@ -1,0 +1,5 @@
+﻿setup,variant,seed,content,label,eval_subset,true_label,pred_label,prob_label0,prob_label1,is_correct,error_type
+E_real_plus_synthetic_label1,E4_all,123,Chuc mung ban da nhan duoc 1 chiec dien thoai E770i tu chuong trinh Quay So Ngau Nhien cua Mobifone. SoanTin: XU E770i31 va gui 4 lan den 6769 de xem chi tiet,1,real_test,1,0,0.9997075,0.00029251014,False,FN
+E_real_plus_synthetic_label1,E4_all,123,Em la nu sinh vien 21 tuoi MU0N KIEM chut Tjen trang TRAI CU0C S0NG EM C0 the den lam tinh khu vuc nao cung DU0C GIA CA Uu DAI Add ZAL0 e: 0367891234 QkR,1,real_test,1,0,0.99723697,0.0027629985,False,FN
+E_real_plus_synthetic_label1,E4_all,123,"TNEX Ma OTP cua ban 632900, se het han sau 2 phut. Vui long KHONG chia se ma cho bat ky ai voi bat ky ly do nao https//vi.ecmjJ7U4frh",1,real_test,1,0,0.99984527,0.00015476662,False,FN
+E_real_plus_synthetic_label1,E4_all,123,Bạn đã yêu cầu Google khôi phục quyền truy cập cho duyj4f2004@gmail.com? Nếu không phải thì hãy kiểm tra email để tìm hiểu cách DỪNG yêu cầu này.,0,real_test,0,1,0.00023689508,0.9997631,False,FP

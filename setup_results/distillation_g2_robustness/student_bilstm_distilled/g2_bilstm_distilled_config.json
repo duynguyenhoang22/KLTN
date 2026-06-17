@@ -1,0 +1,31 @@
+{
+  "architecture": "bilstm",
+  "mode": "distilled",
+  "setup_g_dir": "setup_results\\setup_g_results",
+  "teacher_dir": "data\\distillation\\teacher_outputs_v2",
+  "output_dir": "setup_results\\distillation_g2_robustness\\student_bilstm_distilled",
+  "baseline_dir": null,
+  "seed": 42,
+  "max_len": 256,
+  "min_freq": 1,
+  "embed_dim": 64,
+  "hidden_dim": 64,
+  "num_filters": 96,
+  "kernel_sizes": "3,4,5",
+  "dropout": 0.3,
+  "batch_size": 128,
+  "epochs": 12,
+  "patience": 3,
+  "lr": 0.002,
+  "weight_decay": 0.0001,
+  "threshold": 0.5,
+  "alpha": 0.8,
+  "fn_distill_weight": 0.0,
+  "model_name": "g2_bilstm_distilled",
+  "vocab_size": 199,
+  "device": "cpu",
+  "best_val_macro_f1": 0.8416021655458275,
+  "input_features": [
+    "content"
+  ]
+}

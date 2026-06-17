@@ -1,0 +1,33 @@
+﻿variant_key,error_type,category,n
+A_real_only,FN,Khác,6
+A_real_only,FN,Giả mạo ngân hàng,3
+A_real_only,FP,Khác,9
+A_real_only,FP,Ngân hàng thật,2
+B1_class_weight_default,FN,Khác,6
+B1_class_weight_default,FN,Giả mạo ngân hàng,2
+B1_class_weight_default,FP,Khác,8
+B1_class_weight_default,FP,Ngân hàng thật,2
+B1_class_weight_default,FP,Dịch vụ công thật,1
+B1_class_weight_default,FP,Viễn thông,1
+B2_class_weight_threshold,FN,Khác,6
+B2_class_weight_threshold,FN,Giả mạo ngân hàng,2
+B2_class_weight_threshold,FP,Khác,11
+B2_class_weight_threshold,FP,Ngân hàng thật,2
+B2_class_weight_threshold,FP,Viễn thông,2
+B2_class_weight_threshold,FP,Dịch vụ công thật,1
+E1_500,FN,,7
+E1_500,FP,,13
+E2_1000,FN,,8
+E2_1000,FP,,11
+E3_2000,FN,,10
+E3_2000,FP,,13
+E4_all,FN,,11
+E4_all,FP,,7
+G0_E4_champion,FN,,9
+G0_E4_champion,FP,,116
+G1_external_all,FN,,12
+G1_external_all,FP,,12
+G2_external_curated,FN,,11
+G2_external_curated,FP,,11
+G3_external_plus_synthetic_label0,FN,,11
+G3_external_plus_synthetic_label0,FP,,13

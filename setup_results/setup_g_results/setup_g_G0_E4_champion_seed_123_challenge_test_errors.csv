@@ -1,0 +1,48 @@
+﻿setup,variant,seed,content,label,data_origin,eval_subset,true_label,pred_label,prob_label0,prob_label1,is_correct,error_type
+G_external_challenge,G0_E4_champion,123,"Có thể chê phim k hay/dở/sến nhưng t nghĩ kể cả trung niên thì cũng muốn có 1 t/yêu đẹp như mấy b trẻ thôi chứ có gì đâu mà k phù hợp, ngộ ha?",0,external_real,external_real,0,1,6.541246e-08,0.9999999,False,FP
+G_external_challenge,G0_E4_champion,123,Bạn đã yêu cầu Google khôi phục quyền truy cập cho duyj4f2004@gmail.com? Nếu không phải thì hãy kiểm tra email để tìm hiểu cách DỪNG yêu cầu này.,0,real,real,0,1,8.604735e-09,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"cái này ý kiến tui thôi nha, tui thấy vũ đạo hơi nhạt ý với bản phối nó ko đẩy cao trào high như bản gốc nhỉ",0,external_real,external_real,0,1,2.49152e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"nhg nhg~ đứa giấy trắng mặt cux trơ lắm, kn ít mà còn đk lên vị trí cao hơn đứa giỏi  Cái này thì quá ức chế r",0,external_real,external_real,0,1,9.060095e-09,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,chồng t lương 4tr vẫn tung tăng sống chung với vợ và 2 con,0,external_curated,external_curated,0,1,3.5811917e-07,0.99999964,False,FP
+G_external_challenge,G0_E4_champion,123,"Chết thôi, giới trẻ bây giờ kiểu j ấy bác  ạ, bảo lương 10tr mà còn chê k đủ thì như mình sống thế nào đây",0,external_curated,external_curated,0,1,1.3696299e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"Mình cũng vừa chạy lo đi làm kiếm tiền bươm chải cho gia đình, và cũng rảnh háng ở nhà ôm con chơi với con đầu xù tóc rối, ck mình chỉ 1 việc sáng đi làm tối về, cũng chả nt đt nc tâm sự, về nhà cũng lo tắm gội ăn uống ngủ nghỉ, cũng vô tâm vk mệt vk khổ …",0,external_curated,external_curated,0,1,1.2442752e-06,0.9999988,False,FP
+G_external_challenge,G0_E4_champion,123,Gọi lại liền cho ba nhé,0,real,real,0,1,1.3442999e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"Game củ c, 1 ngày chơi 4 5 tiếng, cả tháng trời ddeoooo quaaa",0,external_curated,external_curated,0,1,1.0695087e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,ở nhà ăn thế đã bị bố mẹ chửi cho tới bến r chứ đừng nói đến nhà ngyeu ăn cơm mà thế .,0,external_real,external_real,0,1,8.042341e-08,0.9999999,False,FP
+G_external_challenge,G0_E4_champion,123,phê pha thư giãn với 2$ là thật nhưng nước khác nó đ cần cuốc bộ với 2$ cũng là thật luôn,0,external_curated,external_curated,0,1,2.643734e-05,0.99997354,False,FP
+G_external_challenge,G0_E4_champion,123,"bữa ba kiu sao ko kiếm tiền đi, kiếm 1 triệu thôi cũm đc nhưng ba đâu biết t kiếm đc 1 mớ r đâu hâhhahahah",0,external_curated,external_curated,0,1,3.3383433e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,ĐƠN này 0Đ Kick Thành Công khi nào lấy cổng sau quẹo trái cuối cùng 11h-1h chắc chắn có.,0,real,real,0,1,0.0019004336,0.9980996,False,FP
+G_external_challenge,G0_E4_champion,123,"Nói 500 tr nghe khiếp quá, nói nửa tỷ thôi cho nhẹ.",0,external_curated,external_curated,0,1,8.251356e-09,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,Ko cho vay thì ngại cho vay oy tới lúc đòi thì sợ giận mà ko đòi ngta cg ko có suy nghĩ muốn trả mà kb lm tn,0,external_curated,external_curated,0,1,1.03229425e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"Chơi vs nhau từ lơpd 3 đến khi lấy vợ, hơn 20 năm mà có 50tr bạn cũng đánh đổi",0,external_curated,external_curated,0,1,1.1488081e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,Chuc mung ban da nhan duoc 1 chiec dien thoai E770i tu chuong trinh Quay So Ngau Nhien cua Mobifone. SoanTin: XU E770i31 va gui 4 lan den 6769 de xem chi tiet,1,real,real,1,0,1.0,1.3530693e-08,False,FN
+G_external_challenge,G0_E4_champion,123,có 0đ với 1đ chứ làm rì có đỉm cao như thé=)))),0,external_curated,external_curated,0,1,2.939847e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"Mình lương 4tr, vợ mình lương 4tr nữa là tổng đc 8tr, nuôi 3 đứa con luôn, cơm vẫn thịt cá đầy đủ",0,external_curated,external_curated,0,1,9.573803e-09,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"bạn mình bị ồi, nhờ CA thì phải chung nhìu tiền.",0,external_curated,external_curated,0,1,1.1443206e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"chồng tui tăng hơn 10kg sau cưới, giờ gần về form cũ gòi, ngon chán :))))))))))",0,external_real,external_real,0,1,1.007176e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"hihi,tao lương 5 chẹo 1 tháng thôi",0,external_curated,external_curated,0,1,9.760934e-09,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,Lương 5tr chắc 2vk ck tối phải cầm nón ra ngã tư ăn xin mới đủ đóng tiền học cho con nhờ,0,external_curated,external_curated,0,1,1.0523053e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,:))))))))) 1 năm rồi đọc lại để giải trí nèoooo,0,external_real,external_real,0,1,1.1644224e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,Tưởng nó vay 500k nma nó vay 50tr nên chịu,0,external_curated,external_curated,0,1,0.000122205,0.9998778,False,FP
+G_external_challenge,G0_E4_champion,123,2$ ăn được nhìu món á,0,external_real,external_real,0,1,2.2150868e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,Gặp bôd mày thì xác nhận thương tật hết cỡ luôn và đéo có chuyện hoà giải gì hết.,0,external_curated,external_curated,0,1,8.857006e-09,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,":)) lương của nó bn, chứ t thấy cu e này khá cá tính, và đặc biệt là nó nói đúng",0,external_curated,external_curated,0,1,1.2781514e-07,0.9999999,False,FP
+G_external_challenge,G0_E4_champion,123,Hs cấp 1 làm éo gì có răng mà đòi ăn xoài xanh chấm muối ớt!,0,external_curated,external_curated,0,1,1.989564e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,Lương 5tr k đủ nuôi mèo,0,external_curated,external_curated,0,1,4.209383e-05,0.9999579,False,FP
+G_external_challenge,G0_E4_champion,123,"Sai cu phap nhan tin. De lay thong tin dich vu Mobile Internet va Dcom, vui long bam goi *098# hoac lien he 198 (mien phi). Tran trong.",0,real,real,0,1,2.7820429e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"E mắc chứng hay quên, nên e có nợ nần ai thấy e là phải đòi nha",0,external_curated,external_curated,0,1,8.887266e-08,0.9999999,False,FP
+G_external_challenge,G0_E4_champion,123,"2 vc mình tổng lương 20tr,nuôi con hết 5tr,lãi NG hết 5tr,chi phí gia đình rớt vào khoảng 5tr,lương thấp mà gặp phải cô vợ có suy nghĩ què cụt thì nhanh nát gia đình lắm",0,external_curated,external_curated,0,1,1.0417568e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"Y chang cái đợt đặt phòng gần biển xong chạy tới nơi thấy địa chỉ ảo, ks nằm tít trong thành phố nè :)))",0,external_curated,external_curated,0,1,9.036555e-09,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"Rồi nó vẫn mở, vẫn kiêms tiền đk thôi",0,external_curated,external_curated,0,1,1.23433805e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"sao xoá bài kia rùi zay, đang có nhiệt mà ta",0,external_real,external_real,0,1,2.175888e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,tha hồ chém ko cần đắn đo và nhất là ko rơi vào trường hợp tự làm đau mình như này :)),0,external_real,external_real,0,1,0.007647173,0.9923529,False,FP
+G_external_challenge,G0_E4_champion,123,"Lương 4-5tr vẫn sống bt,nhưng chỉ là bt lúc khoẻ khoắn,còn lúc bme hay vck hay con cái ốm đau phải di viện,lúc ấy mới thấy đồg tiền mức lương nó qtrong tnao",0,external_curated,external_curated,0,1,8.932826e-09,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"TNEX Ma OTP cua ban 632900, se het han sau 2 phut. Vui long KHONG chia se ma cho bat ky ai voi bat ky ly do nao https//vi.ecmjJ7U4frh",1,real,real,1,0,1.0,7.934373e-09,False,FN
+G_external_challenge,G0_E4_champion,123,"Lương 10 chẹo mà chịu được tính khùng điên của e , thì đc nhá",0,external_curated,external_curated,0,1,1.0894885e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"Xong đ' hiểu câu chuyện ntn mà bả chốt"" đấy e thấy xem nó 20t đã dc như thế rồi còn e thì vẫn ngồi đây""",0,external_curated,external_curated,0,1,3.4979596e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"1 bộ cỡ 500k thôi thì nhân lên cũng hơi bị bộn, lm gv mà sắm nhiu đó là cũng hết lương",0,external_curated,external_curated,0,1,8.692226e-09,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"mỗi tháng 20 trẹo: 5 trẹo lương cứng , 15 trẹo lương tâm",0,external_curated,external_curated,0,1,8.482065e-09,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"Không rõ là em bạn vay ngân hàng hay cty tín dụng, nhưng thường khoản vay khó đòi thì họ sẽ bán cho bên thứ 3 để bên đó đòi, ngân hàng hay bên toà án không ai làm việc qua tin nhắn.",0,external_curated,external_curated,0,1,1.0601297e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,Mình cũng từng gặp trường hợp sếp với nvien như này rồi  nhỉ =)),0,external_curated,external_curated,0,1,3.01555e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,lương 7 củ nên lấy đc vk nghèo.!,0,external_curated,external_curated,0,1,3.8241676e-08,1.0,False,FP
+G_external_challenge,G0_E4_champion,123,"Chứ cưới xong thì vợ/chồng cũng là gia đình riêng của mình rồi, làm sao có thể mù quáng bất chấp tin người nhà xong chửi/giận ngược bạn đời hay đòi ly hôn nvay được.",0,external_curated,external_curated,0,1,2.728379e-08,1.0,False,FP

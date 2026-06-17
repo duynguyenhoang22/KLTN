@@ -487,6 +487,69 @@ def _free_gpu():
         torch.cuda.empty_cache()
         torch.cuda.synchronize()
 
+
+def _prediction_probabilities(logits):
+    logits = np.asarray(logits)
+    shifted = logits - logits.max(axis=1, keepdims=True)
+    exp = np.exp(shifted)
+    return exp / exp.sum(axis=1, keepdims=True)
+
+def save_prediction_outputs(
+    eval_df,
+    logits,
+    labels,
+    preds,
+    output_dir,
+    file_stem,
+    setup_name,
+    seed,
+    variant_name=None,
+    subset_name="test",
+    threshold=None,
+    subset_series=None,
+):
+    labels = np.asarray(labels).astype(int)
+    preds = np.asarray(preds).astype(int)
+    probs = _prediction_probabilities(logits)
+
+    out_df = eval_df.reset_index(drop=True).copy()
+    if len(out_df) != len(labels):
+        raise ValueError(
+            f"Prediction length mismatch for {file_stem}: "
+            f"eval_df={len(out_df)} labels={len(labels)}"
+        )
+
+    out_df.insert(0, "setup", setup_name)
+    if variant_name is not None:
+        out_df.insert(1, "variant", variant_name)
+    out_df.insert(1 if variant_name is None else 2, "seed", seed)
+    out_df["eval_subset"] = subset_series if subset_series is not None else subset_name
+    if threshold is not None:
+        out_df["threshold"] = float(threshold)
+    out_df["true_label"] = labels
+    out_df["pred_label"] = preds
+    out_df["prob_label0"] = probs[:, 0]
+    out_df["prob_label1"] = probs[:, 1]
+    out_df["is_correct"] = out_df["true_label"].eq(out_df["pred_label"])
+    out_df["error_type"] = np.select(
+        [
+            out_df["true_label"].eq(0) & out_df["pred_label"].eq(1),
+            out_df["true_label"].eq(1) & out_df["pred_label"].eq(0),
+        ],
+        ["FP", "FN"],
+        default="correct",
+    )
+
+    pred_path = os.path.join(output_dir, f"{file_stem}_predictions.csv")
+    err_path = os.path.join(output_dir, f"{file_stem}_errors.csv")
+    out_df.to_csv(pred_path, index=False, encoding="utf-8-sig")
+    out_df[out_df["error_type"].isin(["FP", "FN"])].to_csv(
+        err_path, index=False, encoding="utf-8-sig"
+    )
+    print(f"[SAVE] Prediction-level output: {pred_path}")
+    print(f"[SAVE] Error-only output      : {err_path}")
+    return pred_path, err_path
+
 def existing_completed_seeds():
     path = os.path.join(CFG["output_dir"], "setup_f3_per_seed_results.csv")
     if not os.path.exists(path):
@@ -583,6 +646,13 @@ def train_one_seed(seed: int):
     preds  = logits.argmax(-1)
     labels = test_output.label_ids
     cm     = confusion_matrix(labels, preds, labels=[0, 1])
+
+    save_prediction_outputs(
+        df_test, logits, labels, preds, CFG["output_dir"],
+        f"setup_f3_{CFG['variant_name']}_seed_{seed}_real_test",
+        setup_name="F_label0_source_augmentation", seed=seed, variant_name=CFG["variant_name"],
+        subset_name="real_test"
+    )
 
     clean = {k.replace("test_", ""): v for k, v in test_metrics.items()
              if k not in ("test_loss", "test_runtime",

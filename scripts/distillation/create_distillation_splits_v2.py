@@ -4,7 +4,7 @@ Compared with the first split version, v2 reduces source-separation artifacts:
 - test_mixed contains a holdout mixture from every data_origin, not only
   synthetic/paraphrased;
 - test_challenge contains realistic hard candidates from real, synthetic,
-  paraphrased, synthetic_hard_negative, and external sources;
+  paraphrased, synthetic_hard_positive, and external sources;
 - test_real remains real-only and continues to be the primary benchmark.
 
 The script writes to data/distillation/splits_v2 by default and does not
@@ -50,7 +50,7 @@ ORIGIN_FRACTIONS = {
     "real": {"val": 0.15, "test_real": 0.15, "test_mixed": 0.10, "test_challenge": 0.10},
     "synthetic": {"val": 0.10, "test_mixed": 0.10, "test_challenge": 0.05},
     "paraphrased": {"val": 0.10, "test_mixed": 0.10, "test_challenge": 0.03},
-    "synthetic_hard_negative": {"val": 0.10, "test_mixed": 0.10, "test_challenge": 0.20},
+    "synthetic_hard_positive": {"val": 0.10, "test_mixed": 0.10, "test_challenge": 0.20},
     "external_curated": {"val": 0.10, "test_mixed": 0.10, "test_challenge": 0.10},
     "external_real": {"val": 0.10, "test_mixed": 0.10, "test_challenge": 0.10},
 }

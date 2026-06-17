@@ -14,7 +14,7 @@ BENCHMARK_SPLITS = {
 }
 
 REAL_HOLDOUT_ORIGINS = {"real", "external_real", "external_curated"}
-TRAIN_ONLY_ORIGINS = {"synthetic", "paraphrased", "synthetic_hard_negative"}
+TRAIN_ONLY_ORIGINS = {"synthetic", "paraphrased", "synthetic_hard_positive"}
 SUPPORTED_ORIGINS = REAL_HOLDOUT_ORIGINS | TRAIN_ONLY_ORIGINS
 
 

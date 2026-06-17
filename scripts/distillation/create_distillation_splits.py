@@ -47,7 +47,7 @@ ORIGIN_SPLIT_RULES = {
     "real": {"train": 0.70, "val": 0.15, "test_real": 0.15},
     "synthetic": {"train": 0.80, "val": 0.10, "test_mixed": 0.10},
     "paraphrased": {"train": 0.80, "val": 0.10, "test_mixed": 0.10},
-    "synthetic_hard_negative": {"train": 0.70, "val": 0.10, "test_challenge": 0.20},
+    "synthetic_hard_positive": {"train": 0.70, "val": 0.10, "test_challenge": 0.20},
     "external_curated": {"train": 0.70, "val": 0.10, "test_challenge": 0.20},
     "external_real": {"train": 0.70, "val": 0.10, "test_challenge": 0.20},
 }

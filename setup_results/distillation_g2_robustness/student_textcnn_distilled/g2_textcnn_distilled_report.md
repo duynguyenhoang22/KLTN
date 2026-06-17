@@ -57,7 +57,7 @@
 | train | paraphrased | 4333 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
 | train | real | 1796 | 0.9951 | 0.9912 | 0.9826 | 1.0000 |
 | train | synthetic | 10 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
-| train | synthetic_hard_negative | 653 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| train | synthetic_hard_positive | 653 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
 | val | external_curated | 75 | 0.4966 | 0.0000 | 0.0000 | 0.0000 |
 | val | external_real | 75 | 0.4966 | 0.0000 | 0.0000 | 0.0000 |
 | val | real | 385 | 0.9206 | 0.8571 | 0.8919 | 0.8250 |

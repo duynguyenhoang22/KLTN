@@ -1,6 +1,6 @@
 content,label,data_origin
 "[QC] NẠP THẺ LIỀN TAY, NHẬN NGAY QUÀ KHỦNG 1.Thẻ mệnh giá dưới 50.000đ, tặng 6GB/3 ngày: 3GB trên các hạ tầng (ST15K)+3GB trên 4G 2.Thẻ mệnh giá từ 50.000đ trở lên, tặng 14GB/7 ngày: 7GB trên các hạ tầng (ST30K)+7GB trên 4G CT áp dụng với THẺ NẠP ĐẦU TIÊN trong ngày 25/11 cho TB của Quý khách. LH 198 (0đ). Từ chối QC, soạn TC1 gửi 199",0,real
-"Tiki TB: Don hang #GHN334455 dang giu tai buu cuc co phat sinh phi qua tai 3,500,000 VND. Vui long thanh toan trc khi nhan hang.",1,synthetic_hard_negative
+"Tiki TB: Don hang #GHN334455 dang giu tai buu cuc co phat sinh phi qua tai 3,500,000 VND. Vui long thanh toan trc khi nhan hang.",1,synthetic_hard_positive
 "(TB) ỨNG DỤNG HAY - CÓ NGAY 50% KHI NẠP TIỀN! Duy nhất HÔM NAY - 16/03/2025, Quý khách nhận ngay quà tặng 50% khi nạp tiền qua ứng dụng My VNPT tại: https://my.vnpt.com.vn/adv/napdt . Khuyến mãi được sử dụng gọi và nhắn tin trong 15 ngày. CSKH:18001091 (0đ).",0,real
 "(TB) VNPT Đồng Nai: Nhân ngày thành lập Bưu Điện Việt Nam và Quốc Khánh 02/09, chỉ cần đăng ký Internet cáp quang của VNPT từ 15/8 đến 30/9/2023, Quý khách được tặng ngay PHIẾU MUA XĂNG trị giá 300.000đ. Mời Quý khách tham khảo Gói Home Net 1+ với Internet tốc độ 100Mbps và Truyền hình MyTV 180 kênh, chỉ từ 158.700đ/tháng (tại https://my.vnpt.com.vn/adv/hn1p ). Chi tiết liên hệ các điểm giao dịch VNPT hoặc CSKH: 18001166 nhánh 2 (0đ). Trân trọng!",0,real
 "Ban co the qua NAP DIEN THOAI MIEN PHI 10.000D trong MoMo, het han 31/8. Mo Vi > UU DAI > QUA CUA TOI dung ngay!",0,real
@@ -238,8 +238,8 @@ FWD mong muon lang nghe y kien cua Quy khach cho giao dich gan day tai https://f
 "TK ViettelPay 9704...1278 GD +2,000 VND luc 2023-11-21 17:44:25 So du 5,372 VND Phi: -0 VND ND: 231121191658078 VIETTELMONEY TRATHUONG MACQ 231121191658078 84867256447",0,real
 "(CSKH) Chuong trinh khach hang than thiet VinaPhone Plus thong bao: Tinh den het 06/02/2024 hang hoi vien cua Quy khach la Than Thiet, diem tich luy la 2380 diem. Vui long truy cap website/ung dung https://vinaphoneplus.com.vn/app.html de trai nghiem uu dai hap dan (qua tang, goi cuoc …). CSKH: 18001091 (0d). Tran trong!",0,real
 Truong DH CNTT thong bao nghi hoc Mon Quan ly thong tin(IE103.O22.2) vao thu 4 ngay 13 thang 03 nam 2024. Chi tiet vui long lien he (028) 372 52002 chon 155,0,real
-Bo Cong An: Moi Nguyen Thi Xuan tham du buoi hop ve thu tuc hanh chinh tai tru so. Vui long xac nhan tham du bang cach goi lai so nay.,1,synthetic_hard_negative
-BHXH Viet Nam: Moi Doanh nghiep XYZ tham du buoi hop ve thu tuc hanh chinh tai tru so. Vui long xac nhan tham du bang cach goi lai so nay.,1,synthetic_hard_negative
+Bo Cong An: Moi Nguyen Thi Xuan tham du buoi hop ve thu tuc hanh chinh tai tru so. Vui long xac nhan tham du bang cach goi lai so nay.,1,synthetic_hard_positive
+BHXH Viet Nam: Moi Doanh nghiep XYZ tham du buoi hop ve thu tuc hanh chinh tai tru so. Vui long xac nhan tham du bang cach goi lai so nay.,1,synthetic_hard_positive
 "Chuc mung Quy khach da dang ky thanh cong DV Vishare, goi cuoc ngay. Quy khach duoc uu dai giam 50% cuoc ngay dau chi con 1.500d/ngay. Sau KM, phi DV 3.000d/ngay (gia han hang ngay). Hay truy cap http://v.vishare.vn de chia se hinh anh, video clip tren trang mang xa hoi. Huy DV, soan HUY VISHARE gui 9050. Chi tiet, soan HDVISHARE gui 9050 hoac LH 19001255 (1.000d/p). Tran trong.",0,real
 Hoi thao Hoi&Dap Tuyen sinh 2022 - Dai hoc FPT da bat dau. Moi Quy PH-HS tham du bang duong link: https://us02web.zoom.us/j/84853187652 hoac Zoom ID: 848 5318 7652. Mat khau vao phong: FPT. Hotline (028) 7300 5588. Tran trong,1,real
 "TKC cua Quy Khach khong du de thuc hien cuoc goi. De duoc ung 5 PHUT THOAI(Gia cuoc 8000d), soan 3 gui 9345 (hieu luc trong vong 48h). Tu choi nhan tin, soan TC gui 9345.",0,real
@@ -274,7 +274,7 @@ taq ngay 8'8'8K khi d/ky tai:bit.ly/Frw2T5 diem danh nhan 124.3K rut lien 6Rg8,1
 0968422623: lovely baby,0,real
 Mega88_Tuyển Cộng Tác Viên_Thưởng đến 70%,1,paraphrased
 "ShoppeExpress đang tuyển cộng tác viên xử lý đơn hàng tại nhà, lương từ 600k~4000k/ngày. Chỉ cần thao tác đơn giản trên điện thoại. Độ tuổi 22-60. Liên hệ: zalo.me/84987654321",1,paraphrased
-"Linh ơi, tôi có món quà gửi tặng bạn từ nước ngoài, bạn liên hệ nhân viên hải quan số 0934567890 để làm thủ tục nhận nhé.",1,synthetic_hard_negative
+"Linh ơi, tôi có món quà gửi tặng bạn từ nước ngoài, bạn liên hệ nhân viên hải quan số 0934567890 để làm thủ tục nhận nhé.",1,synthetic_hard_positive
 "TK ViettelPay 9704...1278 GD -9,000 VND luc 2023-01-09 18:16:56 So du 5,000 VND Phi: -0 VND ND: GD thanh toan 230109193129059 NAP TIEN DIEN THOAI cho Khach hang 0867256447",0,real
 Nhan vien co SDT ${driverContact} dang giao DH 299325121788280 den ban. Thanh toan qua ZaloPay de duoc giam ngay 50k. Bam de nhan: https://zalo.me/app/link/9auzpq62k1,0,real
 "112954 la ma xac thuc OTP tren MyVNPT cua Quy khach. Ma co hieu luc trong 2 phut. De dam bao an toan, Quy khach vui long khong chia se ma nay voi bat ky ai.",0,real
@@ -320,7 +320,7 @@ Goi SPOTV10TM co thoi han den 02/11/2025 20:14:18. QK se duoc moi gia han qua TK
 "[TB] Bộ Công Thương - Chương trình Thương hiệu quốc gia Việt Nam thông báo về kỳ xét chọn sản phẩm đạt thương hiệu quốc gia Việt Nam lần thứ 9 năm 2024. Đây là Chương trình xúc tiến thương mại đặc thù, dài hạn của Chính phủ. Hồ sơ đăng ký trước ngày 31/3/2024. Chi tiết truy cập https://vietrade.gov.vn/",0,real
 "Quy khach co 13.547 dong trong tai khoan. Bam goi *098*3# de co 3GB voi 15.000d/3 ngay hoac *098*989# (30.000d/3 ngay) co 15GB (5GB/ngay), mien phi 10 phut/cuoc noi mang, 15 phut ngoai mang, SMS noi mang va TV360. Goi cuoc gia han khi het chu ky. De biet thong tin cac uu dai khac, bam goi *098# hoac truy cap My Viettel tai https://myvt.page.link/goidata . Chi tiet LH 198 (0d). Tran trong.",0,real
 "[TB] TANG 50% gia tri tat ca the nap trong ngay 18/11/2021, tien KM su dung goi va nhan tin noi mang trong 15 ngay. CT ap dung cho TB nhan duoc tin nhan. LH 198 (0d). Chuc Quy khach suc khoe, an toan.",0,real
-"Bao hiem Xa hoi Viet Nam: Thong bao QK co 20,000,000 VND tien phan bo khuyen khich BHYT. Lien he so NQ116/HCM/0987 de nhan ve tai khoan ngan hang.",1,synthetic_hard_negative
+"Bao hiem Xa hoi Viet Nam: Thong bao QK co 20,000,000 VND tien phan bo khuyen khich BHYT. Lien he so NQ116/HCM/0987 de nhan ve tai khoan ngan hang.",1,synthetic_hard_positive
 Cam on Quy khach da lua chon thanh toan Google Play qua tai khoan di dong Viettel. Giao dich Google Play thanh toan qua tai khoan di dong Viettel se tinh them 10% phi. Chi tiet truy cap chplay.viettel.vn hoac LH 198 (mien phi).Tran trong!,0,real
 "[TB] Bộ Công an thông báo: Hiện nay, tội phạm giả danh cơ quan Công an, Viện kiểm sát, Tòa án... gọi điện thông báo có liên quan đến các vụ án đang điều tra, mua bán ma túy, rửa tiền..., gửi lệnh bắt giữ hay tài liệu liên quan khác qua mạng xã hội để đe dọa, yêu cầu chuyển tiền đến các tài khoản chỉ định hoặc tài khoản mới mở rồi cung cấp thông tin tài khoản để kiểm tra hoặc tải các đường link, phần mềm giả mạo cơ quan, nhằm đánh cắp thông tin tài khoản ngân hàng để chiếm đoạt. Việc các cơ quan chức năng điều tra, xác minh, xử lý tội phạm đều được tiến hành trực tiếp, không thông qua mạng xã hội gửi thông báo, tin nhắn yêu cầu. Đề nghị người dân cảnh giác, không thực hiện theo các yêu cầu của đối tượng và trình báo ngay với cơ quan công an nơi gần nhất để được giải quyết.",0,real
 "Tai khoan cua Quy khach da duoc nap 10,000d tu 151753 vao 09/07/2025 08:13:34. Ma giao dich 2328573816. Chi tiet lien he CSKH 18001091 (0d). Tran trong cam on!",0,real
@@ -384,7 +384,7 @@ Quy khach duoc cong 3 diem do Giao dich thanh toan DV vien thong qua VIETTEL MON
 (TB) Đặt lịch CHỦ NHẬT VÀNG! My VNPT tặng bạn ưu đãi 50% tối đa 10.000đ khi nạp thẻ VinaPhone cho thuê bao trả trước (ưu đãi sẽ được tự động nạp vào tài khoản chính). Áp dụng cho giao dịch nạp thẻ đầu tiên cho chính mình. Đặt lịch ngay tại https://my.vnpt.com.vn/adv/napthe50. CSKH: 18001091 nhánh 3 (0đ). Trân trọng!,0,real
 "**Tuyển dụng gấp: Cộng tác viên kiểm duyệt nội dung online cho TikTok** **Mức lương hấp dẫn:** 600.000 – 1.800.000 VND/ngày **Yêu cầu:** Tuổi từ 20-55, không yêu cầu kinh nghiệm **Làm việc tại nhà, linh hoạt giờ giấc** **Liên hệ ngay:** zalo.me/84987654321",1,paraphrased
 TK ViettelPay 9704...1278 GD -1.000 VND luc 2024-03-15 11:38:14 So du 3.372 VND ND: GD thanh toan 240315179237964 NAP TIEN DIEN THOAI cho Khach hang 0867256447,0,real
-"Chúc mừng Hoa nha, số điện thoại của bạn may mắn trúng giải thưởng trị giá 50 triệu từ Shopee, click vào tinyurl.com/nhan-thuong để làm thủ tục nhận thưởng.",1,synthetic_hard_negative
+"Chúc mừng Hoa nha, số điện thoại của bạn may mắn trúng giải thưởng trị giá 50 triệu từ Shopee, click vào tinyurl.com/nhan-thuong để làm thủ tục nhận thưởng.",1,synthetic_hard_positive
 TK ViettelPay 9704...1278 GD +1.000 VND luc 2024-08-12 19:50:24 So du 4.372 VND ND: 240812178684715 VIETTELMONEY TRATHUONG MACQ 240812178684715 84867256447,0,real
 (T/B) - Ban da du d!eu k!en NHAN TIEN ho tro tu quy BHTN. Bam vao www.movnb.icu de lay. QUA_HAN SE KH0NG DUOC CHAP-NAHN!,1,real
 "(TB) Các cá nhân, tổ chức tuyệt đối không sản xuất, mua bán, tàng trữ, vận chuyển, sử dụng trái phép các loại vũ khí, vật liệu nổ, công cụ hỗ trợ và pháo; tích cực phát hiện, tố giác, đấu tranh với tội phạm, hành vi vi phạm pháp luật. Mọi thông tin về tội phạm và vi phạm pháp luật về vũ khí, vật liệu nổ, công cụ hỗ trợ và pháo, đề nghị cung cấp kịp thời cho cơ quan Công an nơi gần nhất hoặc qua đường dây nóng số điện thoại 02518.820.999 hoặc trên ứng dụng VneID.",0,real
@@ -432,7 +432,7 @@ Goi cuoc D6V (6.000d/ngay) cua QK gia han khong thanh cong do tai khoan chinh kh
 "(TB2) Quy khach da cap nhat thanh cong thong tin thue bao 0828054353 tai app MyVNPT vao ngay 05/08/2022. Sau ngay 01/04/2022, VinaPhone se khong giai quyet cac tranh chap, khieu nai ve sang ten, chuyen quyen (neu co). Chi tiet LH 18001091 (0đ). Tran trong!",0,real
 Your verification code is 618751 Thank you,0,real
 "Quy khach co 14.421 dong trong tai khoan. Bam goi *098*3# de co 3GB voi 15.000d/3 ngay hoac *098*989# (30.000d/3 ngay) co 15GB (5GB/ngay), mien phi 10 phut/cuoc noi mang, 15 phut ngoai mang, SMS noi mang va TV360. Goi cuoc gia han khi het chu ky. De biet thong tin cac uu dai khac, bam goi *098# hoac truy cap My Viettel tai https://myvt.page.link/goidata . Chi tiet LH 198 (0d). Tran trong.",0,real
-"[Sendo] Chuc mung ban trung qua 2,000,000 VND tu chuong trinh Birthday Sale! Ma qua: TKI-0045678. Goi lai so nay trong 24h de nhan qua.",1,synthetic_hard_negative
+"[Sendo] Chuc mung ban trung qua 2,000,000 VND tu chuong trinh Birthday Sale! Ma qua: TKI-0045678. Goi lai so nay trong 24h de nhan qua.",1,synthetic_hard_positive
 "[QC] Mua gói cước hay, nhận quà tiền triệu! Quý khách nhận ngay gói ưu đãi trị giá đến 1.400.000đ từ BE (bao gồm bộ voucher sử dụng cho dịch vụ beBike/beCar/beDelivery) khi mua gói cước viễn thông trên ứng dụng My Viettel. CT áp dụng từ ngày 16/07/2024 đến ngày 31/08/2024. Chi tiết truy cập https://myvt.page.link/uudaiBe hoặc LH 198 (0đ). Từ chối QC, soạn TC3 gửi 199.",0,real
 "(TB) XUÂN MỚI - LỘC TỚI! VinaPhone lì xì riêng Quý khách 20% giá trị thẻ nạp vào HÔM NAY 04/02/2025 (khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày).  + Cơ hội may mắn trúng iPhone 16 Pro Max và hàng ngàn giải thưởng tổng trị giá hơn 5,5 TỶ đồng khi nạp thẻ từ 20.000đ. + Nạp thẻ tại https://my.vnpt.com.vn/adv/napthe để có thêm ưu đãi. CSKH: 18001091 (0đ).",0,real
 "Em chào Chị Ạ, Chúc Chị Thanh Vân có một ngày tham quan nhiều gian hàng, tiếp cận nhiều công nghệ mới, để sẵn sàng bứt phá cùng TRIỂN LÃM QUỐC TẾ ĐỔI MỚI SÁNG TẠO VIỆT NAM 2024 nhé! Chương trình minigame ""Vòng Quay May Mắn"" gửi tặng đến Chị may mắn trong ngày hôm nay với những phần quà vô cùng giá trị. Ấn Quay Ngay để cùng tham gia nhé! t.me/vip",1,real
@@ -475,7 +475,7 @@ Tài khoản của bạn đã mở dịch vụ tài chính toàn cầu phí dị
 Dang ky nhan 88.000k . KM hot nap dau nhan 288k x1 vong cuoc . DK t.ly/a0GYg lmADZ,1,real
 Th0ng ba0: BIDV nang cap he thong. Vui l0ng dang nhap https://b0dv.xyz va nang cap. Neu kh0ng tai khoan se bi kh0a. aabd,1,real
 "[TB] NẠP THẺ TẶNG TIỀN - DÙNG LIỀN DATA! Tặng 20% giá trị tất cả thẻ nạp vào tài khoản viễn thông trong ngày 25/05/2024. Tiền KM sử dụng truy cập Internet trong 15 ngày. Nạp thẻ online tại các ví điện tử, ứng dụng thanh toán hoặc tại https://vtmoney.onelink.me/314y/km3 . Chi tiết gọi 197 bấm phím 19 (0đ). Trân trọng.",0,real
-"[Tiki] Ban duoc hoan 500,000 VND tu don hoan hang #GHN334455. De nhan tien ve the, goi 0912000123 va cung cap so the ngan hang.",1,synthetic_hard_negative
+"[Tiki] Ban duoc hoan 500,000 VND tu don hoan hang #GHN334455. De nhan tien ve the, goi 0912000123 va cung cap so the ngan hang.",1,synthetic_hard_positive
 Yeu cau Huy goi D6V khong thanh cong do QK chua dang ky goi D6V. Vui long soan CTKM gui 900 de tra cuu uu dai danh rieng cho thue bao cua QK hoac lien he tong dai CSKH: 18001091 (0d).,0,real
 "Quy khach duoc cong them 127 diem Viettel++ boi giao dich Tieu dung vien thong thang 04/2023. Thoi han su dung diem den 31/05/2024. Hay truy cap https://myvt.page.link/vtplus tren My Viettel hoac *098# de doi diem sang Data, SMS, Phut goi cung nhieu uu dai gia tri khac. Chi tiet LH 198. Tran trong.",0,real
 "Quy khach dang kich hoat dich vu VCB Digibank tren kenh Mobile, ma xac thuc la 128233, hieu luc trong 1 phut. LUU Y KHONG TIET LO MA XAC THUC NAY CHO NGUOI KHAC",0,real
@@ -530,7 +530,7 @@ Do su co tam gian doan cap dien Khach hang PE13000143179 tu 18:54 - 20:54 ngay 2
 Quy Khach dang su dung goi M0 - Dich vu Mobile Internet va co 0 MB dung luong data mien phi.,0,real
 "(TB) Miễn phí DATA truy cập http://meclip.vn/ để hiểu rõ hơn những kiến thức chuyên sâu về Đời sống, Pháp luật, Hôn nhân gia đình. Mời bạn soạn DK LUAT gửi 9488 (miễn phí ngày đầu) đăng ký gói cước Pháp Luật Đời Sống của VinaPhone. Cước gia hạn 3.000đ/ngày. CSKH 18001091 (0đ).",0,real
 "Chào bạn! Mình là Quân đây. Mình vừa khám phá ra cách kiếm bội tiền ngay tại nhà với thu nhập 500k-1tr/ngày. Chẳng cần vốn, chỉ cần 30 phút mỗi ngày là đủ. Kết nối ngay: t.me/kiemtienxanh",1,paraphrased
-"Trang ơi tớ đang cần gấp một mã thẻ cào Mobifone 500k để nạp gia hạn gói cước, cậu mua giúp tớ nhắn mã qua đây nhé, chiều tớ trả tiền.",1,synthetic_hard_negative
+"Trang ơi tớ đang cần gấp một mã thẻ cào Mobifone 500k để nạp gia hạn gói cước, cậu mua giúp tớ nhắn mã qua đây nhé, chiều tớ trả tiền.",1,synthetic_hard_positive
 "[TB] Bộ Thông tin và Truyền thông: Hãy cài đặt sử dụng ứng dụng i-Speed để kiểm tra tốc độ truy cập Internet của bạn. Việc hưởng ứng sử dụng thường xuyên của bạn sẽ góp phần thúc đẩy phát triển, nâng cao chất lượng dịch vụ Internet Việt Nam. Cài đặt ứng dụng i-Speed tại https://speedtest.vn/tai-ve (miễn cước data khi sử dụng).",0,real
 "[QC] NẠP THẺ LIỀN TAY, NHẬN NGAY QUÀ KHỦNG 1.Thẻ mệnh giá dưới 50.000đ, tặng 6GB/3 ngày: 3GB trên các hạ tầng (ST15K)+3GB trên 4G 2.Thẻ mệnh giá từ 50.000đ trở lên, tặng 14GB/7 ngày: 7GB trên các hạ tầng (ST30K)+7GB trên 4G CT áp dụng với THẺ NẠP ĐẦU TIÊN trong ngày 08/05 cho TB của Quý khách. LH 198 (0đ). Từ chối QC, soạn TC1 gửi 199",0,real
 (TB) TING TING - NÀO MÌNH NHẬN QUÀ! VinaPhone dành tặng riêng Quý khách 20% giá trị thẻ nạp vào HÔM NAY 11/4/2023. Khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày. Quý khách nhận thêm 4% chiết khấu cùng nhiều quà tặng hấp dẫn khi nạp thẻ qua VNPT Money tại https://km.vnptmoney.vn/NgayVang .CSKH: 18001091 (0đ).,0,real
@@ -545,12 +545,12 @@ Anh chị sinh viên 18 tuổi đang cần tiền nhanh chóng? Hãy ghé thăm 
 Tiktok đang tuyển nhân viên làm việc tại nhà!!! Mô tả công việc: Xử lý đơn hàng từ nền tảng ứng dụng của Tiktok. Thu nhập trong ngày 350 - 999k/ngày. Thao tác đơn giản và bạn có thể nhận tiền sau 13 - 25 phút. Các bạn có nhu cầu tham gia xin liên hệ zalo.me/84937441240 zalo:84937441240,1,real
 Your verification code is 305132 Thank you,0,real
 "(TB) Để bảo đảm an toàn khi tham gia giao thông dịp Quốc khánh 02/9/2023, đề nghị người dân chấp hành pháp luật về trật tự, an toàn giao thông, điều khiển phương tiện đúng tốc độ, giữ khoảng cách an toàn, không tránh vượt sai quy định, tuyệt đối không điều khiển phương tiện khi đã sử dụng rượu, bia.",0,real
-"[Vietcombank] Ma giao dich #19009999 tri gia 50,000,000 VND da duoc chap thuan. Neu khong phai ban thuc hien, goi ngay hotline de bao cao.",1,synthetic_hard_negative
+"[Vietcombank] Ma giao dich #19009999 tri gia 50,000,000 VND da duoc chap thuan. Neu khong phai ban thuc hien, goi ngay hotline de bao cao.",1,synthetic_hard_positive
 "EVNHCMC TB TIEN DIEN T4/22 KH PE13000143179 LA 99,976 VND VUI LONG T.TOAN TRUOC 22/04/2022 LH 1900545454",0,real
 "(TB) Toàn dân tích cực hưởng ứng tham gia cuộc thi Tìm hiểu Luật Phòng, chống ma tuý. Thông tin chi tiết truy cập địa chỉ: https://thitimhieuluatphongchongmatuy.vn .",0,real
 Chương trình hỗ trợ: Quý khách đã đủ điều kiện nhận tiền hỗ trợ theo Quyết định 253/QĐ-UBND. Truy cập ngay vào link: bit.ly/trocap253 để xác nhận thông tin. Quá hạn sẽ không được chấp thuận!,1,paraphrased
 "(TB) Chào đón mùa tựu trường, VinaPhone tặng riêng Bạn ưu đãi 20% khi nạp tiền điện thoại vào NGÀY MAI 26/8/2022. Khuyến mại sử dụng gọi/nhắn tin trong 15 ngày. Bạn dễ dàng nạp tiền online tại ứng dụng MyVNPT my.vnpt.com.vn/app CSKH 18001091 (0đ).",0,real
-"Hùng đang ở đâu đấy, mua hộ tớ cái thẻ điện thoại Viettel 100k với, lát tớ bắn lại cho.",1,synthetic_hard_negative
+"Hùng đang ở đâu đấy, mua hộ tớ cái thẻ điện thoại Viettel 100k với, lát tớ bắn lại cho.",1,synthetic_hard_positive
 "LENH TRUY NA: Can cu tai lieu thu thap duoc, ngay 09/03/2022 Co quan canh sat dieu tra Cong An chi thuc TRUY NA ONG/BA va DONG PHAM ve hanh vi LUA DAO, CAU KET, CHIEM DOAT TAI SAN. NOI TRONG 48H TOI Doi Tuong khong tu giac trinh dien se tien hanh Chuyen giao Khoan Vay cho C0NG TY DOI N0 THUE",1,real
 Sử dụng mã xác minh 695553 để xác thực Microsoft.,0,real
 "Tai khoan chinh cua Quy khach khong du de thuc hien cuoc goi. Soan 3 gui 9345 (hieu luc trong vong 48h) de duoc ung 5 PHUT THOAI (Gia cuoc 8650d). Tu choi nhan tin, soan TC gui 9345. CSKH: 18001091 (0d)",0,real
@@ -567,7 +567,7 @@ Nhóm hẹn hò VIP dành cho nam giới – Zalo: 0987654321,1,paraphrased
 "Truong DH CNTT thong bao hoc bu mon Quan ly thong tin(IE103.O22) vao thu 4 ngay 22/05/2024, Tiet 1,2,3,4, Phong B3.12. Chi tiet vui long lien he (028) 372 52002 chon 155",0,real
 Tập đoàn FPT tuyển gấp nhân viên xử lý đơn hàng online. Mức lương 700k-5tr/ngày. Độ tuổi 18-60. Liên hệ ngay qua Fanpage: facebook.com/fptjob.vn hoặc hotline: 0987654321.,1,paraphrased
 (TB) BẤT NGỜ CUỐI TUẦN! VinaPhone tặng Quý khách 50% khi nạp tiền DUY NHẤT bằng hình thức trực tiếp trên ứng dụng My VNPT (tại: https://my.vnpt.com.vn/adv/napdt ) trong hôm nay 23/03/2025. Khuyến mãi được sử dụng gọi và nhắn tin trong 15 ngày. CSKH:18001091 (0đ).,0,real
-"[Trung tam Giai Quyet Viec Lam] Chuc mung ban la 1 trong 20 ung vien duoc chon cho vi tri Nhan vien van phong. Luong 20,000,000 VND. Phi dat coc thiet bi lam viec: 500.000 VND.",1,synthetic_hard_negative
+"[Trung tam Giai Quyet Viec Lam] Chuc mung ban la 1 trong 20 ung vien duoc chon cho vi tri Nhan vien van phong. Luong 20,000,000 VND. Phi dat coc thiet bi lam viec: 500.000 VND.",1,synthetic_hard_positive
 "Bạn đã đủ điều kiện nhận tiền hỗ trợ từ quỹ BHXH. Truy cập ngay: www.htbss.com.vn. Hạn cuối là 30/06/2024, quá hạn sẽ không được chấp nhận!",1,paraphrased
 "[TB] Giảm ngay 3% giá trị thanh toán khi nạp thẻ vào tài khoản viễn thông cho thuê bao trả trước qua tài khoản ngân hàng hoặc tài khoản ViettelPay liên kết trên My Viettel. ĐẶC BIỆT, TẶNG THÊM 50% GIÁ TRỊ CHO LẦN NẠP THẺ ĐẦU TIÊN vào Chủ nhật ngày 03/04/2022. Tiền khuyến mại sử dụng nội mạng trong 15 ngày. Nạp tiền tại https://myvt.page.link/naptiencn . LH 198 (0đ). Trân trọng!",0,real
 "CHÚC MỪNG SINH NHẬT Quý khách. Kính chúc Quý khách luôn hạnh phúc, thành công và thịnh vượng. Cảm ơn Quý khách đã luôn đồng hành cùng fpt-voice.net",0,real
@@ -663,10 +663,10 @@ Your verification code is 535249 Thank you,0,real
 Thong tin dang ky Vi dien tu cua Quy khach da duoc xac thuc thanh cong. Chuc Quy khach co trai nghiem dich vu tot nhat tren Ung dung vi dien tu VNPAY,0,real
 "Để chào mừng năm mới, Kim Long tặng ngay 68-888K khi đăng ký tại: d82yy.com, hãy liên hệ CSKH để nhận. Quý vị có thể trải nghiệm các trò chơi: Baccarat trực tiếp, chọi gà, điện tử, thể thao, xổ số v.v. Gửi và rút tiền trong vòng 3 phút, CSKH 24/24",1,real
 "A goi vao so 1900788938 de noi chuyen va tam su voi em nhe. A goi luon cho em nha, Em co viec, A khong goi khong duoc dau nha!",1,real
-"J&T Express: Don SPE2025123456 bi tam giu tai Hai quan do thieu giay to. Phi xu ly: 5,000,000 VND. Goi 0901234567 de duoc huong dan giai phong hang.",1,synthetic_hard_negative
+"J&T Express: Don SPE2025123456 bi tam giu tai Hai quan do thieu giay to. Phi xu ly: 5,000,000 VND. Goi 0901234567 de duoc huong dan giai phong hang.",1,synthetic_hard_positive
 "Dang ky thanh cong goi D7 (7.000d/ngay co 1,2GB data toc do cao, het 1,2GB tinh theo goi dang su dung). Hieu luc den 07:21 01/05/2023. Goi cuoc gia han tu dong hang ngay. Kiem tra dung luong, soan DATAKM gui 888. De huy soan HUY D7 gui 888",0,real
 G-650448 is your Google verification code.,0,real
-"BHXH: QK co quyen duoc tra het so du BHXH 6,000,000 VND truoc 55 tuoi theo Nghi dinh moi. Lien he van phong BHXH hoac goi 19009060.",1,synthetic_hard_negative
+"BHXH: QK co quyen duoc tra het so du BHXH 6,000,000 VND truoc 55 tuoi theo Nghi dinh moi. Lien he van phong BHXH hoac goi 19009060.",1,synthetic_hard_positive
 "Quy khach duoc tang 2 GB toc do cao su dung den ngay 12/09/2025. Quy khach da su dung 0 MB, con lai 2048 MB. Cam on Quy khach da su dung dich vu cua Vinaphone. CSKH: 18001091(0d). Tran trong!",0,real
 "EVNHCMC TB TIEN DIEN T3/22 KH PE13000143179 LA 85,175 VND VUI LONG T.TOAN TRUOC 22/03/2022 LH 1900545454",0,real
 Goi cuoc D6V cua QK da su dung het dung luong toc do cao. De tiep tuc su dung dich vu vui long soan DK D6V gui 888. CSKH: 18001091 (0d).,0,real
@@ -676,7 +676,7 @@ G-524058 is your Google verification code.,0,real
 Do su co tam gian doan cap dien Khach hang PE13000143179 tu 14:02 - 16:02 ngay 31/01/2022. Kinh xin loi quy Khach hang va mong duoc thong cam. LH 1900545454,0,real
 "[TB] Thông báo đến ngày 31/12/2022 sổ hộ khẩu và sổ tạm trú giấy sẽ không còn giá trị sử dụng. Đề nghị công dân chưa làm CCCD gắn chíp liên hệ ngay Công an xã, phường, thị trấn nơi cư trú để được hướng dẫn địa điểm cấp CCCD hoặc đến phòng Cảnh sát QLHC về TTXH Công an tỉnh Đồng Nai để được cấp CCCD. Trân trọng!",0,real
 "[TB] UBND TP.HCM kêu gọi người dân hãy đi tiêm vắc xin phòng Covid 19 (mũi 1 và mũi 2), nếu chưa tiêm. Nếu đã tiêm rồi hãy đi tiêm mũi nhắc lại (mũi 3 và mũi 4). Tiêm mũi nhắc lại sẽ làm tăng khả năng bảo vệ cơ thể trước biến thể phụ BA.5 của Covid-19, nhất là người trên 50 tuổi hoặc người có bệnh nền. Trân trọng!",0,real
-[Eximbank] Bao cao bao mat: Co 19009999 dang co y dinh truy cap tai khoan Do Van I cua QK. Goi 19008888 ngay de kich hoat bao ve.,1,synthetic_hard_negative
+[Eximbank] Bao cao bao mat: Co 19009999 dang co y dinh truy cap tai khoan Do Van I cua QK. Goi 19008888 ngay de kich hoat bao ve.,1,synthetic_hard_positive
 (VINAPHONE PLUS TB) Diem tich luy cua Hoi vien den thang 09/2022 la 30 diem VinaPhone Plus. Chi tiet truy cap https://vinaphoneplus.com.vn hoac goi 18001091. Tran trong cam on!,0,real
 "j)t.ly/Q5YuG Um Cu,u~Th,ua8% ZJ Na.pVao-LanD:au,UuDa'j:8Tr8 PJ wz8:88.Bma Gu.i_C:OT~6OKa:H'SD;2_4H[[H6MW9KD1X191> zHoa'n,Tr'a~1,4% Ge",1,real
 "(TB) Quà 20-10, VinaPhone tặng riêng Bạn 20% khi nạp tiền điện thoại vào NGÀY MAI 18/10/2022. Khuyến mại sử dụng gọi/nhắn tin trong 15 ngày. Hãy trải nghiệm nạp tiền online dễ dàng và nhanh chóng tại ứng dụng MyVNPT my.vnpt.com.vn/app . CSKH 18001091.",0,real
@@ -714,7 +714,7 @@ Don hang 1689112485513 da giao thanh cong. Quy khach vui long danh gia thai do n
 "CSGT khuyến cáo: Chạy xe hàng ba, lạng lách, đánh võng là hành vi đặc biệt nguy hiểm, có thể gây tai nạn nghiêm trọng. Hãy lái xe an toàn, văn minh!",0,real
 "Sacombank kinh chuc Quy khach hang HOANG THI THUY tuoi moi that nhieu dieu may man, vui ve, hanh phuc va thanh cong",0,real
 "Tai khoan cua Quy khach da duoc nap 50,000d tu 321465 vao 19/07/2025 21:16:37. Ma giao dich 2335273357. Chi tiet lien he CSKH 18001091 (0d). Tran trong cam on!",0,real
-"Em gửi file báo cáo tháng này anh check nhé. Dạ em nhầm số sếp, phiền anh/chị quá. Số đuôi anh chị đẹp ghê, mình làm quen nhé, zalo em 0888999000.",1,synthetic_hard_negative
+"Em gửi file báo cáo tháng này anh check nhé. Dạ em nhầm số sếp, phiền anh/chị quá. Số đuôi anh chị đẹp ghê, mình làm quen nhé, zalo em 0888999000.",1,synthetic_hard_positive
 (TB)  Đầu tuần vui vẻ - Nạp thẻ nhận quà!  VinaPhone tặng riêng Quý khách 20% giá trị thẻ nạp HÔM NAY 05/12/2023. Khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày. Ưu đãi hấp dẫn khi nạp thẻ tại https://shop.vnpt.vn/nap-the.html . CSKH: 18001091 (0đ).  VinaPhone - Mạng di động nhanh nhất Việt Nam 2023.,0,real
 "[TB] TANG 50% gia tri tat ca the nap trong ngay 15/11/2021, tien KM su dung goi va nhan tin noi mang trong 15 ngay. CT ap dung cho TB nhan duoc tin nhan. LH 198 (0d). Chuc Quy khach suc khoe, an toan.",0,real
 Công ty Thế Giới Di Động tuyển dụng nhân viên nhập liệu từ xa. Thu nhập 1 triệu/ngày chỉ cần điện thoại. Lương chuyển khoản ngay. Độ tuổi 18-60. Liên hệ: 0912345678,1,paraphrased
@@ -732,7 +732,7 @@ Cam on ban da mua Premium for Students voi gia 29.500d. Ban co the xem bien nhan
 K!m_Phú_Quý: Cược đỉnh chơi ngay 50-70%. Zalo: 0988334455. Link: phuquy.bet,1,paraphrased
 (TB) ĐẦU TUẦN VUI VẺ - NẠP THẺ RINH QUÀ! VinaPhone ưu đãi dành riêng cho thuê bao nhận được tin nhắn và nạp tiền vào HÔM NAY 18/02/2025: + Tặng ngay 20% giá trị thẻ nạp. khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày. + Thêm ưu đãi hời khi nạp thẻ tại https://my.vnpt.com.vn/adv/napthe . CSKH: 18001091 (0đ).,0,real
 "[TB] Thực hiện thủ tục cấp Phiếu lý lịch tư pháp trên ứng dụng VNeID – Nhanh chóng, tiết kiệm, hiệu quả.",0,real
-"[HR Solutions Viet Nam] Chuc mung ban la 1 trong 20 ung vien duoc chon cho vi tri Ban hang. Luong 20,000,000 VND. Phi dat coc thiet bi lam viec: 500.000 VND.",1,synthetic_hard_negative
+"[HR Solutions Viet Nam] Chuc mung ban la 1 trong 20 ung vien duoc chon cho vi tri Ban hang. Luong 20,000,000 VND. Phi dat coc thiet bi lam viec: 500.000 VND.",1,synthetic_hard_positive
 [TB] Tặng 20.000đ khi nạp thẻ từ 10.000đ trong 2 ngày 22-23/11. LH 198 (0đ). Lưu ý:  (1) Tiền KM để gọi và nhắn tin nội mạng trong 15 ngày và được cộng sau khi nạp thẻ tối đa 60 phút.  (2) KM áp dụng với thẻ đầu tiên nạp cho TB nhận được tin nhắn.,0,real
 [TB] GỌI RẺ HƠN - ƯU ĐÃI HƠN Chỉ 50.000đ/30 ngày được miễn phí 10 phút/cuộc gọi nội mạng (tối đa 500 phút). Gói cước gia hạn sau 30 ngày. Đăng ký tại https://viettel.vn/MP50X hoặc soạn MP50X gửi 109. CT áp dụng cho thuê bao nhận được tin nhắn. Chi tiết LH 198 (0đ).,0,real
 [TB] KHUYẾN MẠI LÊN ĐẾN 100%! Tặng 30.000đ khi thẻ nạp mệnh giá từ 30.000đ trở lên (không áp dụng cho thẻ nạp trong ngày 20/1). Tiền KM để gọi và nhắn tin nội mạng trong 15 ngày. Nạp thẻ online tại https://vt.vtmoney.vn/utvas3 . Lưu ý: 1.Ưu đãi áp dụng cho thẻ nạp đầu tiên đến 28/01/2022 vào tài khoản viễn thông. 2.CT dành riêng cho TB nhận được tin nhắn.  Chi tiết LH 198 (0đ).,0,real
@@ -858,7 +858,7 @@ VTMONEY: Nhap ma OTP 0066 de xac thuc giao dich cho SDT 84945546296. Quy khach K
 Goi cuoc D6V (6.000d/1 ngay) cua QK da gia han thanh cong. Uu dai (2GB/ngay + MyTV addon VTVcab. Het dung luong dung truy cap). HSD den 14:44 06/09/2024. Goi cuoc gia han tu dong. Kiem tra dung luong con lai soan DATAKM gui 888. CSKH: 18001091 (0d).,0,real
 "(TB) CHỦ NHẬT VÀNG - NẠP NGẬP TRÀN! My VNPT dành tặng bạn ƯU ĐÃI 50% khi Nạp điện thoại VinaPhone cho thuê bao trả trước (khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày). Áp dụng mọi mệnh giá, không giới hạn DUY NHẤT ngày 09/02/2025 tại https://my.vnpt.com.vn/adv/napthe50. CSKH: 18001091 nhánh 3 (0đ). Trân trọng!",0,real
 "[TB] Mừng 25 năm Viettel Telecom - Cảm ơn Quý khách đã lựa chọn và đồng hành! Để nhận ưu đãi điểm Viettel++ tương ứng với số năm Quý khách đã gắn bó cùng Viettel, truy cập https://vietteltelecom25.tv360.vn . CT áp dụng từ 15-25/10/2025. Chi tiết LH 198 (0đ). Trân trọng!",0,real
-"Bao hiem Xa hoi Viet Nam: Thong bao QK co 4,500,000 VND tien phan bo khuyen khich BHYT. Lien he so BH-LD/2025/001 de nhan ve tai khoan ngan hang.",1,synthetic_hard_negative
+"Bao hiem Xa hoi Viet Nam: Thong bao QK co 4,500,000 VND tien phan bo khuyen khich BHYT. Lien he so BH-LD/2025/001 de nhan ve tai khoan ngan hang.",1,synthetic_hard_positive
 "Cam on Quy khach da lua chon tham gia bao hiem voi FWD. Chung toi luon san sang dong hanh cung Quy khach, vui long xem chi tiet tai https://bit.ly/TB_ThuguiKH",0,real
 Truong DH CNTT thong bao nghi hoc Mon Giai tich(MA006.N120) vao thu 7 ngay 14 thang 01 nam 2023. Chi tiet vui long lien he (028) 372 52002 chon 155,0,real
 Con tới chưa,0,real
@@ -889,14 +889,14 @@ Ok em,0,real
 Your verification code is 735365 Thank you,0,real
 "Quy khach co 15.421 dong trong tai khoan. Bam goi *098*3# de co 3GB voi 15.000d/3 ngay hoac *098*989# (30.000d/3 ngay) co 15GB (5GB/ngay), mien phi 10 phut/cuoc noi mang, 15 phut ngoai mang, SMS noi mang va TV360. Goi cuoc gia han khi het chu ky. De biet thong tin cac uu dai khac, bam goi *098# hoac truy cap My Viettel tai https://myvt.page.link/goidata . Chi tiet LH 198 (0d). Tran trong.",0,real
 Dịch vụ An ninh mạng: Hệ thống ghi nhận tài khoản của bạn chưa đúng chuẩn. Truy cập ngay xacthuc-vneid.net để tránh bị vô hiệu hóa.,1,paraphrased
-[Cong an TP] Thong bao: Ho so thue TNCN cua Ho Van Nam nam 2024 can dieu chinh. Vui long goi 02890000123 de biet chi tiet va tranh phat.,1,synthetic_hard_negative
+[Cong an TP] Thong bao: Ho so thue TNCN cua Ho Van Nam nam 2024 can dieu chinh. Vui long goi 02890000123 de biet chi tiet va tranh phat.,1,synthetic_hard_positive
 Goi cuoc D5 (5.000d/ngay) cua QK gia han khong thanh cong do tai khoan chinh khong du 5.000d. Vui long nap tien (toi thieu 5.000d) tai https://my.vnpt.com.vn/adv/napthe de duoc gia han va tiep tuc su dung uu dai cua goi cuoc. CSKH: 18001091 (0d).,0,real
 "**Shoppe tuyển nhân viên bán hàng online tại nhà. Lương 1 triệu - 5 triệu/ngày. Độ tuổi 22-55, công việc đơn giản, chỉ cần điện thoại/ máy tính. Liên hệ ngay:** - Zalo: zalo.me/84912345678 - Hotline: 0912345678",1,paraphrased
 G-858811 is your Google verification code.,0,real
 CT gia han goi V120Z theo so du tai khoan se het han vao luc 0h ngay 04/01/2023. Quy khach vui long nap them 50.000d de tiep tuc su dung uu dai V120Z den het ngay 19/01/2023. LH 198 (0d). Tran trong.,0,real
 E ru c linh xuong ma lua đo va đem luon đo sua cho c lay đo ve sua cho c nha.đe c mac đi no en ne,0,real
 "Bạn nhận được lời nhắn từ 0896543210 vào lúc 13:08 30/09/2023 với nội dung: xin thông báo số thuê bao của quý khách sẽ bị khoá trong 2 giờ tới vui lòng đến Cục Viễn mừng hoặc ấn phím 9 để gặp tư vấn viên để được hỗ trợ của chiến thông. Xin thông báo số thuê bao của quý khách sẽ bị khoá, gọi 102607 để nghe lại (Miễn phí). Chi tiết l/h 9090 (200đ/p)",1,real
-"[BHXH Viet Nam] QK chua nut don de xuat NHAN TIEN BHXH 15,000,000 VND. Han chot ngay 30 thang nay. Goi 18009068 de xin tu van.",1,synthetic_hard_negative
+"[BHXH Viet Nam] QK chua nut don de xuat NHAN TIEN BHXH 15,000,000 VND. Han chot ngay 30 thang nay. Goi 18009068 de xin tu van.",1,synthetic_hard_positive
 Cam on egai .mây hm dâu năm ban cg dc .mây ngay nay ban châm vi ho di chua dâu năm .e di lam chưa nêu chưa di sang mai ru chi tlinh xuông ma lưa dô e be nhe .,0,real
 (TB) THÁNG MỚI VUI VẺ - NẠP THẺ CÓ QUÀ! VinaPhone tặng Quý khách 20% giá trị thẻ nạp vào NGÀY MAI 01/8/2025. Khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày. Thêm ưu đãi khi nạp tại: https://my.vnpt.com.vn/adv/napthe . CSKH: 18001091 (0đ).,0,real
 "[CẢNH BÁO NGHIÊM TRỌNG]: Bà Phan Thị Hoa CMND: 241093842 hiện nợ Mirae Asset số tiền 22.000.000 VNĐ. Nếu trước 16:30 hôm nay không hoàn tất khoản thanh toán tối thiểu, chúng tôi sẽ cập nhật nợ xấu vào hệ thống CIC vĩnh viễn và khởi kiện thu hồi toàn bộ tài sản. Mọi trao đổi yêu cầu gửi về Fanpage chính thức hoặc gọi hotline: 0974 829 104.",1,paraphrased
@@ -922,7 +922,7 @@ TNN Hai-12A02: Truong THPT Tran Bien thong bao:Hs dang ky xet tuyen Dai hoc truc
 TechcomOnline: Tài khoản ngân hàng của quý khách đã bị tạm ngưng dịch vụ. Truy cập techcom-online.pro ngay để xác nhận thông tin trước 14:00 hôm nay.,1,paraphrased
 "Chuyển khoản ngay vào tài khoản 123456789 Techcombank. Hãy tham gia nhóm ""Đầu tư sinh lời 100%"" trên Telegram để nhận tín hiệu giao dịch Forex siêu lợi nhuận. Chuyên viên sẽ setup lệnh tự động ngay lập tức!",1,paraphrased
 "[TB] Quy khach co 5104 diem tieu dung Viettel++ tinh den het ngay 02/11/2022. Bam goi *098# hoac truy cap ung dung My Viettel tai https://myvt.page.link/vt10 de doi diem thanh luu luong data, phut goi, SMS hoac cac uu dai gia tri khac. LH 198 (0d).",0,real
-"Cong ty TNHH Tuyen Dung Viet TB: Ban duoc moi phong van vi tri Nhan su luong 10,000,000 VND. Chong trinh yeu cau nop phi bao hiem lao dong 200.000 VND truoc buoi hop.",1,synthetic_hard_negative
+"Cong ty TNHH Tuyen Dung Viet TB: Ban duoc moi phong van vi tri Nhan su luong 10,000,000 VND. Chong trinh yeu cau nop phi bao hiem lao dong 200.000 VND truoc buoi hop.",1,synthetic_hard_positive
 "(TB) MỪNG ĐẠI LỄ 50 NĂM, My VNPT dành tặng bạn ƯU ĐÃI 50% khi Nạp điện thoại VinaPhone cho thuê bao trả trước (khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày) ngày 04/05/2025. Áp dụng cho mọi mệnh giá, không giới hạn tại https://my.vnpt.com.vn/adv/napthe50. CSKH: 18001091 nhánh 3 (0đ). Trân trọng!",0,real
 "[QC] Uu dai toi 500.000d dap ung nhu cau du lich: Giam 8% toi da 400.000d gia phong khach san, Giam toi 100.000d ve may bay. Mo app Viettel Money xem ngay uu dai hoac truy cap: https://km.vtmoney.vn/314y/dulichdilai . Chi tiet LH 18009000 (0d). Tu choi QC, soan TC3 gui 199.",0,real
 (TB) NẠP THẺ NHẬN ƯU ĐÃI - DUY NHẤT HÔM NAY! VinaPhone ưu đãi dành riêng cho Quý khách nhận được tin nhắn và nạp tiền vào HÔM NAY 20/8/2024: + Nhận ngay 20% giá trị thẻ nạp. Khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày.  + Thêm ưu đãi hời khi nạp thẻ tại https://my.vnpt.com.vn/adv/ napthe . CSKH: 18001091 (0đ).,0,real
@@ -938,8 +938,8 @@ Neu e danh xuong c nha .Minh e đi thoi vi k co g nen đung bao c linh đi mat c
 "E Ho Cho Cap Lai, lam Bang Lai Xe Cac Loai A,B,C,D..Cung Cap Cac Loai Giay To Khac CCCD,Bang DH,Cdang,TCap. GiaoHang va ThanhToan Tai Nha LH 0986557450 Rsmv",1,real
 TPbank: Tran trong thong bao.Tai khoan cua quy khach hien tai da hi khoa Dang nhap https://ebank.tbplik.com de xac thuc ngay hom nay.,1,real
 "[QC] NẠP THẺ LIỀN TAY, NHẬN NGAY QUÀ KHỦNG 1.Thẻ mệnh giá dưới 50.000đ, tặng 6GB/3 ngày: 3GB trên các hạ tầng (ST15K)+3GB trên 4G 2.Thẻ mệnh giá từ 50.000đ trở lên, tặng 14GB/7 ngày: 7GB trên các hạ tầng (ST30K)+7GB trên 4G CT áp dụng với THẺ NẠP ĐẦU TIÊN trong ngày 15/01 cho TB của Quý khách. LH 198 (0đ). Từ chối QC, soạn TC1 gửi 199",0,real
-"Anh Long, giấy mời họp phụ huynh bé nhà mình em gửi file mềm qua link này bit.ly/nhanqua, anh tải về xem nhé.",1,synthetic_hard_negative
-"Viet Work Career: Ban duoc de cu cho vi tri quan ly Ke toan. Luong khoi diem 25,000,000 VND + phuc loi. Xac nhan tham gia bang cach goi lai so nay.",1,synthetic_hard_negative
+"Anh Long, giấy mời họp phụ huynh bé nhà mình em gửi file mềm qua link này bit.ly/nhanqua, anh tải về xem nhé.",1,synthetic_hard_positive
+"Viet Work Career: Ban duoc de cu cho vi tri quan ly Ke toan. Luong khoi diem 25,000,000 VND + phuc loi. Xac nhan tham gia bang cach goi lai so nay.",1,synthetic_hard_positive
 [TB] DEAL SỐC CUỐI NĂM: TẶNG 100% GIÁ TRỊ khi nạp tiền điện thoại trên My Viettel vào ngày 05/12. CT dành riêng cho số thuê bao của Quý khách nạp tiền vào tài khoản viễn thông qua tài khoản ngân hàng/ví điện tử có liên kết trên My Viettel. Tiền KM sử dụng nội mạng trong 15 ngày. Nạp thẻ tại https://myvt.page.link/km100 . Chi tiết LH 198 (0đ). Trân trọng.,0,real
 Cuc CSGT thong bao: Ma xac minh dang nhap vao Tai khoan VNeTraffic cua ban la: 144496. Khong chia se ma cua ban.,0,real
 "Truong DH CNTT thong bao hoc bu mon Cong nghe Du lieu lon(IE212.P22) vao thu 5 ngay 22/05/2025, Tiet 1,2,3,4, Phong C314. Chi tiet vui long lien he (028) 372 52002 chon 155",0,real
@@ -991,7 +991,7 @@ Tổng cục Hải quan: Tài khoản ngân hàng của quý khách có giao d�
 Cục Cảnh sát Giao thông: Thông báo khẩn cấp về tài khoản đăng ký xe bị tạm giữ. Liên hệ ngay nhân viên qua số 0987654321 để giải quyết hồ sơ.,1,paraphrased
 Do su co tam gian doan cap dien Khach hang PE13000143179 tu 17:51 - 19:51 ngay 22/06/2022. Kinh xin loi quy Khach hang va mong duoc thong cam. LH 1900545454,0,real
 Chút nữa mình ghé nha,0,real
-"Cuc Thue: Quy co/chu Le Van Thanh chua nop phat vi pham hanh chinh 15,000,000 VND theo quyet dinh so 19001234. Vui long thanh toan truoc 30 ngay.",1,synthetic_hard_negative
+"Cuc Thue: Quy co/chu Le Van Thanh chua nop phat vi pham hanh chinh 15,000,000 VND theo quyet dinh so 19001234. Vui long thanh toan truoc 30 ngay.",1,synthetic_hard_positive
 "Yeu cau Huy goi SPOTV10TM khong thanh cong do goi cuoc van con  4159  MB . De xac nhan huy het uu dai con lai trong goi va huy goi, Quy khach soan HUY SPOTV10TM Y gui 900. CSKH  18001091 (0d)",0,real
 "[TB] Chào mừng Ngày Chuyển đổi số quốc gia 10.10.2023 và Tháng 10. Tháng tiêu dùng số, người dân được miễn phí hoặc ưu đãi khi sử dụng sản phẩm, dịch vụ số. Chi tiết tại địa chỉ: https://dx.gov.vn",0,real
 "[TB] MTTQ Việt Nam kêu gọi ủng hộ đồng bào bị thiệt hại do cơn bão số 3, bằng cách chuyển khoản tới Ban Vận động Cứu trợ Trung ương, số tài khoản: CT1111 tại Vietinbank; tên tài khoản Mặt trận Tổ quốc Việt Nam - Ban Cứu trợ Trung ương, số tài khoản 0011.00.1932418 tại Sở giao dịch Ngân hàng TMCP Ngoại thương Việt Nam.",0,real
@@ -1023,7 +1023,7 @@ Vietinbank tran trong thong bao tai khoan cua quy khach hien tai da bi khoa. Dan
 "Phat hien tai khoan cua ban dang nhap khac vung bat thuong, vui long dang nhap http://i-sacombank.com de xac nhan thong tin va thay doi mat khau",1,real
 "(TB) Vì yêu thương là không chờ đợi, VinaPhone tặng riêng Bạn ưu đãi 20% khi nạp thẻ vào HÔM NAY 26/7/2022. Khuyến mại sử dụng gọi/nhắn tin trong 15 ngày. Dễ dàng nạp tiền online tại ứng dụng MyVNPT my.vnpt.com.vn/app. CSKH 18001091 (0đ).",0,real
 "Quy khach da duoc thanh toan 10000 VND tu nhan vien 4500540010, Ngay GD: 02/10/2025 14:22:23. Ma GD 251002618252251. LH 18008098 (0d). Tran trong.",0,real
-"Trung tam Giai Quyet Viec Lam: Moi ban tham gia chuong trinh tap su co luong Nhan vien van phong. Thu nhap tu 15,000,000 VND. Lam viec tu xa, linh hoat gio. Goi 0901234567 de phong van.",1,synthetic_hard_negative
+"Trung tam Giai Quyet Viec Lam: Moi ban tham gia chuong trinh tap su co luong Nhan vien van phong. Thu nhap tu 15,000,000 VND. Lam viec tu xa, linh hoat gio. Goi 0901234567 de phong van.",1,synthetic_hard_positive
 "Bạn đang cô đơn? Chúng tôi kết nối bạn bè tận tâm, bí mật. Liên hệ ngay: linktr.ee/ketnoivip99",1,paraphrased
 "VNeID: Ma OTP 211045 co hieu luc trong 3 phut, su dung de xac thuc cho yeu cau kich hoat tai khoan. Vi ly do bao mat, tuyet doi khong duoc cung cap ma OTP nay cho bat ky ai. Tran trong!",0,real
 "389584 la ma xac thuc OTP tren MyVNPT cua Quy khach. Ma co hieu luc trong 2 phut. De dam bao an toan, Quy khach vui long khong chia se ma nay voi bat ky ai.",0,real
@@ -1035,7 +1035,7 @@ Vietinbank tran trong thong bao tai khoan cua quy khach hien tai da bi khoa. Dan
 "[TB] Mừng VIETTEL 35 năm - ra mắt gói cước với tính năng mới: Chỉ với 35.000đ/7 ngày, Quý khách có thể lựa chọn truy cập data, gọi điện theo nhu cầu, đặc biệt tặng thêm dịch vụ TV360 hoặc Mydio. Truy cập ứng dụng My Viettel tại https://viettel.vn/diy để trải nghiệm. LH 198 (0đ).",0,real
 [TB] Dung quen Ban dang co voucher giam 50% toi da 10.000d khi thanh toan Dien/Nuoc/Internet truyen hinh. Mo app hoac truy cap https://km.vtmoney.vn/314y/uudai2 de su dung uu dai Ban nhe.,0,real
 "[QC] Từ 11-14/9, DP Golf: BMW PGA Championship - Nơi những tay Golf hàng đầu hội tụ. Soạn DK1 gửi 1331 để đăng ký gói Standard (3.000đ/ngày) và xem ngay tại https://tv360.vn . DV gia hạn theo ngày. LH 18008119 (0đ). Từ chối QC, soạn TC4 gửi 199.",0,real
-"Bao hiem Xa hoi Viet Nam: Thong bao QK co 6,000,000 VND tien phan bo khuyen khich BHYT. Lien he so 18009068 de nhan ve tai khoan ngan hang.",1,synthetic_hard_negative
+"Bao hiem Xa hoi Viet Nam: Thong bao QK co 6,000,000 VND tien phan bo khuyen khich BHYT. Lien he so 18009068 de nhan ve tai khoan ngan hang.",1,synthetic_hard_positive
 "[TB] Nap lien tay, Khuyen mai ngay. Tang 30% gia tri tat ca the nap trong ngay 29/10/2025 (20% de truy cap Internet, 10% de goi va nhan tin noi mang), uu dai su dung trong 15 ngay. CT danh rieng cho Quy khach khi nap the online tai cac vi dien tu, ung dung thanh toan hoac tai https://viettel.vn/naptienkm . LH 198 (0d).",0,real
 "[QC] NẠP THẺ LIỀN TAY, NHẬN NGAY QUÀ KHỦNG 1.Thẻ mệnh giá dưới 50.000đ, tặng 6GB/3 ngày: 3GB trên các hạ tầng (ST15K)+3GB trên 4G 2.Thẻ mệnh giá từ 50.000đ trở lên, tặng 14GB/7 ngày: 7GB trên các hạ tầng (ST30K)+7GB trên 4G CT áp dụng với THẺ NẠP ĐẦU TIÊN trong ngày 25/10 cho TB của Quý khách. LH 198 (0đ). Từ chối QC, soạn TC1 gửi 199",0,real
 <#>Mã xác thực Reddit của bạn là: 727639 YhbEQdX/OGn,0,real
@@ -1081,7 +1081,7 @@ Quy khach co 1841 MB su dung den 07:03 26/01/2024 tu VinaPhone. CSKH 18001091.,0
 (TB) VinaPhone tặng riêng Quý khách 20% giá trị thẻ nạp vào NGÀY MAI 21/03/2023. Khuyến mại sử dụng gọi/nhắn tin trong 15 ngày. Bấm *102# để kiểm tra tài khoản khuyến mại. CSKH: 18001091 (0đ).,0,real
 "Truong DH CNTT thong bao hoc bu mon Xac suat thong ke(MA005.N27) vao thu 3 ngay 30/05/2023, Tiet 6,7,8,9, Phong B1.08. Chi tiet vui long lien he (028) 372 52002 chon 155",0,real
 "**Tuyển gấp nhân viên Bán Hàng Online tại nhà!** **Mức lương hấp dẫn: 1.5 triệu - 5 triệu/ngày** (không giới hạn thu nhập) **Yêu cầu:** Tuổi từ 18-55, không yêu cầu kinh nghiệm. **Làm việc tại nhà, linh hoạt giờ giấc.** **Liên hệ ngay:** - Zalo: zalo.me/0987654321 - Hotline: 0987654321",1,paraphrased
-"Reddi: So 0978123456 cua QK dat dieu kien nhan SIM vang phong thuy. Tong gia tri 1,000,000 VND. Goi lai so nay trong 24h de dat coc giu so.",1,synthetic_hard_negative
+"Reddi: So 0978123456 cua QK dat dieu kien nhan SIM vang phong thuy. Tong gia tri 1,000,000 VND. Goi lai so nay trong 24h de dat coc giu so.",1,synthetic_hard_positive
 Goi cuoc D6V (6.000d/1 ngay) cua QK da gia han thanh cong. Uu dai (2GB/ngay + MyTV addon VTVcab. Het dung luong dung truy cap). HSD den 15:34 26/07/2024. Goi cuoc gia han tu dong. Kiem tra dung luong con lai soan DATAKM gui 888. CSKH: 18001091 (0d).,0,real
 "[QC] NẠP THẺ LIỀN TAY, NHẬN NGAY QUÀ KHỦNG 1.Thẻ mệnh giá dưới 50.000đ, tặng 6GB/3 ngày: 3GB trên các hạ tầng (ST15K)+3GB trên 4G 2.Thẻ mệnh giá từ 50.000đ trở lên, tặng 14GB/7 ngày: 7GB trên các hạ tầng (ST30K)+7GB trên 4G CT áp dụng với THẺ NẠP ĐẦU TIÊN trong ngày 25/04 cho TB của Quý khách. LH 198 (0đ). Từ chối QC, soạn TC1 gửi 199",0,real
 "[QC] Truyền hình Viettel TV360 khuyến mại chào hè: Tặng đến 2 tháng cước TB khi đóng trước cước 12 tháng. Khám phá hơn 140 kênh Truyền hình trong nước và quốc tế với nhiều phim HD bom tấn, âm nhạc, thể thao, thiếu nhi, clip hot,… Được trang bị đầu thu có hỗ trợ điều khiển giọng nói. Cước TB chỉ 44.000đ/tháng. Đăng ký ngay để nhận ưu đãi tại https://viettel.vn/s/tv360box. Chi tiết LH 18008168 (0đ). Từ chối QC, soạn TC3 gửi 199.",0,real
@@ -1096,14 +1096,14 @@ Bộ TT&TT: Số điện thoại của bạn sắp bị tạm ngưng 120 phút. 
 "Goi cuoc D7 cua Quy khach da het 80% dung luong. Sau khi tieu dung het data trong goi, he thong tinh cuoc truy cap data vuot goi 75d/50KB (gom VAT). Chi tiet LH 18001091",0,real
 (TB) Cuối tuần vui vẻ- Nạp thẻ nhận quà! VinaPhone tặng Quý khách: + 20% giá trị thẻ nạp vào NGÀY MAI 21/02/2025 (khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày).  + Thêm ưu đãi hời khi nạp thẻ tại https://my.vnpt.com.vn/adv/napthe .  CSKH:18001091 (0đ).,0,real
 ÔNG VŨ ĐỨC ANH NHẤT ĐỊNH PHẢI CHỊU TRÁCH NHIỆM!!! CMND: 024095566778 CÒN NỢ 19 TRIỆU 345 NGÀN ĐỒNG TẠI Mcredit. NẾU KHÔNG ĐÓNG 3 TRIỆU 829 NGÀN ĐỒNG TRƯỚC 15H30 NGÀY 22/11 SẼ BỊ KHỞI KIỆN NGAY LẬP TỨC TẠI CƠ QUAN ĐIỀU TRA. LIÊN HỆ NGAY: 0909556677.,1,paraphrased
-"Mobifone TB: Tai khoan cuoc cua 0912345678 duoc hoan tien 15,000,000 VND do loi ky thuat. Goi hotline 19009988 de nhan tien ve vi MoMo hoac ATM.",1,synthetic_hard_negative
+"Mobifone TB: Tai khoan cuoc cua 0912345678 duoc hoan tien 15,000,000 VND do loi ky thuat. Goi hotline 19009988 de nhan tien ve vi MoMo hoac ATM.",1,synthetic_hard_positive
 VPBank: Hệ thống của quý khách vừa bị nghi ngờ truy cập trái phép. Vui lòng truy cập vpbank-otp.xyz để kích hoạt bảo mật tài khoản trước 21h00 hôm nay.,1,paraphrased
 "[QC] DOJI giảm giá đến 40% khi mua: Quà tặng vàng Kim Bảo Phúc, trang sức cao cấp và trang sức vàng 24K (không áp dụng với sản phẩm đặc biệt). Giảm giá thêm 2% cho Khách hàng Viettel++. CT áp dụng từ 10-14/11/2022 tại Hội chợ Trang sức quốc tế Việt Nam và hệ thống Trung tâm Vàng bạc trang sức DOJI tại TP.HCM. Truy cập My Viettel (http://myvt.page.link/doji) để nhận ưu đãi. LH 198 (0đ). Từ chối QC, soạn TC3 gửi 199.",0,real
 Siêu may mắn 365! Tặng ngay 100% tiền thưởng cho hội viên mới. Đăng ký ngay: 0987654321. Link: lucky365.biz,1,paraphrased
 "Ban co 10.000D qua Nap Dien Thoai & 140.000D qua khac trong MoMo, het han 31/1. Mo Vi > UU DAI > QUA CUA TOI dung ngay!",0,real
 "Chào bạn! Bạn muốn đầu tư sinh lời 100% chỉ trong 30 ngày? Tham gia ngay cùng **VinTrade Pro** - nền tảng giao dịch toàn cầu. Chuyển tiền về STK: **1122334455** tại **Techcombank**, tên chủ tài khoản: **Công ty CP Đầu tư Phát Triển Sài Gòn**. Liên hệ ngay để nhận hướng dẫn!",1,paraphrased
 (TB) ĐỪNG QUÊN ƯU ĐÃI ĐẦU TUẦN! VinaPhone tặng riêng Quý khách 20% giá trị thẻ nạp vào HÔM NAY 21/03/2023. Khuyến mại sử dụng gọi/nhắn tin trong 15 ngày. Quý khách được nhận thêm 4% chiết khấu cùng nhiều quà tặng hấp dẫn khi nạp thẻ qua VNPT Money tại https://km.vnptmone y.vn/NgayVang . CSKH: 18001091 (0đ).,0,real
-"[HR Solutions Viet Nam] CAM ON da nop don! Vi tri Marketing voi muc luong 30,000,000 VND/thang chua kinh nghiem. Can chuyen phi dao tao 300.000 VND de xac nhan tham gia.",1,synthetic_hard_negative
+"[HR Solutions Viet Nam] CAM ON da nop don! Vi tri Marketing voi muc luong 30,000,000 VND/thang chua kinh nghiem. Can chuyen phi dao tao 300.000 VND de xac nhan tham gia.",1,synthetic_hard_positive
 The Visa 452404...6779 su dung tai 2C2*AMAZON PRIME VIDEO VN6717 2333 SG so tien 00 VND luc 16-12-2022 08:51:35,0,real
 "Quy khach vua nap the thanh cong va duoc khuyen mai 50% de truy cap Internet voi don gia 0,48d/50KB trong 15 ngay. Bam goi *102# de kiem tra. Chi tiet LH 198 (0d). Tran trong.",0,real
 Goi cuoc D6V cua QK gia han khong thanh cong do khong du so du 6.000d. QK vui long nap tien va duy tri tai khoan chinh toi thieu 6.000d truoc ngay 06/02/2025 de duoc gia han tu dong goi D6V. CSKH: 18001091 (0d),0,real
@@ -1114,7 +1114,7 @@ Mai e tr thu x lưa dô nha .noi voi mây c quen nha .nga lây dô m rôi ne .,0
 NHÀ CÁI SHBET NHẬP HỮU ƯU ĐÃI LÊN ĐẾN 888% NHẬP LÀ THẮNG LÀ THƯỞNG NGAY! TƯ VẤN 24/7: 0906.999.888 Link: shbet365.com,1,paraphrased
 T/B: DH FPT luu y thi sinh chi su dung cung 1 so CMND/CCCD cho viec dang ky xet tuyen tai DH FPT va dang ky nguyen vong tai https://thisinh.thithptquocgia.edu.vn/. Truong hop thi sinh dang su dung 2 so khac nhau thi vui long lien he ngay CBTV hoac tong dai 02873005588 de duoc cap nhat.,0,real
 (TB) Vào My VNPT nạp liền tay – Nhận 50% ngay! Áp dụng duy nhất khi Quý khách nạp tiền điện thoại bằng hình thức trực tiếp trên ứng dụng My VNPT tại https://my.vnpt.com.vn/adv/napdt trong ngày 06/7/2025. Khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày. CSKH:18001091 (0đ).,0,real
-"[Trung tam Thu Hoi No] Da gui thong bao nhieu lan, Pham Hoang Nam van chua thanh toan no 2,000,000 VND. Toa an Nhan dan Quan 1 se tieu thu tai san neu khong xu ly.",1,synthetic_hard_negative
+"[Trung tam Thu Hoi No] Da gui thong bao nhieu lan, Pham Hoang Nam van chua thanh toan no 2,000,000 VND. Toa an Nhan dan Quan 1 se tieu thu tai san neu khong xu ly.",1,synthetic_hard_positive
 "(CSKH) Nhân kỷ niệm sinh nhật 29 năm, để tri ân Quý khách đã đồng hành trong suốt thời gian qua, VinaPhone tặng Quý khách 1000 điểm VinaPhone Plus để sử dụng đổi vật phẩm, voucher và nhiều quà tặng hấp dẫn khác. Kính mời Quý khách truy cập website hoặc ứng dụng My VNPT http://my.vnpt.com.vn/adv/vplus để nhận ưu đãi từ chương trình. CSKH 18001091 (0đ). Trân trọng./.",0,real
 [TB] DATA TRÀN TRỀ - GÓI CƯỚC THÍCH MÊ! 1. Soạn ST7K gửi 191: 7K có 1GB dùng đến 24h ngày đăng ký. 2. Soạn ST30K gửi 191: 30K/7 ngày có ngay 7GB. Các gói cước gia hạn khi hết chu kỳ. Chi tiết LH 198 (0đ).,0,real
 OTP cua Quy Khach la: 24621988. Ma xac thuc giao dich tren vi co hieu luc trong vong 2 phut. QK TUYET DOI khong cung cap OTP cho nguoi khac tranh bi lua dao!,0,real
@@ -1240,7 +1240,7 @@ Truong DH CNTT thong bao nghi hoc Mon Thiet ke giao dien nguoi dung(IE106.P11.CN
 "Tai khoan cua Quy khach da duoc nap 50,000d tu 333895 vao 30/06/2025 13:53:34. Ma giao dich 2323256250. Chi tiet lien he CSKH 18001091 (0d). Tran trong cam on!",0,real
 "[UNG TIEN AIRTIME] Tai khoan chinh cua Quy Khach sap het. Soan A hoac Y gui 1357 de duoc ung 40000d, GIA CUOC 0 DONG vao tai khoan Airtime (su dung thoai va sms) va dong y cho VNPT xu ly du lieu KH theo chinh sach tai https://my.vnpt.com.vn/tinh-nang/chinh-sach-rieng-tu. Hieu luc su dung tai khoan Airtime la 1400 phut. So tien da ung 40000d se duoc tru vao TKC. Chi tiet LH 18001091 (mien phi).",0,real
 "Tai khoan cua ban duoc dang nhap tren thiet bi khac ,neu khong phai ban dang nhap vui long vao https://vietcombank.vn-gss.club de sua doi mat khau hoac thoat khoi thiet bi kia",1,real
-"[Ninja Van] Chien dich tra thuong cuoi nam: Don hang GHN334455 duoc hoan 3,500,000 VND. Cung cap so TK ngan hang qua so 0901111222 de nhan tien.",1,synthetic_hard_negative
+"[Ninja Van] Chien dich tra thuong cuoi nam: Don hang GHN334455 duoc hoan 3,500,000 VND. Cung cap so TK ngan hang qua so 0901111222 de nhan tien.",1,synthetic_hard_positive
 "Cảnh sát Giao thông Việt Nam: Hiện tại, bạn đang có một khoản tiền phạt chưa thanh toán trong tài khoản. Vui lòng thanh toán khoản phí này càng sớm càng tốt để tránh những bất tiện không đáng có. Để biết thêm thông tin, vui lòng truy cập https://dichvucongg.top/vn",1,real
 "[TB] Chuc mung Quy khach da duoc tang bo Voucher uu dai len den 1,4 trieu dong cho dich vu dat xe tren ung dung BE khi dang ky thanh cong goi ST5KM tren ung dung My Viettel. Quy khach truy cap link https://bit.ly/quatang-Viettel de biet them thong tin chi tiet ve chuong trinh va nhan uu dai. Chi tiet LH 198 (0d). Tran trong!",0,real
 "https://amazon.com/a/c/r/pSVKl2Em2soKsJ4ppgOv0PBbk  Amazon: Sign-in from SG, VN. Tap link to respond.",0,real
@@ -1278,13 +1278,13 @@ Hãy kết nối cùng các cô gái nóng bỏng ngay tại hội nhóm kín: b
 "SD TK 1033311702 -100,000VND luc 01-01-2023 09:27:26. SD 240,015VND. Ref Ecom.EW23010150981990.ZALOPAY.0867256447.CashIn.d5f2313dd7dd",0,real
 (TB) CHÀO NĂM MỚI SANG - NGẬP TRÀN QUÀ TẶNG! VinaPhone tặng riêng Bạn 20% khi nạp tiền điện thoại vào NGÀY MAI 03/01/2023 (khuyến mại sử dụng gọi/nhắn tin trong 15 ngày). Bạn NHẬN THÊM 4% chiết khấu và nhiều quà tặng hấp dẫn khi nạp qua VNPT Money tại https://km.vnptmoney.vn/NgayVang CSKH 18001091(0đ).,0,real
 E sưa song đô cho c nga chưa nêu song r chiêu ghe đem dum c nha,0,real
-"[Vietnamobile] KHACH HANG THAN THIET: 0912345678 nhan duoc 50,000,000 diem thuong co the doi thanh tien mat. Han hieu luc 48h. Goi 19001234 ngay.",1,synthetic_hard_negative
+"[Vietnamobile] KHACH HANG THAN THIET: 0912345678 nhan duoc 50,000,000 diem thuong co the doi thanh tien mat. Han hieu luc 48h. Goi 19001234 ngay.",1,synthetic_hard_positive
 "Tai khoan cua Quy khach da duoc nap 10,000 dong tu didong tructuyen vao 28/12/2023 22:57:55. Ma giao dich 1971680302. CSKH 18001091 (0d). Tran trong cam on!",0,real
 "Quy khach da duoc thanh toan 20000 VND tu nhan vien DLC2_007998, Ngay GD: 26/12/2022 13:55:14. Ma GD 221226634864898. LH 18008098 (0d). Tran trong.",0,real
 "(CSKH) Chuong trinh khach hang than thiet VinaPhone Plus thong bao: Tinh den het thang 10/2023 hang hoi vien cua Quy khach la Than Thiet, diem tich luy la 325 diem. Vui long truy cap website/ung dung https://vinaphoneplus.com.vn/app.html de trai nghiem uu dai hap dan (qua tang, goi cuoc …). CSKH: 18001091 (0d). Tran trong!",0,real
 You have just reset PIN of VCB-Phone B@nking. Your new PIN code is 190577. Please change within 24 hours at Hotline 1900545413 and keep it secretly,0,real
 "SHOPEE: DE CAP NHAT SO DIEN THOAI, nhap ma xac minh 391146. Ma co hieu luc trong 15 phut. KHONG chia se ma nay voi nguoi khac, ke ca nhan vien Shopee. PReCTjZ0mJK",0,real
-[ACB] Bao cao bao mat: Co 6200123456789 dang co y dinh truy cap tai khoan Tran Thi B cua QK. Goi 19008888 ngay de kich hoat bao ve.,1,synthetic_hard_negative
+[ACB] Bao cao bao mat: Co 6200123456789 dang co y dinh truy cap tai khoan Tran Thi B cua QK. Goi 19008888 ngay de kich hoat bao ve.,1,synthetic_hard_positive
 [TB] Tien ich Loi nhan thoai cua Viettel: Quy khach co cuoc goi nho tu TB 0363540706 vao luc 16:55 26/09/2025.,0,real
 Công ty F-Global tuyển gấp nhân viên đóng gói sản phẩm F-Kit tại nhà. Lương 1.200.000đ/ngày. Tuổi từ 22-60. Liên hệ: zalo.me/84398765432,1,paraphrased
 "[TB] NHỚ NGÀY GIỖ TỔ, KHUYẾN MẠI BÙNG NỔ Soạn 4G gửi 191: MIỄN PHÍ 180 ngày dùng DATA 4G truy cập Internet, xem phim, nghe nhạc... Lưu ý: 1.Để sử dụng ưu đãi, vui lòng bật chế độ 4G/LTE trên máy (xem hướng dẫn tại http://viettel.vn/on4g ) 2.DV gia hạn sau 180 ngày với 300.000đ 3.KM áp dụng 1 lần đến 30/04/2022 cho TB nhận được tin nhắn LH 198 (0đ).",0,real
@@ -1298,7 +1298,7 @@ Cục Thuế 247: Bạn đủ điều kiện nhận hoàn thuế. Truy cập: ta
 Thuy ah .Nêu đên mai danh em phu chi cung đc .Lam đc cang sơm cang tôt em ah,0,real
 Mời bạn ghé thăm hội nhóm kín trên Zalo: zalo.me/nhomkinhtinhdem Đừng bỏ lỡ cơ hội kết bạn cùng những người tâm đầu ý hợp. Mọi chi tiết xin liên hệ: zalo.me/nhomkinhtinhdem,1,paraphrased
 Goi cuoc D6V cua QK gia han khong thanh cong do khong du so du 6.000d. QK vui long nap tien va duy tri tai khoan chinh toi thieu 6.000d truoc ngay 25/09/2024 de duoc gia han tu dong goi D6V. CSKH: 18001091 (0d),0,real
-"Alo anh Quân nay đi nhậu không? Á chết, nhầm số rồi, xin lỗi anh nha. Mà thấy anh có vẻ hợp cạ, rảnh thì kết bạn zalo số này 0981234567 giao lưu nhé.",1,synthetic_hard_negative
+"Alo anh Quân nay đi nhậu không? Á chết, nhầm số rồi, xin lỗi anh nha. Mà thấy anh có vẻ hợp cạ, rảnh thì kết bạn zalo số này 0981234567 giao lưu nhé.",1,synthetic_hard_positive
 Xin chúc mừng bạn @gmail.com đã trúng thưởng một xe máy SH trị giá 97 triệu đồng. Vui lòng truy cập website: www.traogiainammoi2022.com để hoàn tất hồ sơ nhận thưởng,1,real
 "8X5Y: Nạp 1 triệu, nhận ngay 500k! 1 lượt quay thưởng trúng MAX 90 triệu. Đăng ký: t.ly/8x5yy 3xT",1,paraphrased
 "[CANH BAO] Ai do dang co truy cap tai khoan VPBank Online cua quy khach tren thiet bi/trinh duyet la. Neu khong phai QK, DOI MAT KHAU de tranh bi MAT TIỀN. Neu la QK, nhap ma bao mat 534367 de tiep tục. KHÔNG chia se ma nay cho bat kỳ ai BAO GỒM NGAN HANG hay website gia mao de tranh rui ro MAT TIEN. LH 1900545415",0,real
@@ -1308,7 +1308,7 @@ Quy khach da doi thanh cong Ma uu dai tren VIETTEL MONEY voi 100 diem. Truy cap 
 "[TB] SẮM DATA ĐÓN TẾT! 1. ST30K: 30K/7 ngày có 7GB 2. FB7: 10K/7 ngày miễn phí data truy cập Facebook và nhắn tin Messenger 3. 7N: 70K/7 ngày có 5GB/ngày, miễn phí gọi điện, SMS nội mạng, TV360 Soạn Tên gói (ví dụ ST30K) gửi 191 để tham gia. Đăng nhập https://viettel.vn/kmdata để xem chi tiết gói cước. LH 198 (0đ).",0,real
 "Quy khach co 10.756 dong trong tai khoan. Bam goi *098*3# de co 3GB voi 15.000d/3 ngay hoac *098*989# (30.000d/3 ngay) co 15GB (5GB/ngay), mien phi 10 phut/cuoc noi mang, 15 phut ngoai mang, SMS noi mang va TV360. Goi cuoc gia han khi het chu ky. De biet thong tin cac uu dai khac, bam goi *098# hoac truy cap My Viettel tai https://myvt.page.link/goidata . Chi tiet LH 198 (0d). Tran trong.",0,real
 Ban khong dang ky hoac da huy goi D7 truoc do. Xin cam on da su dung dich vu cua VinaPhone.,0,real
-"[Van phong Thua phat lai Quan 1] Canh bao cuoi cung gui den Bui Van Khanh. Khoan no 3,500,000 VND da qua han 25/05/2025. Chuyen khoan ngay hoac se co bien phap phap lu.",1,synthetic_hard_negative
+"[Van phong Thua phat lai Quan 1] Canh bao cuoi cung gui den Bui Van Khanh. Khoan no 3,500,000 VND da qua han 25/05/2025. Chuyen khoan ngay hoac se co bien phap phap lu.",1,synthetic_hard_positive
 Quy khach da su dung het luu luong cua Viettel++ va tiep tuc truy cap theo goi Mobile Internet dang su dung (neu co). Chi tiet LH 198 (0d). Tran trong.,0,real
 Bộ GTVT thông báo: Tài khoản đăng ký xe bị tạm khóa do không hoàn tất xác thực. Truy cập ngay https://dangkyxe-247.xyz để tránh chặn vĩnh viễn.,1,paraphrased
 [TB] Ban duoc mua goi Data 1N_TMDT (co 5GB/ngay + Mien phi tat ca cuoc goi noi mang duoi 10 phut) gia chi 9.500d duy nhat tren Viettel Money. Mua ngay tai https://km.vtmoney.vn/314y/gST5K .,0,real
@@ -1394,7 +1394,7 @@ Your verification code is 592516 Thank you,0,real
 **Công ty TNHH Sunny Life** cần tuyển gấp **10 nhân viên cộng tác viên bán thời gian** làm tại nhà. Mức lương hấp dẫn **1.200.000 đồng/ngày** (đã bao gồm phụ cấp). Độ tuổi từ 20-55. **Liên hệ ngay:** 0987654321 (Zalo),1,paraphrased
 "(TB) Hãy tránh xa ma túy vì sức khỏe của bản thân, hạnh phúc của mọi nhà. Mỗi cá nhân cùng chung tay vì một cộng đồng khỏe mạnh an toàn hãy nói không với ma túy; tuyệt đối không sản xuất, mua bán, tàng trữ, vận chuyển, sử dụng trái phép các chất ma túy; tích cực phát hiện, tố giác, đấu tranh với tội phạm, hành vi vi phạm pháp luật.",0,real
 "Quy khach co 22.086 dong trong tai khoan. Bam goi *098*3# de co 3GB voi 15.000d/3 ngay hoac *098*989# (30.000d/3 ngay) co 15GB (5GB/ngay), mien phi 10 phut/cuoc noi mang, 15 phut ngoai mang, SMS noi mang va TV360. Goi cuoc gia han khi het chu ky. De biet thong tin cac uu dai khac, bam goi *098# hoac truy cap My Viettel tai https://myvt.page.link/goidata . Chi tiet LH 198 (0d). Tran trong.",0,real
-"Mobifone CAM ON: QK da nap 5,000,000 VND cho thue bao 0978123456. Chung toi gui them 2,500,000 VND khuyen mai. Goi 19008888 de kich hoat bonus.",1,synthetic_hard_negative
+"Mobifone CAM ON: QK da nap 5,000,000 VND cho thue bao 0978123456. Chung toi gui them 2,500,000 VND khuyen mai. Goi 19008888 de kich hoat bonus.",1,synthetic_hard_positive
 "Chuong trinh trai nghiem mien phi 30 ngay DV Thong bao cuoc goi nho MCA da ket thuc. He thong da huy DV MCA cho Quy khach. Neu co nhu cau tiep tuc su dung, Quy khach vui long soan KM5 gui 193 (giam 50% cuoc dang ky chi con 2.750d/thang dau tien, cac thang tiep theo 5500d/thang, gia han theo thang). Chi tiet LH 198 (mien phi).",0,real
 "[TB] Để bảo đảm an toàn phòng cháy trong sử dụng điện, Bộ Công an khuyến cáo: Không sử dụng nhiều thiết bị điện có công suất lớn vào cùng một ổ cắm; không để hàng hóa, vật dụng dễ cháy gần các thiết bị điện sinh nhiệt; thường xuyên kiểm tra, sửa chữa, thay thế thiết bị điện và mạng điện hư hỏng; khi sử dụng thiết bị sinh nhiệt như bàn là, bếp điện… phải có người trông coi; ngắt nguồn và các thiết bị điện khi không sử dụng.",0,real
 Chung toi phat hien tai khoan cua ban dang tieu dung o nuoc ngoai .Neu khong phai ban dang tieu dung vui long nhap vao https://v-acb.com de huy thanh toan,1,real
@@ -1422,7 +1422,7 @@ OTP cua Quy Khach la: 91680763. Ma xac thuc giao dich tren vi co hieu luc trong 
 "Tai khoan cua Quy khach da duoc nap 50,000 dong tu VnTopup vao 11/07/2023 19:36:11. Ma giao dich 1859392068. CSKH 18001091 (0d). Tran trong cam on!",0,real
 "687475 la ma xac thuc OTP tren MyVNPT cua Quy khach. Ma co hieu luc trong 2 phut. De dam bao an toan, Quy khach vui long khong chia se ma nay voi bat ky ai.",0,real
 "Dang ky thanh cong goi D7 (7.000d/ngay co 1,2GB data toc do cao, het 1,2GB tinh theo goi dang su dung). Hieu luc den 13:28 27/09/2022. Goi cuoc gia han tu dong hang ngay. Kiem tra dung luong, soan DATAKM gui 888. De huy soan HUY D7 gui 888",0,real
-"Chúc mừng Nga nha, số điện thoại của bạn may mắn trúng giải thưởng trị giá 50 triệu từ Shopee, click vào bit.ly/nhanqua để làm thủ tục nhận thưởng.",1,synthetic_hard_negative
+"Chúc mừng Nga nha, số điện thoại của bạn may mắn trúng giải thưởng trị giá 50 triệu từ Shopee, click vào bit.ly/nhanqua để làm thủ tục nhận thưởng.",1,synthetic_hard_positive
 (TB) Ưu đãi tháng Năm - VinaPhone tặng riêng Quý khách 20% giá trị thẻ nạp vào NGÀY MAI 19/5/2023. Khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày. Quý khách nhận thêm 4% chiết khấu cùng nhiều quà tặng hấp dẫn khi nạp thẻ qua VNPT Money tại https://shop.vnpt.vn/nap-the.html . CSKH: 18001091 (0đ).,0,real
 "(ca si no) trực tuyến phú quốc hoan nghênh bạn, kết bạn zalo gái xinh  để được hướng dẫn nhận ngay 200k zalo:: 056376730",1,real
 (TB) VinaPhone tặng Quý khách ưu đãi khi nạp thẻ vào NGÀY MAI 23/8/2024: + Nhận ngay 20% giá trị thẻ nạp. Khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày.  + Thêm ưu đãi hời khi nạp thẻ tại https://my.vnpt.com.vn/adv/napthe .  CSKH: 18001091 (0đ).,0,real
@@ -1435,8 +1435,8 @@ Tài khoản của bạn đã mở dịch vụ tài chính toàn cầu phí dị
 "[TB] TANG 50% GIA TRI THE NAP, GOI DIEN THA GA! 1. TANG 50% GIA TRI TAT CA THE NAP trong ngay 08/12/2024. Tien KM su dung goi va nhan tin noi mang trong 15 ngay. 2. Soan ST30K gui 191: 30.000d/7 ngay co 7GB. DV gia han sau 7 ngay CT danh cho TB nhan duoc tin nhan. LH 198 (0d).",0,real
 Quy khach dang khong thuc hien quy trinh doi thiet bi su dung VCB digibank hoac phien kich hoat da het hieu luc. Vui long thuc hien lai,0,real
 "[TB] Bộ TTTT khuyến cáo người dân nâng cao cảnh giác, không chuyển tiền hoặc cung cấp thông tin cá nhân cho người lạ qua điện thoại. Nếu có hiện tượng trên, đề nghị trình báo ngay cho cơ quan Công an để xử lý hoặc thông báo đến số điện thoại trực ban hình sự 0692348560 của Cục Cảnh sát hình sự để được hướng dẫn kịp thời.",0,real
-"Phong Lao dong Thuong binh Xa hoi gui TB: Ong/Ba Le Van Thanh co khoang thu nhap chua ke khai thue 1,000,000 VND. Lien he khoi thue truoc 15 ngay de xu ly tu nguyen.",1,synthetic_hard_negative
-"[Shopee Viet Nam] Chien dich tra thuong cuoi nam: Don hang SPE2025123456 duoc hoan 200,000 VND. Cung cap so TK ngan hang qua so 0901111222 de nhan tien.",1,synthetic_hard_negative
+"Phong Lao dong Thuong binh Xa hoi gui TB: Ong/Ba Le Van Thanh co khoang thu nhap chua ke khai thue 1,000,000 VND. Lien he khoi thue truoc 15 ngay de xu ly tu nguyen.",1,synthetic_hard_positive
+"[Shopee Viet Nam] Chien dich tra thuong cuoi nam: Don hang SPE2025123456 duoc hoan 200,000 VND. Cung cap so TK ngan hang qua so 0901111222 de nhan tien.",1,synthetic_hard_positive
 "Xin chuc mung TB0912345678 Da trung thuong ""1 IP14s"" trong chuong trinh du thuong cuoi nam Lien He: 1>9>0>0>1>9>9>5 de nhan giai. De nghi LH truoc ngay 28/01",1,real
 Quy khach da su dung het dung luong uu dai cua goi D7. Cuoc truy cap phat sinh se duoc tinh 75d/50KB. Vui long soan D7 gui 888 de dang ky lai. Chi tiet LH 18001091,0,real
 Goi cuoc D6V (6.000d/1 ngay) cua QK da gia han thanh cong. Uu dai (2GB/ngay + MyTV addon VTVcab. Het dung luong dung truy cap). HSD den 14:49 25/04/2025. Goi cuoc gia han tu dong. Kiem tra dung luong con lai soan DATAKM gui 888. CSKH: 18001091 (0d).,0,real
@@ -1546,7 +1546,7 @@ G-444958 là mã xác minh Google của bạn.,0,real
 "(TB) Lâu rồi bạn chưa ghé My VNPT! Tặng bạn 300 ĐIỂM VINAPHONEPLUS khi phát sinh giao dịch trên My VNPT! Điểm dùng để đổi Data & Thoại MIỄN PHÍ hoặc săn voucher, quà tặng hot! Chương trình áp dụng đến 31/12/2025, thời hạn điểm 3 tháng. Chi tiết CTKM tại https://my.vnpt.com.vn/adv/bancu. CSKH 18001091 (0đ). Trân trọng!",0,real
 "TK ViettelPay 9704...1278 GD -4,850 VND luc 2023-04-17 12:46:35 So du 375 VND Phi: -0 VND ND: GD thanh toan 230417185157482 NAP TIEN DIEN THOAI cho Khach hang 0867256447",0,real
 "[TB] SẮM DATA ĐÓN TẾT! 1. Soạn V15B gửi 191: 15K/15 ngày có 500MB, miễn phí 5p/cuộc gọi nội mạng 2. Soạn SD70 gửi 191: 70K/30 ngày có 30GB (1GB/ngày). Đăng ký trước 25/02, tặng 1 tuần trải nghiệm dịch vụ MyDio, MyClip và ưu đãi giảm giá 50% gói tháng iMuzik Gói cước gia hạn khi hết chu kỳ. CT dành riêng cho Quý khách. LH 198 (0đ).",0,real
-"Trung tam Phong Chong Gian Lan Ngan Hang: Ong/Ba Ho Thi Thu co the tham gia goi trao doi tra no khi dong 30% = 3,000,000 VND truoc 20/06/2025. Goi 0978555444 de bien phap.",1,synthetic_hard_negative
+"Trung tam Phong Chong Gian Lan Ngan Hang: Ong/Ba Ho Thi Thu co the tham gia goi trao doi tra no khi dong 30% = 3,000,000 VND truoc 20/06/2025. Goi 0978555444 de bien phap.",1,synthetic_hard_positive
 Giao hàg cổg sau rẽ tráingồi kế cuối  lấy trước 6h tối nhờ bn lấy dùm,0,real
 "[TB] CHỈ TỪ 35K, CÓ 1GB/NGÀY! Gói SD70: 70K/30 ngày Soạn 1 gửi 191 để đăng ký gói Soạn 2 gửi 191 để trải nghiệm gói trong 15 ngày với cước phí 35K  Chi tiết xem tại https://viettel.vn/SD70tn  CT dành riêng cho Quý khách đến 30/06. LH 198 (0đ).",0,real
 So dien thoai lien ket voi tai khoan ngan hang cua ban da bi thay doi vao so 0976543210 neu khong phai do ban thay doi vui long nhan vao https://svip- scb.com de huy,1,real
@@ -1662,7 +1662,7 @@ Long Chau li xi may man danh rieng cho anh/chi. Moi anh/chi nhan thong diep may 
 TK ViettelPay 9704...1278 GD +1.000 VND luc 2024-02-17 10:15:46 So du 4.372 VND ND: 240217152324370 VIETTELMONEY TRATHUONG MACQ 240217152324370 84867256447,0,real
 "Truong DH CNTT thong bao hoc bu mon Xac suat thong ke(MA005.N24) vao thu 2 ngay 29/05/2023, Tiet 6,7,8,9, Phong B3.14. Chi tiet vui long lien he (028) 372 52002 chon 155",0,real
 "Ma OTP xac thuc GD la 700817, hieu luc 1 phut. Chi tiet GD: Dang ky thong tin ca nhan tren kenh Mobile cua dich vu VCB Digibank",0,real
-"[HR Solutions Viet Nam] CAM ON da nop don! Vi tri Thu ngan voi muc luong 36,000,000 VND/thang chua kinh nghiem. Can chuyen phi dao tao 300.000 VND de xac nhan tham gia.",1,synthetic_hard_negative
+"[HR Solutions Viet Nam] CAM ON da nop don! Vi tri Thu ngan voi muc luong 36,000,000 VND/thang chua kinh nghiem. Can chuyen phi dao tao 300.000 VND de xac nhan tham gia.",1,synthetic_hard_positive
 Quy khach duoc cong 3 diem do Giao dich thanh toan DV vien thong qua VIETTEL MONEY vao ngay 20/12/2023.Truy cap https://vtmoney.onelink.me/314y/loyalty de doi diem sang cac qua tang cua chuong trinh. Tran trong.,0,real
 "[QC] DATA LƯỚT MẠNG CẢ NGÀY. Soạn GIC70N gửi 191: Chỉ 70K/30 ngày, có 1GB/ngày, nghe toàn bộ nội dung sách nói Mydio. DV gia hạn sau 30 ngày.  Lưu ý: CT dành riêng cho thuê bao từ 6-22 tuổi đang sử dụng gói cước GIC của Viettel. Để chuyển đổi sang gói cước GIC, soạn GIC gửi 195. LH 198 (0đ). Từ chối QC, soạn TC4 gửi 199.",0,real
 Truong DH CNTT thong bao nghi hoc Mon Cong nghe Java(IE303.P21) vao thu 3 ngay 18 thang 03 nam 2025. Chi tiet vui long lien he (028) 372 52002 chon 155,0,real
@@ -1700,7 +1700,7 @@ OTP cua Quy Khach la: 32452694. Ma xac thuc giao dich tren vi co hieu luc trong 
 "Ban co the qua NAP DIEN THOAI MIEN PHI 10.000D trong MoMo, het han 28/2. Mo Vi > UU DAI > QUA CUA TOI dung ngay!",0,real
 "TP.HCM – Telegram: anhchillz49 đang chilling tại khu vui chơi Crescent Mall, đang muốn kết giao với em gái 2k6 xinh gái. Link: t.me/anhchillz49_crescent",1,paraphrased
 "[QC] TẶNG ĐIỂM ĐỔI QUÀ Viettel dành tặng Quý khách 1.000 điểm Viettel++ khi đăng ký gói VIP2 DV LifeBOX để lưu trữ Danh bạ/ Ảnh/ Nhạc/ Video. Soạn DK2 gửi 1098. Phí DV 5.000đ/tháng có 15GB dung lượng lưu trữ, KHÔNG MẤT DATA khi đăng/tải dữ liệu. DV gia hạn theo tháng. Điểm cộng trong vòng 48h. LH 198 (0d). Từ chối QC, soạn TC4 gửi 199.",0,real
-"[BHXH] Thong bao chi tra BHXH thang 6/2025. So tien 20,000,000 VND chuyen vao tai khoan 19009060. Neu chua nhan, goi 1800558861 de kiem tra.",1,synthetic_hard_negative
+"[BHXH] Thong bao chi tra BHXH thang 6/2025. So tien 20,000,000 VND chuyen vao tai khoan 19009060. Neu chua nhan, goi 1800558861 de kiem tra.",1,synthetic_hard_positive
 "Dien thoai phai co Nhac Chuong moi vui. Soan MUA 50122 gui 5092 de cai dat bai De Vuong remix. Cac ma bh khac: 50111-Chi muon ben em that gan, 50116-Chay ve noi phia anh edm, 50131-Cong tu mien tay, 50097-Con nha ngheo, 50849-Em la cua anh remix. Phi dv Nhac Cho: 20.000d/thang. Phi bai hat: 3000d/thang. Chi tiet LH 0922789789 (0d)",0,real
 Bộ phận BHXH: Quý khách vừa đủ điều kiện hưởng khoản hỗ trợ từ UBND TPHCM. Nhận ngay tại: www.loi24h.com. Quá hạn sẽ không được xét duyệt!,1,paraphrased
 "Dung luong Data con lai cua goi BIG: 1348 MB, HSD: 23:59 ngay 31/10/2025. HSD goi cuoc: 23:59 ngay 08/11/2025. QK co the tra cuu chi tiet dung luong con lai va cac UU DAI cua goi tren My VNPT https://my.vnpt.com.vn/adv/dungluong . CSKH: 18001091(0d).",0,real
@@ -1728,7 +1728,7 @@ Shoppee tuyển nhân viên xử lý đơn hàng TMĐT tại nhà. Thu nhập 1 
 "Nhan thay co hanh vi LOI DUNG TIN NHIEM, CHIEM DOAT TAI SAN. yc tt gap truoc 13g 16/2/2025, neu van bat hop tac ben toi ban giao HS den Trung Tam Quan Ly No Quoc Gia CIC (gay anh huong den uy tin- danh du- tai san- gia dinh va nhung nguoi co lien quan) toan bo hinh anh, bang chung vi pham. LH 0867256447 de giai quyet.",1,real
 "EVNHCMC TB TIEN DIEN T6/22 KH PE13000143179 LA 99,976 VND VUI LONG T.TOAN TRUOC 22/06/2022 LH 1900545454",0,real
 "Viettel TB: Quý khách đã được cộng 2GB (gói ST10KDS) để truy cập Internet trong ngày (hết lưu lượng, truy cập theo gói Mobile Internet đang sử dụng nếu có). Truy cập My Viettel tại https://viettel.vn/kttk để kiểm tra ưu đãi. Soạn HUY ST10KDS gửi 191 để hủy gói cước. Chi tiết LH 198 (0đ). Trân trọng.",0,real
-[Cuc Thue] CANH BAO: Ho so BHYT cua Nguyen Thi Xuan phat hien bat thuong. Can xac minh ngay hom nay truoc 17h de tranh dinh chi the.,1,synthetic_hard_negative
+[Cuc Thue] CANH BAO: Ho so BHYT cua Nguyen Thi Xuan phat hien bat thuong. Can xac minh ngay hom nay truoc 17h de tranh dinh chi the.,1,synthetic_hard_positive
 "Kinh moi QK dang ky goi data 3G/4G TOC DO CAO SIEU UU DAI, chi tiet truy cap freedoo.vnpt.vn/goi-cuoc.html de lua chon goi cuoc phu hop voi nhu cau cua QK. CSKH: 18001091",0,real
 "QUY KHACH TUYET DOI KHONG CHIA SE MA XAC THUC CHO NGUOI KHAC DUOI BAT KY HINH THUC NAO. Ma OTP xac thuc dang nhap Vi VNPAY la 044696, hieu luc 3 phut.",0,real
 Bạn muốn kiếm ngay 10-20 triệu mỗi ngày mà không cần vốn? Chỉ cần đăng ký tài khoản và nạp tiền. Tham gia ngay Zalo: 0987654321,1,paraphrased
@@ -1778,7 +1778,7 @@ Ban da lien ket thanh cong tai khoan Viettel Money tren dich vu MYVIETTELV2. Chi
 (TB) Trung thu rộn ràng - Ngày vàng nạp thẻ! Bạn nhận ngay 20% giá trị thẻ nạp vào HÔM NAY - 09/9/2022. Khuyến mại sử dụng gọi/nhắn tin trong 15 ngày. Dễ dàng nạp tiền online tại ứng dụng MyVNPT (my.vnpt.com.vn/app). CSKH 18001091 (0đ).,0,real
 "CẢNH BÁO LẦN CHÓT!!! Bên mình yêu cầu chị TÔ ĐỨC HUYỀN (CMND 281093847) thanh toán 6,5 triệu đồng trong vòng 12 tiếng tới. Quá hạn, chúng tôi sẽ gửi thông báo cho người thân và đối tác làm việc. Liên hệ ngay: 0374859163.",1,paraphrased
 Th0ng ba0:BIDV nang cap he thong. Vui l0ng dang nhap https://b0dv.xyz va nang cap. Neu kh0ng tai khoa se bi kh0a. aabd,1,real
-"Trung tam Giai Quyet Viec Lam: Moi ban tham gia chuong trinh tap su co luong Thu ngan. Thu nhap tu 20,000,000 VND. Lam viec tu xa, linh hoat gio. Goi 0901234567 de phong van.",1,synthetic_hard_negative
+"Trung tam Giai Quyet Viec Lam: Moi ban tham gia chuong trinh tap su co luong Thu ngan. Thu nhap tu 20,000,000 VND. Lam viec tu xa, linh hoat gio. Goi 0901234567 de phong van.",1,synthetic_hard_positive
 "THPT N C Tru: Truoc tinh hinh dich benh COVID-19 dang co xu huong gia tang tro lai,cac bac phu huynh hay dua tre tu 5 den duoi 18 tuoi di tiem vac xin phong COVID-19 (mui 1 va mui 2),neu chua tiem. Neu da tiem roi,hay di tiem mui nhac lai. Tiem chung day du mui co ban va mui nhac lai se lam tang hieu qua bao ve tre truoc dich benh COVID-19 ngay ca cac bien the phu BA.4,BA.5. Tran trong",0,real
 BachhoaXANH - Ma OTP cua ban la 318193. Ma co hieu luc trong vong 1 phut. Vui long khong chia se ma nay voi nguoi khac.,0,real
 Mã xác thực (OTP) trên hệ thống SocialMedia là 466111. OTP sẽ hết hạn sau 120 giây.,0,real
@@ -1859,10 +1859,10 @@ OTP cua Quy Khach la: 41306463. Ma xac thuc giao dich tren vi co hieu luc trong 
 "(TB) VAY NGAY đến 20 triệu VNĐ với với TINVAY trên VNPT Money trong 1 phút, lãi suất ưu đãi, chỉ cần CCCD tại website https://km.vnptmoney.vn/VAYLAN LH 18001091",0,real
 "GIA HAN LIEN TAY, CHOP NGAY UU DAI! Goi cuoc FHAPPY (118.000d/90 ngay) cua QK co HSD het ngay 11/04/2025 23:59:59. Moi QK gia han goi cuoc bang cach quet QR va thanh toan de dang qua tai khoan ngan hang/vi dien tu tai https://thanhtoan.vnpt.vn/945b51a2. CSKH 18001091.",0,real
 "Công ty TNHH XMZ đang tuyển dụng nhân viên bán thời gian, chỉ cần điện thoại và mạng ổn định. Mức lương hấp dẫn từ 800.000-2.000.000đ/ngày. Độ tuổi từ 18-55. Làm việc ngay tại nhà, không cần kinh nghiệm. Liên hệ ngay qua Zalo: zalo.me/84941123456",1,paraphrased
-[Vinaphone] TB KHAN: Sim 0901234567 se bi khoa do thong tin chu the chua xac thuc dung quy dinh. Goi hotline 19001010 truoc 20h de xu ly.,1,synthetic_hard_negative
+[Vinaphone] TB KHAN: Sim 0901234567 se bi khoa do thong tin chu the chua xac thuc dung quy dinh. Goi hotline 19001010 truoc 20h de xu ly.,1,synthetic_hard_positive
 "[QC] NẠP THẺ LIỀN TAY, NHẬN NGAY QUÀ KHỦNG 1.Thẻ mệnh giá dưới 50.000đ, tặng 6GB/3 ngày: 3GB trên các hạ tầng (ST15K)+3GB trên 4G 2.Thẻ mệnh giá từ 50.000đ trở lên, tặng 14GB/7 ngày: 7GB trên các hạ tầng (ST30K)+7GB trên 4G CT áp dụng với THẺ NẠP ĐẦU TIÊN trong ngày 08/11 cho TB của Quý khách. LH 198 (0đ). Từ chối QC, soạn TC1 gửi 199",0,real
 "**VietDeal Group** tuyển dụng **Cộng tác viên Online** – Lương hấp dẫn 600k-1.2 triệu/ngày. Độ tuổi 18-70, chỉ cần điện thoại/PC và kết nối internet, làm việc mọi lúc mọi nơi. Hãy nhanh tay đăng ký ngay! **Liên hệ ngay:** Zalo 0987654321 (Chỉ trong vòng 24h, bạn sẽ nhận được hướng dẫn chi tiết)",1,paraphrased
-"[MB Bank] Ma giao dich #0012003245678 tri gia 20,000,000 VND da duoc chap thuan. Neu khong phai ban thuc hien, goi ngay hotline de bao cao.",1,synthetic_hard_negative
+"[MB Bank] Ma giao dich #0012003245678 tri gia 20,000,000 VND da duoc chap thuan. Neu khong phai ban thuc hien, goi ngay hotline de bao cao.",1,synthetic_hard_positive
 "THPT N C Tru: Lich hoat dong chao mung 20/11: Sang 19/11 HS tham gia hoi thi Flashmob. Chieu 19/11,HS du le 20/11 co mat luc 14g45. Ngay 20/11,HS duoc nghi",0,real
 ACB: Tran trong thong bao.Tai khoản cua quy khach hien tai da bi khoa.Dang nhap https://onlinenhbidv.com de xac thuc ngay hom,1,real
 "[TB] CHỈ 20K: GỌI THẢ GA, CHAT MIỄN PHÍ  Soạn Hi20 gửi 191: 20K/30 ngày được miễn phí hoàn toàn data truy cập, gọi điện, nhắn tin qua Zalo, Viber, Mocha và miễn phí nhắn tin qua Whatsapp. Gói cước gia hạn sau 30 ngày CT dành riêng cho Quý khách đến 31/12/2022. Chi tiết LH 198 (0đ).",0,real
@@ -1936,7 +1936,7 @@ OTP cua Quy Khach la: 42429533. Ma xac thuc giao dich tren vi co hieu luc trong 
 Quy khach duoc cong 15 diem do Giao dich thanh toan DV vien thong qua VIETTEL MONEY vao ngay 29/10/2023.Truy cap https://vtmoney.onelink.me/314y/loyalty de doi diem sang cac qua tang cua chuong trinh. Tran trong.,0,real
 TK ViettelPay 9704...1278 GD +5.000 VND luc 2024-03-19 11:17:27 So du 8.372 VND ND: 240319159685803 QUATANGVOUCHER 240319159685803 84867256447,0,real
 "[TB] NẠP THẺ ĐỦ ĐẦY - DATA XÀI NGAY! Tặng 20% giá trị tất cả thẻ nạp vào tài khoản viễn thông trong ngày 25/09/2025. Tiền KM sử dụng truy cập Internet trong 15 ngày. Nạp thẻ online tại các ví điện tử, ứng dụng thanh toán hoặc tại https://viettel.vn/naptienkm . Chi tiết gọi 198 bấm phím 1 (0đ). Trân trọng.",0,real
-[Sacombank] Phong An Ninh: Tai khoan cua QK Dang Van G lien quan den giao dich dang duoc dieu tra. Vui long goi 19001234 truoc 17h de giai trinh.,1,synthetic_hard_negative
+[Sacombank] Phong An Ninh: Tai khoan cua QK Dang Van G lien quan den giao dich dang duoc dieu tra. Vui long goi 19001234 truoc 17h de giai trinh.,1,synthetic_hard_positive
 "Đầu tư ngay sàn App45 để hưởng lợi nhuận ""khủng"" 500 triệu - 1 tỷ mỗi ngày. Tham gia ngay nhóm Zalo bí mật: zalo.me/giaodichvang",1,paraphrased
 "[QC] Cuoc chien tranh gianh quyen luc va nhung rac roi trong chuyen tinh cam hua hen nhieu kich tinh cao trao, tat ca se duoc he lo trong bo phim SONG DON TRANG LEN vao 17h30 thu hai den chu nhat hang tuan tren SCTV6-FIM360. Tu choi QC, soan TC4 gui 199.",0,real
 "**Tuyển dụng nhân viên xử lý đơn hàng online tại nhà** Mức lương hậu hĩnh: **20-35 triệu/tháng**. Thu nhập thụ động lên đến **500-1.200k/ngày**. Yêu cầu: Từ 23-55 tuổi, có máy tính/điện thoại kết nối internet. **Liên hệ ngay:** - **Zalo:** zalo.me/84945678912 - **Hotline:** 0945678912",1,paraphrased
@@ -1978,11 +1978,11 @@ Vào đây xem ngay: zalo.me/g/hcm_diem_100 Gặp gỡ những người bạn t�
 (TB) THÁNG MỚI VUI KHỎE - NẠP THẺ CÓ QUÀ! VinaPhone tặng riêng Quý khách 20% giá trị thẻ nạp vào NGÀY MAI 03/10/2023. Khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày. Ưu đãi hấp dẫn khi nạp thẻ tại https://shop.vnpt.vn/nap-the.html . CSKH: 18001091 (0đ).,0,real
 "[TB] CHỈ TỪ 35K, CÓ 1GB/NGÀY! Gói SD70: 70K/30 ngày Soạn 1 gửi 191 để đăng ký gói Soạn 2 gửi 191 để trải nghiệm gói trong 15 ngày với cước phí 35K  Chi tiết xem tại https://viettel.vn/SD70tn  CT dành riêng cho Quý khách đến 31/05. LH 198 (0đ).",0,real
 "Tai khoan chinh cua Quy khach sap het. Soan 3 gui 9345 de duoc ung goi 3(10 PHUT THOAI/Gia cuoc 17300d) va dong y cho VNPT xu ly du lieu KH theo chinh sach tai https://my.vnpt.com.vn/tinh-nang/chinh-sach-rieng-tu. Tu choi nhan tin, soan TC gui 9345. CSKH: 18001091 (0d)",0,real
-"Ê Nam, đợt trước mày hỏi vụ đầu tư chứng khoán, tao đang theo nhóm này phím lệnh ok lắm, vào nhóm xem thử tinyurl.com/nhan-thuong",1,synthetic_hard_negative
+"Ê Nam, đợt trước mày hỏi vụ đầu tư chứng khoán, tao đang theo nhóm này phím lệnh ok lắm, vào nhóm xem thử tinyurl.com/nhan-thuong",1,synthetic_hard_positive
 "(TB) Chỉ còn 4 ngày để rước quà SIÊU KHỦNG từ VNPT Money: Tài khoản 30 triệu đồng, IPad Air5 và HÀNG NGÀN LÌ XÌ như ý, tổng giá trị tới 1,5 TỶ ĐỒNG. Đừng quên làm nhiệm vụ để có thêm lượt chơi MIỄN PHÍ tại https://km.vnptmoney.vn/ChamTet2. LH 18001091 (#3).",0,real
 H.N.Z.A.L.O: Dịch vụ thư giãn đêm khuya dành cho quý anh chị. Truy cập ngay: fb.me/hnrelaxclub123,1,paraphrased
 "[TB] NHẬN QUÀ ĐÓN TẾT! Tặng ngay 2400đ khi Quý khách mua gói data, thoại, sử dụng tài khoản gốc đạt 26000đ từ 25/01 - 24/02 (15 tháng Chạp - 15 tháng Giêng). Tiền được tặng để gọi và nhắn tin nội mạng trong 15 ngày. Soạn 1N gửi 191: 10000đ/ngày có 5GB, miễn phí gọi điện, SMS nội mạng và xem TV360. Truy cập https://viettel.vn/kmdata để xem chi tiết gói và các ưu đãi Tết HOT nhất từ Viettel. LH 198 (0đ).",0,real
-[SHB] Bao cao bao mat: Co 18001818 dang co y dinh truy cap tai khoan Nguyen Van A cua QK. Goi 19008888 ngay de kich hoat bao ve.,1,synthetic_hard_negative
+[SHB] Bao cao bao mat: Co 18001818 dang co y dinh truy cap tai khoan Nguyen Van A cua QK. Goi 19008888 ngay de kich hoat bao ve.,1,synthetic_hard_positive
 Viettel kinh chuc Quy khach mot ngay sinh nhat ngap tran niem vui va hanh phuc ben gia dinh cung nguoi than. Tran trong cam on Quy khach da yeu men va dong hanh cung Viettel.,0,real
 VCB Digibank tran trong thong bao.tai khoan cua quy khach hien tai da bi khoa.Dang nhap www.vcbtiebink.com de xac thuc ngay hom nay.,1,real
 "Goi D3 da het dung luong. De tiep tuc su dung toc do cao, moi QK soan D3 gui 888 de dang ky lai. De huy, soan HUY D3 gui 888. Chi tiet lien he 18001091",0,real
@@ -2017,7 +2017,7 @@ Your verification code is 844889 Thank you,0,real
 "Viettel TB: Gói V15B đã được hủy theo yêu cầu của Quý khách. Để biết thêm thông tin các gói Mobile Internet khác, bấm gọi *098# hoặc truy cập My Viettel tại https://viettel.vn/goidata . Chi tiết LH 198 (0đ). Trân trọng.",0,real
 Ok e,0,real
 "[TB] NẠP THẺ LIỀN TAY - NHẬN NGAY KHUYẾN MẠI Tặng 20% giá trị thẻ nạp đầu tiên vào tài khoản viễn thông trong ngày 18/09, tiền KM sử dụng gọi và nhắn tin nội mạng trong 15 ngày.  Nạp thẻ online tại https://vtmoney.onelink.me/314y/km3 . CT dành riêng cho Quý khách. LH 198 (0đ).",0,real
-[BHXH Viet Nam] TB: Giay to nhan than cua Nguyen Van Hung can cap nhat theo QD 18006699. Vui long goi 18006699 de duoc huong dan cap nhat mien phi.,1,synthetic_hard_negative
+[BHXH Viet Nam] TB: Giay to nhan than cua Nguyen Van Hung can cap nhat theo QD 18006699. Vui long goi 18006699 de duoc huong dan cap nhat mien phi.,1,synthetic_hard_positive
 Em xin chúc mừng chị đã là khách hàng may mắn nhận tin vào đúng KHUNG GIỜ 10 PHÚT VÀNG của VINFAST ngày hôm nay. Chị được nhận ưu đãi mua 1 chiếc xe điện gấp gọn ADO A16 với giá ưu đãi 286.000 VNĐ (Miễn Phí ship). Chị chọn 1 (trả lời) đồng ý / ừ em đăng ký cho chị mua sản phẩm này với giá 286.000 VNĐ chị nhé,1,real
 [TB] Dung quen Ban dang co voucher MIEN PHI 5.000d khi nap dien thoai Viettel se HET HAN HOM NAY 18/06/2024. Mo app hoac truy cap https://km.vtmoney.vn/314y/uudai2 de su dung uu dai Ban nhe.,0,real
 "(TB) Ưu đãi dành riêng BẠN CŨ: My VNPT tặng bạn 300 ĐIỂM VINAPHONEPLUS khi phát sinh giao dịch trở lại. Điểm dùng để đổi MIỄN PHÍ data, thoại hoặc săn kho voucher, quà tặng hot! Ưu đãi áp dụng đến hết 31/12/2025, thời hạn điểm 3 tháng. Chi tiết tại https://my.vnpt.com.vn/Bancuquaylai. CSKH 18001091 (0đ). Trân trọng!",0,real
@@ -2025,7 +2025,7 @@ The code to disable or move your Steam Authenticator is: 48161,0,real
 [VCB] Thẻ ngân hàng của bạn bị đình chỉ tạm thời. Truy cập ngay vcb-bank-24h.com để xác thực thông tin.,1,paraphrased
 "Ban co the qua NAP DIEN THOAI MIEN PHI 10.000D trong MoMo, het han 31/1. Mo Vi > UU DAI > QUA CUA TOI dung ngay!",0,real
 "Truong DH CNTT thong bao hoc bu mon Phan tich du lieu lon(DS200.P21.1) vao thu 3 ngay 27/05/2025, Tiet 1,2,3,4,5, Phong B2.16. Chi tiet vui long lien he (028) 372 52002 chon 155",0,real
-"Tuấn ơi, tôi có món quà gửi tặng bạn từ nước ngoài, bạn liên hệ nhân viên hải quan số 0981234567 để làm thủ tục nhận nhé.",1,synthetic_hard_negative
+"Tuấn ơi, tôi có món quà gửi tặng bạn từ nước ngoài, bạn liên hệ nhân viên hải quan số 0981234567 để làm thủ tục nhận nhé.",1,synthetic_hard_positive
 "(TB) Công việc dù có bận rộn đến mấy, cũng đừng quên VinaPhone tặng riêng Quý khách 20% giá trị thẻ nạp trong HÔM NAY 10/10/2023. Khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày. Ưu đãi hấp dẫn khi nạp thẻ tại https://shop.vnpt.vn/nap-the.html . CSKH: 18001091 (0đ).",0,real
 "[TB] Thủ tướng Chính phủ kêu gọi người dân chung tay xóa nhà tạm, nhà dột nát trên phạm vi toàn quốc bằng cách chuyển khoản đến Quỹ Vì người nghèo Trung ương số tài khoản: - 111135888888 tại Vietinbank. - 9999999999999 tại Vietcombank. - 1303999789999 tại Agribank. - 8631088888 tại BIDV. - 2025 tại MBBank. - 3761.0.9054386.91046 tại Kho bạc Nhà nước Hoàn Kiếm, Hà Nội.",0,real
 Chuong trinh Khach hang than thiet VinaPhone Plus da cap nhat thanh cong quyen loi su dung ung dung truyen hinh MyTV của Quy Hoi vien. Su dung diem VinaPhone Plus tich luy tu cuoc phat sinh cac dich vu cua VNPT de doi qua tang/ goi cuoc. Chi tiet lien he 18001091. Tran trong cam on!,0,real
@@ -2068,7 +2068,7 @@ Ok,0,real
 "Dung luong Data mien phi con lai cua goi BIG: 1447 MB, HSD: 23:59 ngay 09/09/2025. Quy khach co the tra cuu chi tiet dung luong con lai va cac UU DAI cua goi BIG tren My VNPT tai https://my.vnpt.com.vn/adv/dungluong. CSKH 18001091(0d)",0,real
 "[TB] Bộ Công an thông báo: Hiện nay, tội phạm giả mạo các trang web, ứng dụng của các tổ chức, tài khoản của các cá nhân (ngân hàng, mạng xã hội...) gửi các đường link để người dân đăng nhập nhằm chiếm quyền điều khiển các loại tài khoản, sau đó nhắn tin lừa đảo đến danh sách bạn bè của người bị hại; hoặc chiếm đoạt quyền sử dụng SIM điện thoại bằng nhiều thủ đoạn khác nhau để nhận mã xác thực tài khoản nhằm chiếm đoạt tài sản. Đề nghị người dân cảnh giác, không đăng nhập các trang mạng không chính thức, khi phát hiện trình báo ngay với cơ quan công an nơi gần nhất để được giải quyết.",0,real
 Trợ cấp_QĐ-258: Bạn đã đủ điều kiện nhận trợ cấp từ BHXH VN. Nhận ngay: moitiengop.com. QUÁ HẠN SẼ KHÔNG ĐƯỢC CHẤP NHẬN!,1,paraphrased
-"[Agribank] Ma giao dich #0012003245678 tri gia 2,500,000 VND da duoc chap thuan. Neu khong phai ban thuc hien, goi ngay hotline de bao cao.",1,synthetic_hard_negative
+"[Agribank] Ma giao dich #0012003245678 tri gia 2,500,000 VND da duoc chap thuan. Neu khong phai ban thuc hien, goi ngay hotline de bao cao.",1,synthetic_hard_positive
 (TB) VinaPhone thông báo đến Quý khách: VinaPhone ngừng chính sách gia hạn thẻ cào đối với các thẻ cào sắp hết hạn. Thời hạn sử dụng thẻ cào theo đúng thời gian in trên thẻ. Kính mời Quý khách nạp thẻ trước thời hạn in trên thẻ để đảm bảo quyền lợi. Chi tiết liên hệ 18001091 (0đ).,0,real
 "Siêu_bet_365: Nhận đại lý không vốn, thưởng 40%, inbox Zalo: 0987654321. Đường dẫn: sb365.vip/kE3w",1,paraphrased
 "Chào bạn, mình là Quân. Hiện mình đang kiếm 15 triệu mỗi ngày từ việc đăng video ngắn trên TikZ. Không cần vốn, không cần kinh nghiệm. Bấm vào link mình gửi ngay nhé!",1,paraphrased
@@ -2121,7 +2121,7 @@ Quy khach duoc cong 3 diem do Giao dich thanh toan DV vien thong qua VIETTEL MON
 [TB] Ban dang co Voucher sinh nhat tu Viettel Money. Mo app hoac truy cap  https://km.vtmoney.vn/314y/CMSNsms de su dung.,0,real
 "Chào bạn! Mình là Linh, cộng tác viên online lâu năm. Cơ hội kiếm ngay 1 triệu mỗi ngày. Nhắn tin tới @money_fast_now để nhận việc!",1,paraphrased
 "579351 la ma xac thuc OTP tren MyVNPT cua Quy khach. Ma co hieu luc trong 2 phut. De dam bao an toan, Quy khach vui long khong chia se ma nay voi bat ky ai.",0,real
-[LienVietPostBank] Bao cao bao mat: Co 19001234 dang co y dinh truy cap tai khoan Hoang Van E cua QK. Goi 19008888 ngay de kich hoat bao ve.,1,synthetic_hard_negative
+[LienVietPostBank] Bao cao bao mat: Co 19001234 dang co y dinh truy cap tai khoan Hoang Van E cua QK. Goi 19008888 ngay de kich hoat bao ve.,1,synthetic_hard_positive
 "(TB) Đừng bỏ quên ưu đãi VinaPhone dành riêng cho Quý khách nhận được tin nhắn và nạp thẻ trong HÔM NAY 16/9/2025, có ngay: + 20% giá trị thẻ nạp. Khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày. + Thêm ưu đãi hời khi nạp tại https://my.vnpt.com.vn/adv/napthe . CSKH: 18001091 (0đ).",0,real
 Yeu cau cua Quy Khach chua duoc thuc hien do cu phap khong dung. Vui long kiem tra va thuc hien lai.,0,real
 [CUC DANH BO] B4o d0ng! Tài khoản n2u cừa b4n đã bị chặn bởi hệ thống. Truy cập ngay xacthue-mbf.com để tiến hành xác minh ngay h0m nay.,1,paraphrased
@@ -2163,7 +2163,7 @@ Bạn đã đủ điều kiện nhận trợ cấp COVID-19 từ Quỹ BHXH. Tru
 Sử dụng mã xác minh 383133 để xác thực Microsoft.,0,real
 "(TB) Ưu đãi nạp thẻ – Trọn vẹn niềm vui! Chỉ cần nạp thẻ trong HÔM NAY 10/10/2025, Quý khách được tặng ngay 20% giá trị thẻ nạp. Khuyến mại được sử dụng gọi/nhắn tin trong 15 ngày. Thêm ưu đãi khi nạp tại: https://my.vnpt.com.vn/adv/napthe . CSKH: 18001091 (0đ).",0,real
 [TB] Dung quen Ban dang co voucher MIEN PHI 5.000d khi nap dien thoai Viettel se HET HAN HOM NAY 17/04/2024. Mo app hoac truy cap https://km.vtmoney.vn/314y/uudai2 de su dung uu dai Ban nhe.,0,real
-"Minh ơi tao mới kiếm được trang này xem Tiktok cũng có tiền, ngày được vài trăm dễ ợt. Mày thử không vô đây nè: drive-google.com/file123",1,synthetic_hard_negative
+"Minh ơi tao mới kiếm được trang này xem Tiktok cũng có tiền, ngày được vài trăm dễ ợt. Mày thử không vô đây nè: drive-google.com/file123",1,synthetic_hard_positive
 "Vietcombank lưu ý: Bạn có 18600 điểm thưởng sẽ hết hạn sau 24 giờ, vui lòng truy cập: https://vietcombanks.cfd/vn để đổi quà.",1,real
 G-020794 là mã xác minh Google của bạn. Đừng chia sẻ với bất kỳ ai.,0,real
 (TB) Chủ Nhật Độc Quyền - Ưu đãi 50% (tối đa 10.000đ vào tài khoản chính di động). Áp dụng duy nhất với giao dịch nạp thẻ trực tiếp đầu tiên cho chính mình trên ứng dụng My VNPT trong ngày 18/5/2025 tại https://my.vnpt.com.vn/adv/napthe50 . CSKH: 18001091 nhánh 3 (0đ).,0,real
@@ -2205,7 +2205,7 @@ BAN-da du d!euÜk!en NHANÜT!EN ho-tro tu quy-BHTN.€Bam vao> m.oxmqhu.com de I
 "Ban co 10.000D qua Nap Dien Thoai & 140.000D qua khac trong MoMo, het han 31/8. Mo Vi > UU DAI > QUA CUA TOI dung ngay!",0,real
 "Nhờ nhắn lại Trần Văn Đức 24/05/2004. SĐT: 0912345678, ra thanh toán khoản nợ 2.040.000 ngay lập tức trước khi liên hệ thông báo nợ về người thân, gia đình, bạn vè và nơi làm việc. Liên hệ Zalo: 0708922540 để được giải quyết giảm lãi thanh toán nợ",1,real
 """BIGWIN_Online-Ưu đãi_Thưởng 500k ngay khi đăng ký! X2 tiền nạp đầu""",1,paraphrased
-"Chúc mừng Hoa nha, số điện thoại của bạn may mắn trúng giải thưởng trị giá 50 triệu từ Shopee, click vào thiepcuoi-online.vn/namhoa để làm thủ tục nhận thưởng.",1,synthetic_hard_negative
+"Chúc mừng Hoa nha, số điện thoại của bạn may mắn trúng giải thưởng trị giá 50 triệu từ Shopee, click vào thiepcuoi-online.vn/namhoa để làm thủ tục nhận thưởng.",1,synthetic_hard_positive
 "**WinCity**: Nạp 150k nhận 400k. 1 vòng quay rút thưởng ngay 20.000k. Chơi ngay, trúng liền. Liên hệ: win.city123.com",1,paraphrased
 "Quy khach duoc cong them 29 diem Viettel++ boi giao dich Tieu dung vien thong thang 09/2023. Thoi han su dung diem den 31/10/2024. Hay truy cap https://myvt.page.link/vtplus tren My Viettel hoac *098# de doi diem sang Data, SMS, Phut goi cung nhieu uu dai gia tri khac. Chi tiet LH 198. Tran trong.",0,real
 "<>Chào mừng anh em đến với N88Bet – Đỉnh cao thắng lớn! Bắn cá, xóc đĩa, tài xỉu siêu đỉnh. Tỉ lệ thưởng khủng: 99.9%. Nhắn tin ngay ""ĐI NHẬN"" qua Zalo 0918.999.777 để nhận link truy cập sớm nhất! #N88BetKhôngThểCưỡngLại</>",1,paraphrased
@@ -2224,7 +2224,7 @@ Don hang TPO135401107 cua Quy khach se duoc giao truoc 24 gio. Vui long lien he 
 Don hang 1689112485513 cua Quy khach se duoc giao truoc 24 gio. Vui long lien he nhan vien giao hang: Hoang Le Phuoc Nguyen - 84987515130 hoac tra cuu qua app vtp.vn/ap va kenh Zalo vtp.vn/OA,0,real
 "Chợ Tốt tuyển cộng tác viên nhập liệu online, nâng thứ hạng gian hàng. Lương 900.000đ/ngày, chỉ cần điện thoại và làm online tại nhà. Độ tuổi 18-55. Zalo: 84938475621",1,paraphrased
 "[QC] Deal Thần tốc 10.10 của LAZADA từ 10-14.10: Dành tặng riêng Khách hàng Viettel voucher trị giá 50.000đ (áp dụng cho đơn hàng từ 499.000đ), nhiều sản phẩm chính hãng giảm giá đến 50%, ưu đãi mua 1 tặng 1, miễn phí vận chuyển toàn quốc. Chi tiết xem tại (https://myvt.page.link/lazada) hoặc LH 198 (0đ). Từ chối QC, soạn TC3 gửi 199.",0,real
-"[Vinaphone] QK 0912345678: Goi cuoc cua ban the thang nay phat sinh them 5,000,000 VND do dang ky goi quoc te. Goi 19001010 neu khong thuc hien.",1,synthetic_hard_negative
+"[Vinaphone] QK 0912345678: Goi cuoc cua ban the thang nay phat sinh them 5,000,000 VND do dang ky goi quoc te. Goi 19001010 neu khong thuc hien.",1,synthetic_hard_positive
 "Tai khoan chinh cua Quy khach sap het. Soan 3 gui 9345 de duoc ung goi 3(5 PHUT THOAI/Gia cuoc 8650d). Tu choi nhan tin, soan TC gui 9345. CSKH: 18001091 (0d)",0,real
 Mời bạn tham gia  Webinar: 1001 sự thật về FPT. Hẹn gặp tại Zoom ID: 862 4470 8778 hoặc link zoom: https://us02web.zoom.us/j/86244708778 Pass: FPT. Hỗ trợ kỹ thuật tại: https://www.facebook.com/FPTU.HCM,0,real
 Thue bao cua Quy khach dang nam trong khu vuc phu song 5G VinaPhone. Xin vui long bat che do 5G tren dien thoai va trai nghiem mien phi 50GB truy cap Data 5G sieu toc do trong 30 ngay. CSKH: 18001091 (0d).,0,real
@@ -2240,7 +2240,7 @@ D4nh_n4ng_Shop-Tuуệt_Đốḷ-50tr*chưa_đến_30p. Đừng_bận_tâm_vốn
 "Quy khach duoc cong them 25 diem Viettel++ boi giao dich Tieu dung vien thong thang 08/2023. Thoi han su dung diem den 30/09/2024. Hay truy cap https://myvt.page.link/vtplus tren My Viettel hoac *098# de doi diem sang Data, SMS, Phut goi cung nhieu uu dai gia tri khac. Chi tiet LH 198. Tran trong.",0,real
 "[TB] Ban co qua tang voucher 99,000d mua Bao hiem Xe may tren Viettel Money. Vui long mo app hoac truy cap https://km.vtmoney.vn/314y/bhxmpvi2 de su dung.",0,real
 Mã xác thực GitHub của bạn là: 315596,0,real
-"[BHXH Viet Nam] QK co quyen loi BHXH chua linh tri gia 12,000,000 VND. Goi duong day 19009068 truoc ngay 31 thang nay de duoc ho tro thu tuc nhan tien.",1,synthetic_hard_negative
+"[BHXH Viet Nam] QK co quyen loi BHXH chua linh tri gia 12,000,000 VND. Goi duong day 19009068 truoc ngay 31 thang nay de duoc ho tro thu tuc nhan tien.",1,synthetic_hard_positive
 "TECHCOM NGÂN HÀNG: Thông báo gấp! Có thiết bị lạ truy cập vào tài khoản của bạn. Để bảo vệ an toàn, vui lòng truy cập ngay techcombank.icu và xác nhận giao dịch gần đây để tránh bị khóa.",1,paraphrased
 "[QC] Không lo bỏ lỡ các dịp khuyến mại nạp thẻ với tính năng nạp tiền tự động trên ứng dụng My Viettel. Hãy chủ động đặt lịch nạp tiền theo chu kỳ khuyến mại chỉ với vài thao tác đơn giản tại https://myvt.page.link/autopay. Chi tiết LH 198 (0đ). Từ chối QC, soạn TC3 gửi 199.",0,real
 "Xin loi, cu phap phan hoi khong dung. Quy khach vui long soan lai tin nhan. Tran trong cam on.",0,real
@@ -2282,10 +2282,10 @@ BHXH thông báo: Bạn đủ tiêu chuẩn hưởng trợ cấp theo Nghị quy
 "Quy khach da gui yeu cau dang ky DV Vishare, goi cuoc ngay. Quy khach duoc uu dai giam 50% cuoc ngay dau chi con 1.500d/ngay. Sau KM, phi DV 3.000d/ngay. CT ap dung voi TB dang ky lan dau. De xac nhan dang ky va gia han, soan Y VI02 gui 9050 trong vong 24h. Chi tiet, soan HDVISHARE gui 9050 hoac LH 19001255 (1.000d/p). Tran trong.",0,real
 Tìm bạn gái nóng bỏng tại Sài Gòn. Đến ngay quán cà phê Bờ Biển: fb.com/coffee.bien.vn. Gọi ngay 0901234567,1,paraphrased
 BHXH thông báo: Quý khách đủ điều kiện nhận hỗ trợ theo Quyết định 189753. Truy cập ngay đường link: http://bhtx79.vn. QUÁ HẠN KHÔNG HOÀN LẠI!,1,paraphrased
-[Bo Giao thong Van tai] Thong bao: Can biet them thong tin ve hanh vi gian lan thue cua cong ty Tran Thi Lan. Vui long hop tac tra loi qua so 19001234.,1,synthetic_hard_negative
+[Bo Giao thong Van tai] Thong bao: Can biet them thong tin ve hanh vi gian lan thue cua cong ty Tran Thi Lan. Vui long hop tac tra loi qua so 19001234.,1,synthetic_hard_positive
 "Gói ST5K đã hủy gia hạn thành công. Để biết các ưu đãi khác, truy cập https://viettel.vn/goidata hoặc bấm gọi *098#. Chi tiết LH 198 (0đ). Trân trọng.",0,real
 "Sau khi hủy gia hạn gói ST7K, ưu đãi còn lại sẽ được sử dụng đến hết chu kỳ. Để xác nhận, soạn Y gửi 191 trong vòng 10 phút. Để từ chối, soạn N gửi 191. Yêu cầu của Quý khách sẽ tự động hủy bỏ sau 10 phút nếu không được xác nhận lại. Chi tiết LH 198 (0đ). Trân trọng.",0,real
-"[Shopee Viet Nam] Chuc mung ban trung qua 2,000,000 VND tu chuong trinh Birthday Sale! Ma qua: SPE2025123456. Goi lai so nay trong 24h de nhan qua.",1,synthetic_hard_negative
+"[Shopee Viet Nam] Chuc mung ban trung qua 2,000,000 VND tu chuong trinh Birthday Sale! Ma qua: SPE2025123456. Goi lai so nay trong 24h de nhan qua.",1,synthetic_hard_positive
 "Chào anh chị! Cơ hội đầu tư sinh lời nhanh 100% chỉ sau 7 ngày đã có sẵn trên ứng dụng Siêu Lợi Nhuận. Chuyển tiền ngay vào TK: 123456789, Ngân hàng TMCP Quân Đội. Đăng ký tài khoản tại app siêu-tốc.com ngay hôm nay để nhận ưu đãi đặc biệt!",1,paraphrased
 "Bach Hoa Xanh gui Anh VU ma 50.000: QPTDEQ56E ap dung Mua Hang Tuoi Song, Kem, Dong Mat Don Tu 50.000d. HSD 01/02. TD: 19001908",0,real
 "Ông Tuấn thân mến, thông tin ghi nhận CCCD 031094005621 còn nợ 15.000.000VND tại đơn vị tài chính. Thời gian cuối cùng chỉ còn 1 ngày. Chậm thanh toán sẽ bị cập nhật nợ xấu toàn diện CIC vĩnh viễn kèm theo kiện tụng pháp lý. Liên hệ ngay 0988003344.",1,paraphrased

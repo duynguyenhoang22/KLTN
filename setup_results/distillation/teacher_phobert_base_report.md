@@ -58,7 +58,7 @@
 | paraphrased             |    3465 |     43.17 |
 | real                    |    1797 |     22.39 |
 | synthetic               |    1606 |     20.01 |
-| synthetic_hard_negative |     457 |      5.69 |
+| synthetic_hard_positive |     457 |      5.69 |
 | external_curated        |     351 |      4.37 |
 | external_real           |     350 |      4.36 |
 
@@ -95,7 +95,7 @@
 | paraphrased             |    0 | 3465 |
 | real                    | 1625 |  172 |
 | synthetic               | 1596 |   10 |
-| synthetic_hard_negative |    0 |  457 |
+| synthetic_hard_positive |    0 |  457 |
 
 ## Validation Distribution
 
@@ -113,7 +113,7 @@
 | paraphrased             |     434 |     36.59 |
 | real                    |     385 |     32.46 |
 | synthetic               |     201 |     16.95 |
-| synthetic_hard_negative |      66 |      5.56 |
+| synthetic_hard_positive |      66 |      5.56 |
 | external_real           |      50 |      4.22 |
 | external_curated        |      50 |      4.22 |
 
@@ -150,4 +150,4 @@
 | paraphrased             |   0 | 434 |
 | real                    | 348 |  37 |
 | synthetic               | 201 |   0 |
-| synthetic_hard_negative |   0 |  66 |
+| synthetic_hard_positive |   0 |  66 |

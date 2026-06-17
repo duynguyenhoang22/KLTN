@@ -18,7 +18,7 @@ from benchmark_config import BENCHMARK_SPLITS
 from benchmark_metrics import compute_binary_metrics, metrics_row, write_metrics_bundle
 
 
-DEFAULT_MODEL_DIR = Path("setup_results/distillation_benchmark/plm_models/plm_phobert-base/model")
+DEFAULT_MODEL_DIR = Path("setup_results/distillation_benchmark/plm_phobert-base/model")
 DEFAULT_SPLIT_DIR = Path("data/distillation/benchmark_splits")
 DEFAULT_OUTPUT_DIR = Path("data/distillation/benchmark_teacher_outputs/phobert-base")
 

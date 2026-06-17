@@ -38,7 +38,7 @@ DEFAULT_PHASE1 = Path("data/final/vismishds_phase1_final.csv")
 DEFAULT_CURRENT = Path("model/base/temp.csv")
 DEFAULT_OUT_DIR = Path("data/reports/phase1_quality_metrics")
 DEFAULT_EMBEDDING_MODEL = "vinai/phobert-base"
-SYNTHETIC_ORIGINS = {"synthetic", "paraphrased", "synthetic_hard_negative"}
+SYNTHETIC_ORIGINS = {"synthetic", "paraphrased", "synthetic_hard_positive"}
 REQUIRED_COLUMNS = {"sample_id", "content", "label", "data_origin"}
 OPTIONAL_DISTRIBUTION_COLUMNS = [
     "category",

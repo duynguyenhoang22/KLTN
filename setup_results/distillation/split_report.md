@@ -93,13 +93,13 @@
 |       1 | synthetic               | Nội dung nhạy cảm          |    3 |       3 |     0 |           0 |            0 |                0 | all_train            |
 |       1 | synthetic               | Tuyển dụng giả             |    1 |       1 |     0 |           0 |            0 |                0 | all_train            |
 |       1 | synthetic               | Đòi nợ / Đe dọa            |    1 |       1 |     0 |           0 |            0 |                0 | all_train            |
-|       1 | synthetic_hard_negative | BHXH / Trợ cấp giả         |   60 |      42 |     6 |           0 |            0 |               12 | full_rule            |
-|       1 | synthetic_hard_negative | Crypto / Đầu tư giả        |   11 |       8 |     1 |           0 |            0 |                2 | full_rule            |
-|       1 | synthetic_hard_negative | Dịch vụ công giả           |   79 |      55 |     8 |           0 |            0 |               16 | full_rule            |
-|       1 | synthetic_hard_negative | Giả mạo ngân hàng          |   76 |      53 |     8 |           0 |            0 |               15 | full_rule            |
-|       1 | synthetic_hard_negative | Khác                       |  282 |     198 |    28 |           0 |            0 |               56 | full_rule            |
-|       1 | synthetic_hard_negative | Tuyển dụng giả             |   86 |      60 |     9 |           0 |            0 |               17 | full_rule            |
-|       1 | synthetic_hard_negative | Đòi nợ / Đe dọa            |   59 |      41 |     6 |           0 |            0 |               12 | full_rule            |
+|       1 | synthetic_hard_positive | BHXH / Trợ cấp giả         |   60 |      42 |     6 |           0 |            0 |               12 | full_rule            |
+|       1 | synthetic_hard_positive | Crypto / Đầu tư giả        |   11 |       8 |     1 |           0 |            0 |                2 | full_rule            |
+|       1 | synthetic_hard_positive | Dịch vụ công giả           |   79 |      55 |     8 |           0 |            0 |               16 | full_rule            |
+|       1 | synthetic_hard_positive | Giả mạo ngân hàng          |   76 |      53 |     8 |           0 |            0 |               15 | full_rule            |
+|       1 | synthetic_hard_positive | Khác                       |  282 |     198 |    28 |           0 |            0 |               56 | full_rule            |
+|       1 | synthetic_hard_positive | Tuyển dụng giả             |   86 |      60 |     9 |           0 |            0 |               17 | full_rule            |
+|       1 | synthetic_hard_positive | Đòi nợ / Đe dọa            |   59 |      41 |     6 |           0 |            0 |               12 | full_rule            |
 
 ## 6. Small Strata
 
@@ -133,7 +133,7 @@ Rows: `8026`
 | paraphrased             |    3465 |     43.17 |
 | real                    |    1797 |     22.39 |
 | synthetic               |    1606 |     20.01 |
-| synthetic_hard_negative |     457 |      5.69 |
+| synthetic_hard_positive |     457 |      5.69 |
 | external_curated        |     351 |      4.37 |
 | external_real           |     350 |      4.36 |
 
@@ -170,7 +170,7 @@ Rows: `8026`
 | paraphrased             |    0 | 3465 |
 | real                    | 1625 |  172 |
 | synthetic               | 1596 |   10 |
-| synthetic_hard_negative |    0 |  457 |
+| synthetic_hard_positive |    0 |  457 |
 
 ### Label x Category
 
@@ -205,7 +205,7 @@ Rows: `8026`
 | paraphrased             |                  469 |                   501 |                494 |                380 |                   0 |              0 |                 308 |      0 |                0 |                 497 |                   0 |                            0 |                  0 |                    0 |                         0 |              475 |            0 |            0 |               341 |
 | real                    |                   11 |                     2 |                 37 |                 12 |                 118 |              2 |                  45 |    387 |               88 |                   6 |                   0 |                            0 |                 96 |                    1 |                       211 |               19 |          742 |           12 |                 8 |
 | synthetic               |                    2 |                     0 |                  0 |                  2 |                 155 |            164 |                   1 |      0 |              244 |                   3 |                   0 |                            0 |                180 |                  202 |                       283 |                1 |          156 |          212 |                 1 |
-| synthetic_hard_negative |                   42 |                     8 |                  0 |                 55 |                   0 |              0 |                  53 |    198 |                0 |                   0 |                   0 |                            0 |                  0 |                    0 |                         0 |               60 |            0 |            0 |                41 |
+| synthetic_hard_positive |                   42 |                     8 |                  0 |                 55 |                   0 |              0 |                  53 |    198 |                0 |                   0 |                   0 |                            0 |                  0 |                    0 |                         0 |               60 |            0 |            0 |                41 |
 
 ## 7. Split Detail: `val`
 
@@ -225,7 +225,7 @@ Rows: `1186`
 | paraphrased             |     434 |     36.59 |
 | real                    |     385 |     32.46 |
 | synthetic               |     201 |     16.95 |
-| synthetic_hard_negative |      66 |      5.56 |
+| synthetic_hard_positive |      66 |      5.56 |
 | external_real           |      50 |      4.22 |
 | external_curated        |      50 |      4.22 |
 
@@ -262,7 +262,7 @@ Rows: `1186`
 | paraphrased             |   0 | 434 |
 | real                    | 348 |  37 |
 | synthetic               | 201 |   0 |
-| synthetic_hard_negative |   0 |  66 |
+| synthetic_hard_positive |   0 |  66 |
 
 ### Label x Category
 
@@ -297,7 +297,7 @@ Rows: `1186`
 | paraphrased             |                   59 |                    62 |                 62 |                 47 |                   0 |              0 |                  39 |      0 |                0 |                  62 |                   0 |                            0 |                  0 |                    0 |                         0 |               60 |            0 |            0 |                43 |
 | real                    |                    2 |                     0 |                  8 |                  2 |                  26 |              0 |                  10 |     83 |               19 |                   2 |                   0 |                            0 |                 20 |                    0 |                        45 |                4 |          159 |            3 |                 2 |
 | synthetic               |                    0 |                     0 |                  0 |                  0 |                  20 |             21 |                   0 |      0 |               31 |                   0 |                   0 |                            0 |                 23 |                   25 |                        35 |                0 |           20 |           26 |                 0 |
-| synthetic_hard_negative |                    6 |                     1 |                  0 |                  8 |                   0 |              0 |                   8 |     28 |                0 |                   0 |                   0 |                            0 |                  0 |                    0 |                         0 |                9 |            0 |            0 |                 6 |
+| synthetic_hard_positive |                    6 |                     1 |                  0 |                  8 |                   0 |              0 |                   8 |     28 |                0 |                   0 |                   0 |                            0 |                  0 |                    0 |                         0 |                9 |            0 |            0 |                 6 |
 
 ## 7. Split Detail: `test_real`
 
@@ -455,7 +455,7 @@ Rows: `330`
 
 | data_origin             |   count |   percent |
 |:------------------------|--------:|----------:|
-| synthetic_hard_negative |     130 |     39.39 |
+| synthetic_hard_positive |     130 |     39.39 |
 | external_curated        |     100 |     30.3  |
 | external_real           |     100 |     30.3  |
 
@@ -479,7 +479,7 @@ Rows: `330`
 |:------------------------|----:|----:|
 | external_curated        | 100 |   0 |
 | external_real           | 100 |   0 |
-| synthetic_hard_negative |   0 | 130 |
+| synthetic_hard_positive |   0 | 130 |
 
 ### Label x Category
 
@@ -501,4 +501,4 @@ Rows: `330`
 |:------------------------|---------------------:|----------------------:|-------------------:|--------------------:|-------:|--------------------:|-----------------------------:|-----------------:|------------------:|
 | external_curated        |                    0 |                     0 |                  0 |                   0 |      0 |                 100 |                            0 |                0 |                 0 |
 | external_real           |                    0 |                     0 |                  0 |                   0 |      0 |                   0 |                          100 |                0 |                 0 |
-| synthetic_hard_negative |                   12 |                     2 |                 16 |                  15 |     56 |                   0 |                            0 |               17 |                12 |
+| synthetic_hard_positive |                   12 |                     2 |                 16 |                  15 |     56 |                   0 |                            0 |               17 |                12 |

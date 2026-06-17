@@ -106,7 +106,7 @@ Phan bo theo `data_origin`:
 | real | 2,321 | 246 | 2,567 |
 | synthetic | 1,998 | 10 | 2,008 |
 | paraphrased | 0 | 4,333 | 4,333 |
-| synthetic_hard_negative | 0 | 653 | 653 |
+| synthetic_hard_positive | 0 | 653 | 653 |
 | external_curated | 501 | 0 | 501 |
 | external_real | 500 | 0 | 500 |
 
@@ -633,7 +633,7 @@ Nhung phai bao cao rieng theo `data_origin`.
 Tap kho:
 
 ```text
-synthetic_hard_negative
+synthetic_hard_positive
 real label 1
 real label 0 co URL/OTP/ngan hang
 external_real
@@ -911,7 +911,7 @@ real:
 synthetic/paraphrased:
   co nguy co pattern lap, nen can audit teacher ky hon
 
-synthetic_hard_negative:
+synthetic_hard_positive:
   huu ich cho decision boundary, nhung de gay lech neu tao sinh qua cong thuc
 ```
 
@@ -979,7 +979,7 @@ Bao cao:
 real
 synthetic
 paraphrased
-synthetic_hard_negative
+synthetic_hard_positive
 external_real
 external_curated
 ```

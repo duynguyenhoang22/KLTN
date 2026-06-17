@@ -78,13 +78,13 @@ fn_distill_weight = N/A
 | test_challenge | paraphrased | 132 | 0.4962 | 0.9924 | 0.9848 | 1.0000 |
 | test_challenge | real | 258 | 0.8126 | 0.6667 | 0.7600 | 0.5938 |
 | test_challenge | synthetic | 100 | 0.4845 | 0.0000 | 0.0000 | 0.0000 |
-| test_challenge | synthetic_hard_negative | 130 | 0.4583 | 0.9167 | 0.8462 | 1.0000 |
+| test_challenge | synthetic_hard_positive | 130 | 0.4583 | 0.9167 | 0.8462 | 1.0000 |
 | test_mixed | external_curated | 50 | 1.0000 | 0.0000 | 0.0000 | 0.0000 |
 | test_mixed | external_real | 50 | 1.0000 | 0.0000 | 0.0000 | 0.0000 |
 | test_mixed | paraphrased | 434 | 0.4953 | 0.9907 | 0.9816 | 1.0000 |
 | test_mixed | real | 258 | 0.7396 | 0.5357 | 0.6000 | 0.4839 |
 | test_mixed | synthetic | 201 | 0.4950 | 0.0000 | 0.0000 | 0.0000 |
-| test_mixed | synthetic_hard_negative | 66 | 0.4407 | 0.8814 | 0.7879 | 1.0000 |
+| test_mixed | synthetic_hard_positive | 66 | 0.4407 | 0.8814 | 0.7879 | 1.0000 |
 | test_real | real | 385 | 0.7580 | 0.5588 | 0.5135 | 0.6129 |
 
 ## 7. Training History

@@ -26,7 +26,7 @@ Fine-tuned PLMs:
 Source file: `model/base/temp.csv`
 
 - `real`, `external_real`, `external_curated`: stratified 70/15/15 into `train`, `dev`, `test`.
-- `synthetic`, `paraphrased`, `synthetic_hard_negative`: 100% into `train`.
+- `synthetic`, `paraphrased`, `synthetic_hard_positive`: 100% into `train`.
 - Stratification key: `label x data_origin x category`.
 
 Create splits:

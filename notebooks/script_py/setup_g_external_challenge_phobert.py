@@ -81,7 +81,7 @@ CFG = dict(
 
     # data_origin mapping
     real_origin_values      = ["real"],
-    synthetic_origin_values = ["synthetic", "paraphrased", "synthetic_hard_negative"],
+    synthetic_origin_values = ["synthetic", "paraphrased", "synthetic_hard_positive"],
     external_real_origin_values = ["external_real"],
     external_curated_origin_values = ["external_curated"],
 
@@ -511,7 +511,7 @@ for variant_name in CFG["variants_to_run"]:
         "train_external_curated": int(origins.get("external_curated", 0)),
         "train_synthetic": int(origins.get("synthetic", 0)),
         "train_paraphrased": int(origins.get("paraphrased", 0)),
-        "train_synthetic_hard_negative": int(origins.get("synthetic_hard_negative", 0)),
+        "train_synthetic_hard_positive": int(origins.get("synthetic_hard_positive", 0)),
         "train_file": out_path,
         "validation_frame": "e4_val_real" if variant_name == "G0_E4_champion" else "challenge_val",
     })

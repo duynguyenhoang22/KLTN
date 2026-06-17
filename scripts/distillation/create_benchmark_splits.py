@@ -2,7 +2,7 @@
 
 Policy:
 - real, external_real, external_curated: stratified 70/15/15 into train/dev/test.
-- synthetic, paraphrased, synthetic_hard_negative: 100% train.
+- synthetic, paraphrased, synthetic_hard_positive: 100% train.
 
 The stratum key is label x data_origin x category. Very small real strata are
 kept in train so that dev/test do not receive single, unstable examples.
@@ -167,7 +167,7 @@ def write_report(
         f"- Input file: `{source_path.as_posix()}`",
         f"- Seed: `{seed}`",
         "- Real-like origins `real`, `external_real`, `external_curated`: stratified 70/15/15.",
-        "- Train-only origins `synthetic`, `paraphrased`, `synthetic_hard_negative`: 100% train.",
+        "- Train-only origins `synthetic`, `paraphrased`, `synthetic_hard_positive`: 100% train.",
         "- Stratum key: `label x data_origin x category`.",
         "",
         "## Split Sizes",

@@ -75,7 +75,7 @@ CFG = dict(
 
     # data_origin mapping
     real_origin_values      = ["real"],
-    synthetic_origin_values = ["synthetic", "paraphrased", "synthetic_hard_negative"],
+    synthetic_origin_values = ["synthetic", "paraphrased", "synthetic_hard_positive"],
 
     # Đường dẫn Google Drive
     drive_root              = "/content/drive/MyDrive/KLTN",

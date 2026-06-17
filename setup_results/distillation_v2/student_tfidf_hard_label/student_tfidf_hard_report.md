@@ -85,7 +85,7 @@ The model uses only `content` as input. Metadata columns are kept only for audit
 | paraphrased             |    3333 |
 | synthetic               |    1506 |
 | real                    |    1281 |
-| synthetic_hard_negative |     391 |
+| synthetic_hard_positive |     391 |
 | external_curated        |     351 |
 | external_real           |     350 |
 
@@ -102,13 +102,13 @@ Full subgroup metrics are saved to `student_tfidf_hard_metrics_by_group.csv`.
 | test_challenge | paraphrased | 132 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
 | test_challenge | real | 258 | 0.9311 | 0.8750 | 0.8400 | 0.9130 |
 | test_challenge | synthetic | 100 | 0.4975 | 0.0000 | 0.0000 | 0.0000 |
-| test_challenge | synthetic_hard_negative | 130 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| test_challenge | synthetic_hard_positive | 130 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
 | test_mixed | external_curated | 50 | 0.4949 | 0.0000 | 0.0000 | 0.0000 |
 | test_mixed | external_real | 50 | 1.0000 | 0.0000 | 0.0000 | 0.0000 |
 | test_mixed | paraphrased | 434 | 0.4988 | 0.9977 | 0.9954 | 1.0000 |
 | test_mixed | real | 258 | 0.8858 | 0.7907 | 0.6800 | 0.9444 |
 | test_mixed | synthetic | 201 | 1.0000 | 0.0000 | 0.0000 | 0.0000 |
-| test_mixed | synthetic_hard_negative | 66 | 0.4962 | 0.9924 | 0.9848 | 1.0000 |
+| test_mixed | synthetic_hard_positive | 66 | 0.4962 | 0.9924 | 0.9848 | 1.0000 |
 | test_real | real | 385 | 0.8703 | 0.7619 | 0.6486 | 0.9231 |
 
 ## 7. Outputs

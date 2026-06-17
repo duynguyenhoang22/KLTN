@@ -134,7 +134,7 @@
 | real                    |   2567 |   0.984418 |   0.954877 |     0.918367 |         0.914634 |            0.922131 |     0.984418 |          0.997487 |
 | synthetic               |   2008 |   0.998506 |   0.934407 |     0.869565 |         1        |            0.769231 |     0.998506 |          0.999081 |
 | paraphrased             |   4333 |   0.999308 |   0.499827 |     0.999654 |         0.999308 |            1        |     0.999308 |          0.999587 |
-| synthetic_hard_negative |    653 |   1        |   1        |     1        |         1        |            1        |     1        |          0.998578 |
+| synthetic_hard_positive |    653 |   1        |   1        |     1        |         1        |            1        |     1        |          0.998578 |
 | external_curated        |    501 |   1        |   1        |     0        |         0        |            0        |     1        |          0.99775  |
 | external_real           |    500 |   1        |   1        |     0        |         0        |            0        |     1        |          0.999043 |
 
@@ -185,7 +185,7 @@ Rows: `5`
 | test_real  | ViSmish_10231 |       0 |              0 |             0.553438 |        0.446562 | real                    | Dịch vụ công thật | [TB] Toàn dân tích cực hưởng ứng tham gia cuộc thi Tìm hiểu Luật phòng, chống ma túy. Thông tin chi tiết truy cập địa chỉ: https://thitimhieuluatphongchongmatuy.vn     |
 | train      | ViSmish_05223 |       0 |              0 |             0.521593 |        0.478407 | real                    | Khác              | ACB: Tran trong thong bao.Tai khoan cua quy khach hien tai da bi khoa.Dang nhap https://online.agh7nom.com de xac thuc ngay hom nay.                                    |
 | train      | ViSmish_00651 |       0 |              0 |             0.576582 |        0.423418 | external_curated        | P2P hard negative | Mang tin nhắn ra trình báo công an thôi bạn, trình báo rõ ràng sự việc, công an gọi đôi bên ra giải quyết, chứ gặp riêng nch nó nổi điên lên thì mình thiệt thân thôi b |
-| val        | ViSmish_06280 |       1 |              1 |             0.553105 |        0.553105 | synthetic_hard_negative | Tuyển dụng giả    | [JobViet Nam Co. Ltd] Ban duoc duyet vao dang ky thu viec vi tri Marketing. Truoc buoi lam dau tien, can nop phi dong phuc va the nhan vien: 350.000 VND.               |
+| val        | ViSmish_06280 |       1 |              1 |             0.553105 |        0.553105 | synthetic_hard_positive | Tuyển dụng giả    | [JobViet Nam Co. Ltd] Ban duoc duyet vao dang ky thu viec vi tri Marketing. Truoc buoi lam dau tien, can nop phi dong phuc va the nhan vien: 350.000 VND.               |
 
 ## 11. Interpretation Notes
 

@@ -44,7 +44,7 @@ Script tính metric trên các lát cắt dữ liệu sau:
 - `label_0_synthetic_like`: mẫu có `label = 0` và được xem là synthetic-like.
 - `label_0_real`: mẫu có `label = 0` và không thuộc synthetic-like.
 
-Một mẫu được xem là synthetic-like nếu `data_origin` sau khi chuyển về chữ thường thuộc một trong ba giá trị `synthetic`, `paraphrased`, `synthetic_hard_negative`, hoặc nếu cột `source_dataset` sau khi chuyển về chữ thường bắt đầu bằng chuỗi `synthetic`.
+Một mẫu được xem là synthetic-like nếu `data_origin` sau khi chuyển về chữ thường thuộc một trong ba giá trị `synthetic`, `paraphrased`, `synthetic_hard_positive`, hoặc nếu cột `source_dataset` sau khi chuyển về chữ thường bắt đầu bằng chuỗi `synthetic`.
 
 ### Embedding nearest-neighbor similarity
 
@@ -155,11 +155,11 @@ Trong `temp.csv`, nguồn dữ liệu được tách chi tiết hơn:
 | paraphrased | 4.333 |
 | real | 2.567 |
 | synthetic | 2.008 |
-| synthetic_hard_negative | 653 |
+| synthetic_hard_positive | 653 |
 | external_curated | 501 |
 | external_real | 500 |
 
-Việc bổ sung `paraphrased`, `synthetic_hard_negative`, `external_real` và `external_curated` cho thấy `temp.csv` không chỉ là bản làm sạch nhỏ của Phase 1, mà là một phiên bản được tái cấu trúc nguồn dữ liệu rõ ràng hơn.
+Việc bổ sung `paraphrased`, `synthetic_hard_positive`, `external_real` và `external_curated` cho thấy `temp.csv` không chỉ là bản làm sạch nhỏ của Phase 1, mà là một phiên bản được tái cấu trúc nguồn dữ liệu rõ ràng hơn.
 
 ## Đa dạng và lặp mẫu
 

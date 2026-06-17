@@ -289,7 +289,7 @@ Synthetic/paraphrased/external:
   val   10%
   test_mixed 10%
 
-synthetic_hard_negative:
+synthetic_hard_positive:
   train 70%
   val   10%
   test_challenge 20%

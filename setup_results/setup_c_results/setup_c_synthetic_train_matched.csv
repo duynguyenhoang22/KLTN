@@ -104,7 +104,7 @@ VPBank Mobile Banking: Thông báo tài khoản của bạn đã bị tạm ngư
 Shopee: Don hang #240522KJHGFD da giao thanh cong. Moi ban vao app de danh gia chat luong phuc vu.,0,synthetic
 eHospital: Ma OTP xac thuc truy cap ho so suc khoe dien tu cua ban la 118239. Co hieu luc trong 5 phut. Khong chia se ma nay.,0,synthetic
 Nhac lich kham rang tai nha khoa Lan Anh luc 8h sang mai.,0,synthetic
-"Trung tam Giai Quyet Viec Lam: Moi ban tham gia chuong trinh tap su co luong Nhan vien van phong. Thu nhap tu 15,000,000 VND. Lam viec tu xa, linh hoat gio. Goi 0901234567 de phong van.",1,synthetic_hard_negative
+"Trung tam Giai Quyet Viec Lam: Moi ban tham gia chuong trinh tap su co luong Nhan vien van phong. Thu nhap tu 15,000,000 VND. Lam viec tu xa, linh hoat gio. Goi 0901234567 de phong van.",1,synthetic_hard_positive
 [TikTok] 620491 la ma xac minh cua ban.,0,synthetic
 Jollibee: Tang 1 Tra Dao khi mua don hang tu 150k. Ma: JOLLITEA. Han dung 30/11/2026. Dat hang tai jollibee.com.vn,0,synthetic
 "**Tuyển gấp nhân viên Bán Hàng Online tại nhà!** **Mức lương hấp dẫn: 1.5 triệu - 5 triệu/ngày** (không giới hạn thu nhập) **Yêu cầu:** Tuổi từ 18-55, không yêu cầu kinh nghiệm. **Làm việc tại nhà, linh hoạt giờ giấc.** **Liên hệ ngay:** - Zalo: zalo.me/0987654321 - Hotline: 0987654321",1,paraphrased
@@ -171,14 +171,14 @@ MobiFone thong bao: Dang ky thanh cong goi cuoc MF150. Quy khach co 120GB data v
 "May nho mua giay in cho van phong nhe, trong kho sap het sach roi day.",0,synthetic
 Vào đây xem ngay: zalo.me/g/hcm_diem_100 Gặp gỡ những người bạn tâm giao ngay thôi!,1,paraphrased
 "Mai mang laptop nhe, phong hop hu may tinh roi.",0,synthetic
-"Mobifone TB: Tai khoan cuoc cua 0912345678 duoc hoan tien 15,000,000 VND do loi ky thuat. Goi hotline 19009988 de nhan tien ve vi MoMo hoac ATM.",1,synthetic_hard_negative
+"Mobifone TB: Tai khoan cuoc cua 0912345678 duoc hoan tien 15,000,000 VND do loi ky thuat. Goi hotline 19009988 de nhan tien ve vi MoMo hoac ATM.",1,synthetic_hard_positive
 [BHXH VN] Thong bao thay doi thong tin nhan luong huu qua TK ngan hang thanh cong. Moi thac mac LH: 19009068.,0,synthetic
 [VNeID] Ma OTP dang nhap ung dung cua ban la 639102. Ma co hieu luc trong 3 phut.,0,synthetic
 "0903445112: Chao Nguyen Thuy Linh, lich kham thai chieu nay cua ban tai Au Co doi sang 16h30 nhe. Bac si co ca cap cuu.",0,synthetic
 ACB: TK ****0987 -300.000VND luc 13:10. So du: 30.500.000VND.,0,synthetic
 "BIDV: TK 1201****6677 -2,100,000VND luc 16:30. So du 12,450,000VND. Noi dung: Thanh toan hoa don Internet.",0,synthetic
 VNPT Health: Ma OTP cua ban la 392011. Ma nay dung de xac nhan ho so suc khoe dien tu. Hieu luc 5 phut.,0,synthetic
-"Bao hiem Xa hoi Viet Nam: Thong bao QK co 4,500,000 VND tien phan bo khuyen khich BHYT. Lien he so BH-LD/2025/001 de nhan ve tai khoan ngan hang.",1,synthetic_hard_negative
+"Bao hiem Xa hoi Viet Nam: Thong bao QK co 4,500,000 VND tien phan bo khuyen khich BHYT. Lien he so BH-LD/2025/001 de nhan ve tai khoan ngan hang.",1,synthetic_hard_positive
 Sacombank: Ma OTP xac thuc thanh toan truc tuyen la 330291. Ma co hieu luc trong 5 phut.,0,synthetic
 McDonald's: Voucher 50k cho don tu 200k. Ma: MCD50. Ap dung tai cua hang den 25/08/2026. Soan TC gui 8079 de tu choi QC.,0,synthetic
 Ninja Van: Don hang NVVN55667788 da giao thanh cong luc 10:20 ngay 10/05. Cam on Quy khach!,0,synthetic
@@ -261,7 +261,7 @@ Vietnamobile TB: Tai khoan cua Quy khach con duoi 5.000d. Vui long nap them tien
 "MobiFone: Quy khach da su dung het 90% dung luong goi HD90. De kiem tra dung luong con lai, soan KT DATA gui 999. De mua them dung luong truy cap 9090.",0,synthetic
 "ACB: The tin dung ****5721 sap den han thanh toan. So tien toi thieu: 500,000VND. Ngay han: 16/10. LH 1900545486.",0,synthetic
 TikTok Shop: Kien hang TTS-77223344 da giao thanh cong. Hay danh gia san pham ngay de nhan voucher.,0,synthetic
-[BHXH Viet Nam] TB: Giay to nhan than cua Nguyen Van Hung can cap nhat theo QD 18006699. Vui long goi 18006699 de duoc huong dan cap nhat mien phi.,1,synthetic_hard_negative
+[BHXH Viet Nam] TB: Giay to nhan than cua Nguyen Van Hung can cap nhat theo QD 18006699. Vui long goi 18006699 de duoc huong dan cap nhat mien phi.,1,synthetic_hard_positive
 MSB ơi: Tài khoản của quý khách đã đủ điều kiện nhận tiền hỗ trợ. Truy cập msb.nganhang.top ngay lập tức để nhận tiền trước 20h hôm nay!,1,paraphrased
 Sendo: Don hang 102938475 cua Quy khach da duoc Sendo xac nhan. Chung toi se nhanh chong chuan bi hang de gui den Quy khach.,0,synthetic
 [J&T Express] Van don JT887766554433: Giao khong thanh cong lan 2. Quy khach lien he giao vien 0944556677.,0,synthetic
@@ -550,7 +550,7 @@ Ma OTP dang nhap Grab cua ban la 837201.,0,synthetic
 GHTK-GHTK4433221100: Kien hang da giao thanh cong luc 14:20. Cam on ban da su dung dich vu GHTK.,0,synthetic
 "[TPBank] TK ****8899 -150,000VND lúc 13:40. Số dư: 1,230,000VND. ND: Thanh toán Grab.",0,synthetic
 Ninja Van: NVVN77889900 da giao thanh cong luc 14:40. Cam on ban da su dung dich vu.,0,synthetic
-[Sacombank] Phong An Ninh: Tai khoan cua QK Dang Van G lien quan den giao dich dang duoc dieu tra. Vui long goi 19001234 truoc 17h de giai trinh.,1,synthetic_hard_negative
+[Sacombank] Phong An Ninh: Tai khoan cua QK Dang Van G lien quan den giao dich dang duoc dieu tra. Vui long goi 19001234 truoc 17h de giai trinh.,1,synthetic_hard_positive
 Best Express: Van don BEST9928374651 dang phan loai tai kho TP.HCM. Du kien giao 17/04.,0,synthetic
 Tong cuc Thue: Thoi han quyet toan thue TNCN nam 2023 doi voi ca nhan tu quyet toan la ngay 30/04/2024. Quy khach vui long thuc hien tai thuedientu.gdt.gov.vn.,0,synthetic
 ZaloPay: Qua tang sinh nhat dac biet! Quy khach nhan 1 ve xem phim 0D khi thanh toan qua ZaloPay tai CJ CGV. Han dung 20/11/2025. Chi tiet tai zalopay.vn. Tu choi QC: TC gui 8888.,0,synthetic
@@ -846,7 +846,7 @@ Phong kham Au Co nhac chi Tran Thanh Tam uong thuoc duong thai dung gio va nghi 
 Shopee: Don hang #240524ZXCVBN da giao thanh cong. Cam on ban da mua sam tai Shopee Mall.,0,synthetic
 WinMart: Hoàn tiền 10% tối đa 30.000đ khi thanh toán bằng ví MoMo cho hóa đơn mua sắm thực phẩm tươi sống. Thời hạn đến 20/10/2025. Chi tiết tại winmart.com.vn.,0,synthetic
 Tiki: Đơn hàng TKI-7726354819 của quý khách đã được đặt thành công. Chúng tôi sẽ sớm giao hàng đến địa chỉ của bạn.,0,synthetic
-"J&T Express: Don SPE2025123456 bi tam giu tai Hai quan do thieu giay to. Phi xu ly: 5,000,000 VND. Goi 0901234567 de duoc huong dan giai phong hang.",1,synthetic_hard_negative
+"J&T Express: Don SPE2025123456 bi tam giu tai Hai quan do thieu giay to. Phi xu ly: 5,000,000 VND. Goi 0901234567 de duoc huong dan giai phong hang.",1,synthetic_hard_positive
 **Gặp gỡ bạn mới tại đây:** https://meet.groups/connect_vn3M Liên hệ ngay để kết nối!,1,paraphrased
 [Shopee] Ma OTP xac thuc dang nhap Shopee cua Quy khach la: 710293.,0,synthetic
 "**Cục An toàn Mạng Quốc gia:** Tài khoản **eID** của bạn vừa bị phát hiện truy cập trái phép. Vui lòng liên hệ **19001234** ngay để xác thực và kích hoạt bảo mật, tránh rủi ro tài khoản bị vô hiệu hóa.",1,paraphrased
@@ -925,10 +925,10 @@ VIB: The tin dung ****5678 cua Quy khach co du no 12.500.000VND den han thanh to
 [BHXHVN] Thông báo: Hồ sơ đề nghị hưởng chế độ thai sản của Quý khách đã được phê duyệt. Tiền trợ cấp sẽ được chi trả qua tài khoản ngân hàng trong 3 ngày làm việc.,0,synthetic
 [OCB] Thẻ OCB của Quý khách đã được kích hoạt thành công. Cảm ơn Quý khách đã sử dụng dịch vụ.,0,synthetic
 "[VssID] Chuc mung ban da dang ky thanh cong ung dung Bao hiem xa hoi so. Vui long dang nhap de theo doi qua trinh dong va huong cac che do BHXH, BHYT.",0,synthetic
-"[HR Solutions Viet Nam] CAM ON da nop don! Vi tri Thu ngan voi muc luong 36,000,000 VND/thang chua kinh nghiem. Can chuyen phi dao tao 300.000 VND de xac nhan tham gia.",1,synthetic_hard_negative
+"[HR Solutions Viet Nam] CAM ON da nop don! Vi tri Thu ngan voi muc luong 36,000,000 VND/thang chua kinh nghiem. Can chuyen phi dao tao 300.000 VND de xac nhan tham gia.",1,synthetic_hard_positive
 BHXH VN: Ho so huong che do thai san cua ba Nguyen Thi A da duoc phe duyet. So tien se duoc chuyen vao TK ca nhan trong 03 ngay lam viec.,0,synthetic
 "Em dang o sieu thi, anh co can mua gi ko?",0,synthetic
-"Linh ơi, tôi có món quà gửi tặng bạn từ nước ngoài, bạn liên hệ nhân viên hải quan số 0934567890 để làm thủ tục nhận nhé.",1,synthetic_hard_negative
+"Linh ơi, tôi có món quà gửi tặng bạn từ nước ngoài, bạn liên hệ nhân viên hải quan số 0934567890 để làm thủ tục nhận nhé.",1,synthetic_hard_positive
 [GHN] Van don SHNR99283741: Dang phan loai tai kho Binh Duong. Du kien giao ngay 12/05 (tu 8h-12h). Theo doi tai https://ghn.vn,0,synthetic
 SPX: Don hang SPXVN2233445 giao khong thanh cong. Lien he giao vien 0966778899 de hen lai lich.,0,synthetic
 BHXHVN: Bạn đủ ĐK nhận trợ cấp từ Quỹ BHTN. Xem tại: www.link-hotro.com. QUÁ HẠN SẼ KHÔNG ĐƯỢC!,1,paraphrased
@@ -1090,7 +1090,7 @@ Tong cuc Thue: Nhac nho han nop to khai thue mon bai nam 2024 truoc ngay 30/01. 
 BV Nhan Dan 115: Ket qua xet nghiem vaccine cua be PHAN ANH DUY da duoc cap nhat. Bac si yeu cau tai kham luc 10h ngay 30/05/2024.,0,synthetic
 Tiki: Don hang TKI-1029384756 da giao thanh cong. Cam on ban da tin tuong va mua sam tai Tiki.,0,synthetic
 [GHN] Van don GHNR334455667: Da giao thanh cong luc 13:20 ngay 15/10. Cam on ban da tin dung GHN.,0,synthetic
-"[Van phong Thua phat lai Quan 1] Canh bao cuoi cung gui den Bui Van Khanh. Khoan no 3,500,000 VND da qua han 25/05/2025. Chuyen khoan ngay hoac se co bien phap phap lu.",1,synthetic_hard_negative
+"[Van phong Thua phat lai Quan 1] Canh bao cuoi cung gui den Bui Van Khanh. Khoan no 3,500,000 VND da qua han 25/05/2025. Chuyen khoan ngay hoac se co bien phap phap lu.",1,synthetic_hard_positive
 GHTK-GHTK1234567891: Kien hang da giao thanh cong luc 11:30 ngay 15/04. Cam on ban da su dung dich vu.,0,synthetic
 [EVNSPC] Thong bao tam ngung cung cap dien de bao tri luoi dien tai khu vuc phuong Ben Nghe tu 08h00 den 12h00 ngay 12/10/2024. Tran trong.,0,synthetic
 Viettel Post Da giao thanh cong van don VTP526742511 vao luc 10:45. Cam on ban rat nhieu!,0,synthetic
@@ -1128,7 +1128,7 @@ Con ve an com chua? Me cho nha.,0,synthetic
 Co.opmart: Happy Birthday! Co.opmart tang Quy khach voucher tri gia 100.000D khi mua sam truc tiep tai sieu thi voi hoa don tu 1 trieu. Han dung 31/12/2025. Hotline: 1900555568.,0,synthetic
 BHXH: Nhac nho gia han BHYT cho thanh vien ho gia dinh. Thuc hien thanh toan truc tuyen tai dichvucong.baohiemxahoi.gov.vn de huong uu dai.,0,synthetic
 [CẢNH BÁO NGHIÊM TRỌNG]: Tài khoản cá nhân của bạn đang bị tạm ngưng vì nghi ngờ giao dịch bất thường. Trung tâm KIỂM SOÁT AN TOÀN MẠNG sẽ khóa vĩnh viễn nếu không xác nhận trong vòng 12 giờ. Truy cập ngay: vneid-kttt.com để xác thực.,1,paraphrased
-"Minh ơi tao mới kiếm được trang này xem Tiktok cũng có tiền, ngày được vài trăm dễ ợt. Mày thử không vô đây nè: drive-google.com/file123",1,synthetic_hard_negative
+"Minh ơi tao mới kiếm được trang này xem Tiktok cũng có tiền, ngày được vài trăm dễ ợt. Mày thử không vô đây nè: drive-google.com/file123",1,synthetic_hard_positive
 VNPT Health: Ma OTP dang ky kham benh cua ban la 771023. Ma co hieu luc trong 10 phut. Tran trong.,0,synthetic
 [TB] Chuc mung Quy khach dang la hoi vien Kim Cuong cua Viettel++. So diem tich luy hien tai: 15.400 diem. Quy khach co the doi diem sang data hoac voucher mua sam tai https://viettel.vn/viettelplus. LH 198 (0d).,0,synthetic
 Lazada: Don hang 150029384756 cua Quy khach dang duoc chuan bi. Lazada se thong bao den Quy khach khi don hang bat dau duoc giao.,0,synthetic
@@ -1153,7 +1153,7 @@ VNU-HCM: Moi thi sinh tham gia ky thi Danh gia nang luc dot 1 nam 2024 vao ngay 
 Siêu may mắn 365! Tặng ngay 100% tiền thưởng cho hội viên mới. Đăng ký ngay: 0987654321. Link: lucky365.biz,1,paraphrased
 [NinjaVan] Don hang NVVN98765432: Dang phan loai tai kho Binh Duong. Du kien giao 31/03 (tu 8h-18h).,0,synthetic
 Techcombank: Ma OTP xac thuc dang nhap la 384729. Ma nay se het han sau 3 phut. KHONG chia se ma cho bat ky ai.,0,synthetic
-"Bao hiem Xa hoi Viet Nam: Thong bao QK co 20,000,000 VND tien phan bo khuyen khich BHYT. Lien he so NQ116/HCM/0987 de nhan ve tai khoan ngan hang.",1,synthetic_hard_negative
+"Bao hiem Xa hoi Viet Nam: Thong bao QK co 20,000,000 VND tien phan bo khuyen khich BHYT. Lien he so NQ116/HCM/0987 de nhan ve tai khoan ngan hang.",1,synthetic_hard_positive
 Tiki: Kien hang TKI-5566443322 da duoc giao thanh cong. Hy vong ban hai long voi san pham. Hay danh gia 5 sao cho Tiki nhe!,0,synthetic
 Ma OTP de xac nhan tai khoan Apple ID la 394851.,0,synthetic
 DHQG-HCM: Chuc mung tan sinh vien khoa 2024. Vui long hoan tat thu tuc nhap hoc va nop hoc phi theo huong dan tai website truong.,0,synthetic
@@ -1209,9 +1209,9 @@ Shopee: Đơn hàng #240522QWERTY đã giao thành công. Vui lòng kiểm tra l
 [QC] WINTEL tang ban voucher giam 20% khi mua goi cuoc 6WIN60 tai app Wintel. Han su dung den het ngay 25/05/2024. Truy cap https://wintel.vn de biet chi tiet. Tu choi QC soan TC gui 123.,0,synthetic
 [HDBank] Ưu đãi hoàn tiền cho chủ thẻ HDBank sẽ hết hạn trong 3 ngày tới. Sử dụng thẻ ngay để không bỏ lỡ.,0,synthetic
 VIB: Ma OTP: 883921. Dung de xac thuc dang nhap MyVIB tren thiet bi moi. LH 18008180.,0,synthetic
-[Eximbank] Bao cao bao mat: Co 19009999 dang co y dinh truy cap tai khoan Do Van I cua QK. Goi 19008888 ngay de kich hoat bao ve.,1,synthetic_hard_negative
+[Eximbank] Bao cao bao mat: Co 19009999 dang co y dinh truy cap tai khoan Do Van I cua QK. Goi 19008888 ngay de kich hoat bao ve.,1,synthetic_hard_positive
 "Sacombank: TK ****9901 +100,000,000VND luc 10:05. So du: 450,700,000VND. ND: Giao dich tu app.",0,synthetic
-"Hùng đang ở đâu đấy, mua hộ tớ cái thẻ điện thoại Viettel 100k với, lát tớ bắn lại cho.",1,synthetic_hard_negative
+"Hùng đang ở đâu đấy, mua hộ tớ cái thẻ điện thoại Viettel 100k với, lát tớ bắn lại cho.",1,synthetic_hard_positive
 BV Dai hoc Y Ha Noi: Ket qua xet nghiem mau cua Nguyen Hoang Long da san sang. Moi ban den lay tai quay tiep don Khoa Xet nghiem.,0,synthetic
 Phong kham da khoa Au Co thong bao: Ket qua xet nghiem cua Quy khach Trinh Cong Son da co. Moi Quy khach den phong kham de bac si tu van.,0,synthetic
 Tìm người tâm sự đêm khuya tại Sài Gòn? Địa chỉ ẩn riêng tư: fb.com/saigon_khuya22. Nhắn tin trực tiếp Zalo: 0987654321,1,paraphrased
@@ -1247,7 +1247,7 @@ TikTok Shop: Ma OTP xac minh tai khoan cua ban la 394857. Vui long khong cung ca
 BHXH VN: Thong bao so thang dong BHXH tu nguyen cua ban hien tai la 48 thang. Vui long kiem tra tai ung dung VssID.,0,synthetic
 The Coffee House: Nhắc bạn sử dụng 400 BEAN để đổi ly cà phê miễn phí hoặc giảm 30.000đ cho đơn từ 100k. Hạn dùng đến 31/03/2025 tại thecoffeehouse.com.,0,synthetic
 Chuc mung sinh nhat nhe! Chuc ba luon xinh dep va hanh phuc.,0,synthetic
-"Ê Nam, đợt trước mày hỏi vụ đầu tư chứng khoán, tao đang theo nhóm này phím lệnh ok lắm, vào nhóm xem thử tinyurl.com/nhan-thuong",1,synthetic_hard_negative
+"Ê Nam, đợt trước mày hỏi vụ đầu tư chứng khoán, tao đang theo nhóm này phím lệnh ok lắm, vào nhóm xem thử tinyurl.com/nhan-thuong",1,synthetic_hard_positive
 Sendo: Don hang 15029384 da giao thanh cong. Ban hay danh gia san pham de nhan ngay diem Sen nhe.,0,synthetic
 [VCB] Ma OTP: 582931. Su dung trong 3 phut de xac thuc GD tren VCB Digibank. KHONG chia se ma nay.,0,synthetic
 [Grab] Ma xac minh Grab cua Quy khach la: 284910. Vui long nhap de tiep tuc.,0,synthetic
@@ -1296,7 +1296,7 @@ ZaloPay: Nhap ma BANMOI nhan ngay combo voucher 1tr dong cho khach hang moi lien
 "Lazada: Ma xac minh dang nhap tren thiet bi moi la 441029. KHONG chia se ma nay voi bat ky ai, ke ca Lazada.",0,synthetic
 "TPBank: TK 0392****1029 +18,000,000VND luc 16:10. ND: THANH TOAN LUONG THANG 10. So du: 20,450,000VND.",0,synthetic
 "[VCB] Ma OTP xac thuc GD la 829471, hieu luc trong 2 phut. Tuyet doi KHONG chia se OTP cho bat ky ai de tranh bi lua dao.",0,synthetic
-"Em gửi file báo cáo tháng này anh check nhé. Dạ em nhầm số sếp, phiền anh/chị quá. Số đuôi anh chị đẹp ghê, mình làm quen nhé, zalo em 0888999000.",1,synthetic_hard_negative
+"Em gửi file báo cáo tháng này anh check nhé. Dạ em nhầm số sếp, phiền anh/chị quá. Số đuôi anh chị đẹp ghê, mình làm quen nhé, zalo em 0888999000.",1,synthetic_hard_positive
 "VCB: TK 1012****8902 +5,000,000VND luc 10:30. So du 25,400,000VND. ND: Chuyen khoan noi bo.",0,synthetic
 Agribank E-Mobile Banking: Ma OTP la 627183.,0,synthetic
 Lich hen kham rang cua Quy khach tai Nha khoa Kim la 9h sang ngay mai.,0,synthetic
@@ -1420,7 +1420,7 @@ GHTK-GHTK1029384756: Kien hang da giao thanh cong luc 09:20. Cam on quy khach da
 "Chi Lan oi, PK Au Co nhac lich tiem phong be Vy luc 14h chieu mai nha. Hen gap hai me con nhe.",0,synthetic
 VIB: Ma OTP cua ban la 192837. Ma nay dung de xac nhan thanh toan. Hieu luc trong 3 phut.,0,synthetic
 Netflix: Ma dang nhap cua ban la 629401. Co hieu luc trong 10 phut.,0,synthetic
-"Trung tam Phong Chong Gian Lan Ngan Hang: Ong/Ba Ho Thi Thu co the tham gia goi trao doi tra no khi dong 30% = 3,000,000 VND truoc 20/06/2025. Goi 0978555444 de bien phap.",1,synthetic_hard_negative
+"Trung tam Phong Chong Gian Lan Ngan Hang: Ong/Ba Ho Thi Thu co the tham gia goi trao doi tra no khi dong 30% = 3,000,000 VND truoc 20/06/2025. Goi 0978555444 de bien phap.",1,synthetic_hard_positive
 Shopee: Tai xe dang tren duong giao don hang #240811ZXCVBNM den ban. Vui long giu lien lac dien thoai de nhan hang nhe.,0,synthetic
 Jollibee: Giảm ngay 20% cho hóa đơn đặt hàng qua app Jollibee và thanh toán bằng ZaloPay. Ưu đãi áp dụng đến 31/08/2025. Chi tiết: jollibee.com.vn.,0,synthetic
 "[MB] TK ****1122 -45,000VND luc 21:00. So du: 1,500,000VND. ND: Thanh toan cuoc vien thong.",0,synthetic
@@ -1679,7 +1679,7 @@ Hòa mình vào thế giới giải trí đỉnh cao với 10 triệu tặng 1 t
 [BIDV] Mã OTP 449201 xác thực đăng ký dịch vụ mới. Hiệu lực 5 phút. LH 19009247 nếu không thực hiện GD này.,0,synthetic
 "[MB] TK ****9281 +2,300,000VND luc 01:20 13/10. Noi dung: Tra no luong thang 9. So du: 5,600,000VND.",0,synthetic
 The Coffee House: Bạn còn 2.000 BEAN sắp hết hạn vào 31/12/2024. Đổi ngay voucher giảm 30.000đ hoặc bánh ngọt tại App The Coffee House để không bỏ lỡ ưu đãi.,0,synthetic
-"Alo anh Quân nay đi nhậu không? Á chết, nhầm số rồi, xin lỗi anh nha. Mà thấy anh có vẻ hợp cạ, rảnh thì kết bạn zalo số này 0981234567 giao lưu nhé.",1,synthetic_hard_negative
+"Alo anh Quân nay đi nhậu không? Á chết, nhầm số rồi, xin lỗi anh nha. Mà thấy anh có vẻ hợp cạ, rảnh thì kết bạn zalo số này 0981234567 giao lưu nhé.",1,synthetic_hard_positive
 Sendo: Don hang 556677889 da giao thanh cong. Quy khach co 24h de bam Khieu nai neu san pham co loi hoac khong dung mo ta.,0,synthetic
 Lotteria: Nhận ngay 10 điểm L.Point khi giới thiệu bạn bè đăng ký thành viên và phát sinh chi tiêu tại Lotteria. Điểm dùng đổi quà đến hết 31/12/2025. lotteria.vn.,0,synthetic
 Studio Ruby: Lich chup anh cua ban la 9h sang thu 7 nay nhe. Hen gap ban!,0,synthetic
@@ -1724,7 +1724,7 @@ MSB: Ma OTP: 662910. Dung de xac thuc GD tren Internet Banking. Hieu luc 120 gia
 Tiki tuyển cộng tác viên nhập liệu và chấm điểm sản phẩm online. Lương 750.000 đồng/ngày. Độ tuổi 20-55. Liên hệ Fanpage: m.me/tikicv,1,paraphrased
 [UIT] Thong bao: Han nop hoc phi Hoc ky 1 nam hoc 2024-2025 la ngay 30/09/2024. Sinh vien vui long hoan thanh dung han de duoc xac nhan dang ky hoc phan.,0,synthetic
 BV 108: Thong bao ket qua xet nghiem vi sinh cua benh nhan Tran Van Tu da co. Moi ong den Khoa Xet nghiem de nhan ket qua vao gio hanh chinh.,0,synthetic
-"Chúc mừng Hoa nha, số điện thoại của bạn may mắn trúng giải thưởng trị giá 50 triệu từ Shopee, click vào tinyurl.com/nhan-thuong để làm thủ tục nhận thưởng.",1,synthetic_hard_negative
+"Chúc mừng Hoa nha, số điện thoại của bạn may mắn trúng giải thưởng trị giá 50 triệu từ Shopee, click vào tinyurl.com/nhan-thuong để làm thủ tục nhận thưởng.",1,synthetic_hard_positive
 Quan Cafe Chill nhan dat ban cho ban luc 20h. Cam on ban da ung ho.,0,synthetic
 [GHN] Van don SHNR1122334: Giao khong thanh cong lan 2. Vui long lien he 0977889900 de nhan hang tai kho.,0,synthetic
 Ban co dang cam sac dien thoai cua minh khong? Minh tim khong thay.,0,synthetic
@@ -1761,7 +1761,7 @@ Tiki: Don hang TKI-1122334455 cua ban da duoc Tiki tiep nhan va dang xu ly.,0,sy
 He thong eHospital: Ma OTP cua quy khach la 882103. Vui long nhap ma de hoan tat dang ky kham benh tai BV Cho Ray.,0,synthetic
 "VPBank: Thong bao ky sao ke the tin dung ****0092. So tien can thanh toan: 3,450,000VND. LH 1900545415.",0,synthetic
 Tiki: Ma OTP xac nhan thanh toan don hang cua ban la 992018. Vui long khong chia se ma nay.,0,synthetic
-"[Vinaphone] QK 0912345678: Goi cuoc cua ban the thang nay phat sinh them 5,000,000 VND do dang ky goi quoc te. Goi 19001010 neu khong thuc hien.",1,synthetic_hard_negative
+"[Vinaphone] QK 0912345678: Goi cuoc cua ban the thang nay phat sinh them 5,000,000 VND do dang ky goi quoc te. Goi 19001010 neu khong thuc hien.",1,synthetic_hard_positive
 "Chi Mai oi, PK Au Co nhac lich tiem vac xin 5 trong 1 cho be Binh luc 8h30 sang mai nhe. Nho mang so nhe.",0,synthetic
 "VIB: TK ****8821 -210,000VND luc 17:40. So du: 3,560,000VND. ND: Thanh toan sieu thi.",0,synthetic
 MSB: Thong bao thay doi han muc rut tien tai ATM tu ngay 15/06/2024. Chi tiet tai msb.com.vn.,0,synthetic

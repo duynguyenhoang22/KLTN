@@ -108,7 +108,7 @@ CFG = dict(
 
     # data_origin mapping
     real_origin_values      = ["real"],
-    synthetic_origin_values = ["synthetic", "paraphrased", "synthetic_hard_negative"],
+    synthetic_origin_values = ["synthetic", "paraphrased", "synthetic_hard_positive"],
     external_real_origin_values = ["external_real"],
     external_curated_origin_values = ["external_curated"],
 

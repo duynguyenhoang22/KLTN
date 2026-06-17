@@ -62,7 +62,7 @@ CFG = dict(
 
     # data_origin mapping
     real_origin_values      = ["real"],
-    synthetic_origin_values = ["synthetic", "paraphrased", "synthetic_hard_negative"],
+    synthetic_origin_values = ["synthetic", "paraphrased", "synthetic_hard_positive"],
 
     # Đường dẫn Google Drive
     drive_root              = "/content/drive/MyDrive/KLTN",
@@ -124,7 +124,7 @@ print(pd.crosstab(df_all["data_origin"], df_all["label"]).to_string())
 # Cell 4 — Tách real/synthetic theo data_origin
 #
 # - Real chỉ dùng data_origin == "real" để khớp Setup A/B.
-# - Synthetic gồm "synthetic", "paraphrased", "synthetic_hard_negative".
+# - Synthetic gồm "synthetic", "paraphrased", "synthetic_hard_positive".
 #   Trong đó "paraphrased" là synthetic đã được paraphrase để giảm pattern rập khuôn.
 
 real_origins = set(CFG["real_origin_values"])

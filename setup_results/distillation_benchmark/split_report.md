@@ -5,7 +5,7 @@
 - Input file: `model/base/temp.csv`
 - Seed: `42`
 - Real-like origins `real`, `external_real`, `external_curated`: stratified 70/15/15.
-- Train-only origins `synthetic`, `paraphrased`, `synthetic_hard_negative`: 100% train.
+- Train-only origins `synthetic`, `paraphrased`, `synthetic_hard_positive`: 100% train.
 - Stratum key: `label x data_origin x category`.
 
 ## Split Sizes
@@ -78,13 +78,13 @@
 |       1 | synthetic               | Nội dung nhạy cảm          |    3 |       3 |     0 |      0 | train_only_origin |
 |       1 | synthetic               | Tuyển dụng giả             |    1 |       1 |     0 |      0 | train_only_origin |
 |       1 | synthetic               | Đòi nợ / Đe dọa            |    1 |       1 |     0 |      0 | train_only_origin |
-|       1 | synthetic_hard_negative | BHXH / Trợ cấp giả         |   60 |      60 |     0 |      0 | train_only_origin |
-|       1 | synthetic_hard_negative | Crypto / Đầu tư giả        |   11 |      11 |     0 |      0 | train_only_origin |
-|       1 | synthetic_hard_negative | Dịch vụ công giả           |   79 |      79 |     0 |      0 | train_only_origin |
-|       1 | synthetic_hard_negative | Giả mạo ngân hàng          |   76 |      76 |     0 |      0 | train_only_origin |
-|       1 | synthetic_hard_negative | Khác                       |  282 |     282 |     0 |      0 | train_only_origin |
-|       1 | synthetic_hard_negative | Tuyển dụng giả             |   86 |      86 |     0 |      0 | train_only_origin |
-|       1 | synthetic_hard_negative | Đòi nợ / Đe dọa            |   59 |      59 |     0 |      0 | train_only_origin |
+|       1 | synthetic_hard_positive | BHXH / Trợ cấp giả         |   60 |      60 |     0 |      0 | train_only_origin |
+|       1 | synthetic_hard_positive | Crypto / Đầu tư giả        |   11 |      11 |     0 |      0 | train_only_origin |
+|       1 | synthetic_hard_positive | Dịch vụ công giả           |   79 |      79 |     0 |      0 | train_only_origin |
+|       1 | synthetic_hard_positive | Giả mạo ngân hàng          |   76 |      76 |     0 |      0 | train_only_origin |
+|       1 | synthetic_hard_positive | Khác                       |  282 |     282 |     0 |      0 | train_only_origin |
+|       1 | synthetic_hard_positive | Tuyển dụng giả             |   86 |      86 |     0 |      0 | train_only_origin |
+|       1 | synthetic_hard_positive | Đòi nợ / Đe dọa            |   59 |      59 |     0 |      0 | train_only_origin |
 
 ## Split Detail: `train`
 
@@ -104,7 +104,7 @@ Rows: `9492`
 | paraphrased             |    4333 |     45.65 |
 | synthetic               |    2008 |     21.15 |
 | real                    |    1797 |     18.93 |
-| synthetic_hard_negative |     653 |      6.88 |
+| synthetic_hard_positive |     653 |      6.88 |
 | external_curated        |     351 |      3.7  |
 | external_real           |     350 |      3.69 |
 
@@ -141,7 +141,7 @@ Rows: `9492`
 | paraphrased             |    0 | 4333 |
 | real                    | 1625 |  172 |
 | synthetic               | 1998 |   10 |
-| synthetic_hard_negative |    0 |  653 |
+| synthetic_hard_positive |    0 |  653 |
 
 ## Split Detail: `dev`
 

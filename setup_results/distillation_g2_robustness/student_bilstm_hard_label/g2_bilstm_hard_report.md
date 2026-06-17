@@ -49,7 +49,7 @@
 | train | paraphrased | 4333 | 0.4990 | 0.9980 | 0.9961 | 1.0000 |
 | train | real | 1796 | 0.9153 | 0.8452 | 0.7616 | 0.9493 |
 | train | synthetic | 10 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
-| train | synthetic_hard_negative | 653 | 0.4930 | 0.9860 | 0.9724 | 1.0000 |
+| train | synthetic_hard_positive | 653 | 0.4930 | 0.9860 | 0.9724 | 1.0000 |
 | val | external_curated | 75 | 0.4966 | 0.0000 | 0.0000 | 0.0000 |
 | val | external_real | 75 | 1.0000 | 0.0000 | 0.0000 | 0.0000 |
 | val | real | 385 | 0.8341 | 0.7013 | 0.7297 | 0.6750 |

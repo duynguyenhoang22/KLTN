@@ -15,4 +15,3 @@ data/interim/bartpho_normalization/
 *.safetensors
 *.zip
 models/phobert_teacher/
-setup_results/distillation_benchmark/

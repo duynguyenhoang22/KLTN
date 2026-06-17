@@ -11,3 +11,8 @@ model/teacher_v2/
 model/student/
 bartpho-normalization/
 data/interim/bartpho_normalization/
+
+*.safetensors
+*.zip
+models/phobert_teacher/
+setup_results/distillation_benchmark/

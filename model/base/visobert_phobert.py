@@ -4,8 +4,10 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, confusion_matrix
+from sklearn.metrics import (
+    f1_score, precision_score, recall_score,
+    confusion_matrix, average_precision_score
+)
 from datasets import Dataset
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
 from pyvi import ViTokenizer
@@ -36,29 +38,45 @@ print(f"[INFO] Phân phối label trong val  :\n{val_df['label'].value_counts()}
 # 2. ĐÁNH GIÁ METRICS
 # ---------------------------------------------------------
 def compute_metrics(pred):
-    labels = pred.label_ids
-    preds = pred.predictions.argmax(-1)
+    labels     = pred.label_ids
+    preds      = pred.predictions.argmax(-1)
+
+    # Stable softmax để lấy xác suất class 1 cho AUPRC
+    logits     = pred.predictions
+    exp_logits = np.exp(logits - logits.max(axis=-1, keepdims=True))
+    probs_pos  = (exp_logits / exp_logits.sum(axis=-1, keepdims=True))[:, 1]
+
     return {
-        "accuracy": accuracy_score(labels, preds),
-        "f1": f1_score(labels, preds, average='weighted'),
-        "precision": precision_score(labels, preds, average='weighted', zero_division=0),
-        "recall": recall_score(labels, preds, average='weighted', zero_division=0)
+        "macro_f1"         : f1_score(labels, preds, average="macro",  zero_division=0),
+        "f1_label1"        : f1_score(labels, preds, pos_label=1, average="binary", zero_division=0),
+        "recall_label1"    : recall_score(labels,    preds, pos_label=1, average="binary", zero_division=0),
+        "precision_label1" : precision_score(labels, preds, pos_label=1, average="binary", zero_division=0),
+        "auprc"            : average_precision_score(labels, probs_pos),
     }
 
 # ---------------------------------------------------------
 # 3. VẼ CONFUSION MATRIX
 # ---------------------------------------------------------
 def plot_confusion_matrix(labels, preds, model_name, save_path):
-    cm = confusion_matrix(labels, preds)
+    cm      = confusion_matrix(labels, preds)
+    cm_norm = confusion_matrix(labels, preds, normalize="true")
+
+    # Ô hiển thị: số lượng + phần trăm
+    annot = np.array([
+        [f"{cm[i, j]}\n({cm_norm[i, j]*100:.1f}%)" for j in range(cm.shape[1])]
+        for i in range(cm.shape[0])
+    ])
+
     fig, ax = plt.subplots(figsize=(6, 5))
     sns.heatmap(
-        cm, annot=True, fmt='d', cmap='Blues', ax=ax,
-        xticklabels=['Predicted 0', 'Predicted 1'],
-        yticklabels=['Actual 0', 'Actual 1']
+        cm_norm, annot=annot, fmt="", cmap="Blues", ax=ax,
+        xticklabels=["Ham (0)", "Spam (1)"],
+        yticklabels=["Ham (0)", "Spam (1)"],
+        vmin=0, vmax=1,
     )
-    ax.set_title(f'Confusion Matrix — {model_name}', fontsize=13, fontweight='bold')
-    ax.set_ylabel('Actual', fontsize=11)
-    ax.set_xlabel('Predicted', fontsize=11)
+    ax.set_title(f"Confusion Matrix — {model_name}", fontsize=13, fontweight="bold")
+    ax.set_ylabel("Actual",    fontsize=11)
+    ax.set_xlabel("Predicted", fontsize=11)
     plt.tight_layout()
     plt.savefig(save_path, dpi=150)
     plt.close()
@@ -110,13 +128,13 @@ def run_phobert_baseline(train_data, val_data):
     
     trainer.train()
 
-    # Vẽ confusion matrix
+    # Predict một lần: lấy preds cho confusion matrix + metrics
     preds_output = trainer.predict(val_ds)
     preds  = preds_output.predictions.argmax(-1)
     labels = preds_output.label_ids
     plot_confusion_matrix(labels, preds, "PhoBERT", "confusion_matrix_phobert.png")
 
-    return trainer.evaluate()
+    return preds_output.metrics
 
 # =========================================================
 # 4. NHÁNH 2: VISOBERT
@@ -164,31 +182,47 @@ def run_visobert_baseline(train_data, val_data):
     
     trainer.train()
 
-    # Vẽ confusion matrix
+    # Predict một lần: lấy preds cho confusion matrix + metrics
     preds_output = trainer.predict(val_ds)
     preds  = preds_output.predictions.argmax(-1)
     labels = preds_output.label_ids
     plot_confusion_matrix(labels, preds, "ViSoBERT", "confusion_matrix_visobert.png")
 
-    return trainer.evaluate()
+    return preds_output.metrics
 
 # ---------------------------------------------------------
 # 5. MAIN
 # ---------------------------------------------------------
 if __name__ == "__main__":
-    phobert_results = run_phobert_baseline(train_df, val_df)
+    phobert_results  = run_phobert_baseline(train_df, val_df)
     visobert_results = run_visobert_baseline(train_df, val_df)
-    
+
+    # Mapping key → tên hiển thị
+    METRIC_LABELS = {
+        "macro_f1"         : "Macro-F1",
+        "f1_label1"        : "F1 (Label 1)",
+        "recall_label1"    : "Recall (Label 1)",
+        "precision_label1" : "Precision (Label 1)",
+        "auprc"            : "AUPRC",
+    }
+
+    def print_results(model_label, results):
+        print(f"\n[THỐNG KÊ {model_label}]")
+        for key, display_name in METRIC_LABELS.items():
+            val = results.get(f"test_{key}", results.get(f"eval_{key}", None))
+            if val is not None:
+                print(f"  - {display_name:<22}: {val:.4f}")
+
     print(f"\n{'='*50}\nTHỐNG KÊ KẾT QUẢ BASELINE\n{'='*50}")
-    
-    print("\n[THỐNG KÊ PHOBERT]")
-    for key, value in phobert_results.items():
-        if key.startswith("eval_"):
-            metric_name = key.replace("eval_", "").capitalize()
-            print(f"- {metric_name:<15}: {value:.4f}")
-            
-    print("\n[THỐNG KÊ VISOBERT]")
-    for key, value in visobert_results.items():
-        if key.startswith("eval_"):
-            metric_name = key.replace("eval_", "").capitalize()
-            print(f"- {metric_name:<15}: {value:.4f}")
+    print_results("PHOBERT",  phobert_results)
+    print_results("VISOBERT", visobert_results)
+
+    # Bảng so sánh ngang
+    print(f"\n{'='*50}\nBẢNG SO SÁNH\n{'='*50}")
+    header = f"{'Metric':<22}  {'PhoBERT':>10}  {'ViSoBERT':>10}"
+    print(header)
+    print("-" * len(header))
+    for key, display_name in METRIC_LABELS.items():
+        pb = phobert_results.get(f"test_{key}", phobert_results.get(f"eval_{key}", float("nan")))
+        vs = visobert_results.get(f"test_{key}", visobert_results.get(f"eval_{key}", float("nan")))
+        print(f"  {display_name:<22}  {pb:>10.4f}  {vs:>10.4f}")

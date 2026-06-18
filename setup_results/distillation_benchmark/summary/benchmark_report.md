@@ -27,12 +27,20 @@
 | fine_tuned_plm | PhoBERT-base                      | test    |    535 |     0.9068 |       0.8267 |           0.8378 |   0.9191 |
 | fine_tuned_plm | PhoBERT-large                     | dev     |    535 |     0.8975 |       0.8101 |           0.8649 |   0.8648 |
 | fine_tuned_plm | PhoBERT-large                     | test    |    535 |     0.937  |       0.8831 |           0.9189 |   0.9248 |
+| fine_tuned_plm | ViCLSR                            | dev     |    535 |     0.9419 |       0.8919 |           0.8919 |   0.9441 |
+| fine_tuned_plm | ViCLSR                            | test    |    535 |     0.9447 |       0.8974 |           0.9459 |   0.9457 |
 | fine_tuned_plm | VisoBERT                          | dev     |    535 |     0.8958 |       0.8056 |           0.7838 |   0.8866 |
 | fine_tuned_plm | VisoBERT                          | test    |    535 |     0.9009 |       0.8158 |           0.8378 |   0.8442 |
 | fine_tuned_plm | XLM-RoBERTa-base                  | dev     |    535 |     0.909  |       0.8312 |           0.8649 |   0.9212 |
 | fine_tuned_plm | XLM-RoBERTa-base                  | test    |    535 |     0.915  |       0.8421 |           0.8649 |   0.8701 |
+| fine_tuned_plm | XLM-RoBERTa-large                 | dev     |    535 |     0.9211 |       0.8533 |           0.8649 |   0.9294 |
+| fine_tuned_plm | XLM-RoBERTa-large                 | test    |    535 |     0.9419 |       0.8919 |           0.8919 |   0.9259 |
 | fine_tuned_plm | mBERT                             | dev     |    535 |     0.9338 |       0.8767 |           0.8649 |   0.8745 |
 | fine_tuned_plm | mBERT                             | test    |    535 |     0.909  |       0.8312 |           0.8649 |   0.9198 |
+
+## Configured PLMs Without Metrics Yet
+
+- None
 
 ## Output Files
 

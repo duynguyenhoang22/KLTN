@@ -20,6 +20,8 @@ Fine-tuned PLMs:
 - CafeBERT
 - DistilledBERT/DistilBERT multilingual
 - XLM-RoBERTa-base
+- XLM-RoBERTa-large
+- ViCLSR
 
 ## Split Policy
 
@@ -65,7 +67,17 @@ python scripts/distillation/train_benchmark_plm.py --model-key visobert
 python scripts/distillation/train_benchmark_plm.py --model-key cafebert
 python scripts/distillation/train_benchmark_plm.py --model-key distilledbert
 python scripts/distillation/train_benchmark_plm.py --model-key xlm-roberta-base
+python scripts/distillation/train_benchmark_plm.py --model-key xlm-roberta-large
+python scripts/distillation/train_benchmark_plm.py --model-key viclsr
 ```
+
+Or run the PLM sweep:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/distillation/run_benchmark_plms.ps1
+```
+
+ViCLSR uses the public Hugging Face model `huynhtin/ViCLSR`.
 
 Generate PhoBERT-base teacher outputs after the PhoBERT-base PLM run:
 

@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from benchmark_config import PRIMARY_METRICS
+from benchmark_config import PLM_REGISTRY, PRIMARY_METRICS
 from benchmark_metrics import markdown_metrics_table
 
 
@@ -57,6 +57,18 @@ def pivot_dev_test(df: pd.DataFrame) -> pd.DataFrame:
     return wide.reset_index()
 
 
+def missing_configured_plms(df: pd.DataFrame) -> list[str]:
+    observed = set(df.loc[df["model_group"].eq("fine_tuned_plm"), "run_name"].dropna())
+    missing = []
+    for key, spec in PLM_REGISTRY.items():
+        if not spec.include_in_benchmark_suite:
+            continue
+        run_name = f"plm_{key}"
+        if run_name not in observed:
+            missing.append(f"- `{run_name}` ({spec.display_name})")
+    return missing
+
+
 def main() -> None:
     args = parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -68,6 +80,7 @@ def main() -> None:
         df = df[df["split"].isin(["dev", "test"])].copy()
     df = df.sort_values(["model_group", "model_name", "split"], na_position="last")
     wide = pivot_dev_test(df)
+    missing_plms = missing_configured_plms(df)
 
     long_csv = args.output_dir / "benchmark_metrics_long.csv"
     wide_csv = args.output_dir / "benchmark_metrics_dev_test_wide.csv"
@@ -88,6 +101,10 @@ def main() -> None:
         "## Dev/Test Results",
         "",
         markdown_metrics_table(df),
+        "",
+        "## Configured PLMs Without Metrics Yet",
+        "",
+        *(missing_plms if missing_plms else ["- None"]),
         "",
         "## Output Files",
         "",

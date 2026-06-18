@@ -22,8 +22,12 @@ SUPPORTED_ORIGINS = REAL_HOLDOUT_ORIGINS | TRAIN_ONLY_ORIGINS
 class PlmSpec:
     key: str
     display_name: str
-    hf_model: str
+    hf_model: str | None
     needs_vietnamese_word_segmentation: bool = False
+    default_train_batch_size: int = 16
+    default_eval_batch_size: int = 32
+    default_gradient_accumulation_steps: int = 1
+    include_in_benchmark_suite: bool = True
 
 
 PLM_REGISTRY: dict[str, PlmSpec] = {
@@ -58,6 +62,7 @@ PLM_REGISTRY: dict[str, PlmSpec] = {
         key="distilbert",
         display_name="DistilBERT multilingual",
         hf_model="distilbert-base-multilingual-cased",
+        include_in_benchmark_suite=False,
     ),
     "distilledbert": PlmSpec(
         key="distilledbert",
@@ -68,6 +73,22 @@ PLM_REGISTRY: dict[str, PlmSpec] = {
         key="xlm-roberta-base",
         display_name="XLM-RoBERTa-base",
         hf_model="xlm-roberta-base",
+    ),
+    "xlm-roberta-large": PlmSpec(
+        key="xlm-roberta-large",
+        display_name="XLM-RoBERTa-large",
+        hf_model="xlm-roberta-large",
+        default_train_batch_size=8,
+        default_eval_batch_size=16,
+        default_gradient_accumulation_steps=2,
+    ),
+    "viclsr": PlmSpec(
+        key="viclsr",
+        display_name="ViCLSR",
+        hf_model="huynhtin/ViCLSR",
+        default_train_batch_size=8,
+        default_eval_batch_size=16,
+        default_gradient_accumulation_steps=2,
     ),
 }
 

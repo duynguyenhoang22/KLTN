@@ -12,7 +12,9 @@ $models = @(
     "visobert",
     "cafebert",
     "distilledbert",
-    "xlm-roberta-base"
+    "xlm-roberta-base",
+    "xlm-roberta-large",
+    "viclsr"
 )
 
 foreach ($model in $models) {

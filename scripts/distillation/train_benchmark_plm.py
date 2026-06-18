@@ -39,9 +39,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", type=Path, default=None)
     parser.add_argument("--max-length", type=int, default=128)
     parser.add_argument("--epochs", type=float, default=3)
-    parser.add_argument("--train-batch-size", type=int, default=16)
-    parser.add_argument("--eval-batch-size", type=int, default=32)
-    parser.add_argument("--gradient-accumulation-steps", type=int, default=1)
+    parser.add_argument("--train-batch-size", type=int, default=None)
+    parser.add_argument("--eval-batch-size", type=int, default=None)
+    parser.add_argument("--gradient-accumulation-steps", type=int, default=None)
     parser.add_argument("--learning-rate", type=float, default=2e-5)
     parser.add_argument("--weight-decay", type=float, default=0.01)
     parser.add_argument("--warmup-ratio", type=float, default=0.1)
@@ -52,6 +52,27 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--save-total-limit", type=int, default=2)
     parser.add_argument("--threshold", type=float, default=0.5)
     return parser.parse_args()
+
+
+def resolve_model_name_or_path(args: argparse.Namespace, spec) -> str:
+    if args.model_name_or_path:
+        return args.model_name_or_path
+    if spec.hf_model:
+        return spec.hf_model
+    raise ValueError(
+        f"`{spec.key}` does not have a built-in Hugging Face id. "
+        "Pass --model-name-or-path with the local checkpoint path or HF model id."
+    )
+
+
+def apply_model_defaults(args: argparse.Namespace, spec) -> argparse.Namespace:
+    if args.train_batch_size is None:
+        args.train_batch_size = spec.default_train_batch_size
+    if args.eval_batch_size is None:
+        args.eval_batch_size = spec.default_eval_batch_size
+    if args.gradient_accumulation_steps is None:
+        args.gradient_accumulation_steps = spec.default_gradient_accumulation_steps
+    return args
 
 
 def set_seed(seed: int) -> None:
@@ -203,7 +224,8 @@ def write_report(output_dir: Path, display_name: str, run_name: str, metrics_df:
 def main() -> None:
     args = parse_args()
     spec = PLM_REGISTRY[args.model_key]
-    model_name_or_path = args.model_name_or_path or spec.hf_model
+    args = apply_model_defaults(args, spec)
+    model_name_or_path = resolve_model_name_or_path(args, spec)
     run_name = f"plm_{spec.key}"
     output_dir = args.output_dir or (args.output_root / run_name)
     output_dir.mkdir(parents=True, exist_ok=True)

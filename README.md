@@ -36,5 +36,6 @@ python -m pytest
 Dataset canonical v2 sử dụng JSONL vì nhiều metadata là multi-label. CSV chỉ
 được dùng làm giao diện annotation hoặc export phẳng.
 
-Đọc [kiến trúc](docs/architecture.md), [annotation guideline](docs/annotation_guidelines.md)
+Đọc [phạm vi dataset](docs/dataset_scope.md),
+[kiến trúc](docs/architecture.md), [annotation guideline](docs/annotation_guidelines.md)
 và [kế hoạch migration](docs/migration_plan.md) trước khi sửa dữ liệu.

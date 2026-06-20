@@ -1,0 +1,12 @@
+﻿comparison,code,test_set,macro_f1_mean,f1_label1_mean,recall_label1_mean,precision_label1_mean,pr_auc_mean,fpr_label0_mean
+Real-only,A,Real Test,0.9506,0.9108,0.9189,0.9028,0.9766,
+Synthetic matched,C,Real Test,0.5975,0.3014,0.4054,0.2608,0.3495,
+Synthetic balanced,D,Real Test,0.7041,0.4938,0.7117,0.3902,0.6415,
+Real + 500 synthetic L1,E1,Real Test,0.9518,0.9132,0.9369,0.8954,0.9617,
+"Real + 1,000 synthetic L1",E2,Real Test,0.9538,0.9167,0.9279,0.9111,0.946,
+"Real + 2,000 synthetic L1",E3,Real Test,0.9434,0.8978,0.9099,0.8861,0.9587,
+Real + all synthetic L1,E4,Real Test,0.9546,0.9178,0.9009,0.9376,0.96,
+Synthetic L0 control,F1,Real Test,0.9501,0.9098,0.9099,0.9099,0.9482,
+External curated L0,F2b,Real Test,0.9485,0.9071,0.9189,0.8964,0.9636,
+No external L0,G0,Challenge Test,0.7902,0.6237,0.9189,0.4745,0.5682,0.0773
+External curated L0,G2,Challenge Test,0.947,0.9014,0.9009,0.9048,0.9029,0.0073

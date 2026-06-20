@@ -1,0 +1,5 @@
+model,fp,fn,total_errors,high_confidence_errors_0.9
+CafeBERT,2,5,7,5
+DistilBERT multilingual,7,2,9,8
+TextCNN,4,7,11,7
+TextCNN distilled,6,6,12,5

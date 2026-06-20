@@ -1,15 +1,13 @@
-"""Evaluate deployment feasibility for teacher and distilled students.
+"""Evaluate deployment feasibility for the benchmark teacher and students.
 
-The default benchmark uses split_v2 `test_real`, the main locked real-world
-test split from the distillation study. Student checkpoints are measured
-directly on CPU. PhoBERT is measured when local weights are present; otherwise
-the script still reports teacher F1 from teacher output CSVs and marks runtime
-metrics as unavailable.
+The default inputs use the shared benchmark split, the fine-tuned PhoBERT-base
+teacher, and the two char-level students distilled from that teacher.
 """
 
 from __future__ import annotations
 
 import argparse
+import gc
 import json
 import math
 import threading
@@ -22,37 +20,44 @@ import numpy as np
 import pandas as pd
 import psutil
 import torch
-from sklearn.metrics import f1_score
 from torch import nn
 from torch.utils.data import DataLoader, Dataset
 
+from benchmark_metrics import compute_binary_metrics
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_SPLIT_DIR = PROJECT_ROOT / "data" / "distillation" / "splits_v2"
-DEFAULT_TEACHER_OUTPUT_DIR = PROJECT_ROOT / "data" / "distillation" / "teacher_outputs_v2"
-DEFAULT_TEACHER_MODEL_DIR = PROJECT_ROOT / "model" / "teacher_v2" / "distillation_teacher_phobert_base" / "model"
-DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "setup_results" / "distillation_v2" / "deployment_feasibility"
+DEFAULT_SPLIT_DIR = PROJECT_ROOT / "data" / "distillation" / "benchmark_splits"
+DEFAULT_TEACHER_OUTPUT_DIR = (
+    PROJECT_ROOT / "data" / "distillation" / "benchmark_teacher_outputs" / "phobert-base"
+)
+DEFAULT_TEACHER_MODEL_DIR = (
+    PROJECT_ROOT / "setup_results" / "distillation_benchmark" / "plm_phobert-base" / "model"
+)
+DEFAULT_OUTPUT_DIR = (
+    PROJECT_ROOT / "setup_results" / "distillation_benchmark" / "deployment_feasibility"
+)
 DEFAULT_MODELS = {
-    "BiLSTM": PROJECT_ROOT
+    "BiLSTM distilled": PROJECT_ROOT
     / "setup_results"
-    / "distillation_v2"
-    / "student_bilstm_distilled"
-    / "char_bilstm_distilled_model.pt",
+    / "distillation_benchmark"
+    / "char_models"
+    / "char_bilstm_distilled_phobert_base"
+    / "char_bilstm_distilled_phobert_base_model.pt",
     "TextCNN Distilled": PROJECT_ROOT
     / "setup_results"
-    / "distillation_v2"
-    / "student_textcnn_distilled"
-    / "char_textcnn_distilled_model.pt",
+    / "distillation_benchmark"
+    / "char_models"
+    / "char_textcnn_distilled_phobert_base"
+    / "char_textcnn_distilled_phobert_base_model.pt",
 }
 SPLIT_TO_FILE = {
-    "test_real": "test_real.csv",
-    "test_mixed": "test_mixed.csv",
-    "test_challenge": "test_challenge.csv",
+    "dev": "dev.csv",
+    "test": "test.csv",
 }
 TEACHER_SPLIT_TO_FILE = {
-    "test_real": "test_real_teacher.csv",
-    "test_mixed": "test_mixed_teacher.csv",
-    "test_challenge": "test_challenge_teacher.csv",
+    "dev": "dev_teacher.csv",
+    "test": "test_teacher.csv",
 }
 
 
@@ -152,17 +157,22 @@ class MemorySampler:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Deployment feasibility benchmark.")
-    parser.add_argument("--split", choices=sorted(SPLIT_TO_FILE), default="test_real")
+    parser.add_argument("--split", choices=sorted(SPLIT_TO_FILE), default="dev")
     parser.add_argument("--split-dir", type=Path, default=DEFAULT_SPLIT_DIR)
     parser.add_argument("--teacher-output-dir", type=Path, default=DEFAULT_TEACHER_OUTPUT_DIR)
     parser.add_argument("--teacher-model-dir", type=Path, default=DEFAULT_TEACHER_MODEL_DIR)
-    parser.add_argument("--bilstm-checkpoint", type=Path, default=DEFAULT_MODELS["BiLSTM"])
+    parser.add_argument(
+        "--bilstm-checkpoint",
+        type=Path,
+        default=DEFAULT_MODELS["BiLSTM distilled"],
+    )
     parser.add_argument("--textcnn-checkpoint", type=Path, default=DEFAULT_MODELS["TextCNN Distilled"])
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--batch-size", type=int, default=128)
     parser.add_argument("--warmup-runs", type=int, default=2)
     parser.add_argument("--latency-runs", type=int, default=5)
     parser.add_argument("--torch-threads", type=int, default=1)
+    parser.add_argument("--teacher-max-length", type=int, default=128)
     parser.add_argument("--skip-teacher-runtime", action="store_true")
     return parser.parse_args()
 
@@ -293,14 +303,18 @@ def roberta_param_estimate(config: dict) -> int:
     return int(embeddings + layers * layer + pooler + classifier)
 
 
-def load_teacher_f1(teacher_output_dir: Path, split: str) -> float | None:
+def load_teacher_metrics(teacher_output_dir: Path, split: str) -> dict | None:
     path = teacher_output_dir / TEACHER_SPLIT_TO_FILE[split]
     if not path.exists():
         return None
     df = pd.read_csv(path)
-    if not {"label", "teacher_pred"}.issubset(df.columns):
+    if not {"label", "teacher_pred", "teacher_p1_t1"}.issubset(df.columns):
         return None
-    return f1_score(df["label"].astype(int), df["teacher_pred"].astype(int), pos_label=1, zero_division=0)
+    return compute_binary_metrics(
+        df["label"].astype(int).to_numpy(),
+        df["teacher_pred"].astype(int).to_numpy(),
+        df["teacher_p1_t1"].astype(float).to_numpy(),
+    )
 
 
 def evaluate_teacher_runtime(
@@ -310,21 +324,24 @@ def evaluate_teacher_runtime(
     batch_size: int,
     warmup_runs: int,
     latency_runs: int,
-) -> tuple[float, RuntimeMetrics, int]:
+    max_length: int,
+) -> tuple[dict, RuntimeMetrics, int]:
+    from pyvi import ViTokenizer
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-    tokenizer = AutoTokenizer.from_pretrained(model_dir)
+    tokenizer = AutoTokenizer.from_pretrained(model_dir, use_fast=False)
     model = AutoModelForSequenceClassification.from_pretrained(model_dir)
     model.eval()
     params = count_params(model)
 
     @torch.no_grad()
     def predict(text_batch: list[str]) -> np.ndarray:
+        segmented = [ViTokenizer.tokenize(text) for text in text_batch]
         encoded = tokenizer(
-            text_batch,
+            segmented,
             padding=True,
             truncation=True,
-            max_length=256,
+            max_length=max_length,
             return_tensors="pt",
         )
         logits = model(**encoded).logits
@@ -341,14 +358,24 @@ def evaluate_teacher_runtime(
     for start in range(0, len(texts), batch_size):
         probs.append(predict(texts[start : start + batch_size]))
     p1 = np.concatenate(probs)
-    f1 = f1_score(labels, (p1 >= 0.5).astype(int), pos_label=1, zero_division=0)
+    pred = (p1 >= 0.5).astype(int)
+    metrics = compute_binary_metrics(labels, pred, p1)
     runtime = benchmark_callable(single_run, batched_run, len(texts), warmup_runs, latency_runs)
-    return f1, runtime, params
+    return metrics, runtime, params
 
 
 def build_markdown(results: pd.DataFrame, split: str, rows: int) -> str:
     display = results.copy()
-    for col in ["size_mb", "cpu_latency_ms_per_msg", "throughput_sms_per_s", "peak_ram_mb", "f1_label_1"]:
+    for col in [
+        "size_mb",
+        "cpu_latency_ms_per_msg",
+        "throughput_sms_per_s",
+        "peak_ram_mb",
+        "macro_f1",
+        "f1_label_1",
+        "recall_label_1",
+        "pr_auc",
+    ]:
         display[col] = display[col].map(lambda x: "" if pd.isna(x) else f"{x:.4f}")
     display["params"] = display["params"].map(lambda x: "" if pd.isna(x) else f"{int(x):,}")
     table = display[
@@ -359,21 +386,70 @@ def build_markdown(results: pd.DataFrame, split: str, rows: int) -> str:
             "cpu_latency_ms_per_msg",
             "throughput_sms_per_s",
             "peak_ram_mb",
+            "macro_f1",
             "f1_label_1",
+            "recall_label_1",
+            "pr_auc",
             "status",
         ]
     ].to_markdown(index=False)
     return (
         "# Deployment Feasibility Evaluation\n\n"
-        f"- Test split: `{split}`\n"
+        f"- Benchmark split: `{split}`\n"
         f"- Rows: {rows:,}\n"
         "- Device: CPU\n\n"
         f"{table}\n\n"
         "Notes:\n"
         "- Latency is measured with batch size 1 after warmup.\n"
         "- Throughput and peak RAM are measured on one full batched pass.\n"
+        "- All quality metrics are recomputed on the selected benchmark split.\n"
+        "- PhoBERT uses the same ViTokenizer segmentation and max length as the model benchmark.\n"
         "- Size is checkpoint size when weights exist; for PhoBERT without local weights, size is estimated as parameters x float32 bytes.\n"
         "- PhoBERT runtime metrics require local model weights in the teacher model directory.\n"
+    )
+
+
+def build_tradeoff(results: pd.DataFrame) -> pd.DataFrame:
+    teacher = results.loc[results["model"].eq("PhoBERT-base")].iloc[0]
+    rows = []
+    for _, student in results.loc[~results["model"].eq("PhoBERT-base")].iterrows():
+        rows.append(
+            {
+                "student": student["model"],
+                "parameter_reduction_x": teacher["params"] / student["params"],
+                "size_reduction_x": teacher["size_mb"] / student["size_mb"],
+                "latency_speedup_x": (
+                    teacher["cpu_latency_ms_per_msg"] / student["cpu_latency_ms_per_msg"]
+                ),
+                "throughput_gain_x": (
+                    student["throughput_sms_per_s"] / teacher["throughput_sms_per_s"]
+                ),
+                "peak_ram_reduction_percent": (
+                    1.0 - student["peak_ram_mb"] / teacher["peak_ram_mb"]
+                )
+                * 100.0,
+                "macro_f1_delta": student["macro_f1"] - teacher["macro_f1"],
+                "f1_label_1_delta": student["f1_label_1"] - teacher["f1_label_1"],
+                "recall_label_1_delta": (
+                    student["recall_label_1"] - teacher["recall_label_1"]
+                ),
+                "pr_auc_delta": student["pr_auc"] - teacher["pr_auc"],
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def build_tradeoff_markdown(tradeoff: pd.DataFrame, split: str) -> str:
+    display = tradeoff.copy()
+    for col in display.columns:
+        if col != "student":
+            display[col] = display[col].map(lambda value: f"{value:.4f}")
+    return (
+        "# Deployment Trade-off Relative to PhoBERT-base\n\n"
+        f"- Benchmark split: `{split}`\n"
+        "- Positive metric deltas mean the student outperforms the teacher.\n"
+        "- Reduction and speedup values greater than 1 indicate lower student cost.\n\n"
+        f"{display.to_markdown(index=False)}\n"
     )
 
 
@@ -388,7 +464,7 @@ def main() -> None:
     rows: list[dict] = []
 
     for model_name, checkpoint_path in [
-        ("BiLSTM", args.bilstm_checkpoint),
+        ("BiLSTM distilled", args.bilstm_checkpoint),
         ("TextCNN Distilled", args.textcnn_checkpoint),
     ]:
         model, vocab, config = load_student(checkpoint_path)
@@ -402,7 +478,8 @@ def main() -> None:
             predict_student(model, texts, vocab, max_len, batch_size=args.batch_size)
 
         p1 = predict_student(model, texts, vocab, max_len, batch_size=args.batch_size)
-        f1 = f1_score(labels, (p1 >= threshold).astype(int), pos_label=1, zero_division=0)
+        pred = (p1 >= threshold).astype(int)
+        metrics = compute_binary_metrics(labels, pred, p1)
         runtime = benchmark_callable(
             single_run,
             batched_run,
@@ -418,14 +495,19 @@ def main() -> None:
                 "cpu_latency_ms_per_msg": runtime.latency_ms_per_msg,
                 "throughput_sms_per_s": runtime.throughput_sms_per_s,
                 "peak_ram_mb": runtime.peak_ram_mb,
-                "f1_label_1": f1,
+                "macro_f1": metrics["macro_f1"],
+                "f1_label_1": metrics["f1_label_1"],
+                "recall_label_1": metrics["recall_label_1"],
+                "pr_auc": metrics["pr_auc"],
                 "status": "ok",
             }
         )
+        del model
+        gc.collect()
 
     teacher_params = None
     teacher_status = "ok"
-    teacher_f1 = load_teacher_f1(args.teacher_output_dir, args.split)
+    teacher_metrics = load_teacher_metrics(args.teacher_output_dir, args.split)
     teacher_runtime = RuntimeMetrics(None, None, None)
     teacher_size = checkpoint_size_mb(args.teacher_model_dir)
     config_path = args.teacher_model_dir / "config.json"
@@ -434,13 +516,14 @@ def main() -> None:
         if not teacher_weights_available(args.teacher_model_dir):
             teacher_size = teacher_params * 4 / (1024 * 1024)
     if not args.skip_teacher_runtime and teacher_weights_available(args.teacher_model_dir):
-        teacher_f1, teacher_runtime, teacher_params = evaluate_teacher_runtime(
+        teacher_metrics, teacher_runtime, teacher_params = evaluate_teacher_runtime(
             args.teacher_model_dir,
             texts,
             labels,
             args.batch_size,
             args.warmup_runs,
             args.latency_runs,
+            args.teacher_max_length,
         )
     elif not teacher_weights_available(args.teacher_model_dir):
         teacher_status = "runtime_not_measured_missing_weights_size_estimated"
@@ -452,18 +535,23 @@ def main() -> None:
             "cpu_latency_ms_per_msg": teacher_runtime.latency_ms_per_msg,
             "throughput_sms_per_s": teacher_runtime.throughput_sms_per_s,
             "peak_ram_mb": teacher_runtime.peak_ram_mb,
-            "f1_label_1": teacher_f1,
+            "macro_f1": None if teacher_metrics is None else teacher_metrics["macro_f1"],
+            "f1_label_1": None if teacher_metrics is None else teacher_metrics["f1_label_1"],
+            "recall_label_1": None if teacher_metrics is None else teacher_metrics["recall_label_1"],
+            "pr_auc": None if teacher_metrics is None else teacher_metrics["pr_auc"],
             "status": teacher_status,
         }
     )
 
     result_df = pd.DataFrame(rows)
-    model_order = {"PhoBERT-base": 0, "BiLSTM": 1, "TextCNN Distilled": 2}
+    model_order = {"PhoBERT-base": 0, "BiLSTM distilled": 1, "TextCNN Distilled": 2}
     result_df["_order"] = result_df["model"].map(model_order)
     result_df = result_df.sort_values("_order").drop(columns="_order")
     result_csv = args.output_dir / f"deployment_feasibility_{args.split}.csv"
     result_json = args.output_dir / f"deployment_feasibility_{args.split}.json"
     result_md = args.output_dir / f"deployment_feasibility_{args.split}.md"
+    tradeoff_csv = args.output_dir / f"deployment_tradeoff_{args.split}.csv"
+    tradeoff_md = args.output_dir / f"deployment_tradeoff_{args.split}.md"
     result_df.to_csv(result_csv, index=False)
     result_json.write_text(
         json.dumps(
@@ -474,6 +562,7 @@ def main() -> None:
                 "warmup_runs": args.warmup_runs,
                 "latency_runs": args.latency_runs,
                 "torch_threads": args.torch_threads,
+                "teacher_max_length": args.teacher_max_length,
                 "results": result_df.where(pd.notna(result_df), None).to_dict(orient="records"),
             },
             ensure_ascii=False,
@@ -482,9 +571,17 @@ def main() -> None:
         encoding="utf-8",
     )
     result_md.write_text(build_markdown(result_df, args.split, len(test_df)), encoding="utf-8")
+    tradeoff_df = build_tradeoff(result_df)
+    tradeoff_df.to_csv(tradeoff_csv, index=False)
+    tradeoff_md.write_text(
+        build_tradeoff_markdown(tradeoff_df, args.split),
+        encoding="utf-8",
+    )
     print(f"Wrote {result_csv}")
     print(f"Wrote {result_json}")
     print(f"Wrote {result_md}")
+    print(f"Wrote {tradeoff_csv}")
+    print(f"Wrote {tradeoff_md}")
 
 
 if __name__ == "__main__":

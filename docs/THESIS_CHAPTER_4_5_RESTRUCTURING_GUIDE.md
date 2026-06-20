@@ -69,6 +69,24 @@ Cấu trúc lập luận chuẩn:
 4. Kiểm tra bằng phân tích lát cắt hoặc ví dụ lỗi.
 5. Đưa ra kết luận ngắn và giới hạn của kết luận.
 
+### 2.6. Hạn chế phân cấp tiểu mục
+
+Từ Mục 4.2 đến hết Chương 5, ưu tiên chỉ sử dụng các mục cấp 2 tương ứng với một chủ đề hoặc câu hỏi nghiên cứu lớn. Không tách nội dung thành các mục cấp 3–4 chỉ vì nội dung có nhiều thành phần.
+
+Thay cho việc chia nhỏ tiêu đề, sử dụng:
+
+- Câu chuyển đoạn để nối các bước lập luận.
+- Đoạn mở đầu nêu vai trò của phần sắp trình bày.
+- Bảng để gom các ánh xạ hoặc thông số lặp lại.
+- Cụm dẫn nhập ngắn trong câu văn khi cần đổi góc nhìn.
+
+Chỉ tạo mục cấp 3 khi đồng thời thỏa mãn hai điều kiện:
+
+1. Nội dung đủ dài và độc lập để người đọc cần tra cứu riêng.
+2. Việc bỏ tiêu đề làm mạch lập luận trở nên khó theo dõi hơn rõ rệt.
+
+Không sử dụng mục cấp 4 trong Chương 4 và Chương 5, trừ trường hợp bắt buộc theo mẫu trình bày của khoa.
+
 ---
 
 ## 3. Các câu hỏi nghiên cứu
@@ -109,9 +127,14 @@ Không sử dụng cụm từ “hai nhánh thực nghiệm”.
 
 ## 4.2. Dữ liệu và chiến lược phân chia
 
-### 4.2.1. Thành phần dữ liệu
+Mục này được kể thành một tuyến liên tục, không chia thành 4.2.1–4.2.4. Thứ tự lập luận:
 
-Trình bày các nguồn:
+1. Giới thiệu thành phần dữ liệu và vai trò từng nguồn.
+2. Chuyển sang chính sách phân chia.
+3. Trình bày kiểm tra rò rỉ.
+4. Kết lại bằng vai trò khác nhau của train, dev và test.
+
+Các nguồn cần trình bày:
 
 - `real`
 - `external_real`
@@ -120,11 +143,7 @@ Trình bày các nguồn:
 - `paraphrased`
 - `synthetic_hard_positive`
 
-Làm rõ nguồn nào xuất hiện trong train, dev và test.
-
-### 4.2.2. Chiến lược chia tập
-
-Trình bày:
+Làm rõ nguồn nào xuất hiện trong train, dev và test. Sau đó chuyển tự nhiên sang:
 
 - Tỷ lệ train/dev/test.
 - Seed chia dữ liệu.
@@ -133,49 +152,28 @@ Trình bày:
 - Dev và test không chứa dữ liệu tạo sinh.
 - Quy tắc xử lý các strata quá nhỏ.
 
-### 4.2.3. Kiểm tra rò rỉ dữ liệu
-
-Tối thiểu gồm:
+Phần kiểm tra rò rỉ nối tiếp ngay sau chiến lược chia, tối thiểu gồm:
 
 - Trùng `sample_id`.
 - Trùng nội dung chính xác.
 - Trùng nội dung sau chuẩn hóa.
 - Nếu có điều kiện, kiểm tra near-duplicate.
 
-### 4.2.4. Vai trò của dev và test
-
-Nêu rõ:
+Kết thúc mục bằng vai trò của từng split:
 
 - Dev: chọn checkpoint, lựa chọn mô hình, điều chỉnh threshold và result analysis.
 - Test: đánh giá cuối cùng.
 
 ## 4.3. Các mô hình benchmark
 
-### 4.3.1. Mô hình character-level
+Không chia thành 4.3.1–4.3.3. Mở đầu bằng lý do benchmark cần nhiều họ kiến trúc, sau đó lần lượt giới thiệu trong cùng một mạch:
 
-- BiLSTM.
-- TextCNN.
+- BiLSTM và TextCNN.
+- Hai biến thể distilled từ PhoBERT-base.
+- Các pretrained language model.
+- Các mô hình ngôn ngữ lớn được fine-tune.
 
-Giải thích lý do chọn mô hình ký tự: phù hợp với SMS ngắn, viết tắt, lỗi chính tả, leet và obfuscation.
-
-### 4.3.2. Mô hình character-level có distillation
-
-- BiLSTM distilled từ PhoBERT-base.
-- TextCNN distilled từ PhoBERT-base.
-
-Chỉ mô tả distillation như một biến thể huấn luyện trong benchmark. Không xây dựng thành nhánh thực nghiệm riêng.
-
-### 4.3.3. Các pretrained language model
-
-- PhoBERT-base.
-- PhoBERT-large.
-- mBERT.
-- VisoBERT.
-- CafeBERT.
-- DistilBERT multilingual.
-- XLM-RoBERTa-base.
-- XLM-RoBERTa-large.
-- ViCLSR.
+Giải thích lý do chọn mô hình ký tự: phù hợp với SMS ngắn, viết tắt, lỗi chính tả, leet và obfuscation. Distillation chỉ là một biến thể huấn luyện trong benchmark, không phải nhánh thực nghiệm riêng.
 
 Nên nhóm và so sánh theo:
 
@@ -217,9 +215,9 @@ Không dùng Accuracy làm căn cứ kết luận chính do dữ liệu đánh g
 
 ## 4.6. Phương pháp phân tích kết quả
 
-### 4.6.1. Phân tích theo độ dài
+Không chia thành các mục 4.6.1–4.6.5. Trình bày theo một chuỗi từ phân tích định lượng theo lát cắt đến phân tích lỗi và so sánh mô hình.
 
-Định nghĩa trước các khoảng, ví dụ:
+Bắt đầu với độ dài và định nghĩa trước các khoảng, ví dụ:
 
 - Ngắn: ≤ 80 ký tự.
 - Trung bình: 81–160 ký tự.
@@ -228,19 +226,9 @@ Không dùng Accuracy làm căn cứ kết luận chính do dữ liệu đánh g
 
 Có thể thay bằng quantile nếu phân phối dev quá lệch, nhưng phải giữ cùng một cách chia cho mọi mô hình.
 
-### 4.6.2. Phân tích theo mức độ che giấu
+Tiếp theo là mức độ phi chuẩn của văn bản. Phần này tạm để placeholder cho tới khi triển khai một thuộc tính như `text_noise_level`, được định nghĩa theo hiện tượng bề mặt và áp dụng độc lập cho cả hai nhãn. Không sử dụng `obfuscation_level` hiện tại như thước đo chung vì thuộc tính này gắn với ý định che giấu trong Label 1.
 
-Do Label 0 sử dụng `NONE`, phân tích độ khó theo `obfuscation_level` chủ yếu thực hiện trên Label 1:
-
-- Level 0.
-- Level 1–2.
-- Level 3 trở lên.
-
-Nếu số mẫu từng level đủ lớn, báo cáo riêng từng level.
-
-### 4.6.3. Phân tích theo metadata
-
-Các lát cắt ưu tiên:
+Nếu vẫn phân tích `obfuscation_level`, chỉ xem đây là phân tích phụ trong nội bộ Label 1 và phải nêu rõ giới hạn. Sau đó mở rộng sang các metadata:
 
 - `data_origin`.
 - `category`.
@@ -248,9 +236,7 @@ Các lát cắt ưu tiên:
 - `has_phone_number`.
 - `sender_type`.
 
-### 4.6.4. Phân tích lỗi
-
-Phân tích:
+Phần sau của mục chuyển sang phân tích lỗi:
 
 - False positive.
 - False negative.
@@ -258,9 +244,7 @@ Phân tích:
 - Lỗi chỉ một nhóm mô hình mắc phải.
 - Lỗi có confidence cao.
 
-### 4.6.5. So sánh giữa các mô hình
-
-Đặc biệt kiểm tra:
+Kết thúc bằng các đối chiếu giữa mô hình:
 
 - PLM và character-level.
 - Base và large.
@@ -269,25 +253,14 @@ Phân tích:
 
 ## 4.7. Thí nghiệm bổ sung về dữ liệu tạo sinh
 
-### 4.7.1. Real-only baseline
+Không chia thành 4.7.1–4.7.4. Kể theo chuỗi giả thuyết tăng dần:
 
-Thiết lập mốc khi chỉ sử dụng dữ liệu thật.
+1. Thiết lập mốc real-only.
+2. Dùng TSTR để kiểm tra synthetic có thể thay thế real hay không.
+3. Dùng positive augmentation để kiểm tra synthetic Label 1 như nguồn bổ sung.
+4. Dùng negative augmentation và external challenge để kiểm tra ranh giới Label 0.
 
-### 4.7.2. TSTR
-
-Synthetic-only matched distribution và synthetic-only balanced.
-
-Mục tiêu duy nhất: kiểm tra dữ liệu tạo sinh có thể thay thế dữ liệu thật hay không.
-
-### 4.7.3. Positive augmentation
-
-Real Train kết hợp các mức synthetic Label 1.
-
-Mục tiêu: kiểm tra synthetic có hữu ích như nguồn bổ sung lớp thiểu số hay không.
-
-### 4.7.4. Negative augmentation và external challenge
-
-Kiểm tra vai trò của synthetic/external Label 0 trong:
+Trong đoạn cuối, kiểm tra vai trò của synthetic/external Label 0 trong:
 
 - Mở rộng miền âm tính.
 - Giảm false positive.
@@ -295,44 +268,41 @@ Kiểm tra vai trò của synthetic/external Label 0 trong:
 
 Các tên Setup A–G chỉ dùng như mã tham chiếu trong bảng hoặc phụ lục.
 
+Để tránh quá tải, không trình bày mọi biến thể A–G với trọng lượng ngang nhau. Phần nội dung chính chỉ giữ các phép so sánh đại diện trực tiếp trả lời RQ4:
+
+1. A/B1 so với C/D: real-only và synthetic-only.
+2. E1–E4: ảnh hưởng của lượng synthetic Label 1.
+3. F1 so với F2b: synthetic Label 0 và external curated Label 0.
+4. G0 so với G2: domain shift trước và sau khi bổ sung external curated Label 0.
+
+Các biến thể B2, F2a, F2c, F3, G1 và G3 đóng vai trò kiểm tra bổ sung hoặc độ bền. Chỉ tóm tắt khi chúng làm thay đổi kết luận chính; bảng chi tiết, kết quả từng seed và phần lớn confusion matrix được chuyển xuống phụ lục.
+
 ---
 
 # 5. SƯỜN CHƯƠNG 5 — KẾT QUẢ VÀ PHÂN TÍCH
 
 ## 5.1. RQ1: Mô hình nào đạt hiệu quả tốt nhất?
 
-### 5.1.1. Kết quả benchmark tổng thể trên dev và test
-
-Đưa bảng benchmark chính lên đầu chương. Báo cáo kết quả của 17 cấu hình trên cả dev và test; việc lựa chọn, xếp hạng và phân tích mô hình dựa trên dev, còn test chỉ dùng để đánh giá khả năng tổng quát hóa cuối cùng.
+Không chia thành 5.1.1–5.1.4. Mục bắt đầu bằng bảng benchmark của 17 cấu hình trên dev và test; việc lựa chọn, xếp hạng và phân tích mô hình dựa trên dev, còn test chỉ dùng để đánh giá khả năng tổng quát hóa cuối cùng.
 
 Bảng tối thiểu gồm:
 
 | Nhóm | Mô hình | Split | Macro-F1 | F1 L1 | Recall L1 | PR-AUC |
 |---|---|---|---:|---:|---:|---:|
 
-Mọi kết luận lựa chọn mô hình phải dựa trên dev.
-
-### 5.1.2. So sánh theo nhóm kiến trúc
-
-Trả lời:
+Mọi kết luận lựa chọn mô hình phải dựa trên dev. Từ bảng tổng thể, mạch phân tích lần lượt trả lời:
 
 - PLM có vượt character-level không?
 - Mô hình lớn có luôn tốt hơn bản base không?
 - Mô hình noisy/social text có lợi thế không?
 - Mô hình nhẹ đánh đổi bao nhiêu hiệu năng?
 
-### 5.1.3. Vai trò của distillation trong benchmark
-
-So sánh trực tiếp:
+Sau đó so sánh trực tiếp distillation:
 
 - BiLSTM hard-label và BiLSTM distilled.
 - TextCNN hard-label và TextCNN distilled.
 
-Không khái quát rằng distillation luôn hiệu quả nếu kết quả không nhất quán.
-
-### 5.1.4. Kết quả cuối cùng trên test
-
-Chỉ báo cáo sau khi đã chọn mô hình bằng dev.
+Không khái quát rằng distillation luôn hiệu quả nếu kết quả không nhất quán. Kết thúc mục bằng kết quả test sau khi đã chọn mô hình bằng dev.
 
 Nên phân biệt:
 
@@ -342,9 +312,9 @@ Nên phân biệt:
 
 ## 5.2. RQ2: Đặc điểm nào làm thay đổi hiệu năng?
 
-### 5.2.1. Theo độ dài tin nhắn
+Không chia thành 5.2.1–5.2.4. Kể theo trật tự từ thuộc tính bề mặt dễ diễn giải đến miền dữ liệu: độ dài → mức độ phi chuẩn (sau khi triển khai) → nguồn dữ liệu → category và metadata.
 
-Báo cáo mỗi lát cắt:
+Với mỗi lát cắt độ dài, báo cáo:
 
 - Số mẫu.
 - Phân phối nhãn.
@@ -358,29 +328,19 @@ Phải trả lời:
 - Tin nhắn dài có bị cắt bởi max length không?
 - Character-level và PLM phản ứng khác nhau như thế nào?
 
-### 5.2.2. Theo `obfuscation_level`
+Sau khi có `text_noise_level`, trả lời:
 
-Phải trả lời:
-
-- Recall có giảm khi mức che giấu tăng không?
+- Hiệu năng có giảm khi mức độ phi chuẩn tăng không?
 - Character-level có bền vững hơn PLM không?
-- Những kiểu obfuscation nào vẫn gây lỗi?
+- Những dạng teencode, viết tắt, leet hoặc ký tự đặc biệt nào vẫn gây lỗi?
 
-Luôn kèm số lượng mẫu để tránh kết luận mạnh từ nhóm quá nhỏ.
-
-### 5.2.3. Theo nguồn dữ liệu
-
-So sánh:
+`obfuscation_level` hiện tại chỉ được dùng như phân tích phụ trên Label 1. Luôn kèm số lượng mẫu để tránh kết luận mạnh từ nhóm quá nhỏ. Tiếp theo so sánh theo nguồn:
 
 - `real`.
 - `external_real`.
 - `external_curated`.
 
-Mục tiêu là phát hiện domain shift và sự khác biệt giữa miền SMS thật với dữ liệu chéo miền.
-
-### 5.2.4. Theo category và metadata
-
-Ưu tiên:
+Mục tiêu là phát hiện domain shift và sự khác biệt giữa miền SMS thật với dữ liệu chéo miền. Kết thúc bằng category và metadata:
 
 - Nhóm OTP/ngân hàng.
 - Tuyển dụng.
@@ -394,18 +354,14 @@ Chỉ trình bày các lát cắt có đủ số mẫu và có ý nghĩa giải 
 
 ## 5.3. RQ3: Mô hình sai ở đâu và vì sao?
 
-### 5.3.1. Tổng quan FP/FN
-
-So sánh số FP/FN giữa các mô hình đại diện:
+Không chia thành 5.3.1–5.3.4. Bắt đầu bằng tổng quan FP/FN giữa các mô hình đại diện:
 
 - Mô hình benchmark tốt nhất.
 - Một PLM baseline.
 - TextCNN hoặc BiLSTM.
 - Một biến thể distilled nếu có ý nghĩa.
 
-### 5.3.2. Taxonomy lỗi
-
-Các nhóm lỗi dự kiến:
+Từ thống kê tổng quan, xây dựng taxonomy lỗi:
 
 - Smishing có bề mặt giống OTP hoặc brandname hợp lệ.
 - Smishing không chứa URL hoặc lời kêu gọi hành động rõ ràng.
@@ -415,9 +371,7 @@ Các nhóm lỗi dự kiến:
 - Văn bản ngoài miền SMS.
 - Lỗi do thiếu ngữ cảnh hoặc nhãn mơ hồ.
 
-### 5.3.3. Ví dụ lỗi tiêu biểu
-
-Mỗi ví dụ cần có:
+Sau taxonomy, chọn ví dụ tiêu biểu. Mỗi ví dụ cần có:
 
 - Nội dung rút gọn.
 - Nhãn thật.
@@ -426,11 +380,7 @@ Mỗi ví dụ cần có:
 - Nhóm lỗi.
 - Giải thích.
 
-Chỉ chọn 5–8 ví dụ tiêu biểu. Không dùng ví dụ thay thế cho thống kê.
-
-### 5.3.4. So sánh tập lỗi giữa mô hình
-
-Phân tích:
+Chỉ chọn 5–8 ví dụ tiêu biểu. Không dùng ví dụ thay thế cho thống kê. Kết thúc bằng so sánh tập lỗi giữa mô hình:
 
 - Mẫu mọi mô hình đều sai.
 - Mẫu PLM đúng nhưng character-level sai.
@@ -439,15 +389,9 @@ Phân tích:
 
 ## 5.4. RQ4: Dữ liệu tạo sinh có giá trị như thế nào?
 
-### 5.4.1. Dữ liệu tạo sinh có thể thay thế dữ liệu thật không?
+Không chia thành 5.4.1–5.4.4. Mạch lập luận đi từ khả năng thay thế đến cách sử dụng phù hợp.
 
-Dùng Real-only và TSTR làm bằng chứng.
-
-Kết luận dự kiến: synthetic-only không đủ để thay thế real data nếu hiệu năng thấp hơn rõ rệt.
-
-### 5.4.2. Synthetic Label 1 có hữu ích để augmentation không?
-
-So sánh Real-only với các mức bổ sung synthetic Label 1.
+Trước hết, dùng Real-only và TSTR để trả lời synthetic có thể thay thế real data hay không. Sau đó so sánh Real-only với các mức bổ sung synthetic Label 1 để đánh giá positive augmentation.
 
 Phân tích trade-off giữa:
 
@@ -456,19 +400,17 @@ Phân tích trade-off giữa:
 - FP.
 - FN.
 
-### 5.4.3. Vì sao cần mở rộng Label 0?
-
-Dùng kết quả external challenge:
+Tiếp theo, dùng external challenge để giải thích vì sao cần mở rộng Label 0:
 
 - Positive augmentation có thể làm mô hình quá nhạy.
 - External curated Label 0 giúp mở rộng ranh giới âm tính.
 - Không phải cứ thêm nhiều dữ liệu Label 0 là tốt; chất lượng và mức phù hợp miền quan trọng hơn số lượng.
 
-### 5.4.4. Kết luận về chiến lược sử dụng synthetic data
-
-Luận điểm mục tiêu:
+Kết thúc mục bằng luận điểm tổng hợp:
 
 > Dữ liệu tạo sinh chưa phù hợp để thay thế hoàn toàn dữ liệu thật, nhưng có giá trị khi được sử dụng như nguồn augmentation có kiểm soát. Real data giữ vai trò neo miền, synthetic Label 1 mở rộng miền smishing, còn Label 0 chất lượng giúp kiểm soát false positive và domain shift.
+
+Mục 5.4 chỉ triển khai sâu bốn phép kiểm chứng đại diện đã chốt ở Mục 4.7. Không kể tuần tự mọi biến thể A–G. Các biến thể phụ chỉ được nhắc ngắn nếu củng cố, làm yếu hoặc tạo ngoại lệ cho kết luận chính.
 
 ## 5.5. Tổng hợp câu trả lời nghiên cứu
 
@@ -534,14 +476,14 @@ Các bảng/biểu đồ nên cân nhắc:
 |---|---|---|
 | Tổng quan hai nhánh thực nghiệm | 4.1 | Viết lại hoàn toàn theo RQ1–RQ4 |
 | Nhánh 1: Đánh giá dữ liệu tạo sinh | 4.7 và 5.4 | Rút gọn, tổ chức theo câu hỏi |
-| Setup A/B | 4.7.1 và 5.4 | Giữ làm baseline |
-| Setup C/D – TSTR | 4.7.2 và 5.4.1 | Hạ thành phân tích khả năng thay thế real |
-| Setup E | 4.7.3 và 5.4.2 | Dùng phân tích positive augmentation |
-| Setup F/G | 4.7.4 và 5.4.3 | Dùng phân tích negative coverage/domain shift |
-| Nhánh 2: Knowledge Distillation | 4.3.2 và 5.1.3 | Bỏ tư cách nhánh độc lập |
-| Kết quả distillation cũ | 5.1.3 | Chỉ giữ nếu cùng giao thức benchmark |
+| Setup A/B | 4.7 và 5.4 | Giữ làm baseline |
+| Setup C/D – TSTR | 4.7 và 5.4 | Hạ thành phân tích khả năng thay thế real |
+| Setup E | 4.7 và 5.4 | Dùng phân tích positive augmentation |
+| Setup F/G | 4.7 và 5.4 | Dùng phân tích negative coverage/domain shift |
+| Nhánh 2: Knowledge Distillation | 4.3 và 5.1 | Bỏ tư cách nhánh độc lập |
+| Kết quả distillation cũ | 5.1 | Chỉ giữ nếu cùng giao thức benchmark |
 | Confusion matrix theo từng setup | 5.3 và 5.4 | Chọn hình tiêu biểu, không liệt kê toàn bộ |
-| Tổng kết các setup | 5.4.4 và 5.5 | Viết lại thành kết luận theo RQ |
+| Tổng kết các setup | 5.4 và 5.5 | Viết lại thành kết luận theo RQ |
 | Benchmark mới | 5.1 | Đưa thành kết quả chính đầu chương |
 
 ---
@@ -587,6 +529,8 @@ Các bảng/biểu đồ nên cân nhắc:
 - [ ] Có tránh kể tuần tự theo Setup A–G không?
 - [ ] Distillation có đang được trình bày đúng như một cấu hình benchmark không?
 - [ ] TSTR có đang được đặt đúng trong phần phân tích synthetic data không?
+- [ ] Phần RQ4 có tập trung vào các phép so sánh đại diện thay vì trình bày mọi biến thể ngang hàng không?
+- [ ] Bảng từng seed và các biến thể kiểm tra bổ sung đã được chuyển xuống phụ lục chưa?
 - [ ] Kết luận có chỉ ra giới hạn của bằng chứng không?
 - [ ] Các hình/bảng có thực sự hỗ trợ câu hỏi đang trả lời không?
 

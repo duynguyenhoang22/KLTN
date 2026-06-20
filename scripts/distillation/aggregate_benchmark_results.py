@@ -1,4 +1,4 @@
-"""Aggregate benchmark metrics from char-level and PLM runs."""
+"""Aggregate benchmark metrics from char-level, PLM, and LLM runs."""
 
 from __future__ import annotations
 
@@ -13,6 +13,13 @@ from benchmark_metrics import markdown_metrics_table
 
 DEFAULT_RESULTS_ROOT = Path("setup_results/distillation_benchmark")
 DEFAULT_OUTPUT_DIR = Path("setup_results/distillation_benchmark/summary")
+
+LLM_RUNS = {
+    "Gemma_3_1b": "Gemma 3 1B",
+    "Gemma_2b": "Gemma 2B",
+    "Qwen3_0_6B": "Qwen3 0.6B",
+    "Qwen2_5_0_5B": "Qwen2.5 0.5B",
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -35,11 +42,33 @@ def load_metrics(paths: list[Path]) -> pd.DataFrame:
     frames = []
     for path in paths:
         df = pd.read_csv(path)
+        required = {
+            "model_group",
+            "model_name",
+            "run_name",
+            "split",
+            "rows",
+            *PRIMARY_METRICS,
+        }
+        missing = required - set(df.columns)
+        if missing:
+            raise ValueError(f"{path} is missing required columns: {sorted(missing)}")
         df["metrics_file"] = str(path)
         frames.append(df)
     if not frames:
         return pd.DataFrame()
-    return pd.concat(frames, ignore_index=True)
+    out = pd.concat(frames, ignore_index=True)
+    llm_mask = out["run_name"].isin(LLM_RUNS)
+    out.loc[llm_mask, "model_group"] = "fine_tuned_llm"
+    out.loc[llm_mask, "model_name"] = out.loc[llm_mask, "run_name"].map(LLM_RUNS)
+    duplicates = out.duplicated(["run_name", "split"], keep=False)
+    if duplicates.any():
+        duplicate_rows = out.loc[duplicates, ["run_name", "split", "metrics_file"]]
+        raise ValueError(
+            "Duplicate benchmark metrics found for the same run and split:\n"
+            + duplicate_rows.to_string(index=False)
+        )
+    return out
 
 
 def pivot_dev_test(df: pd.DataFrame) -> pd.DataFrame:
@@ -69,6 +98,15 @@ def missing_configured_plms(df: pd.DataFrame) -> list[str]:
     return missing
 
 
+def missing_configured_llms(df: pd.DataFrame) -> list[str]:
+    observed = set(df.loc[df["model_group"].eq("fine_tuned_llm"), "run_name"].dropna())
+    return [
+        f"- `{run_name}` ({display_name})"
+        for run_name, display_name in LLM_RUNS.items()
+        if run_name not in observed
+    ]
+
+
 def main() -> None:
     args = parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -81,6 +119,7 @@ def main() -> None:
     df = df.sort_values(["model_group", "model_name", "split"], na_position="last")
     wide = pivot_dev_test(df)
     missing_plms = missing_configured_plms(df)
+    missing_llms = missing_configured_llms(df)
 
     long_csv = args.output_dir / "benchmark_metrics_long.csv"
     wide_csv = args.output_dir / "benchmark_metrics_dev_test_wide.csv"
@@ -89,7 +128,7 @@ def main() -> None:
     wide.to_csv(wide_csv, index=False)
 
     lines = [
-        "# Distillation Benchmark Summary",
+        "# Model Benchmark Summary",
         "",
         "## Primary Metrics",
         "",
@@ -105,6 +144,10 @@ def main() -> None:
         "## Configured PLMs Without Metrics Yet",
         "",
         *(missing_plms if missing_plms else ["- None"]),
+        "",
+        "## Configured LLMs Without Metrics Yet",
+        "",
+        *(missing_llms if missing_llms else ["- None"]),
         "",
         "## Output Files",
         "",

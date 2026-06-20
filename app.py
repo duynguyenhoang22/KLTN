@@ -9,6 +9,8 @@ import numpy as np
 import time
 import torch
 import os
+from pathlib import Path
+from torch import nn
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 # ─────────────────────────────────────────────
@@ -217,53 +219,184 @@ MODEL_OPTIONS = {
         "key": "phobert_teacher",
         "desc": "vinai/phobert-base — mô hình gốc, độ chính xác cao nhất",
         "type": "teacher",
+        "path": "./setup_results/distillation_benchmark/plm_phobert-base/model",
     },
     "   Student 1 (Distilled)": {
         "key": "student_1",
-        "desc": "cnn",
+        "desc": "Character-level TextCNN distilled từ PhoBERT",
         "type": "student",
+        "path": "./setup_results/distillation_benchmark/char_models/char_textcnn_distilled_phobert_base/char_textcnn_distilled_phobert_base_model.pt",
     },
     "   Student 2 (Distilled)": {
         "key": "student_2",
-        "desc": "bilstm",
+        "desc": "Character-level BiLSTM distilled từ PhoBERT",
         "type": "student",
+        "path": "./setup_results/distillation_benchmark/char_models/char_bilstm_distilled_phobert_base/char_bilstm_distilled_phobert_base_model.pt",
     },
 }
 
 # ─────────────────────────────────────────────
 # LOAD MODEL (cached)
 # ─────────────────────────────────────────────
+class CharBiLstm(nn.Module):
+    def __init__(self, vocab_size: int, embed_dim: int, hidden_dim: int, dropout: float):
+        super().__init__()
+        self.embedding = nn.Embedding(vocab_size, embed_dim, padding_idx=0)
+        self.lstm = nn.LSTM(embed_dim, hidden_dim, batch_first=True, bidirectional=True)
+        self.dropout = nn.Dropout(dropout)
+        self.classifier = nn.Linear(hidden_dim * 4, 1)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        mask = x.ne(0)
+        emb = self.embedding(x)
+        out, _ = self.lstm(emb)
+        masked = out.masked_fill(~mask.unsqueeze(-1), 0.0)
+        lengths = mask.sum(dim=1).clamp(min=1).unsqueeze(-1)
+        mean_pool = masked.sum(dim=1) / lengths
+        max_pool = out.masked_fill(~mask.unsqueeze(-1), -1e9).max(dim=1).values
+        pooled = torch.cat([mean_pool, max_pool], dim=1)
+        return self.classifier(self.dropout(pooled)).squeeze(-1)
+
+
+class CharTextCnn(nn.Module):
+    def __init__(
+        self,
+        vocab_size: int,
+        embed_dim: int,
+        num_filters: int,
+        kernel_sizes: list[int],
+        dropout: float,
+    ):
+        super().__init__()
+        self.embedding = nn.Embedding(vocab_size, embed_dim, padding_idx=0)
+        self.convs = nn.ModuleList(
+            [
+                nn.Conv1d(embed_dim, num_filters, kernel_size=size, padding=size // 2)
+                for size in kernel_sizes
+            ]
+        )
+        self.dropout = nn.Dropout(dropout)
+        self.classifier = nn.Linear(num_filters * len(kernel_sizes), 1)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        emb = self.embedding(x).transpose(1, 2)
+        pooled = [torch.relu(conv(emb)).max(dim=2).values for conv in self.convs]
+        return self.classifier(self.dropout(torch.cat(pooled, dim=1))).squeeze(-1)
+
+
+def resolve_student_checkpoint(model_path: str) -> Path:
+    path = Path(model_path)
+    if path.is_file():
+        return path
+    if path.is_dir():
+        checkpoints = sorted(path.glob("*_model.pt"))
+        if len(checkpoints) == 1:
+            return checkpoints[0]
+        if not checkpoints:
+            raise FileNotFoundError(f"Không tìm thấy file '*_model.pt' trong {path}")
+        raise ValueError(f"Có nhiều checkpoint trong {path}; vui lòng chọn trực tiếp một file .pt")
+    raise FileNotFoundError(f"Không tìm thấy checkpoint: {path}")
+
+
 @st.cache_resource(show_spinner=False)
-def load_model(model_path: str):
-    """Load tokenizer + model từ local path."""
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
-    model = AutoModelForSequenceClassification.from_pretrained(model_path)
-    model.eval()
+def load_model(model_path: str, model_type: str):
+    """Load teacher Hugging Face hoặc student character-level từ local checkpoint."""
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    if model_type == "teacher":
+        tokenizer = AutoTokenizer.from_pretrained(model_path)
+        model = AutoModelForSequenceClassification.from_pretrained(model_path)
+        vocab = None
+        config = {"max_len": 256}
+    else:
+        checkpoint_path = resolve_student_checkpoint(model_path)
+        checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+        config = checkpoint["config"]
+        vocab = checkpoint["vocab"]
+        architecture = str(config.get("architecture", "bilstm")).lower()
+
+        if architecture == "textcnn":
+            kernel_sizes = [
+                int(size.strip())
+                for size in str(config["kernel_sizes"]).split(",")
+                if size.strip()
+            ]
+            model = CharTextCnn(
+                vocab_size=len(vocab),
+                embed_dim=int(config["embed_dim"]),
+                num_filters=int(config["num_filters"]),
+                kernel_sizes=kernel_sizes,
+                dropout=float(config["dropout"]),
+            )
+        elif architecture == "bilstm":
+            model = CharBiLstm(
+                vocab_size=len(vocab),
+                embed_dim=int(config["embed_dim"]),
+                hidden_dim=int(config["hidden_dim"]),
+                dropout=float(config["dropout"]),
+            )
+        else:
+            raise ValueError(f"Kiến trúc student không được hỗ trợ: {architecture}")
+
+        model.load_state_dict(checkpoint["model_state_dict"], strict=True)
+        tokenizer = None
+
+    model.eval()
     model.to(device)
-    return tokenizer, model, device
+    parameter_count = sum(parameter.numel() for parameter in model.parameters())
+    return tokenizer, model, device, vocab, config, parameter_count
 
 
-def predict_batch(texts: list[str], tokenizer, model, device, threshold: float):
+def encode_student_texts(
+    texts: list[str],
+    vocab: dict[str, int],
+    max_len: int,
+    device: torch.device,
+) -> torch.Tensor:
+    encoded = []
+    for text in texts:
+        ids = [vocab.get(char, 1) for char in text.lower()[:max_len]]
+        ids.extend([0] * (max_len - len(ids)))
+        encoded.append(ids)
+    return torch.tensor(encoded, dtype=torch.long, device=device)
+
+
+def predict_batch(
+    texts: list[str],
+    tokenizer,
+    model,
+    device,
+    threshold: float,
+    model_type: str,
+    vocab=None,
+    config=None,
+):
     """
     Chạy inference trên danh sách texts.
     Trả về (labels, probabilities, total_time_ms, per_sample_ms)
     """
     t0 = time.perf_counter()
 
-    inputs = tokenizer(
-        texts,
-        padding=True,
-        truncation=True,
-        max_length=256,
-        return_tensors="pt",
-    )
-    inputs = {k: v.to(device) for k, v in inputs.items()}
-
     with torch.no_grad():
-        logits = model(**inputs).logits
+        if model_type == "student":
+            if vocab is None:
+                raise ValueError("Checkpoint student không chứa vocabulary")
+            max_len = int((config or {}).get("max_len", 256))
+            inputs = encode_student_texts(texts, vocab, max_len, device)
+            logits = model(inputs)
+            probs = torch.sigmoid(logits).cpu().numpy()
+        else:
+            inputs = tokenizer(
+                texts,
+                padding=True,
+                truncation=True,
+                max_length=256,
+                return_tensors="pt",
+            )
+            inputs = {k: v.to(device) for k, v in inputs.items()}
+            logits = model(**inputs).logits
+            probs = torch.softmax(logits, dim=-1)[:, 1].cpu().numpy()
 
-    probs = torch.softmax(logits, dim=-1)[:, 1].cpu().numpy()  # P(smishing)
     labels = (probs >= threshold).astype(int)
 
     t1 = time.perf_counter()
@@ -297,8 +430,9 @@ with st.sidebar:
     st.markdown("### Đường dẫn mô hình")
     model_path = st.text_input(
         "Local path",
-        value=f"./models/{model_meta['key']}",
-        help="Thư mục chứa config.json, pytorch_model.bin, tokenizer_config.json …",
+        value=model_meta["path"],
+        key=f"model_path_{model_meta['key']}",
+        help="Teacher dùng thư mục Hugging Face; student dùng file checkpoint .pt hoặc thư mục chứa file đó.",
     )
 
     st.markdown("---")
@@ -324,25 +458,40 @@ with st.sidebar:
 # ─────────────────────────────────────────────
 # MODEL LOADING STATE
 # ─────────────────────────────────────────────
-if "loaded_model_path" not in st.session_state:
-    st.session_state.loaded_model_path = None
-    st.session_state.tokenizer = None
-    st.session_state.model = None
-    st.session_state.device = None
+for state_key, default_value in {
+    "loaded_model_path": None,
+    "loaded_model_name": None,
+    "loaded_model_type": None,
+    "tokenizer": None,
+    "model": None,
+    "device": None,
+    "vocab": None,
+    "model_config": None,
+    "parameter_count": None,
+}.items():
+    if state_key not in st.session_state:
+        st.session_state[state_key] = default_value
 
 if load_btn:
-    if not os.path.isdir(model_path):
-        model_status.error(f"Không tìm thấy thư mục: `{model_path}`")
+    if not os.path.exists(model_path):
+        model_status.error(f"Không tìm thấy đường dẫn: `{model_path}`")
     else:
         with st.spinner(f"Đang load **{selected_model_name}** từ `{model_path}` …"):
             try:
-                tok, mdl, dev = load_model(model_path)
+                tok, mdl, dev, vocab, config, parameter_count = load_model(
+                    model_path,
+                    model_meta["type"],
+                )
                 st.session_state.tokenizer = tok
                 st.session_state.model = mdl
                 st.session_state.device = dev
+                st.session_state.vocab = vocab
+                st.session_state.model_config = config
+                st.session_state.parameter_count = parameter_count
                 st.session_state.loaded_model_path = model_path
                 st.session_state.loaded_model_name = selected_model_name
-                model_status.success("Load thành công!")
+                st.session_state.loaded_model_type = model_meta["type"]
+                model_status.success(f"Load thành công — {parameter_count:,} tham số")
             except Exception as e:
                 model_status.error(f"Lỗi: {e}")
 
@@ -363,7 +512,8 @@ st.markdown("""
 if model_ready:
     loaded_name = st.session_state.get("loaded_model_name", "")
     dev_name = "GPU 🟢" if st.session_state.device.type == "cuda" else "CPU 🟡"
-    st.info(f"**Mô hình đang dùng:** {loaded_name} &nbsp;|&nbsp; **Thiết bị:** {dev_name} &nbsp;|&nbsp; **Threshold:** {threshold:.2f}", icon="🤖")
+    parameter_count = st.session_state.get("parameter_count", 0)
+    st.info(f"**Mô hình đang dùng:** {loaded_name} &nbsp;|&nbsp; **Tham số:** {parameter_count:,} &nbsp;|&nbsp; **Thiết bị:** {dev_name} &nbsp;|&nbsp; **Threshold:** {threshold:.2f}", icon="🤖")
 else:
     st.warning("⬅️ Chưa load mô hình. Cấu hình đường dẫn và nhấn **Load mô hình** ở sidebar.", icon="⚠️")
 
@@ -431,6 +581,9 @@ if texts_to_predict and model_ready:
             st.session_state.model,
             st.session_state.device,
             threshold,
+            st.session_state.loaded_model_type,
+            st.session_state.vocab,
+            st.session_state.model_config,
         )
 
     n_smishing = int(labels.sum())

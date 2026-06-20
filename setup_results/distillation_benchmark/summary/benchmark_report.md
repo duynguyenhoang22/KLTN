@@ -1,4 +1,4 @@
-# Distillation Benchmark Summary
+# Model Benchmark Summary
 
 ## Primary Metrics
 
@@ -19,6 +19,14 @@
 | char_neural    | TextCNN                           | test    |    535 |     0.9129 |       0.8378 |           0.8378 |   0.8852 |
 | char_neural    | TextCNN distilled fr PhoBERT-base | dev     |    535 |     0.9129 |       0.8378 |           0.8378 |   0.8818 |
 | char_neural    | TextCNN distilled fr PhoBERT-base | test    |    535 |     0.9189 |       0.85   |           0.9189 |   0.8776 |
+| fine_tuned_llm | Gemma 2B                          | dev     |    535 |     0.9553 |       0.9167 |           0.8919 |   0.8965 |
+| fine_tuned_llm | Gemma 2B                          | test    |    535 |     0.9585 |       0.9231 |           0.973  |   0.9853 |
+| fine_tuned_llm | Gemma 3 1B                        | dev     |    535 |     0.9389 |       0.8857 |           0.8378 |   0.9405 |
+| fine_tuned_llm | Gemma 3 1B                        | test    |    535 |     0.9472 |       0.9014 |           0.8649 |   0.9183 |
+| fine_tuned_llm | Qwen2.5 0.5B                      | dev     |    535 |     0.9433 |       0.8947 |           0.9189 |   0.9648 |
+| fine_tuned_llm | Qwen2.5 0.5B                      | test    |    535 |     0.9248 |       0.8608 |           0.9189 |   0.9489 |
+| fine_tuned_llm | Qwen3 0.6B                        | dev     |    535 |     0.9236 |       0.8571 |           0.8108 |   0.9262 |
+| fine_tuned_llm | Qwen3 0.6B                        | test    |    535 |     0.9485 |       0.9041 |           0.8919 |   0.9688 |
 | fine_tuned_plm | CafeBERT                          | dev     |    535 |     0.9472 |       0.9014 |           0.8649 |   0.9477 |
 | fine_tuned_plm | CafeBERT                          | test    |    535 |     0.9355 |       0.88   |           0.8919 |   0.9261 |
 | fine_tuned_plm | DistilBERT multilingual           | dev     |    535 |     0.9385 |       0.8861 |           0.9459 |   0.8959 |
@@ -39,6 +47,10 @@
 | fine_tuned_plm | mBERT                             | test    |    535 |     0.909  |       0.8312 |           0.8649 |   0.9198 |
 
 ## Configured PLMs Without Metrics Yet
+
+- None
+
+## Configured LLMs Without Metrics Yet
 
 - None
 

@@ -1,7 +1,0 @@
-model_a,model_b,shared_errors,union_errors,jaccard
-CafeBERT,DistilBERT multilingual,2,14,0.14285714285714285
-CafeBERT,TextCNN,4,14,0.2857142857142857
-CafeBERT,TextCNN distilled,4,15,0.26666666666666666
-DistilBERT multilingual,TextCNN,3,17,0.17647058823529413
-DistilBERT multilingual,TextCNN distilled,3,18,0.16666666666666666
-TextCNN,TextCNN distilled,10,13,0.7692307692307693

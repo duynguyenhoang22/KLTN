@@ -1,5 +1,0 @@
-﻿Nhóm lỗi,Nội dung rút gọn,Nhãn thật,Mô hình dự đoán sai,Số MH,Confidence TB,Nhận xét
-FN chung,"Nhận thấy có hành vi lợi dụng tín nhiệm, chiếm đoạt tài sản… yêu cầu thanh toán gấp… liên hệ [SĐT] để giải quyết.",Smishing (1),CafeBERT; DistilBERT multilingual; TextCNN; TextCNN distilled,4,0.99,"Đòi nợ mang văn phong hành chính, không có URL."
-FN ngân hàng,"ACB cảnh báo SMS lừa đảo… không cung cấp USER, MẬT KHẨU, OTP… truy cập [URL].",Smishing (1),CafeBERT; TextCNN; TextCNN distilled,3,0.9921,Cảnh báo ngân hàng có hình thức giống tin hợp lệ.
-FP có URL,"Hội thảo trực tuyến… mời phụ huynh, thí sinh tham gia tại [URL]. Hotline: [SĐT].",Hợp lệ (0),DistilBERT multilingual; TextCNN; TextCNN distilled,3,0.9802,Tin tuyển sinh hợp lệ nhưng có URL và lời kêu gọi.
-FP external,"Sau lần bế tắc vì phá sản, gánh một khoản nợ… t mới bắt đầu sống kiểu “yolo”.",Hợp lệ (0),TextCNN; TextCNN distilled,2,0.7419,Ngôn ngữ đời thường ngoài miền chứa từ vựng tài chính.

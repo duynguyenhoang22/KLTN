@@ -1,9 +1,0 @@
-﻿setup,variant,seed,content,label,eval_subset,true_label,pred_label,prob_label0,prob_label1,is_correct,error_type
-E_real_plus_synthetic_label1,E4_all,42,"Chuc mung ban da trung tuyen vao truong CD Le Quy Don. Nhap hoc tu 05/09-15/09 tai 538 QL 51, P. Long Binh Tan, TP Bien Hoa, tinh Dong Nai. Lien he: 0973685439.",0,real_test,0,1,0.00041568943,0.99958426,False,FP
-E_real_plus_synthetic_label1,E4_all,42,Chuc mung ban da nhan duoc 1 chiec dien thoai E770i tu chuong trinh Quay So Ngau Nhien cua Mobifone. SoanTin: XU E770i31 va gui 4 lan den 6769 de xem chi tiet,1,real_test,1,0,0.99951315,0.00048690566,False,FN
-E_real_plus_synthetic_label1,E4_all,42,Em la nu sinh vien 21 tuoi MU0N KIEM chut Tjen trang TRAI CU0C S0NG EM C0 the den lam tinh khu vuc nao cung DU0C GIA CA Uu DAI Add ZAL0 e: 0367891234 QkR,1,real_test,1,0,0.9992735,0.00072648755,False,FN
-E_real_plus_synthetic_label1,E4_all,42,"TNEX Ma OTP cua ban 632900, se het han sau 2 phut. Vui long KHONG chia se ma cho bat ky ai voi bat ky ly do nao https//vi.ecmjJ7U4frh",1,real_test,1,0,0.9998385,0.0001615606,False,FN
-E_real_plus_synthetic_label1,E4_all,42,DH Kinh Te Tp.HCM tuyen sinh Cu nhan Tai Chinh Ung Dung do DH Rennes 1 cap bang. XETTUYEN DOC LAP. Hotline: 0938711627 https://go.ueh.edu.vn/rennes/0389048463,0,real_test,0,1,0.06273176,0.93726826,False,FP
-E_real_plus_synthetic_label1,E4_all,42,Cu phap khong hop le. QK vui long lien he 18001091 de duoc ho tro. Cam on da su dung dich vu VinaPhone - Mang 3G/4G nhanh nhat Viet Nam.,0,real_test,0,1,0.10613344,0.8938666,False,FP
-E_real_plus_synthetic_label1,E4_all,42,ĐƠN này 0Đ Kick Thành Công khi nào lấy cổng sau quẹo trái cuối cùng 11h-1h chắc chắn có.,0,real_test,0,1,0.00071662973,0.9992834,False,FP
-E_real_plus_synthetic_label1,E4_all,42,Bạn đã yêu cầu Google khôi phục quyền truy cập cho duyj4f2004@gmail.com? Nếu không phải thì hãy kiểm tra email để tìm hiểu cách DỪNG yêu cầu này.,0,real_test,0,1,0.000121008205,0.999879,False,FP

@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vismishds.local/schema/dataset-v2.json",
+  "title": "ViSmishDS v2 record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sample_id",
+    "content",
+    "label",
+    "data_origin",
+    "source",
+    "message_domain",
+    "sender_type",
+    "surface_features",
+    "target_audience",
+    "obfuscation",
+    "persuasion_tactics",
+    "annotation"
+  ],
+  "properties": {
+    "sample_id": {"type": "string", "minLength": 1},
+    "content": {"type": "string", "minLength": 1},
+    "label": {"type": "integer", "enum": [0, 1]},
+    "data_origin": {
+      "type": "string",
+      "enum": ["real", "synthetic", "external_real", "external_curated"]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dataset", "record_id"],
+      "properties": {
+        "dataset": {"type": "string", "minLength": 1},
+        "file": {"type": ["string", "null"]},
+        "record_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "message_domain": {
+      "type": "string",
+      "enum": [
+        "banking_finance", "public_service", "telecom",
+        "commerce_logistics", "employment", "investment",
+        "debt_collection", "gambling", "adult_service",
+        "healthcare", "personal_social", "other", "unknown"
+      ]
+    },
+    "sender_type": {
+      "type": "string",
+      "enum": ["brandname", "shortcode", "personal_number", "unknown"]
+    },
+    "surface_features": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["has_url", "has_phone_number", "text_phenomena", "text_noise_score"],
+      "properties": {
+        "has_url": {"type": "boolean"},
+        "has_phone_number": {"type": "boolean"},
+        "text_phenomena": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "diacritic_omission", "abbreviation", "teencode", "leetspeak",
+              "character_substitution", "punctuation_insertion", "token_splitting",
+              "homoglyph", "irregular_spacing", "irregular_casing",
+              "code_switching", "natural_typo"
+            ]
+          }
+        },
+        "text_noise_score": {"type": "integer", "minimum": 0, "maximum": 4}
+      }
+    },
+    "target_audience": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["age_groups", "gender", "occupations", "life_statuses", "evidence"],
+      "properties": {
+        "age_groups": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "child", "adolescent", "young_adult", "adult",
+              "middle_aged", "older_adult", "general", "unknown"
+            ]
+          }
+        },
+        "gender": {"type": "string", "enum": ["female", "male", "all", "unknown"]},
+        "occupations": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "life_statuses": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "evidence": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "obfuscation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present", "techniques", "severity", "confidence"],
+      "properties": {
+        "present": {"type": "boolean"},
+        "techniques": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "leetspeak", "character_substitution", "punctuation_insertion",
+              "token_splitting", "homoglyph", "irregular_spacing",
+              "irregular_casing", "unicode_noise", "mixed_technique"
+            ]
+          }
+        },
+        "severity": {"type": "integer", "minimum": 0, "maximum": 4},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "persuasion_tactics": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "impersonation", "urgency", "fear", "authority", "reward_greed",
+          "threat", "credential_request", "payment_request", "link_lure",
+          "off_platform_contact"
+        ]
+      }
+    },
+    "annotation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "annotators", "confidence", "guideline_version"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["unannotated", "auto_labeled", "human_reviewed", "adjudicated"]
+        },
+        "annotators": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "guideline_version": {"type": "string", "minLength": 1},
+        "notes": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

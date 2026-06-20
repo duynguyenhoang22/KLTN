@@ -1,17 +1,55 @@
+# Python
 __pycache__/
 *.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
 
+# Secrets and local configuration
 .env
 .env.*
 !.env.example
 
-*.log
-model/teacher/
-model/teacher_v2/
-model/student/
-bartpho-normalization/
-data/interim/bartpho_normalization/
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
 
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+~$*
+
+# Generated datasets and annotation exports
+data/annotations/*
+!data/annotations/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/releases/*
+!data/releases/.gitkeep
+
+# Experiment outputs and model artifacts
+artifacts/
+reports/generated/
+models/
+checkpoints/
+runs/
+wandb/
+mlruns/
+*.pt
+*.pth
+*.ckpt
 *.safetensors
+*.joblib
+*.onnx
 *.zip
-models/phobert_teacher/
+
+# Notebook checkpoints (notebooks are not part of the canonical pipeline)
+.ipynb_checkpoints/

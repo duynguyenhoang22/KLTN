@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "message_domain": [
+    "banking_finance",
+    "public_service",
+    "telecom",
+    "commerce_logistics",
+    "employment",
+    "investment",
+    "debt_collection",
+    "gambling",
+    "adult_service",
+    "healthcare",
+    "personal_social",
+    "other",
+    "unknown"
+  ],
+  "sender_type": [
+    "brandname",
+    "shortcode",
+    "personal_number",
+    "unknown"
+  ],
+  "text_phenomena": [
+    "diacritic_omission",
+    "abbreviation",
+    "teencode",
+    "leetspeak",
+    "character_substitution",
+    "punctuation_insertion",
+    "token_splitting",
+    "homoglyph",
+    "irregular_spacing",
+    "irregular_casing",
+    "code_switching",
+    "natural_typo"
+  ],
+  "obfuscation_techniques": [
+    "leetspeak",
+    "character_substitution",
+    "punctuation_insertion",
+    "token_splitting",
+    "homoglyph",
+    "irregular_spacing",
+    "irregular_casing",
+    "unicode_noise",
+    "mixed_technique"
+  ],
+  "persuasion_tactics": [
+    "impersonation",
+    "urgency",
+    "fear",
+    "authority",
+    "reward_greed",
+    "threat",
+    "credential_request",
+    "payment_request",
+    "link_lure",
+    "off_platform_contact"
+  ],
+  "target_age_group": [
+    "child",
+    "adolescent",
+    "young_adult",
+    "adult",
+    "middle_aged",
+    "older_adult",
+    "general",
+    "unknown"
+  ],
+  "target_gender": [
+    "female",
+    "male",
+    "all",
+    "unknown"
+  ],
+  "annotation_status": [
+    "unannotated",
+    "auto_labeled",
+    "human_reviewed",
+    "adjudicated"
+  ],
+  "data_origin": [
+    "real",
+    "synthetic",
+    "external_real",
+    "external_curated"
+  ]
+}

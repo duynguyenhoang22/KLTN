@@ -1,8 +1,10 @@
 # Phạm vi và chính sách nhãn của ViSmishDS v2
 
-Phiên bản: `2.0.0-draft`  
-Ngày ban hành bản nháp: 2026-06-20  
-Trạng thái: P0.1 — cần human review trước khi khóa
+Phiên bản: `2.0.0-locked`
+
+Ngày khóa: 2026-06-21
+
+Trạng thái: P0.1 — đã khóa sau annotation độc lập và adjudication
 
 ## 1. Mục đích của tài liệu
 
@@ -110,7 +112,10 @@ Label 0 có thể gồm:
 - tin nhắn cá nhân;
 - tin chứa URL, hotline, deadline hoặc ngôn ngữ cảnh báo nhưng không có bằng
   chứng lừa đảo;
-- hard negative có bề mặt giống smishing.
+- hard negative có bề mặt giống smishing;
+- spam thương mại hợp pháp, dù gây khó chịu;
+- nội dung chỉ chứa số điện thoại và không có thêm bằng chứng lừa đảo trong
+  chính `content`.
 
 Label 0 không đồng nghĩa với “văn bản sạch”, “không có URL” hoặc “không có
 obfuscation/noise”.
@@ -126,6 +131,8 @@ Nhãn mô hình vẫn là nhị phân. Tuy nhiên, pipeline quản trị phải 
 - `excluded_insufficient_context`;
 - `excluded_invalid_record`;
 - `excluded_privacy_or_safety`;
+- `excluded_out_of_scope_malicious`;
+- `excluded_language_scope`;
 - `excluded_duplicate`.
 
 Ca mơ hồ không được ép vào Label 0 chỉ vì chưa chứng minh được Label 1.
@@ -152,6 +159,42 @@ Các tín hiệu sau **không đủ một mình** để gán Label 1:
 - được sinh bởi LLM;
 - category cũ mang chữ “giả”;
 - model/judge dự đoán Label 1 với confidence cao.
+
+### 5.1. Quy tắc vận hành đã được nhóm nghiên cứu chốt
+
+1. Quảng cáo cờ bạc hoặc dịch vụ nhạy cảm không có bằng chứng gian dối/chiếm
+   đoạt được đánh dấu `excluded_out_of_scope_malicious`, không ép vào Label 0.
+2. Tin có nội dung đòi nợ **và mang tính đe dọa/cưỡng ép** được gán Label 1 khi
+   từ `content` không thể xác minh khoản nợ là thật. Thông báo thanh toán, gia
+   hạn dịch vụ, hóa đơn hoặc giao dịch thông thường không thuộc quy tắc này.
+   Đây là quy ước dataset, không phải kết luận pháp lý rằng mọi hoạt động đòi
+   nợ đều là lừa đảo.
+3. Spam thương mại hợp pháp được gán Label 0.
+4. Nội dung mà toàn bộ phần có nghĩa chỉ là một số điện thoại được gán Label 0.
+5. Nội dung mà toàn bộ phần có nghĩa chỉ là một URL được gán Label 1.
+6. Nhãn chỉ được xác định từ `content`; provenance không được dùng làm bằng
+   chứng để thay đổi nhãn.
+
+Quy tắc 2, 4 và 5 ưu tiên tính nhất quán trong các trường hợp không thể xác
+minh từ nội dung. Chúng phải được công bố trong dataset card và phần giới hạn
+của luận văn. Phân tích lỗi cần có lát cắt riêng cho các mẫu được gán bằng quy
+tắc vận hành này.
+
+**Làm rõ sau vòng annotation 50 ca khó:** một tin nhắn có câu chữ đầy đủ và
+kèm URL không phải là “chỉ có URL”. Sự hiện diện của URL không tự động chuyển
+tin sang Label 1. Annotator phải đánh giá toàn bộ hành động và ngữ nghĩa trong
+`content`. Tương tự, một tin có câu chữ kèm số điện thoại không phải là “chỉ có
+số điện thoại”.
+
+Do chỉ được sử dụng `content`, annotator không được:
+
+- mặc định một domain là thật vì trùng tên thương hiệu;
+- mặc định một domain là giả chỉ vì chưa từng thấy;
+- tra cứu URL, số điện thoại hoặc người gửi bên ngoài dataset.
+
+Annotator vẫn được sử dụng cấu trúc và ngữ nghĩa thể hiện ngay trong URL như
+một phần của `content`, nhưng URL đơn độc không chứng minh tính xác thực của
+thương hiệu.
 
 ## 6. Inclusion policy
 
@@ -180,6 +223,8 @@ Loại khỏi release chính khi:
 - chứa thông tin cá nhân nhạy cảm không thể khử định danh an toàn;
 - synthetic bị lỗi logic, mâu thuẫn, placeholder hoặc artifact nghiêm trọng;
 - văn bản không có đủ thành phần tiếng Việt cho mục tiêu nghiên cứu;
+- hơn 50% thành phần mang nội dung là tiếng Anh, không tính tên thương hiệu và
+  các từ viết tắt thông dụng;
 - có tranh chấp nhãn không thể adjudicate với bằng chứng hiện có.
 
 Mẫu bị loại vẫn phải có exclusion record; không xóa im lặng.
@@ -198,13 +243,16 @@ bằng chứng.
 
 ### 8.2. Ca biên bắt buộc adjudication
 
-- thông báo đòi nợ có ngôn ngữ đe dọa nhưng chưa rõ gian dối;
 - quảng cáo cờ bạc/dịch vụ nhạy cảm nhưng chưa thể hiện hành vi chiếm đoạt;
 - tuyển dụng thu nhập cao nhưng không có bước dẫn dụ rõ;
 - thông báo thương hiệu có URL lạ nhưng không thể xác minh nguồn;
-- tin nhắn chỉ có link hoặc số điện thoại;
 - nội dung có thể là spam nhưng chưa phải smishing;
 - mẫu synthetic ghi Label 1 nhưng nội dung không thực hiện hành vi lừa đảo.
+
+Hai trường hợp cực ngắn không chuyển adjudication nếu cấu trúc đã rõ:
+
+- chỉ có số điện thoại → Label 0;
+- chỉ có URL → Label 1.
 
 Spam, nội dung phi pháp hoặc nội dung khó chịu không tự động đồng nghĩa với
 smishing. Nếu khóa luận muốn mở rộng Label 1 thành “malicious SMS” rộng hơn,
@@ -400,6 +448,14 @@ Dataset không được dùng để:
 
 Các nguồn “chưa phải release” chỉ được nhập lại thông qua pipeline v2.
 
+External social-text được phép dùng cho:
+
+- train augmentation;
+- phân tích domain shift.
+
+Hai mục đích phải sử dụng các tập con tách biệt theo record và family. Mẫu đã
+dùng cho train không được đồng thời xuất hiện trong tập đánh giá domain shift.
+
 ## 14. Giới hạn diễn giải
 
 Kết quả trên ViSmishDS v2 không tự động chứng minh:
@@ -418,29 +474,34 @@ Mọi lát cắt phải báo cáo số mẫu. Nhóm quá nhỏ chỉ được m�
 
 P0.1 chỉ hoàn thành khi:
 
-- [ ] Hai thành viên đã đọc và phê duyệt scope.
-- [ ] Có ít nhất 10 ví dụ Label 0, 10 ví dụ Label 1 và 10 ca biên.
-- [ ] Hai người gán độc lập 50 ca khó bằng chính sách này.
-- [ ] Mọi bất đồng được ghi và adjudicate.
-- [ ] Định nghĩa spam, malicious SMS và smishing không còn nhập nhằng.
-- [ ] Quy tắc `unknown/general/other/not_applicable` được đồng ý.
-- [ ] Quy trình privacy/exclusion có người chịu trách nhiệm.
-- [ ] Tài liệu được tăng từ `draft` sang phiên bản khóa.
+- [x] Hai thành viên đã đọc và phê duyệt scope.
+- [x] Bộ 50 ca stress-test bao phủ Label 0, Label 1 và ca biên.
+- [x] Hai người gán độc lập 50 ca khó bằng chính sách này.
+- [x] Mọi bất đồng được ghi và adjudicate.
+- [x] Định nghĩa spam, malicious SMS và smishing không còn nhập nhằng ở các
+  nhóm đã kiểm tra.
+- [x] Quy tắc `unknown/general/other/not_applicable` được đồng ý.
+- [x] Quy trình privacy/exclusion và vai trò con người đã được xác định.
+- [x] Adjudication validator không còn lỗi.
+- [x] Tài liệu đã chuyển sang phiên bản khóa.
 
-## 16. Các quyết định con người cần chốt
+## 16. Biên bản quyết định của nhóm nghiên cứu
 
-Trước pilot chính thức, nhóm phải trả lời:
+Nhóm đã chốt:
 
-1. Quảng cáo cờ bạc hoặc dịch vụ nhạy cảm không có dấu hiệu chiếm đoạt có thuộc
-   Label 1 không, hay nằm ngoài bài toán smishing?
-2. Tin đòi nợ có đe dọa nhưng có thể đến từ chủ nợ thật được xử lý thế nào?
-3. Spam thương mại gây khó chịu nhưng hợp pháp có luôn là Label 0 không?
-4. Tin chỉ chứa một URL/số liên hệ có được giữ khi không đủ ngữ cảnh không?
-5. Có cho phép sử dụng thông tin nguồn ngoài `content` để xác định nhãn không?
-   Nếu có, chính xác những trường nguồn nào được phép?
-6. External social-text khác hình thức SMS được dùng cho train, challenge hay
-   chỉ phân tích domain shift?
-7. Ngưỡng nào khiến một mẫu tiếng Việt pha tiếng Anh nằm ngoài phạm vi?
+1. Quảng cáo cờ bạc/dịch vụ nhạy cảm không có bằng chứng lừa đảo:
+   `excluded_out_of_scope_malicious`.
+2. Tin đòi nợ có đe dọa/cưỡng ép nhưng không thể xác minh nợ thật từ
+   `content`: Label 1; thông báo thanh toán/gia hạn thông thường không áp dụng.
+3. Spam thương mại hợp pháp: Label 0.
+4. Toàn bộ nội dung chỉ có số điện thoại: Label 0; toàn bộ nội dung chỉ có URL:
+   Label 1. Tin có câu chữ kèm URL/SĐT được đánh giá bình thường.
+5. Chỉ dùng `content` để xác định nhãn.
+6. External social-text dùng cho train và phân tích domain shift trên các tập
+   con tách biệt.
+7. Nội dung có hơn 50% tiếng Anh, không tính thương hiệu và viết tắt thông
+   dụng: `excluded_language_scope`.
 
-Các câu trả lời phải được ghi vào phiên bản khóa, không để annotator tự quyết
-khác nhau.
+Các quyết định này là chính sách vận hành đã khóa của ViSmishDS v2. Vòng 50 ca
+khó và adjudication đã hoàn tất. Mọi thay đổi tiếp theo đối với định nghĩa nhãn
+phải tạo phiên bản scope mới và đánh giá ảnh hưởng lên annotation đã có.

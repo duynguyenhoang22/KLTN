@@ -30,6 +30,13 @@ thesis/drafts/           bản thảo luận văn đang sử dụng
 python -m pip install -e .[dev]
 python -m vismishds audit-reference
 python -m vismishds init-pilot --size 400 --seed 42
+python -m vismishds init-scope-challenge
+python -m vismishds compare-scope-challenge
+python -m vismishds validate-scope-adjudication
+python -m vismishds audit-taxonomy
+python -m vismishds init-taxonomy-review
+python -m vismishds compare-taxonomy-review
+python -m vismishds preview-metadata-llm --limit 16
 python -m pytest
 ```
 
@@ -38,4 +45,4 @@ Dataset canonical v2 sử dụng JSONL vì nhiều metadata là multi-label. CSV
 
 Đọc [phạm vi dataset](docs/dataset_scope.md),
 [kiến trúc](docs/architecture.md), [annotation guideline](docs/annotation_guidelines.md)
-và [kế hoạch migration](docs/migration_plan.md) trước khi sửa dữ liệu.
+và [sổ tay annotator](docs/metadata_annotator_handbook.md) trước khi sửa dữ liệu.

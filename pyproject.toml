@@ -7,7 +7,9 @@ name = "vismishds"
 version = "2.0.0.dev0"
 description = "Dataset governance and annotation pipeline for Vietnamese smishing detection"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+  "httpx>=0.27",
+]
 
 [project.optional-dependencies]
 dev = [

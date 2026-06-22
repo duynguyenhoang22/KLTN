@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://vismishds.local/schema/dataset-v2.json",
+  "$id": "https://vismishds.local/schema/dataset-v2.1-locked.json",
   "title": "ViSmishDS v2 record",
   "type": "object",
   "additionalProperties": false,
@@ -16,6 +16,7 @@
     "target_audience",
     "obfuscation",
     "persuasion_tactics",
+    "requested_actions",
     "annotation"
   ],
   "properties": {
@@ -39,20 +40,24 @@
     "message_domain": {
       "type": "string",
       "enum": [
-        "banking_finance", "public_service", "telecom",
-        "commerce_logistics", "employment", "investment",
-        "debt_collection", "gambling", "adult_service",
-        "healthcare", "personal_social", "other", "unknown"
+        "banking_finance", "public_service", "telecom", "commerce",
+        "logistics", "marketing_promotion", "employment", "investment",
+        "debt_collection", "gambling", "adult_service", "healthcare",
+        "personal_social", "other", "unknown"
       ]
     },
     "sender_type": {
       "type": "string",
-      "enum": ["brandname", "shortcode", "personal_number", "unknown"]
+      "enum": [
+        "brandname", "shortcode", "personal_number", "not_applicable"
+      ]
     },
     "surface_features": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["has_url", "has_phone_number", "text_phenomena", "text_noise_score"],
+      "required": [
+        "has_url", "has_phone_number", "text_phenomena", "text_noise_score"
+      ],
       "properties": {
         "has_url": {"type": "boolean"},
         "has_phone_number": {"type": "boolean"},
@@ -62,10 +67,11 @@
           "items": {
             "type": "string",
             "enum": [
-              "diacritic_omission", "abbreviation", "teencode", "leetspeak",
-              "character_substitution", "punctuation_insertion", "token_splitting",
-              "homoglyph", "irregular_spacing", "irregular_casing",
-              "code_switching", "natural_typo"
+              "diacritic_omission", "abbreviation", "teencode",
+              "character_substitution", "punctuation_insertion",
+              "whitespace_splitting", "word_concatenation",
+              "irregular_spacing", "irregular_casing", "character_repetition",
+              "lang_switching", "natural_typo"
             ]
           }
         },
@@ -75,7 +81,7 @@
     "target_audience": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["age_groups", "gender", "occupations", "life_statuses", "evidence"],
+      "required": ["age_groups", "gender", "roles", "evidence"],
       "properties": {
         "age_groups": {
           "type": "array",
@@ -84,15 +90,35 @@
           "items": {
             "type": "string",
             "enum": [
-              "child", "adolescent", "young_adult", "adult",
-              "middle_aged", "older_adult", "general", "unknown"
+              "adolescent", "adult",
+              "older_adult", "general", "unknown", "not_applicable"
             ]
           }
         },
-        "gender": {"type": "string", "enum": ["female", "male", "all", "unknown"]},
-        "occupations": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
-        "life_statuses": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
-        "evidence": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+        "gender": {
+          "type": "string",
+          "enum": ["female", "male", "all", "unknown"]
+        },
+        "roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "student", "job_seeker", "employee_or_worker",
+              "business_owner", "customer", "debtor",
+              "investor", "patient", "vehicle_owner",
+              "retired_person", "general_public",
+              "other", "unknown", "not_applicable"
+            ]
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
       }
     },
     "obfuscation": {
@@ -107,9 +133,9 @@
           "items": {
             "type": "string",
             "enum": [
-              "leetspeak", "character_substitution", "punctuation_insertion",
-              "token_splitting", "homoglyph", "irregular_spacing",
-              "irregular_casing", "unicode_noise", "mixed_technique"
+              "character_substitution", "punctuation_insertion",
+              "whitespace_splitting", "word_concatenation",
+              "irregular_spacing", "irregular_casing", "character_repetition"
             ]
           }
         },
@@ -123,24 +149,63 @@
       "items": {
         "type": "string",
         "enum": [
-          "impersonation", "urgency", "fear", "authority", "reward_greed",
-          "threat", "credential_request", "payment_request", "link_lure",
+          "impersonation", "urgency", "fear", "authority",
+          "reward_incentive", "social_proof", "scarcity", "threat",
+          "credential_request", "payment_request", "link_lure",
           "off_platform_contact"
         ]
+      }
+    },
+    "requested_actions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["types", "evidence"],
+      "properties": {
+        "types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "none", "click_or_visit_link", "call_phone", "reply_message",
+              "provide_personal_information",
+              "transfer_money", "make_payment", "deposit_or_top_up",
+              "install_application", "contact_off_platform",
+              "register_or_sign_up", "visit_physical_location", "other",
+              "unclear"
+            ]
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
       }
     },
     "annotation": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["status", "annotators", "confidence", "guideline_version"],
+      "required": [
+        "status", "annotators", "confidence", "guideline_version",
+        "taxonomy_version"
+      ],
       "properties": {
         "status": {
           "type": "string",
-          "enum": ["unannotated", "auto_labeled", "human_reviewed", "adjudicated"]
+          "enum": [
+            "unannotated", "auto_labeled", "human_reviewed", "adjudicated"
+          ]
         },
-        "annotators": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "annotators": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string"}
+        },
         "confidence": {"type": "number", "minimum": 0, "maximum": 1},
         "guideline_version": {"type": "string", "minLength": 1},
+        "taxonomy_version": {"type": "string", "minLength": 1},
         "notes": {"type": ["string", "null"]}
       }
     }

@@ -4,7 +4,7 @@ import json
 from collections.abc import Iterable
 from pathlib import Path
 
-from .taxonomy import allowed
+from .taxonomy import allowed, load_taxonomy
 
 
 REQUIRED_FIELDS = {
@@ -19,12 +19,30 @@ REQUIRED_FIELDS = {
     "target_audience",
     "obfuscation",
     "persuasion_tactics",
+    "requested_actions",
     "annotation",
 }
 
 
 def _unknown(values: Iterable[str], taxonomy_field: str) -> set[str]:
     return set(values) - allowed(taxonomy_field)
+
+
+def _check_exclusive_sentinels(
+    values: Iterable[str],
+    field: str,
+    sentinels: set[str],
+) -> list[str]:
+    selected = set(values)
+    active = selected & sentinels
+    if active and len(selected) > 1:
+        return [
+            f"{field} sentinel values {sorted(active)} must not be combined "
+            "with other values"
+        ]
+    if len(active) > 1:
+        return [f"{field} must not contain multiple sentinel values"]
+    return []
 
 
 def validate_record(record: dict[str, object]) -> list[str]:
@@ -45,6 +63,17 @@ def validate_record(record: dict[str, object]) -> list[str]:
         if record[field] not in allowed(field):
             errors.append(f"invalid {field}: {record[field]}")
 
+    data_origin = record["data_origin"]
+    sender_type = record["sender_type"]
+    if data_origin == "real" and sender_type == "not_applicable":
+        errors.append(
+            "real records require a human-verified sender_type"
+        )
+    if data_origin != "real" and sender_type != "not_applicable":
+        errors.append(
+            "non-real records must use sender_type=not_applicable"
+        )
+
     surface = record["surface_features"]
     if not isinstance(surface, dict):
         errors.append("surface_features must be an object")
@@ -55,6 +84,47 @@ def validate_record(record: dict[str, object]) -> list[str]:
         score = surface.get("text_noise_score")
         if not isinstance(score, int) or not 0 <= score <= 4:
             errors.append("text_noise_score must be an integer from 0 to 4")
+
+    target = record["target_audience"]
+    if not isinstance(target, dict):
+        errors.append("target_audience must be an object")
+    else:
+        age_groups = target.get("age_groups", [])
+        roles = target.get("roles", [])
+        gender = target.get("gender")
+        unknown_age = _unknown(age_groups, "target_age_group")
+        unknown_roles = _unknown(roles, "target_roles")
+        if unknown_age:
+            errors.append(f"invalid target age groups: {sorted(unknown_age)}")
+        if gender not in allowed("target_gender"):
+            errors.append(f"invalid target gender: {gender}")
+        if unknown_roles:
+            errors.append(f"invalid target roles: {sorted(unknown_roles)}")
+        errors.extend(
+            _check_exclusive_sentinels(
+                age_groups,
+                "target age_groups",
+                {"general", "unknown", "not_applicable"},
+            )
+        )
+        errors.extend(
+            _check_exclusive_sentinels(
+                roles,
+                "target roles",
+                {"general_public", "unknown", "not_applicable"},
+            )
+        )
+        specific_age = set(age_groups) - {"general", "unknown", "not_applicable"}
+        specific_roles = set(roles) - {
+            "general_public", "unknown", "not_applicable"
+        }
+        specific_gender = gender not in {"all", "unknown"}
+        if (specific_age or specific_roles or specific_gender) and not target.get(
+            "evidence", []
+        ):
+            errors.append(
+                "specific target audience values require at least one evidence span"
+            )
 
     obfuscation = record["obfuscation"]
     if not isinstance(obfuscation, dict):
@@ -68,8 +138,24 @@ def validate_record(record: dict[str, object]) -> list[str]:
         severity = obfuscation.get("severity")
         if not isinstance(severity, int) or not 0 <= severity <= 4:
             errors.append("obfuscation severity must be an integer from 0 to 4")
-        if obfuscation.get("present") is False and severity != 0:
-            errors.append("obfuscation severity must be 0 when present is false")
+        present = obfuscation.get("present")
+        techniques = obfuscation.get("techniques", [])
+        if present is False:
+            if severity != 0:
+                errors.append("obfuscation severity must be 0 when present is false")
+            if techniques:
+                errors.append(
+                    "obfuscation techniques must be empty when present is false"
+                )
+        if present is True:
+            if severity == 0:
+                errors.append(
+                    "obfuscation severity must be greater than 0 when present is true"
+                )
+            if not techniques:
+                errors.append(
+                    "obfuscation techniques must not be empty when present is true"
+                )
 
     unknown_tactics = _unknown(
         record["persuasion_tactics"], "persuasion_tactics"
@@ -77,11 +163,34 @@ def validate_record(record: dict[str, object]) -> list[str]:
     if unknown_tactics:
         errors.append(f"invalid persuasion tactics: {sorted(unknown_tactics)}")
 
+    requested = record["requested_actions"]
+    if not isinstance(requested, dict):
+        errors.append("requested_actions must be an object")
+    else:
+        action_types = requested.get("types", [])
+        unknown_actions = _unknown(action_types, "requested_actions")
+        if unknown_actions:
+            errors.append(f"invalid requested actions: {sorted(unknown_actions)}")
+        errors.extend(
+            _check_exclusive_sentinels(
+                action_types, "requested action types", {"none", "unclear"}
+            )
+        )
+        actionable = set(action_types) - {"none", "unclear"}
+        if actionable and not requested.get("evidence", []):
+            errors.append(
+                "actionable requested actions require at least one evidence span"
+            )
+
     annotation = record["annotation"]
     if not isinstance(annotation, dict):
         errors.append("annotation must be an object")
     elif annotation.get("status") not in allowed("annotation_status"):
         errors.append(f"invalid annotation status: {annotation.get('status')}")
+    elif annotation.get("taxonomy_version") != load_taxonomy()["version"]:
+        errors.append(
+            "annotation taxonomy_version must match the active taxonomy version"
+        )
 
     return errors
 

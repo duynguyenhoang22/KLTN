@@ -256,7 +256,8 @@ Tạo metadata độc lập với label, áp dụng được cho cả real và s
 
 **Quality gate**
 
-- 100% trường có định nghĩa, allowed values và ví dụ.
+- 100% trường có định nghĩa và allowed values; ví dụ chỉ bổ sung cho các ranh
+  giới phát sinh bất đồng trong review/pilot.
 - Schema validation chạy được.
 - Không có field suy ra trực tiếp label.
 - Multi-label dùng array, không nhồi danh sách vào một chuỗi CSV.
@@ -663,12 +664,12 @@ Các công việc nằm trên đường găng:
 
 | Thứ tự | Công việc | Phụ thuộc | Trạng thái |
 |---:|---|---|---|
-| 1 | Dataset scope và label policy | Không | Bản nháp đã triển khai, chờ human review |
-| 2 | Review/khóa taxonomy v2 | 1 | Bản nháp đã có |
-| 3 | Hoàn thiện guideline | 1–2 | Bản nháp đã có |
-| 4 | Pilot hai annotator | 3 | Batch 400 đã tạo |
+| 1 | Dataset scope và label policy | Không | Hoàn thành — `2.0.0-locked` |
+| 2 | Review/khóa taxonomy v2 | 1 | Hoàn thành — `2.1.0-locked` |
+| 3 | Hoàn thiện guideline | 1–2 | Guideline `2.1.0-locked` đã có |
+| 4 | Pilot hai annotator | 3 | Human pilot 100 mẫu đã tạo; chờ gán |
 | 5 | Đo agreement và adjudication | 4 | Chưa làm |
-| 6 | Pipeline full annotation | 2–5 | Khung validation đã có |
+| 6 | Pipeline full annotation | 2–5 | Mistral pilot 100/100 đã chạy; chờ human comparison |
 | 7 | Full metadata annotation | 6 | Chưa làm |
 | 8 | Hai LLM-as-judge + human audit | 2, 6 | Chưa làm |
 | 9 | Repair/filter/regenerate | 7–8 | Chưa làm |
@@ -741,8 +742,8 @@ Các công việc nằm trên đường găng:
 
 Ba đầu việc tiếp theo, theo đúng thứ tự:
 
-1. Human review và khóa `docs/dataset_scope.md`.
-2. Review từng allowed value trong `configs/taxonomy.json`.
-3. Chuẩn bị hai bản pilot độc lập cho hai annotator từ batch 400 hiện tại.
+1. Review từng allowed value trong `configs/taxonomy.json`.
+2. Đồng bộ `annotation_guidelines.md` với scope `2.0.0-locked`.
+3. Chuẩn bị pilot metadata độc lập cho hai annotator từ batch 400 hiện tại.
 
 Không bắt đầu full annotation trước khi ba việc trên hoàn thành.

@@ -47,7 +47,7 @@ def metadata_output_schema() -> dict[str, Any]:
                 "additionalProperties": False,
                 "required": ["text_phenomena", "text_noise_score"],
                 "properties": {
-                    "text_phenomena": enum_array("text_phenomena"),
+                    "text_phenomena": enum_array("text_phenomena", 1),
                     "text_noise_score": {
                         "type": "integer",
                         "minimum": 0,
@@ -86,7 +86,7 @@ def metadata_output_schema() -> dict[str, Any]:
                     "confidence": confidence,
                 },
             },
-            "persuasion_tactics": enum_array("persuasion_tactics"),
+            "persuasion_tactics": enum_array("persuasion_tactics", 1),
             "requested_actions": {
                 "type": "object",
                 "additionalProperties": False,
@@ -159,7 +159,10 @@ def validate_metadata_item(item: dict[str, Any]) -> list[str]:
     if not isinstance(surface, dict):
         errors.append("surface_features must be an object")
     else:
-        enum_values("text_phenomena", surface.get("text_phenomena", []))
+        pheno = surface.get("text_phenomena", [])
+        enum_values("text_phenomena", pheno)
+        if "none" in pheno and len(pheno) > 1:
+            errors.append("text phenomena sentinel 'none' must be exclusive")
         score = surface.get("text_noise_score")
         if not isinstance(score, int) or not 0 <= score <= 4:
             errors.append("text_noise_score must be an integer from 0 to 4")
@@ -209,6 +212,8 @@ def validate_metadata_item(item: dict[str, Any]) -> list[str]:
 
     tactics = item.get("persuasion_tactics", [])
     enum_values("persuasion_tactics", tactics)
+    if "none" in tactics and len(tactics) > 1:
+        errors.append("persuasion tactics sentinel 'none' must be exclusive")
 
     requested = item.get("requested_actions")
     if not isinstance(requested, dict):

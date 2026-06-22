@@ -63,10 +63,12 @@
         "has_phone_number": {"type": "boolean"},
         "text_phenomena": {
           "type": "array",
+          "minItems": 1,
           "uniqueItems": true,
           "items": {
             "type": "string",
             "enum": [
+              "none",
               "diacritic_omission", "abbreviation", "teencode",
               "character_substitution", "punctuation_insertion",
               "whitespace_splitting", "word_concatenation",
@@ -145,10 +147,12 @@
     },
     "persuasion_tactics": {
       "type": "array",
+      "minItems": 1,
       "uniqueItems": true,
       "items": {
         "type": "string",
         "enum": [
+          "none",
           "impersonation", "urgency", "fear", "authority",
           "reward_incentive", "social_proof", "scarcity", "threat",
           "credential_request", "payment_request", "link_lure",

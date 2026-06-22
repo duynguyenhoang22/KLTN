@@ -17,7 +17,7 @@ def valid_record() -> dict[str, object]:
         "surface_features": {
             "has_url": False,
             "has_phone_number": False,
-            "text_phenomena": [],
+            "text_phenomena": ["none"],
             "text_noise_score": 0,
         },
         "target_audience": {
@@ -32,7 +32,7 @@ def valid_record() -> dict[str, object]:
             "severity": 0,
             "confidence": 1.0,
         },
-        "persuasion_tactics": [],
+        "persuasion_tactics": ["none"],
         "requested_actions": {
             "types": ["none"],
             "evidence": [],
@@ -96,3 +96,18 @@ def test_real_sender_type_cannot_be_not_applicable() -> None:
     record["sender_type"] = "not_applicable"
     errors = validate_record(record)
     assert "real records require a human-verified sender_type" in errors
+
+
+def test_text_phenomena_none_exclusivity() -> None:
+    record = valid_record()
+    record["surface_features"]["text_phenomena"] = ["none", "abbreviation"]
+    errors = validate_record(record)
+    assert any("text phenomena sentinel" in error for error in errors)
+
+
+def test_persuasion_tactics_none_exclusivity() -> None:
+    record = valid_record()
+    record["persuasion_tactics"] = ["none", "urgency"]
+    errors = validate_record(record)
+    assert any("persuasion tactics sentinel" in error for error in errors)
+

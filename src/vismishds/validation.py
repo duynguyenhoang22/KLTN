@@ -78,9 +78,20 @@ def validate_record(record: dict[str, object]) -> list[str]:
     if not isinstance(surface, dict):
         errors.append("surface_features must be an object")
     else:
-        unknown = _unknown(surface.get("text_phenomena", []), "text_phenomena")
+        phenomena = surface.get("text_phenomena", [])
+        unknown = _unknown(phenomena, "text_phenomena")
         if unknown:
             errors.append(f"invalid text_phenomena: {sorted(unknown)}")
+        if not phenomena:
+            errors.append("text_phenomena must contain at least one value (use 'none' if empty)")
+        else:
+            errors.extend(
+                _check_exclusive_sentinels(
+                    phenomena,
+                    "text phenomena",
+                    {"none"},
+                )
+            )
         score = surface.get("text_noise_score")
         if not isinstance(score, int) or not 0 <= score <= 4:
             errors.append("text_noise_score must be an integer from 0 to 4")
@@ -157,11 +168,20 @@ def validate_record(record: dict[str, object]) -> list[str]:
                     "obfuscation techniques must not be empty when present is true"
                 )
 
-    unknown_tactics = _unknown(
-        record["persuasion_tactics"], "persuasion_tactics"
-    )
+    tactics = record["persuasion_tactics"]
+    unknown_tactics = _unknown(tactics, "persuasion_tactics")
     if unknown_tactics:
         errors.append(f"invalid persuasion tactics: {sorted(unknown_tactics)}")
+    if not tactics:
+        errors.append("persuasion_tactics must contain at least one value (use 'none' if empty)")
+    else:
+        errors.extend(
+            _check_exclusive_sentinels(
+                tactics,
+                "persuasion tactics",
+                {"none"},
+            )
+        )
 
     requested = record["requested_actions"]
     if not isinstance(requested, dict):

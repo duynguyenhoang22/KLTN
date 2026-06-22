@@ -1,7 +1,7 @@
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-REFERENCE_DATASET = PROJECT_ROOT / "data" / "reference" / "phase1" / "vismishds_phase1_final.csv"
+REFERENCE_DATASET = PROJECT_ROOT / "data" / "reference" / "phase2" / "vismish_phase2_final.csv"
 ANNOTATION_DIR = PROJECT_ROOT / "data" / "annotations"
 PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 TAXONOMY_PATH = PROJECT_ROOT / "configs" / "taxonomy.json"

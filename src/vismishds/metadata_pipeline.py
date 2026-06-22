@@ -60,12 +60,15 @@ def prepare_records(
                 continue
             content = row["content"]
             masked = mask_pii(content) if mask else None
+            data_origin = row["data_origin"]
+            if data_origin in {"paraphrased", "synthetic_hard_positive"}:
+                data_origin = "synthetic"
             prepared = PreparedRecord(
                     sample_id=row["sample_id"],
                     content=content,
                     masked_content=masked.text if masked else content,
                     label=int(row["label"]),
-                    data_origin=row["data_origin"],
+                    data_origin=data_origin,
                     sender_type=_verified_sender_type(row),
                     source_dataset=row.get("source_dataset", ""),
                     source_file=row.get("source_file", ""),
@@ -124,11 +127,17 @@ def build_request_preview(
 
 
 def validate_batch_response(
-    response: dict[str, Any],
+    response: Any,
     expected_ids: list[str],
 ) -> list[str]:
     errors: list[str] = []
-    items = response.get("items")
+    if isinstance(response, list):
+        items = response
+        errors.append("response should be a dict containing 'items', but got a list directly")
+    elif isinstance(response, dict):
+        items = response.get("items")
+    else:
+        return ["response must be an array or an object containing 'items'"]
     if not isinstance(items, list):
         return ["response.items must be an array"]
     actual_ids = [str(item.get("sample_id", "")) for item in items if isinstance(item, dict)]

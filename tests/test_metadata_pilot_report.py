@@ -11,7 +11,7 @@ def test_mistral_pilot_report_writes_flat_output(tmp_path: Path) -> None:
         "llm_metadata": {
             "message_domain": "telecom",
             "surface_features": {
-                "text_phenomena": [],
+                "text_phenomena": ["none"],
                 "text_noise_score": 0,
             },
             "target_audience": {
@@ -26,7 +26,7 @@ def test_mistral_pilot_report_writes_flat_output(tmp_path: Path) -> None:
                 "severity": 0,
                 "confidence": 0.9,
             },
-            "persuasion_tactics": [],
+            "persuasion_tactics": ["none"],
             "requested_actions": {"types": ["none"], "evidence": []},
             "field_confidence": {
                 "message_domain": 0.9,

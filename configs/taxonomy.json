@@ -26,6 +26,7 @@
     "not_applicable"
   ],
   "text_phenomena": [
+    "none",
     "diacritic_omission",
     "abbreviation",
     "teencode",
@@ -49,6 +50,7 @@
     "character_repetition"
   ],
   "persuasion_tactics": [
+    "none",
     "impersonation",
     "urgency",
     "fear",

@@ -67,6 +67,10 @@ def select_metadata_pilot(
     with source.open(encoding="utf-8-sig", newline="") as handle:
         for row in csv.DictReader(handle):
             row["_pilot_buckets"] = "|".join(_candidate_buckets(row))
+            origin = row["data_origin"]
+            if origin in {"paraphrased", "synthetic_hard_positive"}:
+                origin = "synthetic"
+            row["data_origin"] = origin
             strata[(row["label"], row["data_origin"])].append(row)
 
     required_strata = {

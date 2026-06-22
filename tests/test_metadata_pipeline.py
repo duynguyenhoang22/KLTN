@@ -42,7 +42,7 @@ def test_response_validation_checks_ids() -> None:
             "sample_id": "x1",
             "message_domain": "telecom",
             "surface_features": {
-                "text_phenomena": [],
+                "text_phenomena": ["none"],
                 "text_noise_score": 0,
             },
             "target_audience": {
@@ -57,7 +57,7 @@ def test_response_validation_checks_ids() -> None:
                 "severity": 0,
                 "confidence": 0.9,
             },
-            "persuasion_tactics": [],
+            "persuasion_tactics": ["none"],
             "requested_actions": {
                 "types": ["click_or_visit_link"],
                 "evidence": ["truy cap"],

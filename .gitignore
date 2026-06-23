@@ -26,6 +26,7 @@ Thumbs.db
 *.tmp
 *.bak
 ~$*
+scratch/predictions/
 
 
 # Experiment outputs and model artifacts

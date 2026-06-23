@@ -1,0 +1,161 @@
+slice_type,slice_value,model_name,n,n_label_1,n_label_0,tp,fp,tn,fn,precision_1,recall_1,f1_1,macro_f1
+length,<=80,CafeBERT,140,2,138,2,0,138,0,1.0,1.0,1.0,1.0
+length,<=80,DistilBERT multilingual,140,2,138,2,0,138,0,1.0,1.0,1.0,1.0
+length,<=80,TextCNN,140,2,138,2,1,137,0,0.6667,1.0,0.8,0.8982
+length,<=80,TextCNN distilled,140,2,138,2,1,137,0,0.6667,1.0,0.8,0.8982
+length,81-160,CafeBERT,146,17,129,15,1,128,2,0.9375,0.8824,0.9091,0.9488
+length,81-160,DistilBERT multilingual,146,17,129,17,2,127,0,0.8947,1.0,0.9444,0.9683
+length,81-160,TextCNN,146,17,129,13,1,128,4,0.9286,0.7647,0.8387,0.9098
+length,81-160,TextCNN distilled,146,17,129,13,2,127,4,0.8667,0.7647,0.8125,0.8947
+length,161-240,CafeBERT,82,8,74,7,0,74,1,1.0,0.875,0.9333,0.9633
+length,161-240,DistilBERT multilingual,82,8,74,8,2,72,0,0.8,1.0,0.8889,0.9376
+length,161-240,TextCNN,82,8,74,6,0,74,2,1.0,0.75,0.8571,0.9219
+length,161-240,TextCNN distilled,82,8,74,7,0,74,1,1.0,0.875,0.9333,0.9633
+length,>240,CafeBERT,167,10,157,8,1,156,2,0.8889,0.8,0.8421,0.9163
+length,>240,DistilBERT multilingual,167,10,157,8,3,154,2,0.7273,0.8,0.7619,0.873
+length,>240,TextCNN,167,10,157,9,2,155,1,0.8182,0.9,0.8571,0.9238
+length,>240,TextCNN distilled,167,10,157,9,3,154,1,0.75,0.9,0.8182,0.9027
+has_url,true,CafeBERT,197,29,168,25,0,168,4,1.0,0.8621,0.9259,0.9571
+has_url,true,DistilBERT multilingual,197,29,168,29,3,165,0,0.9062,1.0,0.9508,0.9709
+has_url,true,TextCNN,197,29,168,25,1,167,4,0.9615,0.8621,0.9091,0.9472
+has_url,true,TextCNN distilled,197,29,168,26,3,165,3,0.8966,0.8966,0.8966,0.9393
+has_url,false,CafeBERT,338,8,330,7,2,328,1,0.7778,0.875,0.8235,0.9095
+has_url,false,DistilBERT multilingual,338,8,330,6,4,326,2,0.6,0.75,0.6667,0.8288
+has_url,false,TextCNN,338,8,330,5,3,327,3,0.625,0.625,0.625,0.808
+has_url,false,TextCNN distilled,338,8,330,5,3,327,3,0.625,0.625,0.625,0.808
+has_phone,true,CafeBERT,163,10,153,8,0,153,2,1.0,0.8,0.8889,0.9412
+has_phone,true,DistilBERT multilingual,163,10,153,10,2,151,0,0.8333,1.0,0.9091,0.9513
+has_phone,true,TextCNN,163,10,153,8,1,152,2,0.8889,0.8,0.8421,0.9162
+has_phone,true,TextCNN distilled,163,10,153,8,2,151,2,0.8,0.8,0.8,0.8935
+has_phone,false,CafeBERT,372,27,345,24,2,343,3,0.9231,0.8889,0.9057,0.9492
+has_phone,false,DistilBERT multilingual,372,27,345,25,5,340,2,0.8333,0.9259,0.8772,0.9335
+has_phone,false,TextCNN,372,27,345,22,3,342,5,0.88,0.8148,0.8462,0.9173
+has_phone,false,TextCNN distilled,372,27,345,23,4,341,4,0.8519,0.8519,0.8519,0.9201
+sender_type,brandname,CafeBERT,274,14,260,12,0,260,2,1.0,0.8571,0.9231,0.9596
+sender_type,brandname,DistilBERT multilingual,274,14,260,14,4,256,0,0.7778,1.0,0.875,0.9336
+sender_type,brandname,TextCNN,274,14,260,12,1,259,2,0.9231,0.8571,0.8889,0.9416
+sender_type,brandname,TextCNN distilled,274,14,260,13,3,257,1,0.8125,0.9286,0.8667,0.9295
+sender_type,personal_number,CafeBERT,39,23,16,20,2,14,3,0.9091,0.8696,0.8889,0.8687
+sender_type,personal_number,DistilBERT multilingual,39,23,16,21,2,14,2,0.913,0.913,0.913,0.894
+sender_type,personal_number,TextCNN,39,23,16,18,1,15,5,0.9474,0.7826,0.8571,0.8452
+sender_type,personal_number,TextCNN distilled,39,23,16,18,1,15,5,0.9474,0.7826,0.8571,0.8452
+sender_type,shortcode,CafeBERT,72,0,72,0,0,72,0,0.0,0.0,0.0,0.5
+sender_type,shortcode,DistilBERT multilingual,72,0,72,0,0,72,0,0.0,0.0,0.0,0.5
+sender_type,shortcode,TextCNN,72,0,72,0,0,72,0,0.0,0.0,0.0,0.5
+sender_type,shortcode,TextCNN distilled,72,0,72,0,0,72,0,0.0,0.0,0.0,0.5
+data_origin,real,CafeBERT,385,37,348,32,2,346,5,0.9412,0.8649,0.9014,0.9457
+data_origin,real,DistilBERT multilingual,385,37,348,35,6,342,2,0.8537,0.9459,0.8974,0.9429
+data_origin,real,TextCNN,385,37,348,30,2,346,7,0.9375,0.8108,0.8696,0.9284
+data_origin,real,TextCNN distilled,385,37,348,31,4,344,6,0.8857,0.8378,0.8611,0.9234
+data_origin,external_real,CafeBERT,75,0,75,0,0,75,0,0.0,0.0,0.0,0.5
+data_origin,external_real,DistilBERT multilingual,75,0,75,0,0,75,0,0.0,0.0,0.0,0.5
+data_origin,external_real,TextCNN,75,0,75,0,1,74,0,0.0,0.0,0.0,0.4966
+data_origin,external_real,TextCNN distilled,75,0,75,0,1,74,0,0.0,0.0,0.0,0.4966
+data_origin,external_curated,CafeBERT,75,0,75,0,0,75,0,0.0,0.0,0.0,0.5
+data_origin,external_curated,DistilBERT multilingual,75,0,75,0,1,74,0,0.0,0.0,0.0,0.4966
+data_origin,external_curated,TextCNN,75,0,75,0,1,74,0,0.0,0.0,0.0,0.4966
+data_origin,external_curated,TextCNN distilled,75,0,75,0,1,74,0,0.0,0.0,0.0,0.4966
+obfuscation_level,0,CafeBERT,519,26,493,22,2,491,4,0.9167,0.8462,0.88,0.937
+obfuscation_level,0,DistilBERT multilingual,519,26,493,24,7,486,2,0.7742,0.9231,0.8421,0.9165
+obfuscation_level,0,TextCNN,519,26,493,21,4,489,5,0.84,0.8077,0.8235,0.9072
+obfuscation_level,0,TextCNN distilled,519,26,493,22,5,488,4,0.8148,0.8462,0.8302,0.9105
+obfuscation_level,1-2,CafeBERT,5,3,2,3,0,2,0,1.0,1.0,1.0,1.0
+obfuscation_level,1-2,DistilBERT multilingual,5,3,2,3,0,2,0,1.0,1.0,1.0,1.0
+obfuscation_level,1-2,TextCNN,5,3,2,3,0,2,0,1.0,1.0,1.0,1.0
+obfuscation_level,1-2,TextCNN distilled,5,3,2,3,1,1,0,0.75,1.0,0.8571,0.7619
+obfuscation_level,3-4,CafeBERT,11,8,3,7,0,3,1,1.0,0.875,0.9333,0.8952
+obfuscation_level,3-4,DistilBERT multilingual,11,8,3,8,0,3,0,1.0,1.0,1.0,1.0
+obfuscation_level,3-4,TextCNN,11,8,3,6,0,3,2,1.0,0.75,0.8571,0.8036
+obfuscation_level,3-4,TextCNN distilled,11,8,3,6,0,3,2,1.0,0.75,0.8571,0.8036
+message_domain,telecom,CafeBERT,188,1,187,1,0,187,0,1.0,1.0,1.0,1.0
+message_domain,telecom,DistilBERT multilingual,188,1,187,1,0,187,0,1.0,1.0,1.0,1.0
+message_domain,telecom,TextCNN,188,1,187,0,0,187,1,0.0,0.0,0.0,0.4987
+message_domain,telecom,TextCNN distilled,188,1,187,0,0,187,1,0.0,0.0,0.0,0.4987
+message_domain,banking_finance,CafeBERT,73,10,63,9,0,63,1,1.0,0.9,0.9474,0.9697
+message_domain,banking_finance,DistilBERT multilingual,73,10,63,10,0,63,0,1.0,1.0,1.0,1.0
+message_domain,banking_finance,TextCNN,73,10,63,8,0,63,2,1.0,0.8,0.8889,0.9366
+message_domain,banking_finance,TextCNN distilled,73,10,63,9,0,63,1,1.0,0.9,0.9474,0.9697
+message_domain,healthcare,CafeBERT,3,0,3,0,0,3,0,0.0,0.0,0.0,0.5
+message_domain,healthcare,DistilBERT multilingual,3,0,3,0,0,3,0,0.0,0.0,0.0,0.5
+message_domain,healthcare,TextCNN,3,0,3,0,0,3,0,0.0,0.0,0.0,0.5
+message_domain,healthcare,TextCNN distilled,3,0,3,0,0,3,0,0.0,0.0,0.0,0.5
+message_domain,public_service,CafeBERT,52,3,49,2,1,48,1,0.6667,0.6667,0.6667,0.8231
+message_domain,public_service,DistilBERT multilingual,52,3,49,3,2,47,0,0.6,1.0,0.75,0.8646
+message_domain,public_service,TextCNN,52,3,49,3,0,49,0,1.0,1.0,1.0,1.0
+message_domain,public_service,TextCNN distilled,52,3,49,3,0,49,0,1.0,1.0,1.0,1.0
+message_domain,gambling,CafeBERT,6,5,1,4,0,1,1,1.0,0.8,0.8889,0.7778
+message_domain,gambling,DistilBERT multilingual,6,5,1,5,0,1,0,1.0,1.0,1.0,1.0
+message_domain,gambling,TextCNN,6,5,1,4,0,1,1,1.0,0.8,0.8889,0.7778
+message_domain,gambling,TextCNN distilled,6,5,1,4,0,1,1,1.0,0.8,0.8889,0.7778
+message_domain,employment,CafeBERT,11,5,6,5,0,6,0,1.0,1.0,1.0,1.0
+message_domain,employment,DistilBERT multilingual,11,5,6,5,2,4,0,0.7143,1.0,0.8333,0.8167
+message_domain,employment,TextCNN,11,5,6,5,2,4,0,0.7143,1.0,0.8333,0.8167
+message_domain,employment,TextCNN distilled,11,5,6,5,2,4,0,0.7143,1.0,0.8333,0.8167
+message_domain,investment,CafeBERT,1,1,0,1,0,0,0,1.0,1.0,1.0,0.5
+message_domain,investment,DistilBERT multilingual,1,1,0,1,0,0,0,1.0,1.0,1.0,0.5
+message_domain,investment,TextCNN,1,1,0,1,0,0,0,1.0,1.0,1.0,0.5
+message_domain,investment,TextCNN distilled,1,1,0,1,0,0,0,1.0,1.0,1.0,0.5
+message_domain,debt_collection,CafeBERT,6,4,2,3,0,2,1,1.0,0.75,0.8571,0.8286
+message_domain,debt_collection,DistilBERT multilingual,6,4,2,2,0,2,2,1.0,0.5,0.6667,0.6667
+message_domain,debt_collection,TextCNN,6,4,2,3,0,2,1,1.0,0.75,0.8571,0.8286
+message_domain,debt_collection,TextCNN distilled,6,4,2,3,0,2,1,1.0,0.75,0.8571,0.8286
+message_domain,other,CafeBERT,14,0,14,0,0,14,0,0.0,0.0,0.0,0.5
+message_domain,other,DistilBERT multilingual,14,0,14,0,0,14,0,0.0,0.0,0.0,0.5
+message_domain,other,TextCNN,14,0,14,0,0,14,0,0.0,0.0,0.0,0.5
+message_domain,other,TextCNN distilled,14,0,14,0,0,14,0,0.0,0.0,0.0,0.5
+requested_action,click_or_visit_link,CafeBERT,193,26,167,22,0,167,4,1.0,0.8462,0.9167,0.9524
+requested_action,click_or_visit_link,DistilBERT multilingual,193,26,167,26,2,165,0,0.9286,1.0,0.963,0.9785
+requested_action,click_or_visit_link,TextCNN,193,26,167,22,1,166,4,0.9565,0.8462,0.898,0.9416
+requested_action,click_or_visit_link,TextCNN distilled,193,26,167,23,2,165,3,0.92,0.8846,0.902,0.9435
+requested_action,call_phone,CafeBERT,163,4,159,2,0,159,2,1.0,0.5,0.6667,0.8302
+requested_action,call_phone,DistilBERT multilingual,163,4,159,3,1,158,1,0.75,0.75,0.75,0.8719
+requested_action,call_phone,TextCNN,163,4,159,3,0,159,1,1.0,0.75,0.8571,0.927
+requested_action,call_phone,TextCNN distilled,163,4,159,3,0,159,1,1.0,0.75,0.8571,0.927
+target_role,customer,CafeBERT,304,14,290,12,0,290,2,1.0,0.8571,0.9231,0.9598
+target_role,customer,DistilBERT multilingual,304,14,290,14,1,289,0,0.9333,1.0,0.9655,0.9819
+target_role,customer,TextCNN,304,14,290,10,0,290,4,1.0,0.7143,0.8333,0.9132
+target_role,customer,TextCNN distilled,304,14,290,11,1,289,3,0.9167,0.7857,0.8462,0.9196
+target_role,debtor,CafeBERT,6,4,2,3,0,2,1,1.0,0.75,0.8571,0.8286
+target_role,debtor,DistilBERT multilingual,6,4,2,2,0,2,2,1.0,0.5,0.6667,0.6667
+target_role,debtor,TextCNN,6,4,2,3,0,2,1,1.0,0.75,0.8571,0.8286
+target_role,debtor,TextCNN distilled,6,4,2,3,0,2,1,1.0,0.75,0.8571,0.8286
+target_role,investor,CafeBERT,2,1,1,1,0,1,0,1.0,1.0,1.0,1.0
+target_role,investor,DistilBERT multilingual,2,1,1,1,0,1,0,1.0,1.0,1.0,1.0
+target_role,investor,TextCNN,2,1,1,1,0,1,0,1.0,1.0,1.0,1.0
+target_role,investor,TextCNN distilled,2,1,1,1,0,1,0,1.0,1.0,1.0,1.0
+target_role,job_seeker,CafeBERT,6,4,2,4,0,2,0,1.0,1.0,1.0,1.0
+target_role,job_seeker,DistilBERT multilingual,6,4,2,4,0,2,0,1.0,1.0,1.0,1.0
+target_role,job_seeker,TextCNN,6,4,2,4,0,2,0,1.0,1.0,1.0,1.0
+target_role,job_seeker,TextCNN distilled,6,4,2,4,0,2,0,1.0,1.0,1.0,1.0
+persuasion_tactic,link_lure,CafeBERT,168,26,142,23,0,142,3,1.0,0.8846,0.9388,0.9642
+persuasion_tactic,link_lure,DistilBERT multilingual,168,26,142,26,1,141,0,0.963,1.0,0.9811,0.9888
+persuasion_tactic,link_lure,TextCNN,168,26,142,22,0,142,4,1.0,0.8462,0.9167,0.9514
+persuasion_tactic,link_lure,TextCNN distilled,168,26,142,23,2,140,3,0.92,0.8846,0.902,0.9422
+persuasion_tactic,scarcity,CafeBERT,160,4,156,4,0,156,0,1.0,1.0,1.0,1.0
+persuasion_tactic,scarcity,DistilBERT multilingual,160,4,156,4,0,156,0,1.0,1.0,1.0,1.0
+persuasion_tactic,scarcity,TextCNN,160,4,156,4,0,156,0,1.0,1.0,1.0,1.0
+persuasion_tactic,scarcity,TextCNN distilled,160,4,156,4,0,156,0,1.0,1.0,1.0,1.0
+persuasion_tactic,reward_incentive,CafeBERT,150,17,133,16,0,133,1,1.0,0.9412,0.9697,0.983
+persuasion_tactic,reward_incentive,DistilBERT multilingual,150,17,133,17,1,132,0,0.9444,1.0,0.9714,0.9838
+persuasion_tactic,reward_incentive,TextCNN,150,17,133,14,0,133,3,1.0,0.8235,0.9032,0.946
+persuasion_tactic,reward_incentive,TextCNN distilled,150,17,133,14,1,132,3,0.9333,0.8235,0.875,0.93
+persuasion_tactic,urgency,CafeBERT,69,15,54,12,0,54,3,1.0,0.8,0.8889,0.9309
+persuasion_tactic,urgency,DistilBERT multilingual,69,15,54,13,1,53,2,0.9286,0.8667,0.8966,0.9345
+persuasion_tactic,urgency,TextCNN,69,15,54,12,0,54,3,1.0,0.8,0.8889,0.9309
+persuasion_tactic,urgency,TextCNN distilled,69,15,54,13,0,54,2,1.0,0.8667,0.9286,0.9552
+persuasion_tactic,authority,CafeBERT,29,3,26,2,1,25,1,0.6667,0.6667,0.6667,0.8141
+persuasion_tactic,authority,DistilBERT multilingual,29,3,26,2,2,24,1,0.5,0.6667,0.5714,0.7563
+persuasion_tactic,authority,TextCNN,29,3,26,2,0,26,1,1.0,0.6667,0.8,0.8906
+persuasion_tactic,authority,TextCNN distilled,29,3,26,2,0,26,1,1.0,0.6667,0.8,0.8906
+persuasion_tactic,fear,CafeBERT,20,3,17,1,1,16,2,0.5,0.3333,0.4,0.6571
+persuasion_tactic,fear,DistilBERT multilingual,20,3,17,2,0,17,1,1.0,0.6667,0.8,0.8857
+persuasion_tactic,fear,TextCNN,20,3,17,1,0,17,2,1.0,0.3333,0.5,0.7222
+persuasion_tactic,fear,TextCNN distilled,20,3,17,1,0,17,2,1.0,0.3333,0.5,0.7222
+persuasion_tactic,threat,CafeBERT,15,6,9,5,0,9,1,1.0,0.8333,0.9091,0.9282
+persuasion_tactic,threat,DistilBERT multilingual,15,6,9,4,0,9,2,1.0,0.6667,0.8,0.85
+persuasion_tactic,threat,TextCNN,15,6,9,4,0,9,2,1.0,0.6667,0.8,0.85
+persuasion_tactic,threat,TextCNN distilled,15,6,9,5,0,9,1,1.0,0.8333,0.9091,0.9282
+persuasion_tactic,off_platform_contact,CafeBERT,8,8,0,8,0,0,0,1.0,1.0,1.0,0.5
+persuasion_tactic,off_platform_contact,DistilBERT multilingual,8,8,0,8,0,0,0,1.0,1.0,1.0,0.5
+persuasion_tactic,off_platform_contact,TextCNN,8,8,0,7,0,0,1,1.0,0.875,0.9333,0.4667
+persuasion_tactic,off_platform_contact,TextCNN distilled,8,8,0,7,0,0,1,1.0,0.875,0.9333,0.4667

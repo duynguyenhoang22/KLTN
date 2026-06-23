@@ -1,24 +1,49 @@
 # CHƯƠNG 5. KẾT QUẢ VÀ PHÂN TÍCH
 
-> **Quy ước biên tập**
->
-> - Các khối `GHI CHÚ HÌNH`, `GHI CHÚ BẢNG`, `PLACEHOLDER` và `GHI CHÚ KIỂM TRA` không thuộc nội dung chính thức của báo cáo.
-> - Việc lựa chọn và nhận xét mô hình dựa chủ yếu trên tập dev. Kết quả test được dùng để đánh giá khả năng duy trì hiệu năng sau khi cấu hình đã được cố định.
-> - Do dev và test chỉ có 37 mẫu Label 1, mọi chênh lệch metric cần được đọc cùng số FP và FN.
-
 ## 5.1. RQ1: Mô hình nào đạt hiệu quả tốt nhất?
 
-Bảng 5.x trình bày kết quả của 17 cấu hình trên tập dev và test theo bốn độ đo Macro-F1, F1 Label 1, Recall Label 1 và PR-AUC. Các mô hình được chia thành ba nhóm gồm neural network cấp ký tự, encoder PLM được fine-tune toàn phần và LLM được fine-tune hiệu quả tham số bằng LoRA. Trong phần này, kết quả dev được sử dụng để so sánh và lựa chọn mô hình; kết quả test chỉ được xem xét sau đó nhằm kiểm tra liệu xu hướng quan sát trên dev có được duy trì hay không.
+Bảng 5.1 trình bày kết quả của 17 cấu hình trên tập dev và test theo bốn độ đo Macro-F1, F1 Label 1, Recall Label 1 và PR-AUC. Các mô hình được chia thành ba nhóm gồm neural network cấp ký tự (character-level), encoder PLM được fine-tune toàn phần và LLM được fine-tune hiệu quả tham số bằng LoRA. Trong phần này, kết quả dev được sử dụng để so sánh và lựa chọn mô hình; kết quả test chỉ được xem xét sau đó nhằm kiểm tra liệu xu hướng quan sát trên dev có được duy trì hay không.
 
-> **GHI CHÚ BẢNG 5.x — Chèn bảng benchmark 17 cấu hình do nhóm đã tạo**
->
-> Bảng gồm hai cột Dev/Test cho mỗi độ đo và chia thành ba nhóm:
->
-> - Neural: BiLSTM, TextCNN và hai biến thể distilled.
-> - Fine-tuned PLM: chín encoder.
-> - LoRA LLM: Gemma 3 1B, Qwen2.5 0.5B, Qwen3 0.6B và Gemma 2B.
->
-> In đậm giá trị tốt nhất của từng cột. Caption đề xuất: **“Kết quả benchmark của 17 cấu hình mô hình trên tập dev và test”**.
+**Bảng 5.1: Kết quả benchmark của 17 cấu hình mô hình trên tập dev và test**
+
+| Nhóm mô hình | Tên mô hình / Cấu hình | Split | Macro-F1 | F1 Label 1 | Recall Label 1 | PR-AUC |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| **Character-level** | BiLSTM | dev | 0,8984 | 0,8108 | 0,8108 | 0,8378 |
+| | | test | 0,8471 | 0,7143 | 0,6757 | 0,7925 |
+| | BiLSTM distilled fr PhoBERT-base | dev | 0,8839 | 0,7838 | 0,7838 | 0,8241 |
+| | | test | 0,8671 | 0,7532 | 0,7838 | 0,7273 |
+| | TextCNN | dev | 0,9170 | 0,8451 | 0,8108 | 0,8529 |
+| | | test | 0,9129 | 0,8378 | 0,8378 | 0,8852 |
+| | TextCNN distilled fr PhoBERT-base | dev | 0,9129 | 0,8378 | 0,8378 | 0,8818 |
+| | | test | 0,9189 | 0,8500 | 0,9189 | 0,8776 |
+| **Fine-tuned PLM** | CafeBERT | dev | 0,9472 | 0,9014 | 0,8649 | 0,9477 |
+| | | test | 0,9355 | 0,8800 | 0,8919 | 0,9261 |
+| | DistilBERT multilingual | dev | 0,9385 | 0,8861 | **0,9459** | 0,8959 |
+| | | test | 0,9150 | 0,8421 | 0,8649 | 0,8421 |
+| | PhoBERT-base | dev | 0,8750 | 0,7671 | 0,7568 | 0,8439 |
+| | | test | 0,9068 | 0,8267 | 0,8378 | 0,9191 |
+| | PhoBERT-large | dev | 0,8975 | 0,8101 | 0,8649 | 0,8648 |
+| | | test | 0,9370 | 0,8831 | 0,9189 | 0,9248 |
+| | ViCLSR | dev | 0,9419 | 0,8919 | 0,8919 | 0,9441 |
+| | | test | 0,9447 | 0,8974 | 0,9459 | 0,9457 |
+| | VisoBERT | dev | 0,8958 | 0,8056 | 0,7838 | 0,8866 |
+| | | test | 0,9009 | 0,8158 | 0,8378 | 0,8442 |
+| | XLM-RoBERTa-base | dev | 0,9090 | 0,8312 | 0,8649 | 0,9212 |
+| | | test | 0,9150 | 0,8421 | 0,8649 | 0,8701 |
+| | XLM-RoBERTa-large | dev | 0,9211 | 0,8533 | 0,8649 | 0,9294 |
+| | | test | 0,9419 | 0,8919 | 0,8919 | 0,9259 |
+| | mBERT | dev | 0,9338 | 0,8767 | 0,8649 | 0,8745 |
+| | | test | 0,9090 | 0,8312 | 0,8649 | 0,9198 |
+| **LoRA LLM** | Gemma 2B | dev | **0,9553** | **0,9167** | 0,8919 | 0,8965 |
+| | | test | **0,9585** | **0,9231** | **0,9730** | **0,9853** |
+| | Gemma 3 1B | dev | 0,9389 | 0,8857 | 0,8378 | 0,9405 |
+| | | test | 0,9472 | 0,9014 | 0,8649 | 0,9183 |
+| | Qwen2.5 0.5B | dev | 0,9433 | 0,8947 | 0,9189 | **0,9648** |
+| | | test | 0,9248 | 0,8608 | 0,9189 | 0,9489 |
+| | Qwen3 0.6B | dev | 0,9236 | 0,8571 | 0,8108 | 0,9262 |
+| | | test | 0,9485 | 0,9041 | 0,8919 | 0,9688 |
+
+*Ghi chú: In đậm thể hiện giá trị tốt nhất trong cột tương ứng.*
 
 Xét theo tiêu chí chính là Macro-F1 trên dev, Gemma 2B đạt kết quả cao nhất với 0,9553. Mô hình này đồng thời đứng đầu về F1 Label 1 với 0,9167, cho thấy sự cân bằng tốt nhất giữa hiệu năng trên hai nhãn và chất lượng phân loại lớp smishing tại ngưỡng 0,5. Confusion matrix tương ứng gồm 2 FP và 4 FN trên dev. Kết quả này đưa Gemma 2B trở thành mô hình được ưu tiên theo tiêu chí tổng thể của benchmark.
 
@@ -40,17 +65,15 @@ Nhóm character-level có hiệu năng thấp hơn hai nhóm pretrained khi xét
 
 Kết quả distillation cần được diễn giải tương đối với năng lực của teacher. PhoBERT-base chỉ đạt Macro-F1 0,8750 và F1 Label 1 0,7671 trên dev, thấp hơn cả hai student TextCNN. Điều này giới hạn lượng thông tin hữu ích mà soft target có thể truyền sang student và có thể giải thích vì sao cải thiện không đồng đều. Vì vậy, kết quả hiện tại không ủng hộ kết luận rằng distillation luôn nâng cao chất lượng dự đoán; giá trị rõ ràng hơn của phương pháp cần được xem xét trong mối quan hệ giữa hiệu năng được giữ lại và tài nguyên triển khai được tiết kiệm.
 
-Để đánh giá liệu các student có tạo ra lợi ích triển khai thực tế hay không, PhoBERT-base, BiLSTM distilled và TextCNN distilled được đo lại trên benchmark dev split trong cùng môi trường CPU, sử dụng một luồng xử lý. Độ trễ được đo với batch size 1 sau ba lượt warm-up và 20 lần lặp; throughput được đo với batch size 128. Các metric chất lượng được tính lại từ dự đoán của chính checkpoint được đo, nhờ đó bảo đảm bảng tài nguyên và bảng benchmark sử dụng cùng mô hình.
+Để đánh giá liệu các student có tạo ra lợi ích triển khai thực tế hay không, PhoBERT-base, BiLSTM distilled và TextCNN distilled được đo lại trên benchmark dev split trong cùng môi trường CPU (sử dụng một luồng xử lý). Độ trễ được đo với batch size 1 sau ba lượt warm-up và 20 lần lặp; throughput được đo với batch size 128. Các metric chất lượng được tính lại từ dự đoán của chính checkpoint được đo, nhờ đó bảo đảm bảng tài nguyên và bảng benchmark sử dụng cùng mô hình.
 
-> **GHI CHÚ BẢNG 5.x — Chèn bảng trade-off hiệu năng và tài nguyên trên dev**
->
-> | Mô hình | Tham số | Kích thước (MB) | Latency (ms/tin) | Throughput (tin/s) | Peak RAM (MB) | Macro-F1 | F1 L1 | Recall L1 | PR-AUC |
-> |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-> | PhoBERT-base | 134.999.810 | 516,95 | 248,14 | 4,20 | 1.788,75 | 0,8750 | 0,7671 | 0,7568 | 0,8439 |
-> | BiLSTM distilled | 80.065 | 0,314 | 2,57 | 1.004,88 | 400,00 | 0,8839 | 0,7838 | 0,7838 | 0,8241 |
-> | TextCNN distilled | 87.553 | 0,342 | 1,62 | 1.001,77 | 407,89 | 0,9129 | 0,8378 | 0,8378 | 0,8818 |
->
-> Caption đề xuất: **“So sánh chất lượng dự đoán và chi phí triển khai của PhoBERT-base với các student distilled trên benchmark dev split”**.
+**Bảng 5.2: So sánh chất lượng dự đoán và chi phí triển khai của PhoBERT-base với các student distilled trên benchmark dev split**
+
+| Mô hình | Tham số | Kích thước (MB) | Latency (ms/tin) | Throughput (tin/s) | Peak RAM (MB) | Macro-F1 | F1 L1 | Recall L1 | PR-AUC |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **PhoBERT-base** | 134.999.810 | 516,95 | 248,14 | 4,20 | 1.788,75 | 0,8750 | 0,7671 | 0,7568 | 0,8439 |
+| **BiLSTM distilled** | 80.065 | 0,314 | 2,57 | 1.004,88 | 400,00 | 0,8839 | 0,7838 | 0,7838 | 0,8241 |
+| **TextCNN distilled** | 87.553 | 0,342 | 1,62 | 1.001,77 | 407,89 | 0,9129 | 0,8378 | 0,8378 | 0,8818 |
 
 So với teacher, BiLSTM distilled giảm khoảng 1.686 lần số tham số và 1.648 lần kích thước checkpoint. Độ trễ CPU giảm từ 248,14 xuống 2,57 ms mỗi tin nhắn, tương ứng nhanh hơn khoảng 96,5 lần; throughput tăng từ 4,20 lên khoảng 1.004,88 tin nhắn/giây. Peak RAM giảm khoảng 77,6%. Mức tiết kiệm này không đi kèm suy giảm ở các metric phụ thuộc ngưỡng trên dev: Macro-F1 tăng 0,0088 điểm, F1 Label 1 tăng 0,0167 và Recall tăng 0,0270. Tuy nhiên, PR-AUC giảm 0,0198, cho thấy chất lượng xếp hạng xác suất trên nhiều ngưỡng chưa được bảo toàn hoàn toàn.
 
@@ -59,17 +82,6 @@ TextCNN distilled tạo ra trade-off thuận lợi hơn. Mô hình giảm khoả
 Kết quả trên test cho thấy lợi ích chất lượng của hai student không ổn định như nhau. BiLSTM distilled thấp hơn teacher 0,0397 điểm Macro-F1, 0,0734 điểm F1 Label 1, 0,0541 điểm Recall và 0,1918 điểm PR-AUC. Ngược lại, TextCNN distilled vẫn cao hơn teacher 0,0121 điểm Macro-F1, 0,0233 điểm F1 Label 1 và 0,0811 điểm Recall, dù PR-AUC thấp hơn 0,0415. Do đó, BiLSTM distilled chủ yếu mang lại lợi ích tài nguyên nhưng đánh đổi chất lượng tổng quát hóa, trong khi TextCNN distilled duy trì trade-off thuyết phục hơn giữa chất lượng và chi phí triển khai.
 
 Việc student vượt teacher ở một số metric không có nghĩa distillation đã tạo ra một mô hình có năng lực biểu diễn tổng quát hơn PhoBERT-base trong mọi điều kiện. Student khác teacher về kiến trúc, biểu diễn ký tự và hàm mất mát; hơn nữa mỗi split chỉ có 37 mẫu Label 1. Kết quả nên được hiểu là trong benchmark hiện tại, TextCNN distilled tận dụng tốt cả nhãn cứng và soft target để đạt điểm vận hành tốt hơn teacher, đồng thời có chi phí suy luận thấp hơn đáng kể.
-
-> **GHI CHÚ HÌNH 5.x — Biểu đồ trade-off chất lượng–chi phí**
->
-> Nên dùng scatter plot với:
->
-> - Trục hoành: latency CPU theo thang logarithm.
-> - Trục tung: F1 Label 1 trên dev.
-> - Kích thước điểm: số tham số hoặc peak RAM.
-> - Ba điểm: PhoBERT-base, BiLSTM distilled, TextCNN distilled.
->
-> TextCNN distilled sẽ nằm ở vùng latency thấp và F1 cao, làm rõ ưu thế triển khai mà bảng số liệu khó thể hiện trực quan.
 
 Sau khi các nhận xét được hình thành từ dev, kết quả test được sử dụng để kiểm tra mức độ duy trì xu hướng. Gemma 2B tiếp tục đứng đầu về Macro-F1 (0,9585), F1 Label 1 (0,9231), Recall Label 1 (0,9730) và PR-AUC (0,9853). Mô hình chỉ bỏ sót 1 trong 37 mẫu smishing trên test, dù số FP tăng từ 2 trên dev lên 5 trên test. Việc Gemma 2B giữ vị trí dẫn đầu trên cả hai split củng cố lựa chọn mô hình theo dev.
 
@@ -81,98 +93,224 @@ Những biến động này không nên được hiểu là mô hình “cải t
 
 Tóm lại, RQ1 cho thấy không có một kiến trúc duy nhất tối ưu cho mọi tiêu chí. Gemma 2B là lựa chọn tốt nhất theo tiêu chí chính nhờ đứng đầu Macro-F1 và F1 Label 1 trên dev, đồng thời duy trì vị trí dẫn đầu trên test. DistilBERT multilingual đạt Recall dev cao nhất, còn Qwen2.5 0.5B đạt PR-AUC dev cao nhất. Trong nhóm encoder, CafeBERT là mô hình cân bằng tốt nhất trên dev; trong nhóm character-level, TextCNN vượt BiLSTM. Distillation chưa tạo cải thiện nhất quán về Macro-F1, nhưng TextCNN distilled cho thấy khả năng tăng Recall và duy trì hiệu năng tương đối tốt trên test. Quyết định triển khai cuối cùng cần kết hợp các kết quả này với benchmark tài nguyên thay vì chỉ dựa trên chất lượng dự đoán.
 
-> **GHI CHÚ KIỂM TRA trước khi kết thúc Mục 5.1**
->
-> - Giữ bảng benchmark làm bảng trung tâm; không tạo thêm nhiều bảng xếp hạng lặp lại cùng số liệu.
-> - Khi in đậm, chỉ in giá trị tốt nhất từng cột; không ngầm biến kết quả test thành tiêu chí chọn mô hình.
-> - Kiểm tra lại FP/FN nếu bảng aggregate được chạy lại sau khi đổi split.
-> - Số liệu tài nguyên hiện phản ánh môi trường CPU cục bộ; bổ sung tên CPU, tổng RAM và phiên bản thư viện vào caption hoặc phần thiết lập khi hoàn tất thông tin môi trường.
-> - Không gọi chênh lệch vài mẫu trên dev/test là khác biệt có ý nghĩa thống kê khi chưa có kiểm định hoặc nhiều lần chia dữ liệu.
+---
 
 ## 5.2. RQ2: Đặc điểm nào của dữ liệu làm thay đổi hiệu năng?
 
-Phân tích theo lát cắt được thực hiện trên tập dev đối với bốn mô hình có đầy đủ prediction-level artefact và đại diện cho các hành vi khác nhau trong RQ1: CafeBERT là encoder có Macro-F1 cao nhất, DistilBERT multilingual có Recall Label 1 cao nhất, TextCNN là mô hình character-level hard-label tốt nhất và TextCNN distilled đại diện cho cấu hình chưng cất có trade-off triển khai tốt. Bốn LLM chưa được đưa vào phần này vì artefact hiện tại chỉ chứa metric tổng hợp, chưa có xác suất dự đoán cho từng mẫu. Do đó, kết luận RQ2 phản ánh các mô hình đại diện nói trên, không được khái quát trực tiếp cho toàn bộ 17 cấu hình.
+Để hiểu sâu sắc về cách thức các đặc trưng dữ liệu ảnh hưởng đến khả năng nhận diện của mô hình, phân tích theo lát cắt (slice evaluation) được thực hiện trên tập dev đối với bốn mô hình đại diện: **CafeBERT** (PLM đơn ngữ tiếng Việt xuất sắc nhất), **DistilBERT multilingual** (PLM đa ngữ có Recall cao nhất), **TextCNN** (mô hình character-level nguyên bản tốt nhất) và **TextCNN distilled** (mô hình chưng cất tri thức có trade-off triển khai tốt). Phân tích sử dụng bộ nhãn metadata v2.1 để khảo sát theo độ dài, đặc trưng bề mặt, lĩnh vực tin nhắn, hành động yêu cầu, đối tượng nhắm đến và thủ đoạn thuyết phục.
 
-Độ dài tin nhắn tạo ra ảnh hưởng khác nhau giữa encoder và mô hình ký tự. Nhóm tin nhắn không quá 80 ký tự chỉ có hai mẫu Label 1 nên không đủ để diễn giải metric lớp smishing. Trong ba nhóm còn lại, CafeBERT đạt F1 Label 1 lần lượt là 0,9091 ở khoảng 81–160 ký tự, 0,9333 ở khoảng 161–240 ký tự và giảm xuống 0,8421 khi độ dài vượt 240 ký tự. DistilBERT multilingual cũng giảm rõ ở nhóm trên 240 ký tự, với F1 Label 1 từ 0,9444 và 0,8889 ở hai khoảng trước xuống 0,7619.
+### 5.2.1. Ảnh hưởng của độ dài tin nhắn và đặc trưng bề mặt
 
-TextCNN có xu hướng ổn định hơn theo độ dài. F1 Label 1 của mô hình lần lượt là 0,8387, 0,8571 và 0,8571 ở ba nhóm đủ mẫu. TextCNN distilled đạt 0,8125, 0,9333 và 0,8182. Kết quả này chưa cho phép khẳng định character-level luôn xử lý văn bản dài tốt hơn, nhưng cho thấy sự suy giảm ở nhóm rất dài rõ hơn đối với hai encoder đại diện. Một nguyên nhân có thể là encoder bị giới hạn ở 128 token, trong khi TextCNN giữ tối đa 256 ký tự; tuy nhiên, cần kiểm tra trực tiếp tỷ lệ mẫu thực sự bị truncate trước khi xem đây là giải thích nhân quả.
+Độ dài tin nhắn tạo ra ảnh hưởng khác biệt rõ rệt giữa mô hình pre-trained PLM (dựa trên token) và mô hình học máy cấp ký tự (dựa trên ký tự thô).
 
-> **GHI CHÚ BẢNG 5.x — Hiệu năng theo độ dài trên dev**
->
-> Nên trình bày ba nhóm đủ số mẫu Label 1: 81–160, 161–240 và trên 240 ký tự. Mỗi hàng ghi `n`, F1 Label 1, Recall Label 1, FP và FN. Nhóm ≤80 chỉ ghi phân phối 138 Label 0 và 2 Label 1, không dùng để so sánh mô hình.
->
-> Nguồn dữ liệu: [rq2_slice_metrics_dev.csv](C:\KLTN\KLTN\scripts\RQ2_RQ3\rq2_slice_metrics_dev.csv).
+**Bảng 5.3: Hiệu năng phân loại theo nhóm độ dài tin nhắn trên tập dev**
 
-Sự xuất hiện của URL là lát cắt tạo khác biệt rõ hơn. Trong 37 mẫu smishing trên dev, 29 mẫu chứa URL và chỉ 8 mẫu không chứa URL. Với nhóm có URL, DistilBERT multilingual đạt Recall bằng 1,0000; CafeBERT và TextCNN đạt 0,8621; TextCNN distilled đạt 0,8966. Khi không có URL, Recall giảm xuống 0,7500 đối với DistilBERT và chỉ 0,6250 đối với cả hai TextCNN, trong khi CafeBERT duy trì 0,8750.
+| Nhóm độ dài (ký tự) | Số mẫu (n) | Nhãn 1 (n1) | Mô hình | F1 Label 1 | Recall Label 1 | FP | FN |
+| :--- | :---: | :---: | :--- | :---: | :---: | :---: | :---: |
+| **81–160** | 146 | 17 | CafeBERT | 0,9091 | 0,8824 | 1 | 2 |
+| | | | DistilBERT multilingual | 0,9444 | 1,0000 | 2 | 0 |
+| | | | TextCNN | 0,8387 | 0,7647 | 1 | 4 |
+| | | | TextCNN distilled | 0,8125 | 0,7647 | 2 | 4 |
+| **161–240** | 82 | 8 | CafeBERT | 0,9333 | 0,8750 | 0 | 1 |
+| | | | DistilBERT multilingual | 0,8889 | 1,0000 | 2 | 0 |
+| | | | TextCNN | 0,8571 | 0,7500 | 0 | 2 |
+| | | | TextCNN distilled | 0,9333 | 0,8750 | 0 | 1 |
+| **>240** | 167 | 10 | CafeBERT | 0,8421 | 0,8000 | 1 | 2 |
+| | | | DistilBERT multilingual | 0,7619 | 0,8000 | 3 | 2 |
+| | | | TextCNN | 0,8571 | 0,9000 | 2 | 1 |
+| | | | TextCNN distilled | 0,8182 | 0,9000 | 3 | 1 |
 
-Xu hướng này cho thấy URL là tín hiệu hỗ trợ mạnh, đặc biệt đối với DistilBERT và nhóm character-level. Tuy nhiên, URL không phải điều kiện đủ để xác định smishing vì dev còn có 168 mẫu Label 0 chứa URL. Các mô hình vẫn kiểm soát FP tương đối tốt trong nhóm này: CafeBERT không tạo FP, TextCNN tạo 1 FP, còn DistilBERT và TextCNN distilled cùng tạo 3 FP. Vùng khó hơn đối với mô hình ký tự là các tin smishing không có URL, nơi tín hiệu lừa đảo phải được suy ra từ nội dung và ngữ cảnh thay vì một pattern bề mặt rõ ràng.
+*Ghi chú: Nhóm tin nhắn ngắn \(\le 80\) ký tự chỉ chứa 2 mẫu Label 1 (và 138 mẫu Label 0) nên không được đưa vào bảng so sánh để tránh thiên lệch thống kê.*
 
-Số điện thoại không tạo ra xu hướng nhất quán như URL. CafeBERT và TextCNN có Recall thấp hơn một chút ở nhóm có số điện thoại; DistilBERT đạt Recall 1,0000 trong nhóm này nhưng chỉ gồm 10 mẫu Label 1. TextCNN distilled đạt Recall 0,8000 ở nhóm có số điện thoại và 0,8519 ở nhóm không có. Với cỡ mẫu hiện tại, sự hiện diện của số điện thoại không đủ để xem là yếu tố quyết định độ khó.
+Số liệu từ Bảng 5.3 cho thấy khi độ dài vượt quá 240 ký tự, hiệu năng F1-score của CafeBERT giảm từ 0,9333 xuống 0,8421, và DistilBERT multilingual giảm mạnh từ 0,8889 xuống 0,7619. Sự suy giảm này chủ yếu do mô hình PLM bị giới hạn độ dài tokenizer hoặc bị loãng thông tin ngữ cảnh trong các tin nhắn quá dài. Ngược lại, TextCNN thể hiện sự ổn định cao hơn với F1-score duy trì ở mức 0,8571 ở cả nhóm 161–240 và nhóm >240 ký tự, đồng thời Recall Label 1 tăng từ 0,7500 lên 0,9000. Điều này chỉ ra rằng các bộ lọc tích chập cục bộ (CNN) trên biểu diễn ký tự có lợi thế trong việc bắt được các tín hiệu đặc trưng (như từ khóa hoặc liên kết độc hại) bất kể vị trí của chúng trong các đoạn văn bản dài.
 
-Phân tích theo loại người gửi cho thấy nhóm `personal_number` khó hơn đối với TextCNN. Recall của TextCNN trên brandname là 0,8571 nhưng giảm còn 0,7826 trên số cá nhân; phiên bản distilled tăng Recall brandname lên 0,9286 nhưng vẫn chỉ đạt 0,7826 trên `personal_number`. CafeBERT duy trì Recall gần nhau giữa hai nhóm, lần lượt 0,8571 và 0,8696. DistilBERT đạt Recall 1,0000 trên brandname và 0,9130 trên số cá nhân, nhưng tạo nhiều FP hơn CafeBERT. Nhóm shortcode chỉ chứa Label 0 trong dev và không mô hình nào tạo FP, vì vậy không thể đánh giá khả năng nhận diện smishing từ shortcode ở lát cắt này.
+Các đặc trưng bề mặt khác như sự xuất hiện của liên kết URL, số điện thoại, loại người gửi và nguồn gốc dữ liệu cũng tạo ra các tác động không đồng nhất được tóm tắt trong Bảng 5.4.
 
-Theo nguồn dữ liệu, lỗi chủ yếu tập trung ở miền `real`, cũng là nguồn duy nhất chứa Label 1 trên dev. CafeBERT không tạo FP trên 150 mẫu external; DistilBERT chỉ tạo một FP trên `external_curated`; hai TextCNN mỗi mô hình tạo một FP trên `external_real` và một FP trên `external_curated`. Kết quả cho thấy các mô hình benchmark đã kiểm soát tương đối tốt miền Label 0 external khi nguồn này được đưa vào train. Tuy nhiên, do external dev chỉ chứa Label 0, kết luận này chỉ phản ánh khả năng hạn chế cảnh báo sai, không phản ánh đầy đủ khả năng tổng quát hóa smishing sang một miền mới.
+**Bảng 5.4: Hiệu năng phân loại theo đặc trưng bề mặt và nguồn dữ liệu trên tập dev**
 
-> **GHI CHÚ BẢNG 5.x — Tóm tắt các lát cắt có ý nghĩa**
->
-> Có thể dùng một bảng ngắn thay vì trình bày toàn bộ CSV:
->
-> | Lát cắt | Phát hiện chính |
-> |---|---|
-> | Độ dài >240 | CafeBERT và DistilBERT suy giảm F1 L1; TextCNN ổn định hơn |
-> | Có/không URL | Smishing không có URL khó hơn rõ đối với TextCNN |
-> | Sender type | `personal_number` là nhóm khó hơn đối với hai TextCNN |
-> | Data origin | FP trên external thấp; lỗi chủ yếu nằm ở dữ liệu real |
+| Lát cắt | Phân phối mẫu (n0/n1) | Phát hiện chính |
+| :--- | :---: | :--- |
+| **Có URL** | 168 / 29 | Tín hiệu mạnh hỗ trợ phát hiện smishing. Recall đạt mức rất cao (DistilBERT: 100%, TextCNN distilled: 89,66%, CafeBERT & TextCNN: 86,21%). Kiểm soát FP cực tốt (CafeBERT: 0, TextCNN: 1). |
+| **Không URL** | 330 / 8 | Là nhóm khó đối với mô hình ký tự. Recall của TextCNN & TextCNN distilled giảm mạnh còn 62,5%, DistilBERT giảm còn 75%, riêng CafeBERT duy trì ổn định ở 87,5%. |
+| **Brandname** | 260 / 14 | Recall đạt mức cao (DistilBERT: 100%, TextCNN distilled: 92,86%, CafeBERT & TextCNN: 85,71%). |
+| **Personal Number** | 16 / 23 | Là nhóm khó đối với mô hình ký tự (TextCNN & TextCNN distilled: Recall chỉ đạt 78,26%). CafeBERT và DistilBERT xử lý tốt hơn với Recall lần lượt là 86,96% và 91,30%. |
+| **Nguồn dữ liệu** | 348 / 37 (Real)<br>150 / 0 (External) | Lỗi của mô hình tập trung chủ yếu ở dữ liệu Real. Các mô hình kiểm soát FP trên dữ liệu hội thoại đời thường và bài viết mạng xã hội (tập External) cực tốt (tổng cộng chỉ có 1 FP với DistilBERT, và 2 FP với mỗi mô hình TextCNN). |
 
-Phân tích `obfuscation_level` hiện tại không cho thấy quan hệ đơn điệu giữa mức được gán và Recall. Chẳng hạn, cả CafeBERT và DistilBERT đều phát hiện đúng toàn bộ năm mẫu Level 3–4, trong khi CafeBERT chỉ đạt Recall 0,7647 ở nhóm Level 1–2. Điều này không có nghĩa che giấu mạnh dễ xử lý hơn, vì nhóm Level 3–4 quá nhỏ và thuộc tính hiện tại còn gắn với cách thiết kế Label 1. Do đó, kết quả này chỉ được xem là quan sát phụ. Phần đánh giá độ bền vững trước teencode, viết tắt và văn bản phi chuẩn sẽ được hoàn thiện sau khi xây dựng `text_noise_level` áp dụng độc lập cho cả hai nhãn.
+Sự hiện diện của URL là một trong những tín hiệu phân loại mạnh nhất. Với các tin nhắn chứa liên kết URL, DistilBERT multilingual đạt Recall 100% (bắt được toàn bộ 29 tin smishing chứa URL). Tuy nhiên, khi chuyển sang nhóm không có URL (chỉ có 8 mẫu smishing), Recall của DistilBERT giảm xuống 75,00% và hai mô hình TextCNN giảm mạnh xuống 62,50%. Điều này chứng minh các mô hình học máy bị phụ thuộc đáng kể vào đặc trưng bề mặt dễ nhận biết như URL để đưa ra quyết định dự đoán nhãn smishing, dẫn đến việc bỏ sót các tin nhắn lừa đảo tinh vi chỉ dùng số điện thoại liên hệ hoặc yêu cầu phản hồi trực tiếp. Riêng CafeBERT thể hiện khả năng hiểu ngữ cảnh tốt khi duy trì Recall 87,50% trên nhóm không chứa URL.
 
-Tổng hợp RQ2 cho thấy hiệu năng không chỉ phụ thuộc vào mô hình mà còn vào loại tín hiệu xuất hiện trong tin nhắn. Hai encoder đại diện có xu hướng suy giảm ở nhóm văn bản rất dài, trong khi TextCNN gặp khó rõ hơn với smishing không có URL và tin nhắn từ số cá nhân. CafeBERT cho kết quả cân bằng nhất giữa các lát cắt, còn DistilBERT đạt Recall cao nhờ dự đoán nhạy hơn nhưng tạo nhiều FP hơn. Các kết luận này cần được xem cùng cỡ mẫu từng nhóm và sẽ được kiểm tra lại sau khi có prediction-level output của nhóm LLM.
+Đối với loại người gửi, tin nhắn gửi từ số cá nhân (`personal_number`) gây nhiều khó khăn hơn cho mô hình ký tự. Recall của TextCNN giảm từ 85,71% trên brandname xuống 78,26% trên số cá nhân. Đối với nguồn dữ liệu, các mô hình thể hiện khả năng chống cảnh báo sai (False Positive) rất tốt trên tập dữ liệu ngoài miền (`external`), cho thấy miền dữ liệu trò chuyện thông thường hoặc bài viết mạng xã hội (vốn chứa nhiều teencode và ngôn ngữ phi chuẩn) không dễ bị mô hình nhầm lẫn là smishing, ngoại trừ một vài trường hợp cá biệt của mô hình TextCNN.
+
+### 5.2.2. Hiệu năng theo Lĩnh vực (Domain), Hành động (Action) và Vai trò đối tượng (Role)
+
+Việc phân tích hiệu năng theo các nhãn metadata v2.1 cung cấp các insight sâu sắc về khả năng nhận diện các nhóm chủ đề lừa đảo khác nhau.
+
+**Bảng 5.5: Hiệu năng phân loại theo lĩnh vực tin nhắn trên tập dev**
+
+| Lĩnh vực tin nhắn (Domain) | Số mẫu (n) | Nhãn 1 (n1) | Mô hình | F1 Label 1 | Recall Label 1 | FP | FN |
+| :--- | :---: | :---: | :--- | :---: | :---: | :---: | :---: |
+| **Viễn thông** (`telecom`) | 188 | 1 | CafeBERT | 1,0000 | 1,0000 | 0 | 0 |
+| | | | DistilBERT multilingual | 1,0000 | 1,0000 | 0 | 0 |
+| | | | TextCNN | 0,0000 | 0,0000 | 0 | 1 |
+| | | | TextCNN distilled | 0,0000 | 0,0000 | 0 | 1 |
+| **Tài chính - Ngân hàng** (`banking_finance`) | 73 | 10 | CafeBERT | 0,9474 | 0,9000 | 0 | 1 |
+| | | | DistilBERT multilingual | 1,0000 | 1,0000 | 0 | 0 |
+| | | | TextCNN | 0,8889 | 0,8000 | 0 | 2 |
+| | | | TextCNN distilled | 0,9474 | 0,9000 | 0 | 1 |
+| **Dịch vụ công** (`public_service`) | 52 | 3 | CafeBERT | 0,6667 | 0,6667 | 1 | 1 |
+| | | | DistilBERT multilingual | 0,7500 | 1,0000 | 2 | 0 |
+| | | | TextCNN | 1,0000 | 1,0000 | 0 | 0 |
+| | | | TextCNN distilled | 1,0000 | 1,0000 | 0 | 0 |
+| **Đánh bạc / Cá cược** (`gambling`) | 6 | 5 | CafeBERT | 0,8889 | 0,8000 | 0 | 1 |
+| | | | DistilBERT multilingual | 1,0000 | 1,0000 | 0 | 0 |
+| | | | TextCNN | 0,8889 | 0,8000 | 0 | 1 |
+| | | | TextCNN distilled | 0,8889 | 0,8000 | 0 | 1 |
+| **Tuyển dụng** (`employment`) | 11 | 5 | CafeBERT | 1,0000 | 1,0000 | 0 | 0 |
+| | | | DistilBERT multilingual | 0,8333 | 1,0000 | 2 | 0 |
+| | | | TextCNN | 0,8333 | 1,0000 | 2 | 0 |
+| | | | TextCNN distilled | 0,8333 | 1,0000 | 2 | 0 |
+| **Đòi nợ** (`debt_collection`) | 6 | 4 | CafeBERT | 0,8571 | 0,7500 | 0 | 1 |
+| | | | DistilBERT multilingual | 0,6667 | 0,5000 | 0 | 2 |
+| | | | TextCNN | 0,8571 | 0,7500 | 0 | 1 |
+| | | | TextCNN distilled | 0,8571 | 0,7500 | 0 | 1 |
+
+*Ghi chú: Lĩnh vực `healthcare` (n=3, n1=0), `investment` (n=1, n1=1) và `other` (n=14, n1=0) do số lượng mẫu quá ít nên không đưa vào bảng.*
+
+Bảng 5.5 chỉ ra sự chênh lệch lớn về độ khó giữa các lĩnh vực tin nhắn:
+- **Tài chính - Ngân hàng**: Là lĩnh vực phổ biến và có hiệu năng cao nhất. DistilBERT multilingual đạt F1-score và Recall tuyệt đối 100%. Các mô hình còn lại đều đạt F1-score từ 0,88 trở lên, cho thấy từ vựng ngân hàng (như OTP, tài khoản, biến động số dư) được mô hình học rất sâu.
+- **Đòi nợ**: Đây là lĩnh vực khó khăn nhất. DistilBERT multilingual bỏ sót đến 50% số tin đòi nợ (Recall = 0,5000), trong khi CafeBERT và hai mô hình TextCNN bỏ sót 25% (Recall = 0,7500). Nguyên nhân là tin nhắn đòi nợ thường sử dụng ngôn ngữ đe dọa, hành chính hành vi mà không cần chèn các đường dẫn URL độc hại hay các từ khóa trúng thưởng, khiến mô hình dễ nhầm lẫn với các thông tin nhắc nợ thông thường.
+- **Dịch vụ công**: Mô hình ký tự (TextCNN) lại đạt hiệu năng tuyệt đối 100% trong khi CafeBERT (F1=0,6667) và DistilBERT (F1=0,7500) gặp khó khăn và phát sinh lỗi FP. Điều này phản ánh các tin nhắn dịch vụ công thường có cấu trúc trang trọng đặc thù mà mô hình cấp ký tự dễ dàng nắm bắt được ranh giới.
+
+Chúng ta tiếp tục xem xét hiệu năng thông qua các lát cắt về hành động yêu cầu và vai trò của đối tượng nhắm đến.
+
+**Bảng 5.6: Hiệu năng phân loại theo hành động yêu cầu và vai trò đối tượng trên tập dev**
+
+| Lát cắt phân tích | Số mẫu (n) | Nhãn 1 (n1) | Mô hình | F1 Label 1 | Recall Label 1 | FP | FN |
+| :--- | :---: | :---: | :--- | :---: | :---: | :---: | :---: |
+| **Hành động: Truy cập liên kết** (`click_or_visit_link`) | 193 | 26 | CafeBERT | 0,9167 | 0,8462 | 0 | 4 |
+| | | | DistilBERT multilingual | 0,9630 | 1,0000 | 2 | 0 |
+| | | | TextCNN | 0,8980 | 0,8462 | 1 | 4 |
+| | | | TextCNN distilled | 0,9020 | 0,8846 | 2 | 3 |
+| **Hành động: Gọi điện thoại** (`call_phone`) | 163 | 4 | CafeBERT | 0,6667 | 0,5000 | 0 | 2 |
+| | | | DistilBERT multilingual | 0,7500 | 0,7500 | 1 | 1 |
+| | | | TextCNN | 0,8571 | 0,7500 | 0 | 1 |
+| | | | TextCNN distilled | 0,8571 | 0,7500 | 0 | 1 |
+| **Đối tượng: Khách hàng** (`customer`) | 304 | 14 | CafeBERT | 0,9231 | 0,8571 | 0 | 2 |
+| | | | DistilBERT multilingual | 0,9655 | 1,0000 | 1 | 0 |
+| | | | TextCNN | 0,8333 | 0,7143 | 0 | 4 |
+| | | | TextCNN distilled | 0,8462 | 0,7857 | 1 | 3 |
+| **Đối tượng: Con nợ** (`debtor`) | 6 | 4 | CafeBERT | 0,8571 | 0,7500 | 0 | 1 |
+| | | | DistilBERT multilingual | 0,6667 | 0,5000 | 0 | 2 |
+| | | | TextCNN | 0,8571 | 0,7500 | 0 | 1 |
+| | | | TextCNN distilled | 0,8571 | 0,7500 | 0 | 1 |
+
+Số liệu từ Bảng 5.6 cho thấy hành động yêu cầu truy cập liên kết (`click_or_visit_link`) được tất cả các mô hình phát hiện tốt hơn đáng kể so với yêu cầu gọi số hotline (`call_phone`). Ví dụ, CafeBERT đạt Recall 84,62% trên nhóm yêu cầu click link nhưng giảm mạnh xuống 50,00% khi yêu cầu là gọi điện. Đối với vai trò đối tượng nhắm đến, nhóm con nợ (`debtor`) tương ứng với lĩnh vực đòi nợ tiếp tục thể hiện là nhóm đối tượng khó nhận diện nhất đối với mô hình, đặc biệt là DistilBERT multilingual (Recall chỉ đạt 50%).
+
+### 5.2.3. Đánh giá chuyên sâu trên các Thủ đoạn thuyết phục (Persuasion Tactics)
+
+Bộ nhãn metadata v2.1 cho phép bóc tách chi tiết hiệu năng phân loại của mô hình dựa trên các thủ đoạn tâm lý mà tin nhắn Smishing sử dụng để thao túng nạn nhân.
+
+**Bảng 5.7: Hiệu năng phân loại theo thủ đoạn thuyết phục trên tập dev**
+
+| Thủ đoạn thuyết phục | Số mẫu (n) | Nhãn 1 (n1) | Mô hình | F1 Label 1 | Recall Label 1 | FP | FN |
+| :--- | :---: | :---: | :--- | :---: | :---: | :---: | :---: |
+| **Dụ dỗ qua liên kết** (`link_lure`) | 168 | 26 | CafeBERT | 0,9388 | 0,8846 | 0 | 3 |
+| | | | DistilBERT multilingual | 0,9811 | 1,0000 | 1 | 0 |
+| | | | TextCNN | 0,9167 | 0,8462 | 0 | 4 |
+| | | | TextCNN distilled | 0,9020 | 0,8846 | 2 | 3 |
+| **Quà tặng / Khuyến mại** (`reward_incentive`) | 150 | 17 | CafeBERT | 0,9697 | 0,9412 | 0 | 1 |
+| | | | DistilBERT multilingual | 0,9714 | 1,0000 | 1 | 0 |
+| | | | TextCNN | 0,9032 | 0,8235 | 0 | 3 |
+| | | | TextCNN distilled | 0,8750 | 0,8235 | 1 | 3 |
+| **Thúc giục thời gian** (`urgency`) | 69 | 15 | CafeBERT | 0,8889 | 0,8000 | 0 | 3 |
+| | | | DistilBERT multilingual | 0,8966 | 0,8667 | 1 | 2 |
+| | | | TextCNN | 0,8889 | 0,8000 | 0 | 3 |
+| | | | TextCNN distilled | 0,9286 | 0,8667 | 0 | 2 |
+| **Mạo danh uy quyền** (`authority`) | 29 | 3 | CafeBERT | 0,6667 | 0,6667 | 1 | 1 |
+| | | | DistilBERT multilingual | 0,5714 | 0,6667 | 2 | 1 |
+| | | | TextCNN | 0,8000 | 0,6667 | 0 | 1 |
+| | | | TextCNN distilled | 0,8000 | 0,6667 | 0 | 1 |
+| **Đánh vào nỗi sợ** (`fear`) | 20 | 3 | CafeBERT | 0,4000 | 0,3333 | 1 | 2 |
+| | | | DistilBERT multilingual | 0,8000 | 0,6667 | 0 | 1 |
+| | | | TextCNN | 0,5000 | 0,3333 | 0 | 2 |
+| | | | TextCNN distilled | 0,5000 | 0,3333 | 0 | 2 |
+| **Đe dọa trừng phạt** (`threat`) | 15 | 6 | CafeBERT | 0,9091 | 0,8333 | 0 | 1 |
+| | | | DistilBERT multilingual | 0,8000 | 0,6667 | 0 | 2 |
+| | | | TextCNN | 0,8000 | 0,6667 | 0 | 2 |
+| | | | TextCNN distilled | 0,9091 | 0,8333 | 0 | 1 |
+
+*Ghi chú: Thủ đoạn `scarcity` (n1=4, F1=1.0 và Recall=1.0 đối với tất cả mô hình) và `off_platform_contact` (n1=8, F1 và Recall đều \(\ge 0,93\)) được bỏ qua để tập trung vào các nhóm phức tạp.*
+
+Phân tích số liệu từ Bảng 5.7 chỉ ra các đặc điểm tâm lý học hành vi tác động trực tiếp đến mô hình:
+- **Thủ đoạn dụ dỗ qua liên kết (`link_lure`) và Quà tặng (`reward_incentive`)**: Đây là nhóm thủ đoạn dễ phát hiện nhất. DistilBERT multilingual đạt Recall 100% trên cả hai nhóm này. CafeBERT cũng đạt F1-score rất cao (lần lượt là 0,9388 và 0,9697). Lý do là các thủ đoạn này thường đi kèm các cấu trúc từ vựng mang tính chào mời, chúc mừng trúng thưởng và các URL rõ ràng, tạo điều kiện thuận lợi cho cơ chế chú ý của transformer nhận diện.
+- **Thủ đoạn thúc giục thời gian (`urgency`)**: Có độ khó trung bình. Các mô hình bỏ sót từ 2 đến 3 mẫu (Recall dao động từ 80,00% đến 86,67%), do các từ khóa thúc giục thời gian (như "ngay", "trong 24h", "hạn chót") cũng xuất hiện thường xuyên trong tin nhắn OTP hoặc quảng cáo viễn thông hợp lệ.
+- **Thủ đoạn đánh vào nỗi sợ (`fear`) và Mạo danh uy quyền (`authority`)**: Đây là những nhóm thủ đoạn khó nhất. Khi kẻ xấu đe dọa tài khoản bị khóa hoặc yêu cầu cập nhật khẩn cấp dưới danh nghĩa cơ quan công quyền, Recall của CafeBERT và hai mô hình TextCNN trên nhóm `fear` chỉ đạt 33,33% (bỏ sót 2 trên 3 mẫu). DistilBERT multilingual đạt Recall tốt hơn ở mức 66,67% nhưng đổi lại phải đánh đổi bằng việc tăng FP trên nhóm `authority` (F1-score giảm xuống 0,5714).
+- **Thủ đoạn đe dọa trừng phạt (`threat`)**: CafeBERT và TextCNN distilled đạt hiệu năng vượt trội với F1-score 0,9091 và Recall 83,33% (chỉ bỏ sót 1 mẫu). Điều này cho thấy khả năng hiểu ngữ cảnh đe dọa mang tính hình sự/pháp luật của CafeBERT đã được chuyển giao một cách hiệu quả sang student TextCNN thông qua hàm mục tiêu chưng cất tri thức.
+
+Tóm lại, phân tích lát cắt sâu sắc ở RQ2 chỉ ra rằng các mô hình pre-trained transformer và mô hình ký tự có những điểm mạnh - yếu rất bổ trợ cho nhau. Các mô hình pre-trained transformers nhạy bén với các liên kết URL và các từ khóa mang tính dụ dỗ/tặng thưởng, nhưng dễ suy giảm hiệu năng khi tin nhắn quá dài hoặc khi tin nhắn Smishing không chứa URL. Ngược lại, các mô hình ký tự (TextCNN) thể hiện sự bền vững trên các văn bản dài nhưng lại gặp khó khăn rõ rệt với tin nhắn không chứa URL và các thủ đoạn mạo danh uy quyền hoặc đánh vào nỗi sợ hãi.
+
+---
 
 ## 5.3. RQ3: Mô hình sai ở đâu và vì sao?
 
-Trên dev, CafeBERT tạo tổng cộng 7 lỗi gồm 2 FP và 5 FN, ít nhất trong bốn mô hình đại diện. DistilBERT multilingual tạo 9 lỗi gồm 7 FP và 2 FN, phản ánh trực tiếp trade-off Recall cao nhưng cảnh báo rộng hơn. TextCNN hard-label tạo 11 lỗi gồm 4 FP và 7 FN; TextCNN distilled tạo 12 lỗi gồm 6 FP và 6 FN. So với hard-label, distillation giúp TextCNN giảm một FN nhưng tăng hai FP, phù hợp với nhận xét ở RQ1 rằng student distilled nhạy hơn với Label 1.
+Để làm rõ nguyên nhân sâu xa dẫn đến các thất bại phân loại, chúng ta tiến hành khảo sát thống kê trên tập lỗi của 4 mô hình đại diện trên tập dev. Bảng 5.8 trình bày số lượng lỗi phân loại chi tiết của từng cấu hình mô hình.
 
-> **GHI CHÚ BẢNG 5.x — Tổng quan lỗi trên dev**
->
-> | Mô hình | FP | FN | Tổng lỗi | Lỗi confidence ≥0,9 |
-> |---|---:|---:|---:|---:|
-> | CafeBERT | 2 | 5 | 7 | 5 |
-> | DistilBERT multilingual | 7 | 2 | 9 | 8 |
-> | TextCNN | 4 | 7 | 11 | 7 |
-> | TextCNN distilled | 6 | 6 | 12 | 5 |
->
-> Nguồn: [rq3_error_overview_dev.csv](C:\KLTN\KLTN\scripts\RQ2_RQ3\rq3_error_overview_dev.csv).
+**Bảng 5.8: Thống kê số lượng lỗi phân loại trên tập dev**
 
-Tập lỗi giữa CafeBERT và DistilBERT chỉ giao nhau ở 2 mẫu, cho thấy hai encoder thất bại theo các cách khá khác nhau. CafeBERT thận trọng hơn nên có ít FP nhưng bỏ sót nhiều smishing hơn; DistilBERT bắt được nhiều smishing hơn nhưng kéo thêm các tin hợp lệ sang Label 1. Ngược lại, TextCNN và TextCNN distilled có 10 lỗi chung trên tổng hợp 13 mẫu lỗi khác nhau, với Jaccard bằng 0,7692. Mức giao nhau cao cho thấy distillation chưa thay đổi căn bản vùng quyết định của TextCNN; nó chủ yếu thay đổi mức độ nhạy trên một số mẫu biên.
+| Mô hình | False Positive (FP) | False Negative (FN) | Tổng số lỗi | Lỗi có độ tin cậy \(\ge 0,9\) |
+| :--- | :---: | :---: | :---: | :---: |
+| **CafeBERT** | 2 | 5 | 7 | 5 |
+| **DistilBERT multilingual** | 7 | 2 | 9 | 8 |
+| **TextCNN** | 4 | 7 | 11 | 7 |
+| **TextCNN distilled** | 6 | 6 | 12 | 5 |
 
-Chỉ có một mẫu bị cả bốn mô hình dự đoán sai. Đây là tin đòi nợ/đe dọa thuộc Label 1, không chứa URL hay số điện thoại và được gán Level 2. Nội dung sử dụng văn phong giống một thông báo xử lý nghĩa vụ hoặc tranh chấp: “Nhận thấy có hành vi lợi dụng tín nhiệm, chiếm đoạt tài sản… yêu cầu thanh toán gấp…”. Cả bốn mô hình đều dự đoán Label 0 với xác suất sai cao; xác suất Label 1 chỉ nằm trong khoảng 0,0003–0,0318. Trường hợp này cho thấy smishing không có URL, dùng ngôn ngữ hành chính hoặc đòi nợ tương đối tự nhiên có thể nằm sâu trong vùng biểu diễn của tin nhắn hợp lệ.
+Một điểm đáng chú ý là phần lớn các lỗi phân loại của mô hình đều có mức độ tự tin (confidence score) cực kỳ cao (ví dụ: 5 trên 7 lỗi của CafeBERT và 8 trên 9 lỗi của DistilBERT có độ tin cậy từ 0,9 trở lên). Điều này chứng tỏ mô hình không đơn thuần là phân vân ở ranh giới quyết định, mà thực sự bị đánh lừa sâu sắc bởi các đặc trưng gây nhiễu trong tin nhắn.
 
-Một nhóm FN khác gồm các tin có bề mặt gần với thông báo hợp lệ. Ví dụ, mẫu mang nội dung cảnh báo “ACB CẢNH BÁO SMS LỪA ĐẢO” bị CafeBERT và cả hai TextCNN dự đoán thành Label 0. Về mặt từ vựng, đây giống một cảnh báo bảo mật chính thức; tín hiệu lừa đảo nằm trong cấu trúc và liên kết cụ thể thay vì chỉ ở các từ “cảnh báo”, “mật khẩu” hoặc tên ngân hàng. Một mẫu khác thông báo sản phẩm trong giỏ hàng chưa thanh toán cũng bị ba mô hình trên bỏ sót, cho thấy văn phong thương mại điện tử hợp lệ có thể che khuất lời thúc giục truy cập liên kết.
+Để kiểm tra xem các mô hình có hành vi lỗi tương đồng hay khác biệt, chúng ta tính toán ma trận độ giao thoa lỗi (Jaccard similarity) được trình bày trong Bảng 5.9.
 
-Đối với TextCNN, các FN còn tập trung ở smishing không có URL hoặc chứa biến đổi ký tự. Một tin quảng bá dịch vụ nhạy cảm với các chuỗi như “Ng.u.c”, “KIEM”, “phuc~vu” bị cả TextCNN hard-label và distilled bỏ sót. Tuy nhiên, vì phân tích `obfuscation_level` hiện tại còn hạn chế, trường hợp này chỉ được dùng như ví dụ về văn bản phi chuẩn, không làm bằng chứng rằng một mức che giấu cụ thể gây lỗi.
+**Bảng 5.9: Ma trận độ giao thoa lỗi (Jaccard) giữa các mô hình đại diện**
 
-False positive chủ yếu xuất hiện ở các tin hợp lệ có từ vựng và cấu trúc gần với smishing. Hai mẫu tuyển sinh/hội thảo đại học bị DistilBERT và cả hai TextCNN cảnh báo sai. Các nội dung này chứa lời chúc mừng trúng tuyển, lời mời hành động, thông tin liên hệ hoặc đường dẫn Zoom — những tín hiệu cũng phổ biến trong smishing. DistilBERT còn dự đoán sai một thông báo tuyển sinh với confidence gần 1, cho thấy mô hình có thể phụ thuộc mạnh vào tổ hợp từ khóa thúc giục và ngữ cảnh tuyển sinh.
+| Mô hình | CafeBERT | DistilBERT mult. | TextCNN | TextCNN distilled |
+| :--- | :---: | :---: | :---: | :---: |
+| **CafeBERT** | 1,0000 | 0,1429 | 0,2857 | 0,2667 |
+| **DistilBERT multilingual** | 0,1429 | 1,0000 | 0,1765 | 0,1667 |
+| **TextCNN** | 0,2857 | 0,1765 | 1,0000 | **0,7692** |
+| **TextCNN distilled** | 0,2667 | 0,1667 | **0,7692** | 1,0000 |
 
-Hai TextCNN cũng cùng tạo FP trên các câu external đời thường, chẳng hạn nội dung “t cx muốn nuôi capybara!!!!!” hoặc câu kể về phá sản và khoản nợ. Các mẫu này không có cấu trúc SMS lừa đảo điển hình nhưng chứa cách viết phi chuẩn, cảm xúc mạnh hoặc từ vựng tài chính. Đây là dấu hiệu cho thấy mô hình ký tự có thể nhạy với pattern bề mặt mà chưa hiểu đầy đủ ngữ cảnh. Tuy vậy, tổng số FP external chỉ là hai mẫu cho mỗi TextCNN nên chưa thể khái quát thành thất bại domain shift rộng.
+Kết quả từ Bảng 5.9 chỉ ra:
+- **CafeBERT và DistilBERT multilingual**: Có mức độ giao thoa lỗi cực kỳ thấp (Jaccard = 0,1429, chỉ chung nhau đúng 2 lỗi). Điều này khẳng định hai kiến trúc này học được các không gian biểu diễn rất khác nhau: CafeBERT đơn ngữ hóa tối ưu việc kiểm soát FP, trong khi DistilBERT đa ngữ hóa nhạy bén tối đa hóa Recall và chấp nhận nhiều FP hơn.
+- **TextCNN và TextCNN distilled**: Có mức độ giao thoa lỗi rất lớn (Jaccard = 0,7692, chung nhau đến 10 lỗi trên tổng số 13 lỗi gộp). Sự tương đồng cao này chứng tỏ cơ chế chưng cất tri thức từ PhoBERT-base sang TextCNN chủ yếu giúp student tinh chỉnh xác suất đầu ra ở các mẫu biên để tăng độ nhạy, nhưng chưa thể tái định hình hoàn toàn ranh giới quyết định vốn bị giới hạn bởi cấu trúc trích xuất đặc trưng dạng ký tự cục bộ của TextCNN.
 
-Một điểm đáng chú ý là phần lớn lỗi có confidence cao: 5/7 lỗi của CafeBERT, 8/9 của DistilBERT và 7/11 của TextCNN có confidence từ 0,9 trở lên. Những lỗi này khó xử lý chỉ bằng cách thay đổi threshold, vì mô hình không đơn thuần lưỡng lự mà đang đặt mẫu vào sai phía của ranh giới với độ chắc chắn lớn. Hướng cải thiện phù hợp hơn là bổ sung hard examples ở các vùng như cảnh báo bảo mật hợp lệ, tuyển sinh có URL, smishing không URL và văn bản đòi nợ có phong cách hành chính.
+### 5.3.1. Phân tích định tính các nhóm lỗi tiêu biểu
 
-> **GHI CHÚ BẢNG 5.x — Ví dụ lỗi tiêu biểu**
->
-> Chọn khoảng 4–6 mẫu từ [rq3_representative_errors_dev.csv](C:\KLTN\KLTN\scripts\RQ2_RQ3\rq3_representative_errors_dev.csv), gồm:
->
-> - Một FN mà cả bốn mô hình cùng mắc.
-> - Một FN dạng cảnh báo ngân hàng/OTP giống tin hợp lệ.
-> - Một FP tuyển sinh hoặc hội thảo có URL.
-> - Một FP external có ngôn ngữ đời thường hoặc phi chuẩn.
->
-> Nội dung nên được rút gọn và ẩn thông tin cá nhân nếu cần; ghi thêm số mô hình mắc lỗi và confidence.
+Thông qua việc khớp nối các mẫu lỗi với nhãn metadata v2.1, chúng ta xác định được 4 nhóm nguyên nhân gây lỗi chính của mô hình:
 
-Tóm lại, RQ3 cho thấy các vùng khó không chỉ là văn bản bị biến đổi mạnh. Mô hình còn thất bại khi tín hiệu lừa đảo bị đặt trong văn phong hợp lệ, khi smishing không chứa URL, hoặc khi tin hợp lệ sử dụng lời kêu gọi hành động và từ vựng bảo mật/tuyển sinh. CafeBERT kiểm soát FP tốt nhất nhưng vẫn bỏ sót một số mẫu smishing tinh vi; DistilBERT giảm FN bằng cách chấp nhận nhiều FP hơn; hai TextCNN có vùng lỗi tương tự nhau và nhạy với pattern ký tự ngoài ngữ cảnh. Những phát hiện này gợi ý rằng cải thiện tiếp theo nên tập trung vào hard-negative và hard-positive có cấu trúc gần nhau, thay vì chỉ tăng số lượng dữ liệu tổng thể.
+#### Nhóm 1: Tin nhắn Smishing đòi nợ không chứa URL (Lỗi FN chung của cả 4 mô hình)
+Chỉ có duy nhất 1 mẫu lỗi bị cả 4 mô hình dự đoán sai trên tập dev, đó là mẫu `ViSmish_07960`. Tin nhắn đòi nợ này có nội dung: *"Nhan thay co hanh vi LOI DUNG TIN NHIEM, CHIEM DOAT TAI SAN. yc tt gap truoc 13g 16/2/2025, neu van bat hop tac ben toi ban giao HS den CIC... LH 0867256447 de giai quyet."* 
 
-> **GHI CHÚ KIỂM TRA cho RQ2–RQ3**
->
-> - Prediction-level output của bốn LLM hiện chưa có; không diễn giải slice/error của Gemma hoặc Qwen từ metric tổng hợp.
-> - Sau khi có prediction LLM, chỉ cần kiểm tra xem kết luận chính có thay đổi, không mở rộng mọi bảng thành 17 mô hình.
-> - `obfuscation_level` chỉ là phân tích phụ trong Label 1; giữ placeholder cho `text_noise_level`.
-> - Các ví dụ lỗi cần được rà thủ công lần cuối trước khi đưa vào báo cáo.
+Đây là tin nhắn Smishing đòi nợ thuộc lĩnh vực `debt_collection`, sử dụng thủ đoạn đe dọa (`threat`) kết hợp thúc giục thời gian (`urgency`). Điểm đặc biệt của tin nhắn này là sử dụng văn phong hành chính pháp lý rất tự nhiên và **không chứa bất kỳ liên kết URL nào**. Cả 4 mô hình đều dự đoán nhãn Benign với độ tin cậy rất cao (từ 0,9682 đến 0,9997) vì cấu trúc ngữ pháp và từ vựng của nó nằm sâu trong vùng phân phối của các tin nhắn cảnh báo hoặc đòi nợ hợp lệ của các tổ chức tài chính. Điều này cho thấy rào cản lớn nhất của các mô hình hiện tại là nhận diện smishing dựa trên ngữ nghĩa đe dọa thuần túy khi không có sự hỗ trợ của các đặc trưng bề mặt lộ liễu như URL.
+
+#### Nhóm 2: Tin nhắn Smishing giả danh cảnh báo bảo mật ngân hàng (Lỗi FN của CafeBERT và TextCNN)
+Mẫu điển hình là `ViSmish_04995`: *"ACB CANH BAO SMS LUA DAO: Hien co thu doan SMS GIA MAO dau so ACB moi KH dang nhap link gia, cung cap USER, MAT KHAU, OTP..."*
+
+Đây là một tin nhắn Smishing giả danh tin cảnh báo lừa đảo của ngân hàng ACB nhưng chèn đường dẫn giả mạo `https://live` hoặc ứng dụng độc hại. CafeBERT (Conf=0,9994) và hai mô hình TextCNN (Conf >0,97) đều dự đoán sai thành nhãn Benign. Nguyên nhân là tin nhắn sử dụng hàng loạt từ khóa phòng thủ bảo mật vốn thường chỉ xuất hiện trong tin nhắn cảnh báo thật của ngân hàng (như "cảnh báo", "lừa đảo", "giả mạo", "không cung cấp OTP"). DistilBERT multilingual bắt được mẫu này (Conf=0,9956) nhờ cơ chế chú ý đa ngữ nhạy bén với liên kết URL giả mạo chèn ở cuối tin nhắn.
+
+#### Nhóm 3: Tin nhắn tuyển sinh/hội thảo hợp lệ chứa liên kết đăng ký (Lỗi FP của DistilBERT và TextCNN)
+Mẫu điển hình là `ViSmish_07545`: *"[ĐẠI HỌC NGOẠI THƯƠNG] CHÚC MỪNG EM ĐÃ ĐỦ ĐIỀU KIỆN TRÚNG TUYỂN Chương trình Đào tạo Quốc tế... Để lại email để nhận hướng dẫn hồ sơ... SĐT/ZALO: 0906..."*
+
+Đây là tin nhắn hợp lệ thuộc lĩnh vực tuyển dụng/giáo dục (`employment`), sử dụng ngôn ngữ chúc mừng trúng tuyển kèm lời mời đăng ký thông tin qua email/số điện thoại. DistilBERT (Conf=0,9995) và hai mô hình TextCNN (Conf >0,93) đều bị đánh lừa và dự đoán thành Smishing. Lý do là tin nhắn chứa đầy đủ các tín hiệu đặc trưng của smishing: brandname tự xưng ở đầu tin, lời chúc mừng trúng tuyển (reward incentive), yêu cầu để lại thông tin cá nhân (requested action), và thông tin liên hệ khẩn cấp. Chỉ CafeBERT (Conf=0,7409) nhận diện đúng nhãn Benign nhờ hiểu được ngữ cảnh tuyển sinh chính thức của trường đại học Việt Nam.
+
+#### Nhóm 4: Tin nhắn cá nhân chứa teencode phi chuẩn (Lỗi FP của hai mô hình TextCNN)
+Mẫu điển hình là `ViSmish_08060`: *"t cx muốn nuôi capybara!!!!!"*
+
+Đây là tin nhắn hội thoại cá nhân thông thường chứa chữ viết tắt ("t cx" - tớ cũng) và nhiều dấu chấm than biểu cảm mạnh. Cả CafeBERT và DistilBERT đều dự đoán đúng nhãn Benign với độ tin cậy tuyệt đối (>0,999). Tuy nhiên, TextCNN (Conf=0,8945) và TextCNN distilled (Conf=0,7560) lại nhầm tưởng là Smishing. Điều này phản ánh hạn chế lớn của mô hình ký tự: chúng rất dễ bị kích hoạt sai (trigger) bởi các cấu trúc viết tắt, teencode phi chuẩn hoặc các ký tự đặc biệt lặp lại, do chúng thiếu cơ chế tự chú ý toàn cục để hiểu ngữ cảnh ngữ nghĩa đời thường của câu nói.
+
+**Bảng 5.10: Danh sách các lỗi tiêu biểu của mô hình trên tập dev**
+
+| ID | Nhãn thực | Dự đoán (Độ tin cậy) | Lĩnh vực (Domain) | Nội dung tin nhắn (Rút gọn) | Đặc điểm và Nguyên nhân lỗi |
+| :--- | :---: | :--- | :---: | :--- | :--- |
+| **ViSmish_07960** | 1 | **Tất cả**: 0 (\(>0,96\)) | Đòi nợ | Nhan thay co hanh vi LOI DUNG TIN NHIEM, CHIEM DOAT TAI SAN. yc tt gap truoc 13g 16/2/2025... LH 0867256447 de giai quyet. | Tin nhắn Smishing đòi nợ dùng ngôn ngữ hành chính/pháp lý tự nhiên, không chứa liên kết URL, khiến toàn bộ các mô hình nhầm với tin nhắn hợp lệ. |
+| **ViSmish_04995** | 1 | **CafeBERT**: 0 (0,9994)<br>**DistilBERT**: 1 (0,9956)<br>**TextCNN**: 0 (0,9991)<br>**TextCNN distilled**: 0 (0,9778) | Tài chính | ACB CANH BAO SMS LUA DAO: Hien co thu doan SMS GIA MAO dau so ACB moi KH dang nhap link gia, cung cap USER, MAT KHAU, OTP... | Tin nhắn cảnh báo lừa đảo chứa các từ khóa nhạy cảm và URL giả mạo. Chỉ DistilBERT bắt được, các mô hình khác nhầm với tin nhắn cảnh báo bảo mật hợp lệ. |
+| **ViSmish_07545** | 0 | **CafeBERT**: 0 (0,7409)<br>**DistilBERT**: 1 (0,9995)<br>**TextCNN**: 1 (0,9536)<br>**TextCNN distilled**: 1 (0,9348) | Tuyển dụng | [ĐẠI HỌC NGOẠI THƯƠNG] CHÚC MỪNG EM ĐÃ ĐỦ ĐIỀU KIỆN TRÚNG TUYỂN... Để lại email để nhận hướng dẫn... SĐT/ZALO: 0906... | Tin nhắn tuyển sinh hợp lệ chứa cấu trúc thông báo trúng tuyển kèm đường dẫn đăng ký và thông tin liên hệ, khiến DistilBERT và TextCNN bị đánh lừa. |
+| **ViSmish_08060** | 0 | **CafeBERT**: 0 (0,9998)<br>**DistilBERT**: 0 (0,9992)<br>**TextCNN**: 1 (0,8945)<br>**TextCNN distilled**: 1 (0,7560) | Cá nhân | t cx muốn nuôi capybara!!!!! | Tin nhắn hội thoại cá nhân phi chuẩn (teencode, dấu chấm than kéo dài) bị các mô hình ký tự (TextCNN) cảnh báo sai do nhạy cảm quá mức với ký tự phi chuẩn ngoài ngữ cảnh. |
+
+Tóm lại, RQ3 chỉ ra rằng các vùng khó của bài toán Smishing không chỉ giới hạn ở các kỹ thuật cố tình che giấu từ vựng (obfuscation) của kẻ tấn công. Rào cản thực sự nằm ở các tin nhắn lừa đảo không chứa liên kết URL sử dụng văn phong đòi nợ pháp lý, các tin nhắn lừa đảo mạo danh cấu trúc tin cảnh báo bảo mật chính thống, hoặc ngược lại là các tin nhắn hợp lệ (tuyển sinh, hội thảo, cá nhân teencode) có chứa các đặc trưng bề mặt gần giống với tin nhắn lừa đảo. Định hướng cải thiện tiếp theo nên tập trung vào việc bổ sung các ví dụ cực khó (hard negatives và hard positives) vào tập huấn luyện để giúp mô hình tinh chỉnh ranh giới phân biệt ngữ nghĩa sâu thay vì dựa trên các đặc trưng bề mặt.

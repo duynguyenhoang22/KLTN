@@ -13,8 +13,9 @@ Mối quan hệ giữa loại hình lừa đảo và chiến thuật tâm lý đ
   * **Public Service (Dịch vụ công)**: Lạm dụng chiến thuật `authority` (25,1%) nhằm giả danh cơ quan nhà nước, cơ quan thuế, công an; kết hợp với `urgency` (33,4%) - yêu cầu cập nhật định danh điện tử, quyết định phạt nguội khẩn cấp.
 
 * **Kiểm định Thống kê (Chi-square Test)**:
-  * Chi2 value: 8987.46
-  * p-value: 0.00e+00 (Cực kỳ có ý nghĩa thống kê, chứng minh sự liên kết chặt chẽ giữa kịch bản lừa đảo và chiến thuật thao túng tâm lý).
+  * Chi2 value: 13908.27
+  * p-value: 0.0 (Xấp xỉ bằng 0 do hiện tượng tràn số dưới (floating-point underflow) khi độ lệch quan sát vượt quá 783 độ lệch chuẩn so với giá trị trung bình kỳ vọng của giả thuyết H0).
+  * Degrees of freedom (dof): 154
 
 * **Biểu đồ trực quan**:
   ![Domain vs Tactics Heatmap](docs\analysis_png\domain_action_heatmap.png)
@@ -30,8 +31,9 @@ Lát cắt này chỉ ra hành động cụ thể mà kẻ tấn công muốn n�
   * **Chuyển kênh giao tiếp (`contact_off_platform`)**: Chiếm tỷ lệ cao trong các domain `adult_service`, `employment` và `personal_social`. Kẻ lừa đảo hướng nạn nhân kết bạn Zalo hoặc Telegram để tiếp tục các kịch bản lừa đảo phức tạp hơn mà không bị hệ thống viễn thông quét SMS.
 
 * **Kiểm định Thống kê (Chi-square Test)**:
-  * Chi2 value: 7794.78
-  * p-value: 0.00e+00 (Có ý nghĩa thống kê, hành động yêu cầu được tùy biến theo từng loại hình lừa đảo).
+  * Chi2 value: 8496.25
+  * p-value: 0.0 (Xấp xỉ bằng 0 do hiện tượng tràn số dưới khi độ lệch quan sát vượt quá 435 độ lệch chuẩn so với giá trị trung bình kỳ vọng của giả thuyết H0).
+  * Degrees of freedom (dof): 182
 
 * **Biểu đồ trực quan**:
   ![Domain vs Actions Heatmap](docs\analysis_png\domain_action_heatmap.png)

@@ -1,0 +1,16 @@
+{
+  "teacher": "CafeBERT",
+  "seeds": [
+    42,
+    123,
+    2025
+  ],
+  "bootstrap_samples": 2000,
+  "bootstrap_seed": 2026,
+  "success_gate": {
+    "recall_label_1_mean_delta_min": 0.03,
+    "macro_f1_mean_delta_floor": -0.01,
+    "positive_seed_min": 2,
+    "risk_aware_should_outperform_vanilla_on_target_metric": true
+  }
+}

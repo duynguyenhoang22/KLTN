@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-06-23T03:35:39.269920+00:00",
+  "batch_index": 227,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "ViSmish_08791",
+      "ViSmish_08792",
+      "ViSmish_08793",
+      "ViSmish_08794",
+      "ViSmish_08795",
+      "ViSmish_08796",
+      "ViSmish_08797",
+      "ViSmish_08798"
+    ],
+    "prompt_sha256": "78a58e04604dc8bc9b39b929a748f576173a513eca9ca98e48b1cb24618ed56d"
+  },
+  "validation_errors": [
+    "ViSmish_08794: persuasion_tactics: invalid values ['call_phone']"
+  ],
+  "provider_response": {
+    "id": "9d954eda3bf9437ab47c29392c7019fa",
+    "created": 1782185725,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6515,
+      "total_tokens": 8771,
+      "completion_tokens": 2256,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"ViSmish_08791\",\n      \"message_domain\": \"telecom\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"diacritic_omission\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quy khach\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"link_lure\", \"reward_incentive\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"Truy cap https://vtmoney.onelink.me/314y/loyalty\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08792\",\n      \"message_domain\": \"healthcare\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"none\"],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"patient\"],\n        \"evidence\": [\"Benh nhan Nguyen An Nhien\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08793\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Tài khoản thư viện của bạn\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"Nhấn ngay: tvpl-dk24h.com\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08794\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"diacritic_omission\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Thong bao QK\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"call_phone\"],\n      \"requested_actions\": {\n        \"types\": [\"call_phone\"],\n        \"evidence\": [\"Lien he so 18009068\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08795\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"diacritic_omission\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"unknown\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08796\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"teencode\", \"diacritic_omission\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"male\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"em đang tìm kiếm một người bạn gái dễ thương\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"off_platform_contact\"],\n      \"requested_actions\": {\n        \"types\": [\"contact_off_platform\"],\n        \"evidence\": [\"Liên hệ mình qua Zalo: 0396xxx888\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08797\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Ông/Bà đã đủ điều kiện NHẬN TIỀN\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"Truy cập ngay mhtr.vn/g0i-tien\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08798\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"diacritic_omission\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"unknown\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

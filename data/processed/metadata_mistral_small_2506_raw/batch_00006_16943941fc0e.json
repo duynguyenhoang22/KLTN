@@ -1,0 +1,49 @@
+{
+  "created_at": "2026-06-23T02:36:42.069346+00:00",
+  "batch_index": 6,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "ViSmish_07023",
+      "ViSmish_07024",
+      "ViSmish_07025",
+      "ViSmish_07026",
+      "ViSmish_07027",
+      "ViSmish_07028",
+      "ViSmish_07029",
+      "ViSmish_07030"
+    ],
+    "prompt_sha256": "fdb1532e6294d37b84a8886cb8d3cf70bbabf81b4c9523ad5557366bf2ffcda6"
+  },
+  "validation_errors": [
+    "ViSmish_07028: specific target audience requires evidence",
+    "ViSmish_07029: specific target audience requires evidence"
+  ],
+  "provider_response": {
+    "id": "05c100f887bc4214941a321f00482b70",
+    "created": 1782182188,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6781,
+      "total_tokens": 8995,
+      "completion_tokens": 2214,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"ViSmish_07023\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"diacritic_omission\", \"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quy khach\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07024\",\n      \"message_domain\": \"telecom\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"diacritic_omission\", \"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quy khach\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"scarcity\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"reply_message\", \"call_phone\"],\n        \"evidence\": [\"soạn TC1 gửi 199\", \"LH 198\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07025\",\n      \"message_domain\": \"healthcare\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"diacritic_omission\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"male\",\n        \"roles\": [\"patient\"],\n        \"evidence\": [\"Quy khach Nguyen Hoang Nam\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"visit_physical_location\"],\n        \"evidence\": [\"Moi Quy khach den lay ket qua\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07026\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"Nguoi nop thue\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"authority\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07027\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quy khach\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07028\",\n      \"message_domain\": \"commerce\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"none\"],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"scarcity\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"Chi tiết tại kfc.com.vn\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07029\",\n      \"message_domain\": \"commerce\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"none\"],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"scarcity\"],\n      \"requested_actions\": {\n        \"types\": [\"reply_message\"],\n        \"evidence\": [\"Soan TC gui 8079 de tu choi QC\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07030\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"authority\", \"urgency\"],\n      \"requested_actions\": {\n        \"types\": [\"call_phone\"],\n        \"evidence\": [\"gọi ngay 114\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-06-23T02:47:39.326769+00:00",
+  "batch_index": 48,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "ViSmish_07359",
+      "ViSmish_07360",
+      "ViSmish_07361",
+      "ViSmish_07362",
+      "ViSmish_07363",
+      "ViSmish_07364",
+      "ViSmish_07365",
+      "ViSmish_07366"
+    ],
+    "prompt_sha256": "883728bf9f56e4f0aea4c930e1e2dfc069a5acbe7a6272ace1bd55c9aebaa9f1"
+  },
+  "validation_errors": [
+    "ViSmish_07364: specific target audience requires evidence"
+  ],
+  "provider_response": {
+    "id": "bf12e56d87f1430c89bfc785ec37b8f7",
+    "created": 1782182837,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6683,
+      "total_tokens": 8934,
+      "completion_tokens": 2251,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"ViSmish_07359\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"teencode\", \"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"male\",\n        \"roles\": [\"unknown\"],\n        \"evidence\": [\"Khang\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"contact_off_platform\"],\n        \"evidence\": [\"Nhắn qua zalo <PHONE_1> nha.\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07360\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"tìm người bạn tâm giao\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"link_lure\", \"off_platform_contact\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"https://t.me/hn_xucxich_x1\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07361\",\n      \"message_domain\": \"telecom\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quý khách\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"scarcity\", \"urgency\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"https://my.vnpt.com.vn/adv/napthe\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07362\",\n      \"message_domain\": \"telecom\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quý khách\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"scarcity\", \"urgency\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"https://km.vnptmoney.vn/NgayVang\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07363\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"teencode\", \"abbreviation\", \"natural_typo\"],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"unknown\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07364\",\n      \"message_domain\": \"commerce\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"scarcity\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07365\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"VIB\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07366\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"teencode\", \"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"female\",\n        \"roles\": [\"debtor\"],\n        \"evidence\": [\"Trang\", \"Khang\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"transfer_money\"],\n        \"evidence\": [\"mượn tạm 10 triệu vào MB Bank 68686868\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

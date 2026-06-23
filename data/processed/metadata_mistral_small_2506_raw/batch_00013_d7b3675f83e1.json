@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-06-23T04:49:40.174417+00:00",
+  "batch_index": 13,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "ViSmish_07951",
+      "ViSmish_07952",
+      "ViSmish_07953",
+      "ViSmish_07954",
+      "ViSmish_07955",
+      "ViSmish_07956",
+      "ViSmish_07957",
+      "ViSmish_07958"
+    ],
+    "prompt_sha256": "b18849756f5c37d36c6be9fc5025974c12cf91f3b9ac218160e20b5604754e3d"
+  },
+  "validation_errors": [
+    "ViSmish_07954: specific target audience requires evidence"
+  ],
+  "provider_response": {
+    "id": "86b7ec6b002b4b639d8d3ca227d01b5c",
+    "created": 1782190166,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6588,
+      "total_tokens": 8770,
+      "completion_tokens": 2182,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"ViSmish_07951\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"diacritic_omission\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"female\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"chi Linh\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07952\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"QK\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"call_phone\"],\n        \"evidence\": [\"Lien he so BH-LD/2025/001\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07953\",\n      \"message_domain\": \"other\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"teencode\"],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07954\",\n      \"message_domain\": \"gambling\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"scarcity\", \"link_lure\", \"off_platform_contact\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\", \"contact_off_platform\"],\n        \"evidence\": [\"w88vip2.com\", \"Zalo <PHONE_1>\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07955\",\n      \"message_domain\": \"commerce\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"diacritic_omission\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"ban\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07956\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"OCB\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07957\",\n      \"message_domain\": \"healthcare\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"diacritic_omission\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"ban\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"call_phone\"],\n        \"evidence\": [\"LH <PHONE_1>\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07958\",\n      \"message_domain\": \"employment\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"student\"],\n        \"evidence\": [\"Mon Lap trinh huong doi tuong(IT002.N211)\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"call_phone\"],\n        \"evidence\": [\"(028) 372 52002\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

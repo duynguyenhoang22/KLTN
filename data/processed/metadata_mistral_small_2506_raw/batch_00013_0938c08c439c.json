@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-06-23T05:06:51.388102+00:00",
+  "batch_index": 13,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "ViSmish_08943",
+      "ViSmish_08944",
+      "ViSmish_08945",
+      "ViSmish_08946",
+      "ViSmish_08947",
+      "ViSmish_08948",
+      "ViSmish_08949",
+      "ViSmish_08950"
+    ],
+    "prompt_sha256": "e4be1716ef77aa0b833760e64bce124f55d0a65128ae304b32117905f1c89990"
+  },
+  "validation_errors": [
+    "ViSmish_08950: specific target audience requires evidence"
+  ],
+  "provider_response": {
+    "id": "76707b330cd642a0a269c41adaa227b1",
+    "created": 1782191195,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6696,
+      "total_tokens": 8971,
+      "completion_tokens": 2275,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"ViSmish_08943\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quý khách\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"link_lure\", \"authority\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"Truy cập ngay: 1234.abc.com\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08944\",\n      \"message_domain\": \"telecom\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quý khách\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"scarcity\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\", \"call_phone\"],\n        \"evidence\": [\"tại https://viettel.vn/naptienkm\", \"gọi 198 bấm phím 8\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08945\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"teencode\"],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"unknown\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08946\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quý khách\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"authority\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"hoantheugtgt.com\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08947\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"diacritic_omission\", \"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Ban\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"link_lure\", \"authority\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"bhxh-gia-mao2024.com\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08948\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quý khách\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"fear\", \"link_lure\", \"authority\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"acbbank.xyz\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08949\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"bạn\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"fear\", \"link_lure\", \"authority\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"vcb-kiemtra.net\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_08950\",\n      \"message_domain\": \"commerce\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"scarcity\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"zalopay.vn\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

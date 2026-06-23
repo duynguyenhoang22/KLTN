@@ -1,0 +1,50 @@
+{
+  "created_at": "2026-06-23T04:47:44.162344+00:00",
+  "batch_index": 5,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "ViSmish_07247",
+      "ViSmish_07248",
+      "ViSmish_07249",
+      "ViSmish_07250",
+      "ViSmish_07251",
+      "ViSmish_07252",
+      "ViSmish_07253",
+      "ViSmish_07254"
+    ],
+    "prompt_sha256": "8203e5ebff881054b1cf7efea83afa1c6d4c9db39da84c7c87348b57b157f724"
+  },
+  "validation_errors": [
+    "ViSmish_07250: specific target audience requires evidence",
+    "ViSmish_07251: specific target audience requires evidence",
+    "ViSmish_07254: specific target audience requires evidence"
+  ],
+  "provider_response": {
+    "id": "c075a13d23a2438ab2201e4c7b5a2f59",
+    "created": 1782190049,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6678,
+      "total_tokens": 8912,
+      "completion_tokens": 2234,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"ViSmish_07247\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quý khách\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"link.bomnha.com\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07248\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"authority\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07249\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"diacritic_omission\", \"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quy khach\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\"],\n      \"requested_actions\": {\n        \"types\": [\"make_payment\"],\n        \"evidence\": [\"thanh toan qua ung dung eTax Mobile\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07250\",\n      \"message_domain\": \"telecom\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"scarcity\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"https://myvnpt.com.vn/cuocM0\", \"https://digishop.vnpt.vn/\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07251\",\n      \"message_domain\": \"gambling\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"urgency\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"m98win.biz\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07252\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"UBND tỉnh\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"authority\", \"urgency\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"ubnd-phamlo.gov.vn\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07253\",\n      \"message_domain\": \"healthcare\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"none\"],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"ban\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07254\",\n      \"message_domain\": \"gambling\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"urgency\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"king88.app/8xYq\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

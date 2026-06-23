@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-06-23T02:47:16.215247+00:00",
+  "batch_index": 47,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "ViSmish_07351",
+      "ViSmish_07352",
+      "ViSmish_07353",
+      "ViSmish_07354",
+      "ViSmish_07355",
+      "ViSmish_07356",
+      "ViSmish_07357",
+      "ViSmish_07358"
+    ],
+    "prompt_sha256": "08e76df70d800f6e6ba26968ccdb4bd5ecf40878ab61c8405601cf746f4c224d"
+  },
+  "validation_errors": [
+    "ViSmish_07357: specific target audience requires evidence"
+  ],
+  "provider_response": {
+    "id": "2ad91219951a45d08ea5271cdc4e6601",
+    "created": 1782182815,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6565,
+      "total_tokens": 8794,
+      "completion_tokens": 2229,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"ViSmish_07351\",\n      \"message_domain\": \"debt_collection\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"irregular_casing\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"debtor\"],\n        \"evidence\": [\"Bên B\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"threat\", \"authority\"],\n      \"requested_actions\": {\n        \"types\": [\"make_payment\"],\n        \"evidence\": [\"thanh toán khoản nợ\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07352\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"teencode\", \"character_substitution\"],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"male\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"Anh Z\"]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\"character_substitution\"],\n        \"severity\": 1,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\"off_platform_contact\"],\n      \"requested_actions\": {\n        \"types\": [\"contact_off_platform\"],\n        \"evidence\": [\"Mời cậu vào phòng kín HN\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07353\",\n      \"message_domain\": \"unknown\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"diacritic_omission\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.5,\n        \"surface_features\": 1.0,\n        \"target_audience\": 0.5,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": [\"ambiguous_domain\"]\n    },\n    {\n      \"sample_id\": \"ViSmish_07354\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"SHB\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07355\",\n      \"message_domain\": \"employment\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"all\",\n        \"roles\": [\"job_seeker\"],\n        \"evidence\": [\"tuyển dụng vị trí cộng tác viên bán thời gian\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"link_lure\", \"off_platform_contact\"],\n      \"requested_actions\": {\n        \"types\": [\"contact_off_platform\"],\n        \"evidence\": [\"Liên hệ ngay qua Zalo\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07356\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"teencode\", \"natural_typo\"],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"bà ella\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.8,\n        \"surface_features\": 0.8,\n        \"target_audience\": 0.8,\n        \"obfuscation\": 0.8,\n        \"persuasion_tactics\": 0.8,\n        \"requested_actions\": 0.8\n      },\n      \"review_flags\": [\"unreadable_content\"]\n    },\n    {\n      \"sample_id\": \"ViSmish_07357\",\n      \"message_domain\": \"gambling\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"character_substitution\", \"punctuation_insertion\"],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\"character_substitution\", \"punctuation_insertion\"],\n        \"severity\": 2,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\"reward_incentive\", \"scarcity\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"Tham gia nhan thuong tai t.ly/HBQ_l\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"ViSmish_07358\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Techcombank\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

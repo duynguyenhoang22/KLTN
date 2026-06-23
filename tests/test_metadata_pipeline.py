@@ -1,9 +1,8 @@
-from pathlib import Path
-
 from vismishds.metadata_pipeline import (
     PreparedRecord,
     build_request_preview,
     validate_batch_response,
+    sanitize_response_items,
 )
 
 
@@ -76,3 +75,53 @@ def test_response_validation_checks_ids() -> None:
     assert validate_batch_response(valid, ["x1"]) == []
     errors = validate_batch_response(valid, ["x2"])
     assert any("sample_id mismatch" in error for error in errors)
+
+
+def test_sanitize_response_items() -> None:
+    invalid = {
+        "items": [{
+            "sample_id": "x1",
+            "message_domain": "invalid_domain",
+            "surface_features": {
+                "text_phenomena": ["invalid_pheno"],
+                "text_noise_score": 10,
+            },
+            "target_audience": {
+                "age_groups": ["adolescent"],  # specific, requires evidence
+                "gender": "all",
+                "roles": ["parent"],  # invalid role
+                "evidence": [],
+            },
+            "obfuscation": {
+                "present": True,
+                "techniques": [],
+                "severity": 0,
+                "confidence": 1.5,
+            },
+            "persuasion_tactics": ["none", "urgency"],  # none must be exclusive
+            "requested_actions": {
+                "types": ["click_or_visit_link"],
+                "evidence": [],  # specific, requires evidence
+            },
+            "field_confidence": {},
+        }]
+    }
+    
+    batch = [sample_record()]
+    sanitize_response_items(invalid, batch)
+    
+    item = invalid["items"][0]
+    assert item["message_domain"] == "other"
+    assert item["surface_features"]["text_phenomena"] == ["none"]
+    assert item["surface_features"]["text_noise_score"] == 0
+    assert item["target_audience"]["roles"] == ["other"]
+    assert len(item["target_audience"]["evidence"]) > 0
+    assert item["obfuscation"]["present"] is False
+    assert item["obfuscation"]["techniques"] == []
+    assert item["obfuscation"]["severity"] == 0
+    assert item["obfuscation"]["confidence"] == 0.5
+    assert item["persuasion_tactics"] == ["urgency"]
+    assert item["requested_actions"]["types"] == ["click_or_visit_link"]
+    assert len(item["requested_actions"]["evidence"]) > 0
+    assert "message_domain" in item["field_confidence"]
+

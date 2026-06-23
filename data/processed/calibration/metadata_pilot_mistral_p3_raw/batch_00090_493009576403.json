@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:56:04.121753+00:00",
+  "batch_index": 90,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_08420"
+    ],
+    "prompt_sha256": "687bca9fb62bc766f8d9c6d714aef74bfcd709c1f9b48feac3c1633827c874c0"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "63582fb5aaf445e0af41b3110017f6ac",
+    "created": 1782158157,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6032,
+      "total_tokens": 6366,
+      "completion_tokens": 334,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\"items\": [{\"sample_id\": \"phase1_08420\", \"message_domain\": \"adult_service\", \"surface_features\": {\"text_phenomena\": [\"punctuation_insertion\", \"whitespace_splitting\", \"word_concatenation\", \"irregular_spacing\", \"irregular_casing\"], \"text_noise_score\": 3}, \"target_audience\": {\"age_groups\": [\"adult\"], \"gender\": \"male\", \"roles\": [\"general_public\"], \"evidence\": [\"HCM – Telegram: https://t.me/hcm_cute_sv\"]}, \"obfuscation\": {\"present\": true, \"techniques\": [\"punctuation_insertion\", \"whitespace_splitting\", \"word_concatenation\", \"irregular_spacing\", \"irregular_casing\"], \"severity\": 3, \"confidence\": 0.9}, \"persuasion_tactics\": [\"link_lure\", \"off_platform_contact\"], \"requested_actions\": {\"types\": [\"click_or_visit_link\", \"contact_off_platform\"], \"evidence\": [\"https://t.me/hcm_cute_sv\"]}, \"field_confidence\": {\"message_domain\": 0.9, \"surface_features\": 0.9, \"target_audience\": 0.9, \"obfuscation\": 0.9, \"persuasion_tactics\": 0.9, \"requested_actions\": 0.9}, \"review_flags\": [\"obfuscation_intent_uncertain\"]}]}"
+        }
+      }
+    ]
+  }
+}

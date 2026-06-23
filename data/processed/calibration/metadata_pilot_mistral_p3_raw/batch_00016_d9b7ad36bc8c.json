@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:52:35.373321+00:00",
+  "batch_index": 16,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02302"
+    ],
+    "prompt_sha256": "0b0d3b38642d5bbc48e9d0f5a3401b9dc70a5581ca1b531206eb75b8b6f64eee"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "a480eb46bd7c4e1bb0ff2fba170783b2",
+    "created": 1782157952,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6111,
+      "total_tokens": 6441,
+      "completion_tokens": 330,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_02302\",\n      \"message_domain\": \"telecom\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"diacritic_omission\",\n          \"abbreviation\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"customer\"\n        ],\n        \"evidence\": [\n          \"Quy khach\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"urgency\",\n        \"scarcity\",\n        \"link_lure\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\"\n        ],\n        \"evidence\": [\n          \"https://vnptpay.vn/bill/\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

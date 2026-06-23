@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:54:26.791856+00:00",
+  "batch_index": 58,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02405"
+    ],
+    "prompt_sha256": "fe83d7d6e38f9c491704685a6f9ddcbd3c91a74b7deb50321a4551b9ebf0dc02"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "e72ddc665a80416e880d3ced18b8d93b",
+    "created": 1782158064,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6066,
+      "total_tokens": 6416,
+      "completion_tokens": 350,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_02405\",\n      \"message_domain\": \"commerce\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"diacritic_omission\",\n          \"abbreviation\",\n          \"character_substitution\"\n        ],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"customer\"\n        ],\n        \"evidence\": [\n          \"SHR, XD ngay\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"character_substitution\"\n        ],\n        \"severity\": 1,\n        \"confidence\": 0.8\n      },\n      \"persuasion_tactics\": [\n        \"urgency\",\n        \"scarcity\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"call_phone\"\n        ],\n        \"evidence\": [\n          \"LH: <PHONE_1>\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.8,\n        \"obfuscation\": 0.8,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\n        \"obfuscation_intent_uncertain\"\n      ]\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:53:43.041143+00:00",
+  "batch_index": 42,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02790"
+    ],
+    "prompt_sha256": "f0159c5bee4deb58b3e8d5219fc131fa8c41f665e95d6bcc9fc3ae095b3740c7"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "7bafb2ecc9634866965e95709ec43da7",
+    "created": 1782158021,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6039,
+      "total_tokens": 6268,
+      "completion_tokens": 229,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\"items\": [{\"sample_id\": \"phase1_02790\", \"message_domain\": \"logistics\", \"surface_features\": {\"text_phenomena\": [\"abbreviation\"], \"text_noise_score\": 1}, \"target_audience\": {\"age_groups\": [\"general\"], \"gender\": \"all\", \"roles\": [\"customer\"], \"evidence\": [\"Don hang VTP882736451\"]}, \"obfuscation\": {\"present\": false, \"techniques\": [], \"severity\": 0, \"confidence\": 1.0}, \"persuasion_tactics\": [\"none\"], \"requested_actions\": {\"types\": [\"none\"], \"evidence\": []}, \"field_confidence\": {\"message_domain\": 1.0, \"surface_features\": 1.0, \"target_audience\": 1.0, \"obfuscation\": 1.0, \"persuasion_tactics\": 1.0, \"requested_actions\": 1.0}, \"review_flags\": []}]}"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-06-22T18:28:16.366109+00:00",
+  "batch_index": 14,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02368",
+      "phase1_02348",
+      "phase1_02457",
+      "phase1_02462"
+    ],
+    "prompt_sha256": "3b0102718fefa374f3469c0c5e07795a431659202fdea59b1dfaf0ad9b9fb555"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "f62b02bc07f24dc49c13057ce44f31bc",
+    "created": 1782152886,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 4110,
+      "total_tokens": 5389,
+      "completion_tokens": 1279,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_02368\",\n      \"message_domain\": \"unknown\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\",\n          \"irregular_casing\",\n          \"character_repetition\"\n        ],\n        \"text_noise_score\": 4\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\",\n          \"irregular_casing\",\n          \"character_repetition\"\n        ],\n        \"severity\": 4,\n        \"confidence\": 0.8\n      },\n      \"persuasion_tactics\": [],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.5,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.8,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\"unreadable_content\"]\n    },\n    {\n      \"sample_id\": \"phase1_02348\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"Chào chị\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"authority\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"install_application\",\n          \"reply_message\"\n        ],\n        \"evidence\": [\n          \"truy cập và tải app của Cơ quan tại link: thuedientuu.vn\",\n          \"hãy phản hồi lại tin nhắn này\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 1.0,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_02457\",\n      \"message_domain\": \"commerce\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"tài khoản Shopee của quý khách\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"reward_incentive\",\n        \"urgency\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"provide_personal_information\"\n        ],\n        \"evidence\": [\n          \"Truy cập ngay (https://shopee.vn-trangchu.click/messenger/)\",\n          \"xác nhận liên kết tài khoản ngân hàng\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 1.0,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_02462\",\n      \"message_domain\": \"marketing_promotion\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"authority\",\n        \"threat\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"contact_off_platform\"\n        ],\n        \"evidence\": [\n          \"liên hệ: Email: <EMAIL_1>\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 1.0,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

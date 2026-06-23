@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:54:53.058970+00:00",
+  "batch_index": 66,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02445"
+    ],
+    "prompt_sha256": "d0bf28e8f5ead2246f6df93743c79c07edf20763e72df12bf01023fe3ba56810"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "b76cbbcb6bd540bbb29d3d71e8f13a28",
+    "created": 1782158090,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6174,
+      "total_tokens": 6563,
+      "completion_tokens": 389,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_02445\",\n      \"message_domain\": \"marketing_promotion\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"abbreviation\",\n          \"irregular_casing\",\n          \"whitespace_splitting\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"customer\"\n        ],\n        \"evidence\": [\n          \"khách hàng\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"whitespace_splitting\"\n        ],\n        \"severity\": 1,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"reward_incentive\",\n        \"link_lure\",\n        \"scarcity\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"call_phone\"\n        ],\n        \"evidence\": [\n          \"truy cập vào trang địa chỉ website: TraoThuongQuy3.Com\",\n          \"Tổng đài CSKH: [(08) 9921 4440]\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

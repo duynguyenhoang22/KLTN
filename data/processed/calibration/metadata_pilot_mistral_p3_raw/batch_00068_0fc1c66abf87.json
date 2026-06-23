@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:54:58.294946+00:00",
+  "batch_index": 68,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02439"
+    ],
+    "prompt_sha256": "540af1f1cbe8745ffe7761c5bff4b8616eef9437b72547856cf2deb7f8ff1eb8"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "2618a49744cc45f2910fd35b5c986927",
+    "created": 1782158095,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6085,
+      "total_tokens": 6404,
+      "completion_tokens": 319,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_02439\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"diacritic_omission\",\n          \"abbreviation\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"unknown\"\n        ],\n        \"gender\": \"unknown\",\n        \"roles\": [\n          \"customer\"\n        ],\n        \"evidence\": [\n          \"anh chị\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"payment_request\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"transfer_money\"\n        ],\n        \"evidence\": [\n          \"chuyển số tiền cần nạp vào tài khoản này\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:53:15.884714+00:00",
+  "batch_index": 31,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_05015"
+    ],
+    "prompt_sha256": "42154f188e1d107806acb809f5d9018f079ad7deb2947b57223bc14c03ab0d3e"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "c6ffde64831a4c6081056356a4290967",
+    "created": 1782157993,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6045,
+      "total_tokens": 6275,
+      "completion_tokens": 230,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\"items\": [{\"sample_id\": \"phase1_05015\", \"message_domain\": \"commerce\", \"surface_features\": {\"text_phenomena\": [\"none\"], \"text_noise_score\": 0}, \"target_audience\": {\"age_groups\": [\"general\"], \"gender\": \"all\", \"roles\": [\"customer\"], \"evidence\": [\"Don hang #240315QWERTYU cua ban\"]}, \"obfuscation\": {\"present\": false, \"techniques\": [], \"severity\": 0, \"confidence\": 1.0}, \"persuasion_tactics\": [\"none\"], \"requested_actions\": {\"types\": [\"none\"], \"evidence\": []}, \"field_confidence\": {\"message_domain\": 1.0, \"surface_features\": 1.0, \"target_audience\": 1.0, \"obfuscation\": 1.0, \"persuasion_tactics\": 1.0, \"requested_actions\": 1.0}, \"review_flags\": []}]}"
+        }
+      }
+    ]
+  }
+}

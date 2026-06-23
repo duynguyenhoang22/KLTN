@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-06-22T04:54:04.137969+00:00",
+  "batch_index": 13,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p1",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_08243",
+      "phase1_07779",
+      "phase1_06441",
+      "phase1_08267"
+    ],
+    "prompt_sha256": "caecf61f01f95e59983e6580de1a0e9609f30e1c8931a43dbe4cb26a5ead11e6"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "29d2f9f896a64cc888fc63b80f30a917",
+    "created": 1782104243,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 1983,
+      "total_tokens": 3462,
+      "completion_tokens": 1479,
+      "prompt_tokens_details": {
+        "cached_tokens": 356
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_08243\",\n      \"message_domain\": \"marketing_promotion\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"diacritic_omission\",\n          \"character_substitution\",\n          \"punctuation_insertion\",\n          \"whitespace_splitting\"\n        ],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"adult\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"student\"\n        ],\n        \"evidence\": [\n          \"E_s!nh_v!en_m0i_l3n_cAn_t!en_tr@_ph0ng_HN\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"character_substitution\",\n          \"punctuation_insertion\",\n          \"whitespace_splitting\"\n        ],\n        \"severity\": 2,\n        \"confidence\": 0.8\n      },\n      \"persuasion_tactics\": [\n        \"link_lure\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\"\n        ],\n        \"evidence\": [\n          \"zalo.me/g/hanoi_sv_2k\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.7,\n        \"obfuscation\": 0.8,\n        \"persuasion_tactics\": 0.8,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_07779\",\n      \"message_domain\": \"marketing_promotion\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"irregular_spacing\"\n        ],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"adult\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"general_public\"\n        ],\n        \"evidence\": [\n          \"P;G,@!_x:1,n,h_m;0,1\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"irregular_spacing\"\n        ],\n        \"severity\": 2,\n        \"confidence\": 0.8\n      },\n      \"persuasion_tactics\": [\n        \"link_lure\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\"\n        ],\n        \"evidence\": [\n          \"t.ly/hn_pg_club\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.7,\n        \"obfuscation\": 0.8,\n        \"persuasion_tactics\": 0.8,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_06441\",\n      \"message_domain\": \"marketing_promotion\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"diacritic_omission\",\n          \"teencode\",\n          \"character_substitution\",\n          \"whitespace_splitting\"\n        ],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"adult\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"general_public\"\n        ],\n        \"evidence\": [\n          \"B4n m-u-0-n nh4n l-u-0ng 500k n-g-4-y kh0ng\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"character_substitution\",\n          \"whitespace_splitting\"\n        ],\n        \"severity\": 2,\n        \"confidence\": 0.8\n      },\n      \"persuasion_tactics\": [\n        \"reward_incentive\",\n        \"link_lure\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\"\n        ],\n        \"evidence\": [\n          \"t.me/nhiemvu_easy\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.7,\n        \"obfuscation\": 0.8,\n        \"persuasion_tactics\": 0.8,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_08267\",\n      \"message_domain\": \"marketing_promotion\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"whitespace_splitting\",\n          \"irregular_spacing\"\n        ],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"adult\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"general_public\"\n        ],\n        \"evidence\": [\n          \"S-u-g-a-r-b-a-b-y-H-C-M-c-a-n-t-i-m-d-a-d-d-y-c-h-u-d-a-o\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"whitespace_splitting\",\n          \"irregular_spacing\"\n        ],\n        \"severity\": 1,\n        \"confidence\": 0.7\n      },\n      \"persuasion_tactics\": [\n        \"link_lure\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\"\n        ],\n        \"evidence\": [\n          \"t.me/hcm_sugar_baby\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.7,\n        \"obfuscation\": 0.7,\n        \"persuasion_tactics\": 0.8,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

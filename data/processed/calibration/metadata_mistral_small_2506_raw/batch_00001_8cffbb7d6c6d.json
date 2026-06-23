@@ -1,0 +1,53 @@
+{
+  "created_at": "2026-06-22T17:15:30.523433+00:00",
+  "batch_index": 1,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p1",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_00001",
+      "phase1_00002",
+      "phase1_00003",
+      "phase1_00004",
+      "phase1_00005",
+      "phase1_00006",
+      "phase1_00007",
+      "phase1_00008"
+    ],
+    "prompt_sha256": "4a8d3482aeb781312c929707b30f1d00dd1eb089f500f95a7d255f3a6c8f58d8"
+  },
+  "validation_errors": [
+    "phase1_00001: specific target audience requires evidence",
+    "phase1_00002: specific target audience requires evidence",
+    "phase1_00003: specific target audience requires evidence",
+    "phase1_00004: specific target audience requires evidence",
+    "phase1_00005: specific target audience requires evidence",
+    "phase1_00006: specific target audience requires evidence"
+  ],
+  "provider_response": {
+    "id": "5cfd54d7a69b4ca5b2799c11b49a6d79",
+    "created": 1782148513,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 3332,
+      "total_tokens": 5399,
+      "completion_tokens": 2067,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_00001\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 0.5,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_00002\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"teencode\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 0.5,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_00003\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 0.5,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_00004\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 0.5,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_00005\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"natural_typo\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 0.5,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_00006\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"lang_switching\"],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [],\n      \"requested_actions\": {\n        \"types\": [\"call_phone\"],\n        \"evidence\": [\"Goi lai vao so <PHONE_1>\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 0.5,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_00007\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"MA otp dang nhap cua ban la 7GJ9VI\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [\"urgency\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 1,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_00008\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"punctuation_insertion\"],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Ai do dang co truy cap tai khoan VPBank Online cua quy khach tren thiet bi/trinh duyet la\", \"Neu khong phai QK, DOI MAT KHAU de tranh bi MAT TIEN\", \"Neu la QK, nhap ma bao mat 534367 de tiep tuc\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [\"urgency\", \"fear\", \"threat\"],\n      \"requested_actions\": {\n        \"types\": [\"call_phone\"],\n        \"evidence\": [\"LH 1900545415\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 1,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

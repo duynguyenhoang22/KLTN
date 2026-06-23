@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:55:12.488685+00:00",
+  "batch_index": 73,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02399"
+    ],
+    "prompt_sha256": "5771f999e283a7a344c50c6e1160f25dd668a5203e3435256e444e250950e560"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "4d94589ba2e0468cb2a2f942c421b221",
+    "created": 1782158109,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6052,
+      "total_tokens": 6393,
+      "completion_tokens": 341,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_02399\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"abbreviation\",\n          \"whitespace_splitting\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"customer\"\n        ],\n        \"evidence\": [\n          \"Cung Cap Cac Loai Giay To Khac CCCD,Bang DH,Cdang,TCap\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"reward_incentive\",\n        \"off_platform_contact\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"call_phone\"\n        ],\n        \"evidence\": [\n          \"LH <PHONE_1>\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

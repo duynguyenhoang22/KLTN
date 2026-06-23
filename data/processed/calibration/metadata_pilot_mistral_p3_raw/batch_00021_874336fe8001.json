@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:52:49.030432+00:00",
+  "batch_index": 21,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_01719"
+    ],
+    "prompt_sha256": "08ee9120caacb70d0026ac8887e6db966d83c35b9d48ed6d7918f04a916ee05e"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "6168702a9501490f90031ec14628501b",
+    "created": 1782157966,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6054,
+      "total_tokens": 6342,
+      "completion_tokens": 288,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_01719\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"abbreviation\",\n          \"diacritic_omission\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"customer\"\n        ],\n        \"evidence\": [\n          \"Quy Khach\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [\n        \"fear\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"none\"\n        ],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 1,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

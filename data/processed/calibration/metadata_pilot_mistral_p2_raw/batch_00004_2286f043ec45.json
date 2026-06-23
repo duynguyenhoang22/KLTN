@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-06-22T18:26:40.086735+00:00",
+  "batch_index": 4,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_01944",
+      "phase1_01976",
+      "phase1_00718",
+      "phase1_02302"
+    ],
+    "prompt_sha256": "d9e56de04e0755dbfa6161f30c387b7f2c3597e60e56e61ba891a1e68643279e"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "012a27654c22416a9a0b0918a463e4f4",
+    "created": 1782152791,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 3870,
+      "total_tokens": 5004,
+      "completion_tokens": 1134,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_01944\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"punctuation_insertion\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"mã xác minh Google của bạn\"]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\"punctuation_insertion\"],\n        \"severity\": 1,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\"credential_request\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_01976\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"punctuation_insertion\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"mã xác minh Google của bạn\"]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\"punctuation_insertion\"],\n        \"severity\": 1,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\"credential_request\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_00718\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\", \"teencode\", \"irregular_casing\"],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adolescent\", \"adult\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"e\", \"dum\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_02302\",\n      \"message_domain\": \"telecom\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"character_substitution\", \"punctuation_insertion\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Quy khach\", \"QK\"]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\"character_substitution\", \"punctuation_insertion\"],\n        \"severity\": 1,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\"urgency\", \"reward_incentive\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\", \"call_phone\"],\n        \"evidence\": [\"truy cập\", \"liên hệ\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

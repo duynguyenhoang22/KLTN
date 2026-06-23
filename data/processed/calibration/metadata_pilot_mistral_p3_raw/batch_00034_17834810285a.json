@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:53:23.136327+00:00",
+  "batch_index": 34,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_04134"
+    ],
+    "prompt_sha256": "9b750491b47b3bca00e9ea3bff8548e7f480b77e6a797aee7eb879c62d868f52"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "39ef8e34071048b2a4ccb7bd25b71a14",
+    "created": 1782158000,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6038,
+      "total_tokens": 6354,
+      "completion_tokens": 316,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_04134\",\n      \"message_domain\": \"healthcare\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"abbreviation\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"customer\"\n        ],\n        \"evidence\": [\n          \"Quy phu huynh\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"authority\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"visit_physical_location\"\n        ],\n        \"evidence\": [\n          \"den lay tai Quay 5 Khoa Xet nghiem\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

@@ -27,13 +27,6 @@ Thumbs.db
 *.bak
 ~$*
 
-# Generated datasets and annotation exports
-data/annotations/*
-!data/annotations/.gitkeep
-data/processed/*
-!data/processed/.gitkeep
-data/releases/*
-!data/releases/.gitkeep
 
 # Experiment outputs and model artifacts
 artifacts/

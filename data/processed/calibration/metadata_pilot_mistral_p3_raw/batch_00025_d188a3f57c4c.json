@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:52:59.106773+00:00",
+  "batch_index": 25,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_01518"
+    ],
+    "prompt_sha256": "67ba18c4fd5560925b0b3e1a2f6dd7de935f22172540b30f5b0397ac9cbdf465"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "7dffdd73c4a14376b21b37dec84640fa",
+    "created": 1782157977,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6202,
+      "total_tokens": 6449,
+      "completion_tokens": 247,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\"items\": [{\"sample_id\": \"phase1_01518\", \"message_domain\": \"public_service\", \"surface_features\": {\"text_phenomena\": [\"abbreviation\", \"irregular_casing\"], \"text_noise_score\": 1}, \"target_audience\": {\"age_groups\": [\"general\"], \"gender\": \"all\", \"roles\": [\"general_public\"], \"evidence\": [\"Công an tỉnh\"]}, \"obfuscation\": {\"present\": false, \"techniques\": [], \"severity\": 0, \"confidence\": 1.0}, \"persuasion_tactics\": [\"authority\", \"fear\", \"urgency\"], \"requested_actions\": {\"types\": [\"call_phone\"], \"evidence\": [\"gọi ngay 114\"]}, \"field_confidence\": {\"message_domain\": 1.0, \"surface_features\": 1.0, \"target_audience\": 1.0, \"obfuscation\": 1.0, \"persuasion_tactics\": 1.0, \"requested_actions\": 1.0}, \"review_flags\": []}]}"
+        }
+      }
+    ]
+  }
+}

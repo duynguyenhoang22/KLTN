@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:56:07.300159+00:00",
+  "batch_index": 91,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_07294"
+    ],
+    "prompt_sha256": "eb73fea7194654345288bf776dda8ce78eef4ec547d3b7d204e0e092afe0dfbb"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "2fe3bf2bfef542fc9d620b43704271f1",
+    "created": 1782158164,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6091,
+      "total_tokens": 6439,
+      "completion_tokens": 348,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_07294\",\n      \"message_domain\": \"debt_collection\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"abbreviation\",\n          \"irregular_casing\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"unknown\"\n        ],\n        \"gender\": \"male\",\n        \"roles\": [\n          \"debtor\"\n        ],\n        \"evidence\": [\n          \"Ong Ly Hai Nam\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"urgency\",\n        \"fear\",\n        \"threat\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"make_payment\",\n          \"call_phone\"\n        ],\n        \"evidence\": [\n          \"Yeu cau thanh toan trong 24H nua\",\n          \"SDT: <PHONE_2>\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

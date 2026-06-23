@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:55:30.691544+00:00",
+  "batch_index": 80,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_05993"
+    ],
+    "prompt_sha256": "20623b2e20fd80b022aee05131dd5a492906f433cdf7dbd9c8b88409e116ac2d"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "4ccc1071a7334959be0d7b57c4ebf78c",
+    "created": 1782158128,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6023,
+      "total_tokens": 6312,
+      "completion_tokens": 289,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_05993\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"none\"],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"tài khoản bạn\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"xác thực tại https://vneid-portal.xyz\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 1.0,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

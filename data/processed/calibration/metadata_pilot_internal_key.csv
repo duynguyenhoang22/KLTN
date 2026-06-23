@@ -1,0 +1,101 @@
+﻿sample_id,label,data_origin,has_url,content_length,legacy_category,legacy_obfuscation_level,pilot_buckets
+ViSmish_02523,0,real,1,299,Viễn thông,NONE,has_url|long
+ViSmish_00283,0,real,1,176,Khác,NONE,has_url
+ViSmish_04821,0,real,1,160,Khác,NONE,has_url
+ViSmish_08351,0,real,1,306,Quảng cáo hợp lệ,NONE,has_url|long
+ViSmish_08892,0,real,1,391,Viễn thông,NONE,has_url|long
+ViSmish_04104,0,real,0,218,Viễn thông,NONE,no_url
+ViSmish_02958,0,real,0,58,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_09203,0,real,0,67,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_05990,0,real,0,753,Dịch vụ công thật,NONE,no_url|long
+ViSmish_08873,0,real,0,156,Tin nhắn cá nhân và OTP,NONE,no_url
+ViSmish_09738,0,real,0,51,Khác,NONE,no_url|short
+ViSmish_08685,0,real,0,37,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_01525,0,real,0,67,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_06710,0,real,0,51,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_03820,0,real,0,23,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_07281,0,real,1,264,Khác,NONE,has_url|long
+ViSmish_04420,0,real,1,316,Khác,NONE,has_url|long
+ViSmish_10058,0,real,1,295,Khác,NONE,has_url|long
+ViSmish_01178,0,real,1,314,Khác,NONE,has_url|long
+ViSmish_00430,0,real,1,398,Khác,NONE,has_url|long
+ViSmish_05855,0,real,1,251,Viễn thông,NONE,has_url|long
+ViSmish_00183,0,real,1,65,Tin nhắn cá nhân và OTP,NONE,has_url|short
+ViSmish_02095,0,real,1,231,Viễn thông,NONE,has_url
+ViSmish_00029,0,real,0,171,Ngân hàng thật,NONE,no_url
+ViSmish_03451,0,real,1,287,Viễn thông,NONE,has_url|long
+ViSmish_05113,0,synthetic,1,204,Viễn thông,NONE,has_url
+ViSmish_00667,0,synthetic,1,145,Quảng cáo hợp lệ,NONE,has_url
+ViSmish_07843,0,synthetic,1,182,Viễn thông,NONE,has_url
+ViSmish_05036,0,synthetic,1,155,Viễn thông,NONE,has_url
+ViSmish_05246,0,synthetic,1,152,Ngân hàng thật,NONE,has_url
+ViSmish_09791,0,synthetic,0,79,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_07698,0,synthetic,0,107,Vận chuyển,NONE,no_url
+ViSmish_06666,0,synthetic,0,178,Viễn thông,NONE,no_url
+ViSmish_01566,0,synthetic,0,105,Vận chuyển,NONE,no_url
+ViSmish_08378,0,synthetic,0,67,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_01977,0,synthetic,0,48,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_01953,0,synthetic,0,60,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_07133,0,synthetic,0,50,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_05364,0,synthetic,0,40,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_04620,0,synthetic,0,56,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_09982,0,synthetic,0,67,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_07318,0,synthetic,1,92,Tin nhắn cá nhân và OTP,NONE,has_url
+ViSmish_08605,0,synthetic,0,167,Viễn thông,NONE,no_url
+ViSmish_07544,0,synthetic,0,114,Thương mại điện tử,NONE,no_url
+ViSmish_06603,0,synthetic,0,129,Dịch vụ công thật,NONE,no_url
+ViSmish_08348,0,synthetic,0,59,Tin nhắn cá nhân và OTP,NONE,no_url|short
+ViSmish_01804,0,synthetic,0,88,Ngân hàng thật,NONE,no_url
+ViSmish_00504,0,synthetic,0,137,Dịch vụ công thật,NONE,no_url
+ViSmish_07228,0,synthetic,0,131,Dịch vụ công thật,NONE,no_url
+ViSmish_09978,0,synthetic,1,148,Quảng cáo hợp lệ,NONE,has_url
+ViSmish_05233,1,real,1,331,Giả mạo ngân hàng,Level 2 - Leet nặng,has_url|long|nonstandard
+ViSmish_04548,1,real,1,147,Giả mạo ngân hàng,Level 0 - Formal,has_url|nonstandard
+ViSmish_09008,1,real,1,164,Giả mạo ngân hàng,Level 0 - Formal,has_url|nonstandard
+ViSmish_04763,1,real,1,67,Cờ bạc / Betting,Level 2 - Leet nặng,has_url|short|nonstandard
+ViSmish_05716,1,real,1,120,BHXH / Trợ cấp giả,Level 2 - Leet nặng,has_url|nonstandard
+ViSmish_02507,1,real,0,176,Dịch vụ công giả,Level 0 - Formal,no_url|nonstandard
+ViSmish_08951,1,real,0,134,Khác,Level 0 - Formal,no_url|nonstandard
+ViSmish_06104,1,real,0,154,Khác,Level 0 - Formal,no_url|nonstandard
+ViSmish_04839,1,real,0,175,Dịch vụ công giả,Level 0 - Formal,no_url|nonstandard
+ViSmish_07831,1,real,0,437,Tuyển dụng giả,Level 0 - Formal,no_url|long|nonstandard
+ViSmish_10033,1,real,1,74,Khác,Level 2 - Leet nặng,has_url|short|nonstandard
+ViSmish_09711,1,real,1,64,Cờ bạc / Betting,Level 0 - Formal,has_url|short|nonstandard
+ViSmish_09112,1,real,1,76,Cờ bạc / Betting,Level 3 - Dot/Dash,has_url|short|nonstandard
+ViSmish_04979,1,real,0,78,Nội dung nhạy cảm,Level 0 - Formal,no_url|short|nonstandard
+ViSmish_04483,1,real,1,71,Dịch vụ công giả,Level 2 - Leet nặng,has_url|short|nonstandard
+ViSmish_02482,1,real,1,378,Tuyển dụng giả,Level 3 - Dot/Dash,has_url|long|nonstandard
+ViSmish_03616,1,real,0,483,Đòi nợ / Đe dọa,Level 2 - Leet nặng,no_url|long|nonstandard
+ViSmish_01285,1,real,1,382,Khác,Level 0 - Formal,has_url|long|nonstandard
+ViSmish_08298,1,real,1,296,Dịch vụ công giả,Level 0 - Formal,has_url|long|nonstandard
+ViSmish_04994,1,real,0,327,Tuyển dụng giả,Level 0 - Formal,no_url|long|nonstandard
+ViSmish_08294,1,real,1,333,Giả mạo ngân hàng,Level 2 - Leet nặng,has_url|long|nonstandard
+ViSmish_08423,1,real,1,189,Giả mạo ngân hàng,Level 1 - Leet nhẹ,has_url|nonstandard
+ViSmish_00404,1,real,1,70,Cờ bạc / Betting,Level 0 - Formal,has_url|short|nonstandard
+ViSmish_08758,1,real,0,208,Khác,Level 2 - Leet nặng,no_url|nonstandard
+ViSmish_03253,1,real,1,83,Cờ bạc / Betting,Level 1 - Leet nhẹ,has_url|nonstandard
+ViSmish_08148,1,synthetic,1,52,Nội dung nhạy cảm,Level 0 - Formal,has_url|short|nonstandard
+ViSmish_04067,1,synthetic,1,137,Giả mạo ngân hàng,Level 0 - Formal,has_url|nonstandard
+ViSmish_04370,1,synthetic,1,177,Cờ bạc / Betting,Level 4 - Mixed special characters,has_url|nonstandard
+ViSmish_09195,1,synthetic,1,131,Tuyển dụng giả,Level 0 - Formal,has_url|nonstandard
+ViSmish_04215,1,synthetic,1,165,Tuyển dụng giả,Level 0 - Formal,has_url|nonstandard
+ViSmish_05877,1,synthetic,0,183,Crypto / Đầu tư giả,Level 0 - Formal,no_url|nonstandard
+ViSmish_08372,1,synthetic,0,132,Khác,Level 0 - Formal,no_url|nonstandard
+ViSmish_10264,1,synthetic,0,146,BHXH / Trợ cấp giả,Level 2 - Leet nặng,no_url|nonstandard
+ViSmish_09615,1,synthetic,0,111,Dịch vụ công giả,Level 0 - Formal,no_url|nonstandard
+ViSmish_07097,1,synthetic,0,155,Đòi nợ / Đe dọa,Level 0 - Formal,no_url|nonstandard
+ViSmish_09585,1,synthetic,1,54,Nội dung nhạy cảm,Level 0 - Formal,has_url|short|nonstandard
+ViSmish_09408,1,synthetic,1,70,Nội dung nhạy cảm,Level 0 - Formal,has_url|short|nonstandard
+ViSmish_08946,1,synthetic,1,80,Dịch vụ công giả,Level 2 - Leet nặng,has_url|short|nonstandard
+ViSmish_04384,1,synthetic,1,63,Cờ bạc / Betting,Level 1 - Leet nhẹ,has_url|short|nonstandard
+ViSmish_05863,1,synthetic,1,76,Dịch vụ công giả,Level 0 - Formal,has_url|short|nonstandard
+ViSmish_02964,1,synthetic,1,271,Tuyển dụng giả,Level 0 - Formal,has_url|long|nonstandard
+ViSmish_05041,1,synthetic,1,269,Tuyển dụng giả,Level 4 - Mixed special characters,has_url|long|nonstandard
+ViSmish_03981,1,synthetic,0,332,Đòi nợ / Đe dọa,Level 0 - Formal,no_url|long|nonstandard
+ViSmish_09607,1,synthetic,1,303,Tuyển dụng giả,Level 4 - Mixed special characters,has_url|long|nonstandard
+ViSmish_01040,1,synthetic,0,284,Đòi nợ / Đe dọa,Level 0 - Formal,no_url|long|nonstandard
+ViSmish_07350,1,synthetic,1,80,Dịch vụ công giả,Level 0 - Formal,has_url|short|nonstandard
+ViSmish_05890,1,synthetic,1,157,BHXH / Trợ cấp giả,Level 0 - Formal,has_url|nonstandard
+ViSmish_05167,1,synthetic,0,153,Crypto / Đầu tư giả,Level 0 - Formal,no_url|nonstandard
+ViSmish_01321,1,synthetic,1,79,Cờ bạc / Betting,Level 0 - Formal,has_url|short|nonstandard
+ViSmish_02119,1,synthetic,1,111,Dịch vụ công giả,Level 0 - Formal,has_url|nonstandard

@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:56:11.069459+00:00",
+  "batch_index": 92,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_07286"
+    ],
+    "prompt_sha256": "d9c0cd7ca892e3d886b1318af21a53727dc00c607d891dfb6ba1d64487770b6f"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "f06093fe63a04248b07a4b790babbaef",
+    "created": 1782158167,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6103,
+      "total_tokens": 6464,
+      "completion_tokens": 361,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_07286\",\n      \"message_domain\": \"debt_collection\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"abbreviation\",\n          \"irregular_casing\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"unknown\"\n        ],\n        \"gender\": \"male\",\n        \"roles\": [\n          \"debtor\"\n        ],\n        \"evidence\": [\n          \"Ong Nguyen Hoang Nam\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"urgency\",\n        \"fear\",\n        \"threat\",\n        \"authority\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"make_payment\",\n          \"call_phone\"\n        ],\n        \"evidence\": [\n          \"thanh toan khoan no 15,243,000VND\",\n          \"LH: <PHONE_2>\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

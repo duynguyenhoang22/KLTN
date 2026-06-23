@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:56:36.356312+00:00",
+  "batch_index": 99,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_06441"
+    ],
+    "prompt_sha256": "6b576a2411fab5f824b74c95a7cbb30186c06967a9f7ed91c5ebed6ef38d4c9b"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "7e7d063070124b2eb635e5770ba50587",
+    "created": 1782158193,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6058,
+      "total_tokens": 6483,
+      "completion_tokens": 425,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_06441\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"diacritic_omission\",\n          \"abbreviation\",\n          \"character_substitution\",\n          \"punctuation_insertion\",\n          \"whitespace_splitting\"\n        ],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"adult\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"general_public\"\n        ],\n        \"evidence\": [\n          \"B4n m-u-0-n nh4n l-u-0ng 500k n-g-4-y kh0ng?\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"character_substitution\",\n          \"punctuation_insertion\",\n          \"whitespace_splitting\"\n        ],\n        \"severity\": 3,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"reward_incentive\",\n        \"link_lure\",\n        \"off_platform_contact\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"contact_off_platform\"\n        ],\n        \"evidence\": [\n          \"B4m: t.me/nhiemvu_easy\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\n        \"obfuscation_intent_uncertain\"\n      ]\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

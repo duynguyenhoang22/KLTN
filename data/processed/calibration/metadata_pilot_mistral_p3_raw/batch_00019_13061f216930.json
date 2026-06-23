@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:52:43.554180+00:00",
+  "batch_index": 19,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_00284"
+    ],
+    "prompt_sha256": "a405bf2608a78762c7468f18aee11b4730c74e5b637d402c531635593b5a4eeb"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "ebd555f1818542b4b60e77ce4e57ebf1",
+    "created": 1782157961,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6095,
+      "total_tokens": 6377,
+      "completion_tokens": 282,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\"items\": [{\"sample_id\": \"phase1_00284\", \"message_domain\": \"telecom\", \"surface_features\": {\"text_phenomena\": [\"abbreviation\", \"irregular_casing\"], \"text_noise_score\": 1}, \"target_audience\": {\"age_groups\": [\"general\"], \"gender\": \"all\", \"roles\": [\"customer\"], \"evidence\": [\"Quý khách\"]}, \"obfuscation\": {\"present\": false, \"techniques\": [], \"severity\": 0, \"confidence\": 1.0}, \"persuasion_tactics\": [\"reward_incentive\", \"link_lure\", \"scarcity\"], \"requested_actions\": {\"types\": [\"click_or_visit_link\", \"call_phone\"], \"evidence\": [\"Truy cập ứng dụng My Viettel tại https://viettel.vn/diy để trải nghiệm.\", \"LH 198 (0đ).\"]}, \"field_confidence\": {\"message_domain\": 1.0, \"surface_features\": 1.0, \"target_audience\": 1.0, \"obfuscation\": 1.0, \"persuasion_tactics\": 1.0, \"requested_actions\": 1.0}, \"review_flags\": []}]}"
+        }
+      }
+    ]
+  }
+}

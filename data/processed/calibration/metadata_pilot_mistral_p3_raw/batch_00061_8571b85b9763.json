@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:54:34.826673+00:00",
+  "batch_index": 61,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02400"
+    ],
+    "prompt_sha256": "15cd12c1403aed5b8e2407ccc018d644b31e943929e21a61ec2b0977da6f97cd"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "963f3957b64940649c599d81858bec39",
+    "created": 1782158072,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6033,
+      "total_tokens": 6357,
+      "completion_tokens": 324,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_02400\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"abbreviation\",\n          \"teencode\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"adult\"\n        ],\n        \"gender\": \"male\",\n        \"roles\": [\n          \"general_public\"\n        ],\n        \"evidence\": [\n          \"Gai Xinh\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"off_platform_contact\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"contact_off_platform\"\n        ],\n        \"evidence\": [\n          \"Add Zalo: 588326850\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

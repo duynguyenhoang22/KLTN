@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:56:32.918891+00:00",
+  "batch_index": 98,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_07779"
+    ],
+    "prompt_sha256": "c73f3928e3cbfa6935b2d343714c793ca65c83c8ef14fb720e0ff161d6f57a09"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "dda89bf4355941fd8797680c29629488",
+    "created": 1782158189,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6034,
+      "total_tokens": 6448,
+      "completion_tokens": 414,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_07779\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\",\n          \"irregular_casing\"\n        ],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"male\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"H.N;Z,a.l,0\\\"v;1:P;G,@!_x:1,n,h_m;0,1\"]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\",\n          \"irregular_casing\"\n        ],\n        \"severity\": 3,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"link_lure\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\"\n        ],\n        \"evidence\": [\n          \"t.ly/hn_pg_club\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\n        \"obfuscation_intent_uncertain\"\n      ]\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

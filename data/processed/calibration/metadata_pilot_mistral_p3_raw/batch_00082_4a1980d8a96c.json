@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:55:36.848042+00:00",
+  "batch_index": 82,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_09121"
+    ],
+    "prompt_sha256": "1b9914e6624fabefddb718f22345dbda320c57361593a5631f86798a572049ec"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "984b89e65407483dbcd96a4ab1ce9cb0",
+    "created": 1782158133,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6073,
+      "total_tokens": 6502,
+      "completion_tokens": 429,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_09121\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"character_substitution\",\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\",\n          \"irregular_casing\"\n        ],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"unknown\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"CONG_TY_XNK_GREEN\"]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"character_substitution\",\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\",\n          \"irregular_casing\"\n        ],\n        \"severity\": 3,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"urgency\",\n        \"scarcity\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\"transfer_money\"],\n        \"evidence\": [\"Chuy3n_kho4n_n4p-v0n_STK_007100123456_VCB_CONG_TY_XNK_GREEN\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.7,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.8,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\n        \"obfuscation_intent_uncertain\"\n      ]\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

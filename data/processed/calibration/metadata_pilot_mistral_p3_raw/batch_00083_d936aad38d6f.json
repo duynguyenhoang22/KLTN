@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:55:39.443191+00:00",
+  "batch_index": 83,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_07568"
+    ],
+    "prompt_sha256": "072ebab897c54da0c1fc9c08c0e0b0ede9d87cde4826c06f538a7a3a14c9b068"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "b46dd1f79405454293ec501a838247d0",
+    "created": 1782158137,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6078,
+      "total_tokens": 6404,
+      "completion_tokens": 326,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_07568\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"abbreviation\",\n          \"irregular_casing\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"unknown\"\n        ],\n        \"gender\": \"unknown\",\n        \"roles\": [\n          \"debtor\"\n        ],\n        \"evidence\": [\n          \"Ong/Ba\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"urgency\",\n        \"fear\",\n        \"authority\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"call_phone\"\n        ],\n        \"evidence\": [\n          \"LH: <PHONE_1>.\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

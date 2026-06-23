@@ -1,0 +1,50 @@
+{
+  "created_at": "2026-06-22T04:52:09.611962+00:00",
+  "batch_index": 5,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p1",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_03699",
+      "phase1_04134",
+      "phase1_05372",
+      "phase1_05172",
+      "phase1_05154",
+      "phase1_03511",
+      "phase1_04428",
+      "phase1_05156"
+    ],
+    "prompt_sha256": "0a6f580c02a0d1f442f6e7fdbd06bb3c5371c2795d67f25017c187127ee14af6"
+  },
+  "validation_errors": [
+    "item count mismatch: expected 8, got 7",
+    "sample_id mismatch: expected=['phase1_03511', 'phase1_03699', 'phase1_04134', 'phase1_04428', 'phase1_05154', 'phase1_05156', 'phase1_05172', 'phase1_05372'], actual=['phase1_03511', 'phase1_03699', 'phase1_04134', 'phase1_04428', 'phase1_05156', 'phase1_05172', 'phase1_05372']",
+    "phase1_04134: target_roles: invalid values ['parent']"
+  ],
+  "provider_response": {
+    "id": "40e0233fe6f74dd8b4c939c15e6949e3",
+    "created": 1782104129,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 2098,
+      "total_tokens": 3866,
+      "completion_tokens": 1768,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_03699\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"customer\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [\"credential_request\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": [\"Chuyen khoan nhanh.\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 1,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_04134\",\n      \"message_domain\": \"healthcare\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"parent\"],\n        \"evidence\": [\"Quy phu huynh\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [],\n      \"requested_actions\": {\n        \"types\": [\"visit_physical_location\"],\n        \"evidence\": [\"den lay tai Quay 5 Khoa Xet nghiem\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 1,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_05372\",\n      \"message_domain\": \"logistics\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"customer\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [],\n      \"requested_actions\": {\n        \"types\": [\"call_phone\"],\n        \"evidence\": [\"Lien he giao vien <PHONE_1>\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 1,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_05172\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"teencode\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"moi nguoi trong nhom\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": [\"de tui bao lai voi moi nguoi trong nhom\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 1,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_03511\",\n      \"message_domain\": \"commerce\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"customer\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [\"urgency\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": [\"Ma co hieu luc trong 5 phut\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 1,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_04428\",\n      \"message_domain\": \"commerce\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"customer\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [\"urgency\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": [\"Co hieu luc trong 5 phut\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 1,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_05156\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"teencode\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"general_public\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1\n      },\n      \"persuasion_tactics\": [],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": [\"lat nua anh goi lai sau\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1,\n        \"surface_features\": 1,\n        \"target_audience\": 1,\n        \"obfuscation\": 1,\n        \"persuasion_tactics\": 1,\n        \"requested_actions\": 1\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

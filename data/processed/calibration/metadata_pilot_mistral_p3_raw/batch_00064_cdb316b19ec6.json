@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:54:43.910900+00:00",
+  "batch_index": 64,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02517"
+    ],
+    "prompt_sha256": "8d403cc4654d513f0670d6fb12ba774ae5fdd33088ec32268500dc11d384778e"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "75d80383cd3049049f0a4e2974f6580b",
+    "created": 1782158081,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6038,
+      "total_tokens": 6410,
+      "completion_tokens": 372,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_02517\",\n      \"message_domain\": \"gambling\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"diacritic_omission\",\n          \"abbreviation\",\n          \"irregular_casing\"\n        ],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"adult\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"general_public\"\n        ],\n        \"evidence\": [\n          \"Täng 888K\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"character_substitution\",\n          \"irregular_casing\"\n        ],\n        \"severity\": 2,\n        \"confidence\": 0.8\n      },\n      \"persuasion_tactics\": [\n        \"reward_incentive\",\n        \"link_lure\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\"\n        ],\n        \"evidence\": [\n          \"gv2xu.cc/WlhXzU\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.8,\n        \"obfuscation\": 0.8,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\n        \"obfuscation_intent_uncertain\"\n      ]\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:55:03.836598+00:00",
+  "batch_index": 70,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02450"
+    ],
+    "prompt_sha256": "0efddb96f6323823693ba651555b881d19f46ae4cd8d117c431fab1c578ffc26"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "c14a15711fed46e6b9e340787dcb449d",
+    "created": 1782158101,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6085,
+      "total_tokens": 6395,
+      "completion_tokens": 310,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_02450\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"none\"],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"unknown\"],\n        \"gender\": \"female\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Chào chị\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"authority\", \"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\", \"reply_message\"],\n        \"evidence\": [\"truy cập và tải app của Cơ quan tại link: thuedientuu.vn\", \"chị hãy phản hồi lại tin nhắn này\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

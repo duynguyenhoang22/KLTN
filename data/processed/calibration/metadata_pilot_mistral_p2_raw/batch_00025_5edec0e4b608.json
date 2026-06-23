@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-06-22T18:30:16.389932+00:00",
+  "batch_index": 25,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_08243",
+      "phase1_07779",
+      "phase1_06441",
+      "phase1_08267"
+    ],
+    "prompt_sha256": "1af5094b1e5aa3f8c269e330a7c52332b457db8069eaa8cc75d2c021bdd40530"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "72e3483b9aa548cab8f110396a75d184",
+    "created": 1782153003,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 3904,
+      "total_tokens": 5586,
+      "completion_tokens": 1682,
+      "prompt_tokens_details": {
+        "cached_tokens": 2276
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_08243\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"character_substitution\",\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\"\n        ],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"E_s!nh_v!en_m0i_l3n_cAn_t!en_tr@_ph0ng_HN\"]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"character_substitution\",\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\"\n        ],\n        \"severity\": 3,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"link_lure\",\n        \"off_platform_contact\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"contact_off_platform\"\n        ],\n        \"evidence\": [\n          \"Nh@n_h!nh_Zalo: zalo.me/g/hanoi_sv_2k\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.8,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.8,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\n        \"obfuscation_intent_uncertain\"\n      ]\n    },\n    {\n      \"sample_id\": \"phase1_07779\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\",\n          \"irregular_casing\"\n        ],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"H.N;Z,a.l,0\\\"v;1:P;G,@!_x:1,n,h_m;0,1\"]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\",\n          \"irregular_casing\"\n        ],\n        \"severity\": 3,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"link_lure\",\n        \"off_platform_contact\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"contact_off_platform\"\n        ],\n        \"evidence\": [\n          \"t.ly/hn_pg_club\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.8,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.8,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\n        \"obfuscation_intent_uncertain\"\n      ]\n    },\n    {\n      \"sample_id\": \"phase1_06441\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"character_substitution\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\"\n        ],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"B4n m-u-0-n nh4n l-u-0ng 500k n-g-4-y kh0ng?\"]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"character_substitution\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\"\n        ],\n        \"severity\": 3,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"reward_incentive\",\n        \"link_lure\",\n        \"off_platform_contact\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"contact_off_platform\"\n        ],\n        \"evidence\": [\n          \"B4m: t.me/nhiemvu_easy\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.8,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.8,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\n        \"obfuscation_intent_uncertain\"\n      ]\n    },\n    {\n      \"sample_id\": \"phase1_08267\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"character_substitution\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\",\n          \"irregular_casing\"\n        ],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"S-u-g-a-r-b-a-b-y-H-C-M-c-a-n-t-i-m-d-a-d-d-y-c-h-u-d-a-o\"]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"character_substitution\",\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"irregular_spacing\",\n          \"irregular_casing\"\n        ],\n        \"severity\": 3,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"link_lure\",\n        \"off_platform_contact\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"contact_off_platform\"\n        ],\n        \"evidence\": [\n          \"T-e-l-e: t.me/hcm_sugar_baby\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.8,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.8,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\n        \"obfuscation_intent_uncertain\"\n      ]\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

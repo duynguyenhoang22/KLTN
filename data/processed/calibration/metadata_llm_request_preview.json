@@ -1,0 +1,337 @@
+{
+  "model": "mistral-small-2506",
+  "prompt_version": "metadata-v2.1-locked-p1",
+  "taxonomy_version": "2.1.0-locked",
+  "sample_ids": [
+    "phase1_00001",
+    "phase1_00002",
+    "phase1_00003",
+    "phase1_00004",
+    "phase1_00005"
+  ],
+  "system_prompt": "Bạn là annotator metadata cho tin nhắn tiếng Việt ViSmishDS.\nChỉ sử dụng content đã cung cấp. Không suy diễn từ label, nguồn dữ liệu,\ncategory cũ, kiến thức bên ngoài, hoặc tính xác thực của thương hiệu/domain.\n\nQuy tắc bắt buộc:\n- Không gán sender_type; trường này được xử lý cục bộ.\n- message_domain là chủ đề trung lập, không phải thật/giả.\n- text_phenomena mô tả bề mặt; text_noise_score đo độ khó đọc.\n- Target cụ thể chỉ được chọn khi content có evidence nguyên văn.\n- Không suy tuổi/giới từ stereotype hoặc role.\n- requested_actions mô tả hành động được yêu cầu, không phải hành động đã xảy ra.\n- persuasion tactics có thể xuất hiện ở cả nhãn hợp lệ và lừa đảo.\n- Evidence phải là đoạn ngắn xuất hiện trong content đã mask.\n- Các token <PHONE_n>, <EMAIL_n>, <IDENTIFIER_n>, <PERSON_NAME_n> là placeholder bảo vệ riêng tư; không xem bản thân placeholder là text noise hay obfuscation.\n- Nếu không đủ bằng chứng, dùng sentinel phù hợp thay vì đoán.\n- Giữ nguyên sample_id.\n- Mỗi input phải có đúng một output; không được bỏ sót hoặc thêm sample_id.\n- Chỉ dùng enum đúng chính tả trong ALLOWED_ENUMS.\n- Sentinel target (general, unknown, not_applicable, general_public) không được đi cùng giá trị cụ thể.\n- Obfuscation techniques chỉ được chọn từ danh sách riêng của obfuscation.\n- BẮT BUỘC VỀ ĐỊNH DẠNG ĐẦU RA: Định dạng JSON trả về bắt buộc phải là một đối tượng chứa thuộc tính \"items\" (dạng {\"items\": [ ... ]}), không được phép trả về mảng/list trực tiếp.\n\nBẮT BUỘC NGHIÊM NGẶT VỀ TARGET AUDIENCE (Định dạng & Bằng chứng):\n* BẤT KỲ khi nào bạn gán giá trị cụ thể (không phải sentinel) cho:\n  - `age_groups` (ví dụ: \"adult\", \"adolescent\", \"older_adult\" - bất kỳ thứ gì khác \"general\", \"unknown\", \"not_applicable\")\n  - `gender` (ví dụ: \"female\", \"male\" - bất kỳ thứ gì khác \"all\", \"unknown\")\n  - `roles` (ví dụ: \"customer\", \"student\", \"debtor\", \"investor\", \"job_seeker\", \"employee_or_worker\", \"business_owner\", \"patient\", \"vehicle_owner\", \"retired_person\", \"other\" - bất kỳ thứ gì khác \"general_public\", \"unknown\", \"not_applicable\")\n  THÌ trường `target_audience.evidence` BẮT BUỘC phải chứa ít nhất một từ hoặc cụm từ viết nguyên văn trong tin nhắn đóng vai trò là bằng chứng (ví dụ: \"Quy khach\", \"Anh Hung\", \"chị\", \"sinh viên\", \"học sinh\", \"khách hàng\", \"người vay\", \"nhà đầu tư\"). Nếu không trích xuất được từ nào làm bằng chứng, bạn BẮT BUỘC phải gán các sentinel trung lập (\"general\", \"all\", \"general_public\") và để `evidence` rỗng `[]`.\n* QUY TẮC CẤM GÁN MƠ HỒ: Nếu trong tin nhắn KHÔNG CÓ từ ngữ xưng hô/chỉ định đối tượng trực tiếp trong văn bản (như \"Quy khach\", \"khach hang\", \"QK\", \"ban\", \"anh\", \"chị\"), bạn KHÔNG ĐƯỢC chọn vai trò `customer` hay bất kỳ vai trò cụ thể nào khác. Bạn BẮT BUỘC phải gán các giá trị sentinel trung lập sau và để `evidence` rỗng `[]`:\n  - `age_groups`: dùng `[\"general\"]` hoặc `[\"unknown\"]`\n  - `gender`: dùng `\"all\"` hoặc `\"unknown\"`\n  - `roles`: dùng `[\"general_public\"]` hoặc `[\"unknown\"]`\n  (Ví dụ: Tin nhắn quảng cáo gói cước ST5K gửi 191 không có từ \"Quy khach/khach hang\" thì roles bắt buộc phải là [\"general_public\"] và evidence là [], không được chọn \"customer\").\n* Tuyệt đối không được gán các vai trò cụ thể (như `customer`, `debtor`...) hoặc giới tính cụ thể mà để `evidence` rỗng `[]`, nếu không hệ thống sẽ báo lỗi validation và loại bỏ bản ghi.\n* Tuyệt đối không tự chế ra các vai trò không có trong danh sách ALLOWED_ENUMS (ví dụ: không dùng \"parent\" - thay vào đó dùng \"other\" hoặc \"general_public\" nếu phù hợp).\n\nBẮT BUỘC VỀ OBFUSCATION TECHNIQUES:\n* Tuyệt đối KHÔNG sử dụng \"diacritic_omission\" (bỏ dấu) làm giá trị của `obfuscation_techniques`. Trường hợp này chỉ được phép xuất hiện trong `text_phenomena`.\n* Các giá trị hợp lệ duy nhất của `obfuscation_techniques` là: \"character_substitution\", \"punctuation_insertion\", \"whitespace_splitting\", \"word_concatenation\", \"irregular_spacing\", \"irregular_casing\", \"character_repetition\". Nếu không có kỹ thuật nào, hãy để danh sách rỗng `[]`.\n\nBẮT BUỘC VỀ REQUESTED ACTIONS EVIDENCE:\n* Nếu bạn chọn bất kỳ hành động nào trong `requested_actions.types` KHÁC VỚI \"none\" hoặc \"unclear\" (bao gồm cả hành động cụ thể và hành động \"other\"), trường `requested_actions.evidence` BẮT BUỘC phải chứa ít nhất một cụm từ nguyên văn làm bằng chứng.\n* Với hành động \"other\" (các khuyến cáo hành vi chung chung của chính quyền như phòng cháy chữa cháy, an toàn giao thông), bạn BẮT BUỘC phải trích xuất cụm từ mô tả hành động khuyến cáo đó làm evidence (ví dụ: \"không điều khiển phương tiện khi đã sử dụng rượu, bia\", \"Không sắp xếp hàng hóa gần nguồn lửa\"). Tuyệt đối không được để evidence rỗng `[]` khi chọn \"other\".\n\nHƯỚNG DẪN PHÂN ĐỊNH CA KHÓ & RANH GIỚI (DISAMBIGUATION RULES):\n\n1. Phân định message_domain:\n   * \"banking_finance\" vs \"investment\": Biến động số dư tài khoản ảo, nhận tiền/USDT, kích hoạt lại Smart OTP/Digibank thuộc \"banking_finance\". Lời khuyên đầu tư chứng khoán, đầu tư đa cấp, forex thuộc \"investment\".\n   * \"gambling\" vs các nhóm khác: Đăng ký nhận điểm trải nghiệm, tặng 88k-1888k khi nạp đầu, cá cược thể thao/slots thuộc \"gambling\" (không gán \"investment\" hay \"marketing_promotion\").\n   * \"public_service\" vs \"employment\": Nhận tiền hỗ trợ thuế TNCN, cảnh báo truy tố tài chính của công an, định danh VNeID thuộc \"public_service\". Tuyển dụng việc làm, thu nhập ngày thuộc \"employment\".\n   * \"other\": Dịch vụ làm giả giấy tờ (CCCD, bằng lái xe), minigame trúng thưởng Messenger tri ân khách hàng, thông báo họp zoom/hội thảo giáo dục, tin nhắn spam cá nhân/rác không rõ chủ đề thuộc \"other\".\n\n2. Phân định obfuscation_present:\n   * \"present\" = true: Chỉ khi tin nhắn cố tình viết lệch chữ để lách bộ lọc của nhà mạng. Ví dụ: viết giãn cách chữ bằng dấu gạch ngang (B-o-d-y), chèn khoảng cách trong link ([ ehoaq. com ]), chèn ký tự đặc biệt phá vỡ từ (ëM_dänG_ö_HCM), thay ký tự bằng số tương tự (b4o, d1eu k1en).\n   * \"present\" = false: Viết tắt thông thường (QC, TB, QK, LH), viết hoa toàn bộ, teencode tự nhiên hoặc sai chính tả thông thường không nhằm né bộ lọc spam.\n\n3. Phân định requested_actions:\n   * \"deposit_or_top_up\": Yêu cầu nạp tiền điện thoại (nạp thẻ), nạp điểm vào tài khoản game/cá cược.\n   * \"make_payment\": Thanh toán đơn hàng thương mại, thanh toán hóa đơn cước tiêu dùng thực tế.\n   * \"transfer_money\": Yêu cầu chuyển khoản trực tiếp vào tài khoản ngân hàng cụ thể được cung cấp.\n   * \"call_phone\": Bắt buộc chọn nếu tin nhắn cung cấp số hotline hoặc số liên hệ hỗ trợ (ví dụ: \"LH 198\", \"CSKH 18001091\", \"Hotline 09xxxx\").\n   * \"other\": Dành cho các khuyến cáo nâng cao cảnh giác, phòng cháy chữa cháy của chính quyền mà hướng dẫn hành vi chung chung không có nút bấm/hotline.\n\nTaxonomy version: 2.1.0-locked\nScope version: 2.0.0-locked\nALLOWED_ENUMS: {\"message_domain\": [\"banking_finance\", \"public_service\", \"telecom\", \"commerce\", \"logistics\", \"marketing_promotion\", \"employment\", \"investment\", \"debt_collection\", \"gambling\", \"adult_service\", \"healthcare\", \"personal_social\", \"other\", \"unknown\"], \"text_phenomena\": [\"diacritic_omission\", \"abbreviation\", \"teencode\", \"character_substitution\", \"punctuation_insertion\", \"whitespace_splitting\", \"word_concatenation\", \"irregular_spacing\", \"irregular_casing\", \"character_repetition\", \"lang_switching\", \"natural_typo\"], \"target_age_group\": [\"adolescent\", \"adult\", \"older_adult\", \"general\", \"unknown\", \"not_applicable\"], \"target_gender\": [\"female\", \"male\", \"all\", \"unknown\"], \"target_roles\": [\"student\", \"job_seeker\", \"employee_or_worker\", \"business_owner\", \"customer\", \"debtor\", \"investor\", \"patient\", \"vehicle_owner\", \"retired_person\", \"general_public\", \"other\", \"unknown\", \"not_applicable\"], \"obfuscation_techniques\": [\"character_substitution\", \"punctuation_insertion\", \"whitespace_splitting\", \"word_concatenation\", \"irregular_spacing\", \"irregular_casing\", \"character_repetition\"], \"persuasion_tactics\": [\"impersonation\", \"urgency\", \"fear\", \"authority\", \"reward_incentive\", \"social_proof\", \"scarcity\", \"threat\", \"credential_request\", \"payment_request\", \"link_lure\", \"off_platform_contact\"], \"requested_actions\": [\"none\", \"click_or_visit_link\", \"call_phone\", \"reply_message\", \"provide_personal_information\", \"transfer_money\", \"make_payment\", \"deposit_or_top_up\", \"install_application\", \"contact_off_platform\", \"register_or_sign_up\", \"visit_physical_location\", \"other\", \"unclear\"]}\nTrả duy nhất JSON phù hợp schema, không thêm markdown.",
+  "user_prompt": "Gán metadata cho batch sau. Số item output phải bằng input và mỗi sample_id xuất hiện đúng một lần.\n\nINPUT:\n[{\"sample_id\": \"phase1_00001\", \"content\": \"Hương đang làm gì vậy? Dạo này công việc thế nào rồi?\"}, {\"sample_id\": \"phase1_00002\", \"content\": \"Linh ơi anh Tuấn nè, hôm nay vô tình gặp chị Mai nên xin được số em\"}, {\"sample_id\": \"phase1_00003\", \"content\": \"Thảo dạo này khoẻ không, công việc ổn chứ ?\"}, {\"sample_id\": \"phase1_00004\", \"content\": \"Chào Phương! Bạn và gia đình dạo này khoẻ chứ?\"}, {\"sample_id\": \"phase1_00005\", \"content\": \"Chào Hùng. Lâu rồi không gặp. dạo này công việc vẫn ổn chứ\"}]\n\nOUTPUT JSON SCHEMA:\n{\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"items\"], \"properties\": {\"items\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"sample_id\", \"message_domain\", \"surface_features\", \"target_audience\", \"obfuscation\", \"persuasion_tactics\", \"requested_actions\", \"field_confidence\", \"review_flags\"], \"properties\": {\"sample_id\": {\"type\": \"string\"}, \"message_domain\": {\"type\": \"string\", \"enum\": [\"banking_finance\", \"public_service\", \"telecom\", \"commerce\", \"logistics\", \"marketing_promotion\", \"employment\", \"investment\", \"debt_collection\", \"gambling\", \"adult_service\", \"healthcare\", \"personal_social\", \"other\", \"unknown\"]}, \"surface_features\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"text_phenomena\", \"text_noise_score\"], \"properties\": {\"text_phenomena\": {\"type\": \"array\", \"items\": {\"type\": \"string\", \"enum\": [\"diacritic_omission\", \"abbreviation\", \"teencode\", \"character_substitution\", \"punctuation_insertion\", \"whitespace_splitting\", \"word_concatenation\", \"irregular_spacing\", \"irregular_casing\", \"character_repetition\", \"lang_switching\", \"natural_typo\"]}, \"uniqueItems\": true, \"minItems\": 0}, \"text_noise_score\": {\"type\": \"integer\", \"minimum\": 0, \"maximum\": 4}}}, \"target_audience\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"age_groups\", \"gender\", \"roles\", \"evidence\"], \"properties\": {\"age_groups\": {\"type\": \"array\", \"items\": {\"type\": \"string\", \"enum\": [\"adolescent\", \"adult\", \"older_adult\", \"general\", \"unknown\", \"not_applicable\"]}, \"uniqueItems\": true, \"minItems\": 1}, \"gender\": {\"type\": \"string\", \"enum\": [\"female\", \"male\", \"all\", \"unknown\"]}, \"roles\": {\"type\": \"array\", \"items\": {\"type\": \"string\", \"enum\": [\"student\", \"job_seeker\", \"employee_or_worker\", \"business_owner\", \"customer\", \"debtor\", \"investor\", \"patient\", \"vehicle_owner\", \"retired_person\", \"general_public\", \"other\", \"unknown\", \"not_applicable\"]}, \"uniqueItems\": true, \"minItems\": 1}, \"evidence\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}, \"uniqueItems\": true}}}, \"obfuscation\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"present\", \"techniques\", \"severity\", \"confidence\"], \"properties\": {\"present\": {\"type\": \"boolean\"}, \"techniques\": {\"type\": \"array\", \"items\": {\"type\": \"string\", \"enum\": [\"character_substitution\", \"punctuation_insertion\", \"whitespace_splitting\", \"word_concatenation\", \"irregular_spacing\", \"irregular_casing\", \"character_repetition\"]}, \"uniqueItems\": true, \"minItems\": 0}, \"severity\": {\"type\": \"integer\", \"minimum\": 0, \"maximum\": 4}, \"confidence\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}}}, \"persuasion_tactics\": {\"type\": \"array\", \"items\": {\"type\": \"string\", \"enum\": [\"impersonation\", \"urgency\", \"fear\", \"authority\", \"reward_incentive\", \"social_proof\", \"scarcity\", \"threat\", \"credential_request\", \"payment_request\", \"link_lure\", \"off_platform_contact\"]}, \"uniqueItems\": true, \"minItems\": 0}, \"requested_actions\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"types\", \"evidence\"], \"properties\": {\"types\": {\"type\": \"array\", \"items\": {\"type\": \"string\", \"enum\": [\"none\", \"click_or_visit_link\", \"call_phone\", \"reply_message\", \"provide_personal_information\", \"transfer_money\", \"make_payment\", \"deposit_or_top_up\", \"install_application\", \"contact_off_platform\", \"register_or_sign_up\", \"visit_physical_location\", \"other\", \"unclear\"]}, \"uniqueItems\": true, \"minItems\": 1}, \"evidence\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}, \"uniqueItems\": true}}}, \"field_confidence\": {\"type\": \"object\", \"additionalProperties\": false, \"required\": [\"message_domain\", \"surface_features\", \"target_audience\", \"obfuscation\", \"persuasion_tactics\", \"requested_actions\"], \"properties\": {\"message_domain\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"surface_features\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"target_audience\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"obfuscation\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"persuasion_tactics\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}, \"requested_actions\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1}}}, \"review_flags\": {\"type\": \"array\", \"items\": {\"type\": \"string\", \"enum\": [\"low_confidence\", \"ambiguous_domain\", \"target_inference_risk\", \"obfuscation_intent_uncertain\", \"unreadable_content\", \"taxonomy_gap\"]}, \"uniqueItems\": true}}}, \"minItems\": 1}}}",
+  "response_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "items"
+    ],
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sample_id",
+            "message_domain",
+            "surface_features",
+            "target_audience",
+            "obfuscation",
+            "persuasion_tactics",
+            "requested_actions",
+            "field_confidence",
+            "review_flags"
+          ],
+          "properties": {
+            "sample_id": {
+              "type": "string"
+            },
+            "message_domain": {
+              "type": "string",
+              "enum": [
+                "banking_finance",
+                "public_service",
+                "telecom",
+                "commerce",
+                "logistics",
+                "marketing_promotion",
+                "employment",
+                "investment",
+                "debt_collection",
+                "gambling",
+                "adult_service",
+                "healthcare",
+                "personal_social",
+                "other",
+                "unknown"
+              ]
+            },
+            "surface_features": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "text_phenomena",
+                "text_noise_score"
+              ],
+              "properties": {
+                "text_phenomena": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "diacritic_omission",
+                      "abbreviation",
+                      "teencode",
+                      "character_substitution",
+                      "punctuation_insertion",
+                      "whitespace_splitting",
+                      "word_concatenation",
+                      "irregular_spacing",
+                      "irregular_casing",
+                      "character_repetition",
+                      "lang_switching",
+                      "natural_typo"
+                    ]
+                  },
+                  "uniqueItems": true,
+                  "minItems": 0
+                },
+                "text_noise_score": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4
+                }
+              }
+            },
+            "target_audience": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "age_groups",
+                "gender",
+                "roles",
+                "evidence"
+              ],
+              "properties": {
+                "age_groups": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "adolescent",
+                      "adult",
+                      "older_adult",
+                      "general",
+                      "unknown",
+                      "not_applicable"
+                    ]
+                  },
+                  "uniqueItems": true,
+                  "minItems": 1
+                },
+                "gender": {
+                  "type": "string",
+                  "enum": [
+                    "female",
+                    "male",
+                    "all",
+                    "unknown"
+                  ]
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "student",
+                      "job_seeker",
+                      "employee_or_worker",
+                      "business_owner",
+                      "customer",
+                      "debtor",
+                      "investor",
+                      "patient",
+                      "vehicle_owner",
+                      "retired_person",
+                      "general_public",
+                      "other",
+                      "unknown",
+                      "not_applicable"
+                    ]
+                  },
+                  "uniqueItems": true,
+                  "minItems": 1
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                }
+              }
+            },
+            "obfuscation": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "present",
+                "techniques",
+                "severity",
+                "confidence"
+              ],
+              "properties": {
+                "present": {
+                  "type": "boolean"
+                },
+                "techniques": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "character_substitution",
+                      "punctuation_insertion",
+                      "whitespace_splitting",
+                      "word_concatenation",
+                      "irregular_spacing",
+                      "irregular_casing",
+                      "character_repetition"
+                    ]
+                  },
+                  "uniqueItems": true,
+                  "minItems": 0
+                },
+                "severity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4
+                },
+                "confidence": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              }
+            },
+            "persuasion_tactics": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "impersonation",
+                  "urgency",
+                  "fear",
+                  "authority",
+                  "reward_incentive",
+                  "social_proof",
+                  "scarcity",
+                  "threat",
+                  "credential_request",
+                  "payment_request",
+                  "link_lure",
+                  "off_platform_contact"
+                ]
+              },
+              "uniqueItems": true,
+              "minItems": 0
+            },
+            "requested_actions": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "types",
+                "evidence"
+              ],
+              "properties": {
+                "types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "click_or_visit_link",
+                      "call_phone",
+                      "reply_message",
+                      "provide_personal_information",
+                      "transfer_money",
+                      "make_payment",
+                      "deposit_or_top_up",
+                      "install_application",
+                      "contact_off_platform",
+                      "register_or_sign_up",
+                      "visit_physical_location",
+                      "other",
+                      "unclear"
+                    ]
+                  },
+                  "uniqueItems": true,
+                  "minItems": 1
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                }
+              }
+            },
+            "field_confidence": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "message_domain",
+                "surface_features",
+                "target_audience",
+                "obfuscation",
+                "persuasion_tactics",
+                "requested_actions"
+              ],
+              "properties": {
+                "message_domain": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "surface_features": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "target_audience": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "obfuscation": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "persuasion_tactics": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "requested_actions": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              }
+            },
+            "review_flags": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "low_confidence",
+                  "ambiguous_domain",
+                  "target_inference_risk",
+                  "obfuscation_intent_uncertain",
+                  "unreadable_content",
+                  "taxonomy_gap"
+                ]
+              },
+              "uniqueItems": true
+            }
+          }
+        },
+        "minItems": 1
+      }
+    }
+  },
+  "prompt_sha256": "7a14057b30b5a5ce70524481bbaac73080f7e50b290f0d6a436ddc599c13cf38"
+}

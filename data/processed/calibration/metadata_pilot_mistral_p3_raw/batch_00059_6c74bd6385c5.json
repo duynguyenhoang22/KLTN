@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:54:29.384938+00:00",
+  "batch_index": 59,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02493"
+    ],
+    "prompt_sha256": "85f74aeaf3f6366d6b18b78086a462f0feed52bdb84ea0f355a9f1017111bc57"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "227dbf1683124bf7b941ef90be93339a",
+    "created": 1782158067,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6045,
+      "total_tokens": 6321,
+      "completion_tokens": 276,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\"items\": [{\"sample_id\": \"phase1_02493\", \"message_domain\": \"public_service\", \"surface_features\": {\"text_phenomena\": [\"diacritic_omission\", \"abbreviation\"], \"text_noise_score\": 1}, \"target_audience\": {\"age_groups\": [\"general\"], \"gender\": \"all\", \"roles\": [\"general_public\"], \"evidence\": [\"cac loai gplx may,oto..chung minh thu,can cuoc,dang ki xe,bang cap 3 den dai hoc va tat ca giay to khac\"]}, \"obfuscation\": {\"present\": false, \"techniques\": [], \"severity\": 0, \"confidence\": 1.0}, \"persuasion_tactics\": [\"none\"], \"requested_actions\": {\"types\": [\"call_phone\"], \"evidence\": [\"LH <PHONE_1> giao hang thu tien\"]}, \"field_confidence\": {\"message_domain\": 1.0, \"surface_features\": 1.0, \"target_audience\": 1.0, \"obfuscation\": 1.0, \"persuasion_tactics\": 1.0, \"requested_actions\": 1.0}, \"review_flags\": []}]}"
+        }
+      }
+    ]
+  }
+}

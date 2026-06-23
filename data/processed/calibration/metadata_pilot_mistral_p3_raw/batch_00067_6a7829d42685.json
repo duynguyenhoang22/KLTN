@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:54:55.587233+00:00",
+  "batch_index": 67,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02465"
+    ],
+    "prompt_sha256": "dd5cff65ef69021396bb6dd8d8f36c73e3b44a7e2a5fcce8c6500261b9421d48"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "8d8eae883c8b450eba70ffa5da0dea00",
+    "created": 1782158093,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6131,
+      "total_tokens": 6484,
+      "completion_tokens": 353,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_02465\",\n      \"message_domain\": \"marketing_promotion\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"abbreviation\",\n          \"irregular_casing\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"female\",\n        \"roles\": [\n          \"general_public\"\n        ],\n        \"evidence\": [\n          \"Chị Thanh Vân\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"reward_incentive\",\n        \"urgency\",\n        \"link_lure\",\n        \"off_platform_contact\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"contact_off_platform\"\n        ],\n        \"evidence\": [\n          \"ấn Quay Ngay\",\n          \"t.me/vip\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

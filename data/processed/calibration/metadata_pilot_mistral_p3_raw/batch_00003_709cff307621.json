@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:52:02.487515+00:00",
+  "batch_index": 3,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02300"
+    ],
+    "prompt_sha256": "1051eedea8603ab4e291bf9776a6ced7494f348422cd216e3b5af5acd9ac00d8"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "26a63d939d0b4dbaa54c9b86bc1bb452",
+    "created": 1782157919,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6166,
+      "total_tokens": 6523,
+      "completion_tokens": 357,
+      "prompt_tokens_details": {
+        "cached_tokens": 484
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_02300\",\n      \"message_domain\": \"telecom\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"abbreviation\",\n          \"irregular_casing\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"customer\"\n        ],\n        \"evidence\": [\n          \"Quý khách\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"reward_incentive\",\n        \"scarcity\",\n        \"link_lure\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"call_phone\"\n        ],\n        \"evidence\": [\n          \"https://my.vnpt.com.vn/adv/napthe\",\n          \"CSKH: 18001091\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

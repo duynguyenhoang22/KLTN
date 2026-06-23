@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-06-22T18:30:03.039962+00:00",
+  "batch_index": 24,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_07292",
+      "phase1_07291",
+      "phase1_07289",
+      "phase1_09636"
+    ],
+    "prompt_sha256": "1efc7f511b81ab2cb4590b207dbb5dd3edef34fa2c97734de5184f55e2892624"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "6f2eac2523ad4f968db49331182d57d0",
+    "created": 1782152990,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 4053,
+      "total_tokens": 5296,
+      "completion_tokens": 1243,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_07292\",\n      \"message_domain\": \"debt_collection\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"debtor\"],\n        \"evidence\": [\"Ong Hoang Kieu Anh\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"fear\", \"threat\"],\n      \"requested_actions\": {\n        \"types\": [\"make_payment\", \"call_phone\"],\n        \"evidence\": [\"Yeu cau thanh toan truoc 16H Ngay 30/05\", \"Lien he: <PHONE_1>\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_07291\",\n      \"message_domain\": \"debt_collection\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"debtor\"],\n        \"evidence\": [\"Ong Tran Van Hung\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"fear\", \"authority\", \"threat\"],\n      \"requested_actions\": {\n        \"types\": [\"make_payment\", \"call_phone\"],\n        \"evidence\": [\"Yeu cau thanh toan truoc 17g hom nay\", \"Hotline: <PHONE_1>\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_07289\",\n      \"message_domain\": \"debt_collection\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"debtor\"],\n        \"evidence\": [\"Ong Vo Van Thanh\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"urgency\", \"fear\", \"threat\"],\n      \"requested_actions\": {\n        \"types\": [\"make_payment\", \"call_phone\"],\n        \"evidence\": [\"Yeu cau thanh toan truoc 16H Ngay 28/05\", \"SDT lien he: <PHONE_1>\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_09636\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"whitespace_splitting\", \"punctuation_insertion\"],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"adult\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"B-o-d-y c-h-u-a-n e-m d-a-n-g\"]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\"whitespace_splitting\", \"punctuation_insertion\"],\n        \"severity\": 2,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\"link_lure\"],\n      \"requested_actions\": {\n        \"types\": [\"click_or_visit_link\"],\n        \"evidence\": [\"https://bit.ly/hn_body_chuan\"]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\"obfuscation_intent_uncertain\"]\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

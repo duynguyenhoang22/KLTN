@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:52:32.587851+00:00",
+  "batch_index": 15,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_00718"
+    ],
+    "prompt_sha256": "2771a73a8677148f9b1a6ab0a951189c9b4c64c088355d4c674ab4c2c06ce0bb"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "52e8edfa17614c74b94bdd379e772d39",
+    "created": 1782157950,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6004,
+      "total_tokens": 6292,
+      "completion_tokens": 288,
+      "prompt_tokens_details": {
+        "cached_tokens": 484
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_00718\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"teencode\",\n          \"abbreviation\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"unknown\"\n        ],\n        \"gender\": \"unknown\",\n        \"roles\": [\n          \"unknown\"\n        ],\n        \"evidence\": []\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"none\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"none\"\n        ],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

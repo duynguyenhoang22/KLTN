@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:54:37.732839+00:00",
+  "batch_index": 62,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02432"
+    ],
+    "prompt_sha256": "ef97b966980afb45213d2dfe3ee1214420b94f8af7e9eb7ca141cca071d831de"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "a53112f2c5ac41948dc5acf41b6100a0",
+    "created": 1782158075,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6025,
+      "total_tokens": 6401,
+      "completion_tokens": 376,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_02432\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"character_substitution\",\n          \"whitespace_splitting\",\n          \"word_concatenation\"\n        ],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"adult\"\n        ],\n        \"gender\": \"male\",\n        \"roles\": [\n          \"general_public\"\n        ],\n        \"evidence\": [\n          \"HOAN~THUE TNCN\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"character_substitution\",\n          \"whitespace_splitting\",\n          \"word_concatenation\"\n        ],\n        \"severity\": 3,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"link_lure\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\"\n        ],\n        \"evidence\": [\n          \"tai:https://hoanthue-tncn.vip\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\n        \"obfuscation_intent_uncertain\"\n      ]\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:53:33.761637+00:00",
+  "batch_index": 38,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_03511"
+    ],
+    "prompt_sha256": "514d1d4a06fa942dce5b85be49fe0e2840ccdbc271504a7fcf5e1e8f0134f4f1"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "423fd5039b984f1190eda135efce7b7a",
+    "created": 1782158011,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6020,
+      "total_tokens": 6284,
+      "completion_tokens": 264,
+      "prompt_tokens_details": {
+        "cached_tokens": 484
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_03511\",\n      \"message_domain\": \"commerce\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"none\"],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"customer\"],\n        \"evidence\": [\"Shopee\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"none\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

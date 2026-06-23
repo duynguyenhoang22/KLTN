@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:52:20.544653+00:00",
+  "batch_index": 10,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_01509"
+    ],
+    "prompt_sha256": "5ea03e1198ad82ee9322c538f0cdecabe63cc4692ce2ba90c8d7aa389ed9e082"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "e75d8a7faa664bd1ad62ae6c1621bafb",
+    "created": 1782157938,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6074,
+      "total_tokens": 6346,
+      "completion_tokens": 272,
+      "prompt_tokens_details": {
+        "cached_tokens": 484
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_01509\",\n      \"message_domain\": \"public_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\"abbreviation\"],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\"general\"],\n        \"gender\": \"all\",\n        \"roles\": [\"general_public\"],\n        \"evidence\": [\"Người dân\"]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\"authority\", \"fear\"],\n      \"requested_actions\": {\n        \"types\": [\"none\"],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

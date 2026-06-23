@@ -1,0 +1,28 @@
+﻿field,value,reviewer_a_decision,reviewer_a_proposal,reviewer_a_comment,reviewer_b_decision,reviewer_b_proposal,reviewer_b_comment,queue_reason,final_decision,final_value_or_target,adjudication_comment
+message_domain,commerce,merge,comemerce_logistics,"Tin nhắn vận đơn thường đồng thời chứa ngữ cảnh mua bán, thanh toán và giao nhận nên khó phân tách ổn định.",accept,,,decision_disagreement|reviewer_a_change,accept,,đã thảo luận
+message_domain,logistics,merge,comemerce_logistics,"Tin nhắn vận đơn thường đồng thời chứa ngữ cảnh mua bán, thanh toán và giao nhận nên khó phân tách ổn định.",accept,,,decision_disagreement|reviewer_a_change,accept,,đã thảo luận
+message_domain,unknown,accept,,,merge,other,other bao hàm unknown,decision_disagreement|reviewer_b_change,accept,,đã thảo luận
+obfuscation_techniques,character_substitution,accept,,,merge,leetspeak,cùng là tt kí tự,decision_disagreement|reviewer_b_change,accept,,đã thảo luận
+obfuscation_techniques,homoglyph,merge,character_substitution,gộp chung,accept,,,decision_disagreement|reviewer_a_change,merge,character_substitution,đã thảo luận
+obfuscation_techniques,leetspeak,merge,character_substitution,gộp chung,accept,,,decision_disagreement|reviewer_a_change,merge,character_substitution,đã thảo luận
+obfuscation_techniques,token_joining,rename,word_concatenation,nối ghép từ bằng cách xoá khoảng trắng giữa từ,accept,,,decision_disagreement|reviewer_a_change,rename,word_concatenation,đã thảo luận
+obfuscation_techniques,token_splitting,rename,whitespace_splitting,tách 1 từ thành nhiều nhỏ lẻ bằng khoảng trắng,accept,,,decision_disagreement|reviewer_a_change,rename,whitespace_splitting,đã thảo luận
+obfuscation_techniques,unicode_noise,remove,,,accept,,,decision_disagreement|reviewer_a_change,remove,,đã thảo luận
+requested_actions,provide_credentials,accept,,,merge,provide_personal_information,bằng cấp là 1 tt cá nhân,decision_disagreement|reviewer_b_change,merge,provide_personal_information,đã thảo luận
+target_age_group,child,remove,,nhóm đối tượng quá nhỏ,accept,,,decision_disagreement|reviewer_a_change,remove,,đã thảo luận
+target_age_group,young_adult,merge,adult,gom nhóm,accept,,,decision_disagreement|reviewer_a_change,merge,adult,đã thảo luận
+target_gender,not_applicable,accept,,,merge,all,k đối tượng cụ thể=mọi gender đều phù hợp,decision_disagreement|reviewer_b_change,merge,all,đã thảo luận
+target_roles,account_holder,merge,customer,account_holder là customer của bank/finance domain,accept,,,decision_disagreement|reviewer_a_change,merge,customer,đã thảo luận
+target_roles,benefit_recipient,merge,general_public,gom nhóm,accept,,,decision_disagreement|reviewer_a_change,merge,general_public,đã thảo luận
+target_roles,employee,rename,employee_or_worker,gom nhóm,merge,worker,đều là ng có việc kiếm tiền,decision_disagreement|reviewer_a_change|reviewer_b_change,rename,employee_or_worker,đã thảo luận
+target_roles,retired_person,merge,general_public,gom nhóm,accept,,,decision_disagreement|reviewer_a_change,accept,,đã thảo luận
+target_roles,shopper,merge,customer,gom nhóm,merge,customer,mọi ng đều mua sắm,proposal_disagreement|reviewer_a_change|reviewer_b_change,merge,customer,đã thảo luận
+target_roles,taxpayer,merge,general_public,gom nhóm,merge,general_public,mọi ng đều đóng thuế,reviewer_a_change|reviewer_b_change,merge,general_public,đã thảo luận
+target_roles,worker,merge,employee_or_worker,gom nhóm,accept,,,decision_disagreement|reviewer_a_change,merge,employee_or_worker,đã thảo luận
+text_phenomena,character_substitution,accept,,,merge,leetspeak,cùng pp thay thế kí tự,decision_disagreement|reviewer_b_change,accept,,đã thảo luận
+text_phenomena,code_switching,rename,lang_switching,vai trò mới: mix nhiều hơn 1 ngôn ngữ trong 1 tin nhắn,accept,,,decision_disagreement|reviewer_a_change|incomplete_review,rename,lang_switching,đã thảo luận
+text_phenomena,homoglyph,merge,character_substitution,đều là thay ký tự,accept,,,decision_disagreement|reviewer_a_change,merge,character_substitution,đã thảo luận
+text_phenomena,leetspeak,merge,character_substitution,đều là thay ký tự,accept,,,decision_disagreement|reviewer_a_change,merge,character_substitution,đã thảo luận
+text_phenomena,token_joining,rename,word_concatenation,nối ghép từ bằng cách xoá khoảng trắng giữa từ,accept,,,decision_disagreement|reviewer_a_change,rename,word_concatenation,đã thảo luận
+text_phenomena,token_splitting,rename,whitespace_splitting,tách 1 từ thành nhiều nhỏ lẻ bằng khoảng trắng,accept,,,decision_disagreement|reviewer_a_change,rename,whitespace_splitting,đã thảo luận
+text_phenomena,unicode_noise,remove,,khó nhận biệt bởi annotator,accept,,,decision_disagreement|reviewer_a_change,remove,,đã thảo luận

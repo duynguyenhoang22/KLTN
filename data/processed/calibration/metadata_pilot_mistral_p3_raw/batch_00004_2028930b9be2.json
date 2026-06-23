@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:52:05.612444+00:00",
+  "batch_index": 4,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_00132"
+    ],
+    "prompt_sha256": "2f49d50a5a2ea042df2324d3ec31e910135dce04f8f0a1f52b48068d0fff8975"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "088d29bd74dc4b39837b34192e1f51ef",
+    "created": 1782157922,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6084,
+      "total_tokens": 6436,
+      "completion_tokens": 352,
+      "prompt_tokens_details": {
+        "cached_tokens": 484
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_00132\",\n      \"message_domain\": \"marketing_promotion\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"abbreviation\",\n          \"irregular_casing\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"customer\"\n        ],\n        \"evidence\": [\n          \"khach hang\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"scarcity\",\n        \"link_lure\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"reply_message\"\n        ],\n        \"evidence\": [\n          \"CT: https://mktd.vn/sinhnhat\",\n          \"Soan TC MKTAMDUC gui 1313\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

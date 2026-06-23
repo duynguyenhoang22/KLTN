@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:56:25.461985+00:00",
+  "batch_index": 96,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_09636"
+    ],
+    "prompt_sha256": "c98fa5ba47424b7ed742bf89f06275e3fc7c44437149af65c58e10375340a8ec"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "285bd81789d74bcfbef8364eb8962096",
+    "created": 1782158182,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6034,
+      "total_tokens": 6453,
+      "completion_tokens": 419,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_09636\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"punctuation_insertion\"\n        ],\n        \"text_noise_score\": 3\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"adult\"\n        ],\n        \"gender\": \"male\",\n        \"roles\": [\n          \"general_public\"\n        ],\n        \"evidence\": [\n          \"B-o-d-y c-h-u-a-n e-m d-a-n-g o H-N Z-a-l-o k-e-t b-a-n\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"whitespace_splitting\",\n          \"word_concatenation\",\n          \"punctuation_insertion\"\n        ],\n        \"severity\": 3,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"link_lure\",\n        \"off_platform_contact\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"contact_off_platform\"\n        ],\n        \"evidence\": [\n          \"https://bit.ly/hn_body_chuan\",\n          \"Z-a-l-o\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": [\n        \"obfuscation_intent_uncertain\"\n      ]\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

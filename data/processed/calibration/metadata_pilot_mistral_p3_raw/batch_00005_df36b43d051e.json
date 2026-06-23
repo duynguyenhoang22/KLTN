@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:52:08.120140+00:00",
+  "batch_index": 5,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_02142"
+    ],
+    "prompt_sha256": "7d88b7df3f520dc67bdc0c9964deaafc273a7ab1e43d1f73032cc1369436e47c"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "f3e50435227148d3a9d159cdf98aec38",
+    "created": 1782157925,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6104,
+      "total_tokens": 6378,
+      "completion_tokens": 274,
+      "prompt_tokens_details": {
+        "cached_tokens": 484
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\"items\": [{\"sample_id\": \"phase1_02142\", \"message_domain\": \"telecom\", \"surface_features\": {\"text_phenomena\": [\"abbreviation\", \"irregular_casing\"], \"text_noise_score\": 1}, \"target_audience\": {\"age_groups\": [\"general\"], \"gender\": \"all\", \"roles\": [\"customer\"], \"evidence\": [\"Quý khách\"]}, \"obfuscation\": {\"present\": false, \"techniques\": [], \"severity\": 0, \"confidence\": 1.0}, \"persuasion_tactics\": [\"authority\", \"scarcity\", \"link_lure\"], \"requested_actions\": {\"types\": [\"click_or_visit_link\", \"call_phone\"], \"evidence\": [\"https://my.vnpt.com.vn/adv/napthe\", \"CSKH: 18001091\"]}, \"field_confidence\": {\"message_domain\": 1.0, \"surface_features\": 1.0, \"target_audience\": 1.0, \"obfuscation\": 1.0, \"persuasion_tactics\": 1.0, \"requested_actions\": 1.0}, \"review_flags\": []}]}"
+        }
+      }
+    ]
+  }
+}

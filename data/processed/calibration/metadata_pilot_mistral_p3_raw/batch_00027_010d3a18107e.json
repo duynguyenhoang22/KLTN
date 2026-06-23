@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:53:05.222596+00:00",
+  "batch_index": 27,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_03210"
+    ],
+    "prompt_sha256": "d193eb40d46323c98e567667c3fbab9ed59c1222f8f34945889afcf73b759f3b"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "0656fbf7658b4102b0462bb387e09938",
+    "created": 1782157982,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6068,
+      "total_tokens": 6422,
+      "completion_tokens": 354,
+      "prompt_tokens_details": {
+        "cached_tokens": 484
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_03210\",\n      \"message_domain\": \"banking_finance\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"diacritic_omission\",\n          \"abbreviation\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"customer\"\n        ],\n        \"evidence\": [\n          \"Quy khach\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"reward_incentive\",\n        \"scarcity\",\n        \"link_lure\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"reply_message\"\n        ],\n        \"evidence\": [\n          \"Choi ngay tai momo.vn\",\n          \"Tu choi QC: TC gui 8788\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

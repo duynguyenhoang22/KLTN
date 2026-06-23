@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:53:58.049478+00:00",
+  "batch_index": 48,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_04302"
+    ],
+    "prompt_sha256": "3d11dbe195642d3548c67d6d0a6969ddf154c1f7dc322932e0c3de1ca7b57e78"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "7690cc396ae7403f80b81300b5e4d181",
+    "created": 1782158035,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6053,
+      "total_tokens": 6392,
+      "completion_tokens": 339,
+      "prompt_tokens_details": {
+        "cached_tokens": 4644
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_04302\",\n      \"message_domain\": \"healthcare\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"diacritic_omission\",\n          \"abbreviation\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"unknown\"\n        ],\n        \"gender\": \"male\",\n        \"roles\": [\n          \"patient\"\n        ],\n        \"evidence\": [\n          \"Quy khach Tran Van Hung\",\n          \"Phong 302 - Khoa Tim mach - Benh vien Bach Mai\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"urgency\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"visit_physical_location\"\n        ],\n        \"evidence\": [\n          \"den dung gio de lam thu tuc\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

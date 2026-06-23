@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-06-22T18:29:49.816052+00:00",
+  "batch_index": 23,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_09215",
+      "phase1_08420",
+      "phase1_07294",
+      "phase1_07286"
+    ],
+    "prompt_sha256": "06b83301be249ab0cff6be51a83f2ebab7a8a0c8fc039f06a75145d9c1805582"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "29950af8ce75486381210dda9ace1679",
+    "created": 1782152978,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 3967,
+      "total_tokens": 5461,
+      "completion_tokens": 1494,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_09215\",\n      \"message_domain\": \"telecom\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"character_substitution\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"customer\"\n        ],\n        \"evidence\": [\n          \"Cuc Vien thong: Thue b4o cwa ban se bi thu hoi\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"character_substitution\"\n        ],\n        \"severity\": 1,\n        \"confidence\": 0.9\n      },\n      \"persuasion_tactics\": [\n        \"threat\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"call_phone\"\n        ],\n        \"evidence\": [\n          \"Lien he <PHONE_1>\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.9,\n        \"surface_features\": 0.9,\n        \"target_audience\": 0.9,\n        \"obfuscation\": 0.9,\n        \"persuasion_tactics\": 0.9,\n        \"requested_actions\": 0.9\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_08420\",\n      \"message_domain\": \"adult_service\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"word_concatenation\"\n        ],\n        \"text_noise_score\": 2\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"adult\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"general_public\"\n        ],\n        \"evidence\": [\n          \"H;C_M-E:m;s_I_n:H_v;I_e:N:c_U_t_E\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": true,\n        \"techniques\": [\n          \"punctuation_insertion\",\n          \"whitespace_splitting\",\n          \"word_concatenation\"\n        ],\n        \"severity\": 2,\n        \"confidence\": 0.8\n      },\n      \"persuasion_tactics\": [\n        \"link_lure\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"click_or_visit_link\",\n          \"contact_off_platform\"\n        ],\n        \"evidence\": [\n          \"Telegram: https://t.me/hcm_cute_sv\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 0.8,\n        \"surface_features\": 0.8,\n        \"target_audience\": 0.8,\n        \"obfuscation\": 0.8,\n        \"persuasion_tactics\": 0.8,\n        \"requested_actions\": 0.8\n      },\n      \"review_flags\": [\n        \"obfuscation_intent_uncertain\"\n      ]\n    },\n    {\n      \"sample_id\": \"phase1_07294\",\n      \"message_domain\": \"debt_collection\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"male\",\n        \"roles\": [\n          \"debtor\"\n        ],\n        \"evidence\": [\n          \"Ong Ly Hai Nam CMND: <PHONE_1> co khoan vay 4,125,500VND tai Mcredit da qua han\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"urgency\",\n        \"fear\",\n        \"threat\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"make_payment\",\n          \"call_phone\"\n        ],\n        \"evidence\": [\n          \"Yeu cau thanh toan trong 24H nua\",\n          \"LH: <PHONE_2>\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    },\n    {\n      \"sample_id\": \"phase1_07286\",\n      \"message_domain\": \"debt_collection\",\n      \"surface_features\": {\n        \"text_phenomena\": [],\n        \"text_noise_score\": 0\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"male\",\n        \"roles\": [\n          \"debtor\"\n        ],\n        \"evidence\": [\n          \"Yeu cau Ong Nguyen Hoang Nam CMND: <PHONE_1> thanh toan khoan no 15,243,000VND cho Cong ty Tai chinh FE truoc 16H Ngay 25/05\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"urgency\",\n        \"fear\",\n        \"threat\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"make_payment\",\n          \"call_phone\"\n        ],\n        \"evidence\": [\n          \"Yeu cau Ong Nguyen Hoang Nam CMND: <PHONE_1> thanh toan khoan no 15,243,000VND cho Cong ty Tai chinh FE truoc 16H Ngay 25/05\",\n          \"LH: <PHONE_2>\"\n        ]\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

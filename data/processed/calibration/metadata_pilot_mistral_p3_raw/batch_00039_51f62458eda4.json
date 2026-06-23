@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-06-22T19:53:36.360324+00:00",
+  "batch_index": 39,
+  "request": {
+    "model": "mistral-small-2506",
+    "prompt_version": "metadata-v2.1-locked-p2-human-calibrated",
+    "taxonomy_version": "2.1.0-locked",
+    "sample_ids": [
+      "phase1_04428"
+    ],
+    "prompt_sha256": "efc4fa54db464eccedc2f41daa8aa1f0243ca7db015936259c272087ce45d07e"
+  },
+  "validation_errors": [],
+  "provider_response": {
+    "id": "58f94110e97f4229842a981ea71cef0b",
+    "created": 1782158014,
+    "model": "mistral-small-2506",
+    "usage": {
+      "prompt_tokens": 6021,
+      "total_tokens": 6317,
+      "completion_tokens": 296,
+      "prompt_tokens_details": {
+        "cached_tokens": 484
+      }
+    },
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "tool_calls": null,
+          "content": "{\n  \"items\": [\n    {\n      \"sample_id\": \"phase1_04428\",\n      \"message_domain\": \"personal_social\",\n      \"surface_features\": {\n        \"text_phenomena\": [\n          \"abbreviation\"\n        ],\n        \"text_noise_score\": 1\n      },\n      \"target_audience\": {\n        \"age_groups\": [\n          \"general\"\n        ],\n        \"gender\": \"all\",\n        \"roles\": [\n          \"customer\"\n        ],\n        \"evidence\": [\n          \"Ma xac thuc cua ban\"\n        ]\n      },\n      \"obfuscation\": {\n        \"present\": false,\n        \"techniques\": [],\n        \"severity\": 0,\n        \"confidence\": 1.0\n      },\n      \"persuasion_tactics\": [\n        \"none\"\n      ],\n      \"requested_actions\": {\n        \"types\": [\n          \"none\"\n        ],\n        \"evidence\": []\n      },\n      \"field_confidence\": {\n        \"message_domain\": 1.0,\n        \"surface_features\": 1.0,\n        \"target_audience\": 1.0,\n        \"obfuscation\": 1.0,\n        \"persuasion_tactics\": 1.0,\n        \"requested_actions\": 1.0\n      },\n      \"review_flags\": []\n    }\n  ]\n}"
+        }
+      }
+    ]
+  }
+}

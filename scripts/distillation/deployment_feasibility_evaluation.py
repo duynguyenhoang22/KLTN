@@ -154,10 +154,33 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Deployment feasibility benchmark.")
     parser.add_argument("--split", choices=sorted(SPLIT_TO_FILE), default="test_real")
     parser.add_argument("--split-dir", type=Path, default=DEFAULT_SPLIT_DIR)
+    parser.add_argument(
+        "--data-file",
+        type=Path,
+        default=None,
+        help="Optional explicit evaluation CSV, overriding --split-dir/--split.",
+    )
     parser.add_argument("--teacher-output-dir", type=Path, default=DEFAULT_TEACHER_OUTPUT_DIR)
+    parser.add_argument(
+        "--teacher-output-file",
+        type=Path,
+        default=None,
+        help="Optional explicit teacher-output CSV for the selected data file.",
+    )
     parser.add_argument("--teacher-model-dir", type=Path, default=DEFAULT_TEACHER_MODEL_DIR)
     parser.add_argument("--bilstm-checkpoint", type=Path, default=DEFAULT_MODELS["BiLSTM"])
     parser.add_argument("--textcnn-checkpoint", type=Path, default=DEFAULT_MODELS["TextCNN Distilled"])
+    parser.add_argument(
+        "--student",
+        action="append",
+        default=[],
+        metavar="LABEL=CHECKPOINT",
+        help=(
+            "Repeatable custom student checkpoint. When provided, these "
+            "replace the default BiLSTM/TextCNN pair; useful for comparing "
+            "TextCNN hard, vanilla KD, and risk-aware KD under one protocol."
+        ),
+    )
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--batch-size", type=int, default=128)
     parser.add_argument("--warmup-runs", type=int, default=2)
@@ -167,8 +190,8 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def load_test_split(split_dir: Path, split: str) -> pd.DataFrame:
-    path = split_dir / SPLIT_TO_FILE[split]
+def load_test_split(split_dir: Path, split: str, data_file: Path | None = None) -> pd.DataFrame:
+    path = data_file if data_file is not None else split_dir / SPLIT_TO_FILE[split]
     if not path.exists():
         raise FileNotFoundError(f"Missing test split: {path}")
     df = pd.read_csv(path)
@@ -180,6 +203,29 @@ def load_test_split(split_dir: Path, split: str) -> pd.DataFrame:
     df["content"] = df["content"].fillna("").astype(str)
     df["label"] = df["label"].astype(int)
     return df
+
+
+def parse_student_specs(
+    raw_specs: list[str],
+    bilstm_checkpoint: Path,
+    textcnn_checkpoint: Path,
+) -> list[tuple[str, Path]]:
+    if not raw_specs:
+        return [
+            ("BiLSTM", bilstm_checkpoint),
+            ("TextCNN Distilled", textcnn_checkpoint),
+        ]
+    specs = []
+    for raw in raw_specs:
+        if "=" not in raw:
+            raise ValueError(f"Invalid --student value `{raw}`; expected LABEL=CHECKPOINT")
+        label, checkpoint = raw.split("=", 1)
+        label = label.strip()
+        checkpoint = checkpoint.strip()
+        if not label or not checkpoint:
+            raise ValueError(f"Invalid --student value `{raw}`; expected LABEL=CHECKPOINT")
+        specs.append((label, Path(checkpoint)))
+    return specs
 
 
 def encode_text(text: str, vocab: dict[str, int], max_len: int) -> list[int]:
@@ -293,8 +339,16 @@ def roberta_param_estimate(config: dict) -> int:
     return int(embeddings + layers * layer + pooler + classifier)
 
 
-def load_teacher_f1(teacher_output_dir: Path, split: str) -> float | None:
-    path = teacher_output_dir / TEACHER_SPLIT_TO_FILE[split]
+def load_teacher_f1(
+    teacher_output_dir: Path,
+    split: str,
+    teacher_output_file: Path | None = None,
+) -> float | None:
+    path = (
+        teacher_output_file
+        if teacher_output_file is not None
+        else teacher_output_dir / TEACHER_SPLIT_TO_FILE[split]
+    )
     if not path.exists():
         return None
     df = pd.read_csv(path)
@@ -382,15 +436,18 @@ def main() -> None:
     torch.set_num_threads(args.torch_threads)
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
-    test_df = load_test_split(args.split_dir, args.split)
+    effective_split = args.data_file.stem if args.data_file is not None else args.split
+    test_df = load_test_split(args.split_dir, args.split, args.data_file)
     texts = test_df["content"].tolist()
     labels = test_df["label"].to_numpy()
     rows: list[dict] = []
 
-    for model_name, checkpoint_path in [
-        ("BiLSTM", args.bilstm_checkpoint),
-        ("TextCNN Distilled", args.textcnn_checkpoint),
-    ]:
+    student_specs = parse_student_specs(
+        args.student,
+        args.bilstm_checkpoint,
+        args.textcnn_checkpoint,
+    )
+    for model_name, checkpoint_path in student_specs:
         model, vocab, config = load_student(checkpoint_path)
         max_len = int(config["max_len"])
         threshold = float(config.get("threshold", 0.5))
@@ -425,7 +482,11 @@ def main() -> None:
 
     teacher_params = None
     teacher_status = "ok"
-    teacher_f1 = load_teacher_f1(args.teacher_output_dir, args.split)
+    teacher_f1 = load_teacher_f1(
+        args.teacher_output_dir,
+        args.split,
+        args.teacher_output_file,
+    )
     teacher_runtime = RuntimeMetrics(None, None, None)
     teacher_size = checkpoint_size_mb(args.teacher_model_dir)
     config_path = args.teacher_model_dir / "config.json"
@@ -458,17 +519,24 @@ def main() -> None:
     )
 
     result_df = pd.DataFrame(rows)
-    model_order = {"PhoBERT-base": 0, "BiLSTM": 1, "TextCNN Distilled": 2}
+    model_order = {"PhoBERT-base": 0}
+    model_order.update({name: index + 1 for index, (name, _) in enumerate(student_specs)})
     result_df["_order"] = result_df["model"].map(model_order)
     result_df = result_df.sort_values("_order").drop(columns="_order")
-    result_csv = args.output_dir / f"deployment_feasibility_{args.split}.csv"
-    result_json = args.output_dir / f"deployment_feasibility_{args.split}.json"
-    result_md = args.output_dir / f"deployment_feasibility_{args.split}.md"
+    result_csv = args.output_dir / f"deployment_feasibility_{effective_split}.csv"
+    result_json = args.output_dir / f"deployment_feasibility_{effective_split}.json"
+    result_md = args.output_dir / f"deployment_feasibility_{effective_split}.md"
     result_df.to_csv(result_csv, index=False)
     result_json.write_text(
         json.dumps(
             {
-                "split": args.split,
+                "split": effective_split,
+                "data_file": str(args.data_file) if args.data_file is not None else None,
+                "teacher_output_file": (
+                    str(args.teacher_output_file)
+                    if args.teacher_output_file is not None
+                    else None
+                ),
                 "rows": int(len(test_df)),
                 "batch_size": args.batch_size,
                 "warmup_runs": args.warmup_runs,
@@ -481,7 +549,10 @@ def main() -> None:
         ),
         encoding="utf-8",
     )
-    result_md.write_text(build_markdown(result_df, args.split, len(test_df)), encoding="utf-8")
+    result_md.write_text(
+        build_markdown(result_df, effective_split, len(test_df)),
+        encoding="utf-8",
+    )
     print(f"Wrote {result_csv}")
     print(f"Wrote {result_json}")
     print(f"Wrote {result_md}")

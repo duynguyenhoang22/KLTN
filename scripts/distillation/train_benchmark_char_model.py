@@ -2,9 +2,10 @@
 
 Supported runs:
 - BiLSTM hard labels
-- BiLSTM distilled from PhoBERT-base
+- BiLSTM risk-aware distilled from PhoBERT-base (legacy benchmark run)
 - TextCNN hard labels
-- TextCNN distilled from PhoBERT-base
+- TextCNN vanilla knowledge distillation
+- TextCNN risk-aware knowledge distillation
 """
 
 from __future__ import annotations
@@ -52,7 +53,15 @@ TEACHER_COLUMNS = {
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Train char-level benchmark model.")
     parser.add_argument("--architecture", choices=["bilstm", "textcnn"], required=True)
-    parser.add_argument("--mode", choices=["hard", "distilled"], required=True)
+    parser.add_argument(
+        "--mode",
+        choices=["hard", "distilled", "vanilla_kd", "risk_aware_kd"],
+        required=True,
+        help=(
+            "`distilled` is retained as a backward-compatible alias for "
+            "`risk_aware_kd`."
+        ),
+    )
     parser.add_argument("--split-dir", type=Path, default=DEFAULT_SPLIT_DIR)
     parser.add_argument("--teacher-dir", type=Path, default=DEFAULT_TEACHER_DIR)
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
@@ -73,6 +82,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--threshold", type=float, default=0.5)
     parser.add_argument("--alpha", type=float, default=0.8)
     parser.add_argument("--fn-distill-weight", type=float, default=0.0)
+    parser.add_argument("--teacher-name", type=str, default="PhoBERT-base")
+    parser.add_argument(
+        "--run-suffix",
+        type=str,
+        default="",
+        help="Optional suffix used to keep multi-seed study outputs separate.",
+    )
     return parser.parse_args()
 
 
@@ -89,8 +105,16 @@ def split_path(base_dir: Path, split: str, distilled: bool) -> Path:
     return base_dir / BENCHMARK_SPLITS[split]
 
 
+def is_distilled_mode(mode: str) -> bool:
+    return mode in {"distilled", "vanilla_kd", "risk_aware_kd"}
+
+
+def normalized_mode(mode: str) -> str:
+    return "risk_aware_kd" if mode == "distilled" else mode
+
+
 def load_splits(args: argparse.Namespace) -> dict[str, pd.DataFrame]:
-    distilled = args.mode == "distilled"
+    distilled = is_distilled_mode(args.mode)
     base_dir = args.teacher_dir if distilled else args.split_dir
     required = BASE_COLUMNS | (TEACHER_COLUMNS if distilled else set())
     splits = {}
@@ -144,13 +168,15 @@ class SmsDataset(Dataset):
             dtype=torch.long,
         )
         self.y = torch.tensor(self.df["label"].astype(float).to_numpy(), dtype=torch.float32)
-        if args.mode == "distilled":
+        if is_distilled_mode(args.mode):
             self.teacher_p1 = torch.tensor(
                 self.df["teacher_p1_t2"].astype(float).to_numpy(), dtype=torch.float32
             )
-            self.distill_weight = torch.tensor(
-                effective_distill_weight(self.df, args.fn_distill_weight), dtype=torch.float32
-            )
+            if normalized_mode(args.mode) == "vanilla_kd":
+                weights = np.ones(len(self.df), dtype=np.float32)
+            else:
+                weights = effective_distill_weight(self.df, args.fn_distill_weight)
+            self.distill_weight = torch.tensor(weights, dtype=torch.float32)
         else:
             self.teacher_p1 = torch.zeros(len(self.df), dtype=torch.float32)
             self.distill_weight = torch.zeros(len(self.df), dtype=torch.float32)
@@ -216,7 +242,7 @@ def train_loss(
     hard_loss_fn: nn.Module,
 ) -> torch.Tensor:
     hard = hard_loss_fn(logits, batch["y"])
-    if args.mode == "hard":
+    if normalized_mode(args.mode) == "hard":
         return hard
     soft = nn.functional.binary_cross_entropy_with_logits(
         logits,
@@ -280,9 +306,29 @@ def write_report(output_dir: Path, run_name: str, display_name: str, metrics_df:
 def main() -> None:
     args = parse_args()
     set_seed(args.seed)
-    run_key = f"{args.architecture}_{'distilled_phobert_base' if args.mode == 'distilled' else 'hard'}"
-    display_name = CHAR_MODELS[run_key]
-    run_name = f"char_{run_key}"
+    mode = normalized_mode(args.mode)
+    if mode == "hard":
+        run_key = f"{args.architecture}_hard"
+        display_name = CHAR_MODELS[run_key]
+        run_name = f"char_{run_key}"
+    elif mode == "vanilla_kd":
+        display_name = f"{args.architecture.upper()} vanilla KD fr {args.teacher_name}"
+        run_name = f"char_{args.architecture}_vanilla_kd"
+    else:
+        run_key = f"{args.architecture}_distilled_phobert_base"
+        display_name = CHAR_MODELS[run_key].replace(
+            "PhoBERT-base", args.teacher_name
+        )
+        # Preserve the established benchmark artifact names when the legacy
+        # `distilled` alias is used. Focused-study runs use the explicit
+        # `risk_aware_kd` name.
+        run_name = (
+            f"char_{run_key}"
+            if args.mode == "distilled"
+            else f"char_{args.architecture}_risk_aware_kd"
+        )
+    if args.run_suffix:
+        run_name = f"{run_name}_{args.run_suffix}"
     output_dir = args.output_dir or (args.output_root / run_name)
     output_dir.mkdir(parents=True, exist_ok=True)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -362,7 +408,7 @@ def main() -> None:
         "agree_label",
         "error_type",
     ]
-    if args.mode == "distilled":
+    if is_distilled_mode(args.mode):
         keep_cols[10:10] = ["teacher_p1_t2", "teacher_pred", "teacher_confidence", "teacher_agree_label", "distill_weight"]
     for split, df in splits.items():
         pred = predict(model, eval_loaders[split], df, args.threshold, device, run_name)
@@ -379,7 +425,16 @@ def main() -> None:
                 run_name=run_name,
                 split=split,
                 metrics=metrics,
-                metadata={"architecture": args.architecture, "mode": args.mode, "teacher": "PhoBERT-base" if args.mode == "distilled" else ""},
+                metadata={
+                    "architecture": args.architecture,
+                    "mode": mode,
+                    "teacher": args.teacher_name if is_distilled_mode(args.mode) else "",
+                    "seed": args.seed,
+                    "alpha": args.alpha if is_distilled_mode(args.mode) else "",
+                    "fn_distill_weight": (
+                        args.fn_distill_weight if mode == "risk_aware_kd" else ""
+                    ),
+                },
             )
         )
         pred[keep_cols].to_csv(output_dir / f"{run_name}_predictions_{split}.csv", index=False, encoding="utf-8-sig")
@@ -388,7 +443,16 @@ def main() -> None:
     metrics_df = write_metrics_bundle(output_dir, run_name, rows, split_metrics)
     pd.DataFrame(history).to_csv(output_dir / f"{run_name}_training_history.csv", index=False)
     config = vars(args).copy()
-    config.update({"run_name": run_name, "display_name": display_name, "vocab_size": len(vocab), "device": str(device), "best_dev_macro_f1": best_score})
+    config.update(
+        {
+            "mode_normalized": mode,
+            "run_name": run_name,
+            "display_name": display_name,
+            "vocab_size": len(vocab),
+            "device": str(device),
+            "best_dev_macro_f1": best_score,
+        }
+    )
     (output_dir / f"{run_name}_config.json").write_text(json.dumps(config, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
     torch.save({"model_state_dict": model.state_dict(), "vocab": vocab, "config": config}, output_dir / f"{run_name}_model.pt")
     write_report(output_dir, run_name, display_name, metrics_df, history)

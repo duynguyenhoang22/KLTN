@@ -4,7 +4,7 @@
 >
 > - Các khối `GHI CHÚ HÌNH`, `GHI CHÚ BẢNG` và `GHI CHÚ KIỂM TRA` là chỉ dẫn biên tập, không phải nội dung chính thức của báo cáo.
 > - Số thứ tự hình và bảng sẽ được cập nhật sau khi nội dung được đưa vào file báo cáo chính.
-> - Benchmark nhiều mô hình là trục thực nghiệm chính. TSTR, augmentation và distillation không được trình bày như các nhánh nghiên cứu độc lập.
+> - Benchmark nhiều mô hình là trục thực nghiệm chính. Distillation không được trình bày như một nhánh nghiên cứu độc lập.
 
 ## 4.1. Tổng quan thiết kế thực nghiệm
 
@@ -16,9 +16,7 @@ Trong thiết kế này, chưng cất tri thức không được xem là một h
 
 Đối với các mô hình distilled, việc đánh giá không chỉ dựa trên chất lượng phân loại. Nghiên cứu còn thực hiện phân tích tính khả thi khi triển khai bằng cách so sánh các mô hình học sinh với teacher PhoBERT-base theo số lượng tham số, kích thước checkpoint, độ trễ suy luận trên CPU, thông lượng xử lý và mức sử dụng bộ nhớ cực đại. Phân tích này nhằm lượng hóa mức tài nguyên tiết kiệm được nhờ chưng cất tri thức và đặt phần cải thiện về tốc độ trong tương quan với mức suy giảm hoặc bảo toàn F1 của lớp smishing. Vì vậy, một mô hình distilled không được xem là tốt hơn teacher chỉ vì có tốc độ suy luận cao hơn; kết luận cần dựa trên đồng thời hai phương diện là hiệu quả dự đoán và chi phí triển khai.
 
-Bên cạnh benchmark chính, nghiên cứu thực hiện các thí nghiệm bổ sung nhằm phân tích giá trị của dữ liệu tạo sinh. Các thí nghiệm này lần lượt kiểm tra ba vấn đề: khả năng sử dụng dữ liệu tạo sinh để thay thế dữ liệu thật thông qua thiết lập Train on Synthetic, Test on Real (TSTR); khả năng bổ sung dữ liệu tạo sinh của lớp smishing vào dữ liệu huấn luyện thật; và ảnh hưởng của việc mở rộng lớp tin nhắn hợp lệ bằng dữ liệu tạo sinh hoặc dữ liệu chéo miền. Những thí nghiệm này không nhằm tạo ra một hệ thống benchmark riêng, mà cung cấp bằng chứng để xác định dữ liệu tạo sinh nên được sử dụng độc lập hay chỉ nên đóng vai trò tăng cường dữ liệu.
-
-Toàn bộ quá trình thực nghiệm được tổ chức thành bốn giai đoạn. Trước hết, bộ dữ liệu được phân chia thành tập huấn luyện, tập phát triển và tập kiểm thử theo nguồn dữ liệu, nhãn và danh mục nội dung. Tiếp theo, các mô hình benchmark được huấn luyện trên cùng giao thức và checkpoint được lựa chọn dựa trên kết quả của tập phát triển. Sau đó, kết quả dự đoán trên tập phát triển được phân tích theo nhiều lát cắt, bao gồm độ dài tin nhắn, mức độ che giấu văn bản, nguồn dữ liệu, danh mục nội dung và các metadata liên quan. Cuối cùng, hiệu năng của toàn bộ cấu hình benchmark được báo cáo trên cả tập phát triển và tập kiểm thử thông qua bốn độ đo gồm Macro-F1, F1 Label 1, Recall Label 1 và PR-AUC. Trong đó, kết quả trên tập phát triển được sử dụng để lựa chọn mô hình và phân tích chi tiết, còn kết quả trên tập kiểm thử chỉ phản ánh khả năng tổng quát hóa cuối cùng và không được dùng để điều chỉnh mô hình. Đối với teacher và các mô hình distilled đại diện, quy trình còn bổ sung phép đo hiệu quả triển khai trên cùng môi trường CPU và cùng benchmark split. Song song với quy trình này, nhóm thí nghiệm TSTR và augmentation được sử dụng để phân tích riêng vai trò của từng nguồn dữ liệu huấn luyện.
+Toàn bộ quá trình thực nghiệm được tổ chức thành bốn giai đoạn. Trước hết, bộ dữ liệu được phân chia thành tập huấn luyện, tập phát triển và tập kiểm thử theo nguồn dữ liệu, nhãn và danh mục nội dung. Tiếp theo, các mô hình benchmark được huấn luyện trên cùng giao thức và checkpoint được lựa chọn dựa trên kết quả của tập phát triển. Sau đó, kết quả dự đoán trên tập phát triển được phân tích theo nhiều lát cắt, bao gồm độ dài tin nhắn, mức độ che giấu văn bản, nguồn dữ liệu, danh mục nội dung và các metadata liên quan. Cuối cùng, hiệu năng của toàn bộ cấu hình benchmark được báo cáo trên cả tập phát triển và tập kiểm thử thông qua bốn độ đo gồm Macro-F1, F1 Label 1, Recall Label 1 và PR-AUC. Trong đó, kết quả trên tập phát triển được sử dụng để lựa chọn mô hình và phân tích chi tiết, còn kết quả trên tập kiểm thử chỉ phản ánh khả năng tổng quát hóa cuối cùng và không được dùng để điều chỉnh mô hình. Đối với teacher và các mô hình distilled đại diện, quy trình còn bổ sung phép đo hiệu quả triển khai trên cùng môi trường CPU và cùng benchmark split.
 
 > **GHI CHÚ HÌNH 4.x — Sơ đồ quy trình thực nghiệm tổng thể**
 >
@@ -39,9 +37,7 @@ Toàn bộ quá trình thực nghiệm được tổ chức thành bốn giai đ
 > 7. **Đánh giá tính khả thi triển khai**  
 >    So sánh teacher PhoBERT-base với các mô hình distilled theo chất lượng, kích thước, độ trễ, throughput và peak RAM.
 >
-> Có thể đặt một nhánh phụ bên dưới khối dữ liệu với tên **“Phân tích vai trò dữ liệu tạo sinh”**, gồm TSTR, positive augmentation và negative/domain augmentation. Nhánh này nối về phần phân tích kết quả, không nối thành một benchmark độc lập.
-
-Thiết kế thực nghiệm trên được xây dựng để trả lời bốn câu hỏi nghiên cứu. Câu hỏi thứ nhất tập trung vào sự khác biệt hiệu năng giữa các nhóm mô hình. Câu hỏi thứ hai xem xét tác động của các đặc điểm dữ liệu đến kết quả dự đoán. Câu hỏi thứ ba đi sâu vào các loại lỗi và vùng dữ liệu mà mô hình chưa xử lý tốt. Câu hỏi cuối cùng đánh giá vai trò phù hợp của dữ liệu tạo sinh trong bối cảnh dữ liệu smishing tiếng Việt còn hạn chế.
+Thiết kế thực nghiệm trên được xây dựng để trả lời ba câu hỏi nghiên cứu. Câu hỏi thứ nhất tập trung vào sự khác biệt hiệu năng giữa các nhóm mô hình. Câu hỏi thứ hai xem xét tác động của các đặc điểm dữ liệu đến kết quả dự đoán. Câu hỏi thứ ba đi sâu vào các loại lỗi và vùng dữ liệu mà mô hình chưa xử lý tốt.
 
 **RQ1 — Các nhóm mô hình khác nhau đạt hiệu quả như thế nào trên bộ dữ liệu ViSmish?**
 
@@ -55,10 +51,6 @@ Kết quả tổng thể có thể che khuất sự khác biệt giữa các nh�
 
 Câu hỏi này được trả lời thông qua ma trận nhầm lẫn và phân tích các trường hợp false positive, false negative. Các lỗi được nhóm theo đặc điểm nội dung và metadata để nhận diện những khuynh hướng lặp lại, chẳng hạn tin nhắn smishing có bề mặt giống thông báo OTP hợp lệ, tin nhắn hợp lệ chứa URL hoặc ngôn ngữ cảnh báo, văn bản có mức che giấu cao và các mẫu nằm ngoài miền SMS thông thường. Ngoài việc thống kê số lỗi, nghiên cứu xem xét các ví dụ đại diện và so sánh tập lỗi giữa một số mô hình tiêu biểu.
 
-**RQ4 — Dữ liệu tạo sinh mang lại giá trị gì cho bài toán và nên được sử dụng theo cách nào?**
-
-Để trả lời câu hỏi này, nghiên cứu không chỉ so sánh hiệu năng của mô hình được huấn luyện bằng dữ liệu thật và dữ liệu tạo sinh. Các thiết lập TSTR được dùng để kiểm tra khả năng thay thế dữ liệu thật; các thiết lập positive augmentation đánh giá tác động của việc bổ sung synthetic Label 1; trong khi negative augmentation và external challenge kiểm tra khả năng kiểm soát false positive khi miền Label 0 được mở rộng. Qua đó, nghiên cứu hướng đến việc xác định vai trò phù hợp của dữ liệu tạo sinh thay vì mặc định rằng số lượng dữ liệu lớn hơn luôn dẫn đến kết quả tốt hơn.
-
 > **GHI CHÚ BẢNG - Bảng ánh xạ câu hỏi nghiên cứu với phương pháp đánh giá**
 >
 > | Câu hỏi nghiên cứu | Nội dung cần đánh giá | Nguồn bằng chứng chính |
@@ -66,9 +58,8 @@ Câu hỏi này được trả lời thông qua ma trận nhầm lẫn và phân
 > | RQ1 | So sánh hiệu năng giữa các nhóm và cấu hình mô hình; đánh giá trade-off chất lượng–tài nguyên của mô hình distilled | Bốn độ đo benchmark trên dev/test; benchmark triển khai CPU |
 > | RQ2 | Ảnh hưởng của độ dài, obfuscation và metadata | Slice analysis trên dev |
 > | RQ3 | False positive, false negative và các vùng lỗi | Confusion matrix, prediction-level error analysis |
-> | RQ4 | Khả năng thay thế và tăng cường của dữ liệu tạo sinh | Real-only, TSTR, positive/negative augmentation, external challenge |
 >
-> Bảng này nên xuất hiện ngay sau phần trình bày bốn RQ. Chưa đưa giá trị metric vào bảng vì đây là bảng thiết kế nghiên cứu, không phải bảng kết quả.
+> Bảng này nên xuất hiện ngay sau phần trình bày ba RQ. Chưa đưa giá trị metric vào bảng vì đây là bảng thiết kế nghiên cứu, không phải bảng kết quả.
 
 > **GHI CHÚ BẢNG - Bảng mô tả tiêu chí đánh giá khả năng triển khai**
 >
@@ -89,7 +80,7 @@ Câu hỏi này được trả lời thông qua ma trận nhầm lẫn và phân
 >
 > Mục 4.1 chỉ giới thiệu mục tiêu đánh giá khả năng triển khai. Giao thức và cách đo chi tiết sẽ được trình bày tại phần thiết lập thực nghiệm tương ứng của Chương 4. Các giá trị đo, bảng so sánh và biểu đồ trade-off giữa F1 Label 1 với độ trễ, kích thước mô hình hoặc bộ nhớ phải được đặt tại phần phân tích RQ1 của Chương 5.
 
-Từ bốn câu hỏi trên, chương này lần lượt trình bày dữ liệu và chiến lược phân chia, các mô hình tham gia benchmark, thiết lập huấn luyện, độ đo đánh giá, phương pháp phân tích kết quả và các thí nghiệm bổ sung về dữ liệu tạo sinh. Kết quả tương ứng sẽ được trình bày ở chương tiếp theo theo từng câu hỏi nghiên cứu, thay vì theo thứ tự triển khai kỹ thuật của các thí nghiệm.
+Từ ba câu hỏi trên, chương này lần lượt trình bày dữ liệu và chiến lược phân chia, các mô hình tham gia benchmark, thiết lập huấn luyện, độ đo đánh giá, phương pháp phân tích kết quả. Kết quả tương ứng sẽ được trình bày ở chương tiếp theo theo từng câu hỏi nghiên cứu, thay vì theo thứ tự triển khai kỹ thuật của các thí nghiệm.
 
 > **GHI CHÚ KIỂM TRA trước khi đưa vào báo cáo**
 >

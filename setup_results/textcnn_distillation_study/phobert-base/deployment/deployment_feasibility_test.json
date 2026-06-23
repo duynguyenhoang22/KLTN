@@ -1,0 +1,52 @@
+{
+  "split": "test",
+  "data_file": "data\\distillation\\benchmark_splits\\test.csv",
+  "teacher_output_file": "data\\distillation\\benchmark_teacher_outputs\\phobert-base\\test_teacher.csv",
+  "rows": 535,
+  "batch_size": 128,
+  "warmup_runs": 3,
+  "latency_runs": 20,
+  "torch_threads": 1,
+  "results": [
+    {
+      "model": "PhoBERT-base",
+      "params": 134999810,
+      "size_mb": 514.9834060668945,
+      "cpu_latency_ms_per_msg": NaN,
+      "throughput_sms_per_s": NaN,
+      "peak_ram_mb": NaN,
+      "f1_label_1": 0.8266666666666667,
+      "status": "runtime_not_measured_missing_weights_size_estimated"
+    },
+    {
+      "model": "TextCNN hard",
+      "params": 87553,
+      "size_mb": 0.3417215347290039,
+      "cpu_latency_ms_per_msg": 2.1862649999093264,
+      "throughput_sms_per_s": 566.4592190660228,
+      "peak_ram_mb": 352.078125,
+      "f1_label_1": 0.8378378378378378,
+      "status": "ok"
+    },
+    {
+      "model": "TextCNN vanilla KD",
+      "params": 87553,
+      "size_mb": 0.34180736541748047,
+      "cpu_latency_ms_per_msg": 2.43392499996844,
+      "throughput_sms_per_s": 602.2286512484003,
+      "peak_ram_mb": 370.9921875,
+      "f1_label_1": 0.7692307692307693,
+      "status": "ok"
+    },
+    {
+      "model": "TextCNN risk-aware KD",
+      "params": 87553,
+      "size_mb": 0.34191131591796875,
+      "cpu_latency_ms_per_msg": 1.4243199999327771,
+      "throughput_sms_per_s": 902.5750381496406,
+      "peak_ram_mb": 370.77734375,
+      "f1_label_1": 0.85,
+      "status": "ok"
+    }
+  ]
+}

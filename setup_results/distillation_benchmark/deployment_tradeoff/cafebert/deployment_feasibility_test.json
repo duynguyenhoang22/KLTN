@@ -1,0 +1,52 @@
+{
+  "split": "test",
+  "data_file": "data\\distillation\\benchmark_splits\\test.csv",
+  "teacher_output_file": "setup_results\\distillation_benchmark\\cafebert_teacher\\teacher_outputs\\test_teacher.csv",
+  "rows": 535,
+  "batch_size": 128,
+  "warmup_runs": 1,
+  "latency_runs": 3,
+  "torch_threads": 1,
+  "results": [
+    {
+      "model": "CafeBERT",
+      "params": 559892482,
+      "size_mb": 2152.831175804138,
+      "cpu_latency_ms_per_msg": 847.3160000000158,
+      "throughput_sms_per_s": 0.7091521058569025,
+      "peak_ram_mb": 4358.33984375,
+      "f1_label_1": 0.88,
+      "status": "ok"
+    },
+    {
+      "model": "TextCNN hard CafeBERT seed42",
+      "params": 87553,
+      "size_mb": 0.3419656753540039,
+      "cpu_latency_ms_per_msg": 1.4800666667724727,
+      "throughput_sms_per_s": 1183.4979243432938,
+      "peak_ram_mb": 357.1484375,
+      "f1_label_1": 0.7415730337078652,
+      "status": "ok"
+    },
+    {
+      "model": "TextCNN vanilla KD CafeBERT seed42",
+      "params": 87553,
+      "size_mb": 0.34205150604248047,
+      "cpu_latency_ms_per_msg": 1.2688666665781057,
+      "throughput_sms_per_s": 1069.8247627044816,
+      "peak_ram_mb": 373.78515625,
+      "f1_label_1": 0.8311688311688312,
+      "status": "ok"
+    },
+    {
+      "model": "TextCNN risk-aware KD CafeBERT seed42",
+      "params": 87553,
+      "size_mb": 0.34215545654296875,
+      "cpu_latency_ms_per_msg": 1.1508333336678334,
+      "throughput_sms_per_s": 1239.907213224304,
+      "peak_ram_mb": 373.40625,
+      "f1_label_1": 0.8048780487804879,
+      "status": "ok"
+    }
+  ]
+}

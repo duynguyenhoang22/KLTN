@@ -79,6 +79,20 @@ powershell -ExecutionPolicy Bypass -File scripts/distillation/run_benchmark_plms
 
 ViCLSR uses the public Hugging Face model `huynhtin/ViCLSR`.
 
+Train CafeBERT or ViCLSR as a distillation teacher on Kaggle and generate
+`train/dev/test_teacher.csv` in the same run:
+
+```text
+scripts/distillation/kaggle_train_cafebert_teacher.py
+scripts/distillation/kaggle_train_viclsr_teacher.py
+```
+
+Complete Kaggle input, commands, artifact layout, and local integration:
+
+```text
+docs/kaggle_cafebert_viclsr_teacher_guide.md
+```
+
 Generate PhoBERT-base teacher outputs after the PhoBERT-base PLM run:
 
 ```powershell
@@ -102,3 +116,24 @@ Final summary:
 - `setup_results/distillation_benchmark/summary/benchmark_metrics_long.csv`
 - `setup_results/distillation_benchmark/summary/benchmark_metrics_dev_test_wide.csv`
 - `setup_results/distillation_benchmark/summary/benchmark_report.md`
+
+## Focused TextCNN Distillation Study
+
+BiLSTM hard-label and distilled remain in the full benchmark. The focused
+distillation analysis fixes the student architecture to TextCNN and compares
+three supervision modes over seeds 42, 123, and 2025:
+
+- hard labels;
+- vanilla KD;
+- risk-aware KD.
+
+Run:
+
+```powershell
+python scripts/distillation/run_textcnn_distillation_study.py
+```
+
+Protocol and interpretation:
+
+- `docs/textcnn_distillation_study_protocol.md`
+- `docs/textcnn_distillation_study_results.md`

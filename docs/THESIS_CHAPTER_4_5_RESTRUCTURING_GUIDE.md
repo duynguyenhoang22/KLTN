@@ -73,7 +73,7 @@ Cấu trúc lập luận chuẩn:
 
 ## 3. Các câu hỏi nghiên cứu
 
-Các chương thực nghiệm cần xoay quanh bốn câu hỏi:
+Các chương thực nghiệm cần xoay quanh ba câu hỏi:
 
 ### RQ1 — So sánh mô hình
 
@@ -87,10 +87,6 @@ Các nhóm mô hình khác nhau đạt hiệu quả như thế nào trên bộ d
 
 Các mô hình thường thất bại ở những trường hợp nào và nguyên nhân có thể là gì?
 
-### RQ4 — Giá trị của dữ liệu tạo sinh
-
-Dữ liệu tạo sinh mang lại giá trị gì, có thể thay thế dữ liệu thật hay chỉ phù hợp để tăng cường dữ liệu?
-
 ---
 
 # 4. SƯỜN CHƯƠNG 4 — PHƯƠNG PHÁP VÀ THIẾT LẬP THỰC NGHIỆM
@@ -100,10 +96,9 @@ Dữ liệu tạo sinh mang lại giá trị gì, có thể thay thế dữ li�
 Nội dung cần có:
 
 - Mục tiêu tổng quát của thực nghiệm.
-- Bốn câu hỏi nghiên cứu RQ1–RQ4.
+- Ba câu hỏi nghiên cứu RQ1–RQ3.
 - Sơ đồ quy trình từ dữ liệu, huấn luyện benchmark, đánh giá đến phân tích kết quả.
 - Giải thích benchmark là trục thực nghiệm chính.
-- Giới thiệu ngắn các thí nghiệm bổ sung về synthetic data.
 
 Không sử dụng cụm từ “hai nhánh thực nghiệm”.
 
@@ -267,34 +262,6 @@ Phân tích:
 - Hard-label và distilled.
 - Mô hình tốt nhất theo metric tổng và mô hình tốt nhất theo Recall Label 1.
 
-## 4.7. Thí nghiệm bổ sung về dữ liệu tạo sinh
-
-### 4.7.1. Real-only baseline
-
-Thiết lập mốc khi chỉ sử dụng dữ liệu thật.
-
-### 4.7.2. TSTR
-
-Synthetic-only matched distribution và synthetic-only balanced.
-
-Mục tiêu duy nhất: kiểm tra dữ liệu tạo sinh có thể thay thế dữ liệu thật hay không.
-
-### 4.7.3. Positive augmentation
-
-Real Train kết hợp các mức synthetic Label 1.
-
-Mục tiêu: kiểm tra synthetic có hữu ích như nguồn bổ sung lớp thiểu số hay không.
-
-### 4.7.4. Negative augmentation và external challenge
-
-Kiểm tra vai trò của synthetic/external Label 0 trong:
-
-- Mở rộng miền âm tính.
-- Giảm false positive.
-- Tăng độ bền vững khi gặp dữ liệu ngoài miền.
-
-Các tên Setup A–G chỉ dùng như mã tham chiếu trong bảng hoặc phụ lục.
-
 ---
 
 # 5. SƯỜN CHƯƠNG 5 — KẾT QUẢ VÀ PHÂN TÍCH
@@ -437,39 +404,6 @@ Phân tích:
 - Mẫu character-level đúng nhưng PLM sai.
 - Tác động của obfuscation đối với từng nhóm.
 
-## 5.4. RQ4: Dữ liệu tạo sinh có giá trị như thế nào?
-
-### 5.4.1. Dữ liệu tạo sinh có thể thay thế dữ liệu thật không?
-
-Dùng Real-only và TSTR làm bằng chứng.
-
-Kết luận dự kiến: synthetic-only không đủ để thay thế real data nếu hiệu năng thấp hơn rõ rệt.
-
-### 5.4.2. Synthetic Label 1 có hữu ích để augmentation không?
-
-So sánh Real-only với các mức bổ sung synthetic Label 1.
-
-Phân tích trade-off giữa:
-
-- Recall.
-- Precision.
-- FP.
-- FN.
-
-### 5.4.3. Vì sao cần mở rộng Label 0?
-
-Dùng kết quả external challenge:
-
-- Positive augmentation có thể làm mô hình quá nhạy.
-- External curated Label 0 giúp mở rộng ranh giới âm tính.
-- Không phải cứ thêm nhiều dữ liệu Label 0 là tốt; chất lượng và mức phù hợp miền quan trọng hơn số lượng.
-
-### 5.4.4. Kết luận về chiến lược sử dụng synthetic data
-
-Luận điểm mục tiêu:
-
-> Dữ liệu tạo sinh chưa phù hợp để thay thế hoàn toàn dữ liệu thật, nhưng có giá trị khi được sử dụng như nguồn augmentation có kiểm soát. Real data giữ vai trò neo miền, synthetic Label 1 mở rộng miền smishing, còn Label 0 chất lượng giúp kiểm soát false positive và domain shift.
-
 ## 5.5. Tổng hợp câu trả lời nghiên cứu
 
 Kết thúc chương bằng bảng:
@@ -479,7 +413,6 @@ Kết thúc chương bằng bảng:
 | RQ1 | Nhóm/mô hình nào hiệu quả nhất | Benchmark dev và test |
 | RQ2 | Những đặc điểm dữ liệu ảnh hưởng mạnh | Slice analysis |
 | RQ3 | Các vùng lỗi và nguyên nhân chính | FP/FN và ví dụ định tính |
-| RQ4 | Vai trò phù hợp của synthetic data | TSTR và augmentation |
 
 ---
 
@@ -532,16 +465,10 @@ Các bảng/biểu đồ nên cân nhắc:
 
 | Nội dung hiện tại | Vị trí mới | Cách xử lý |
 |---|---|---|
-| Tổng quan hai nhánh thực nghiệm | 4.1 | Viết lại hoàn toàn theo RQ1–RQ4 |
-| Nhánh 1: Đánh giá dữ liệu tạo sinh | 4.7 và 5.4 | Rút gọn, tổ chức theo câu hỏi |
-| Setup A/B | 4.7.1 và 5.4 | Giữ làm baseline |
-| Setup C/D – TSTR | 4.7.2 và 5.4.1 | Hạ thành phân tích khả năng thay thế real |
-| Setup E | 4.7.3 và 5.4.2 | Dùng phân tích positive augmentation |
-| Setup F/G | 4.7.4 và 5.4.3 | Dùng phân tích negative coverage/domain shift |
+| Tổng quan hai nhánh thực nghiệm | 4.1 | Viết lại hoàn toàn theo RQ1–RQ3 |
+| Nhánh 1: Đánh giá dữ liệu tạo sinh | - | Loại bỏ hoàn toàn (không còn TSTR & Augmentation) |
 | Nhánh 2: Knowledge Distillation | 4.3.2 và 5.1.3 | Bỏ tư cách nhánh độc lập |
 | Kết quả distillation cũ | 5.1.3 | Chỉ giữ nếu cùng giao thức benchmark |
-| Confusion matrix theo từng setup | 5.3 và 5.4 | Chọn hình tiêu biểu, không liệt kê toàn bộ |
-| Tổng kết các setup | 5.4.4 và 5.5 | Viết lại thành kết luận theo RQ |
 | Benchmark mới | 5.1 | Đưa thành kết quả chính đầu chương |
 
 ---
@@ -562,16 +489,7 @@ Các bảng/biểu đồ nên cân nhắc:
 
 ### Phân tích lỗi hiện có
 
-- `setup_results/manual_error_analysis/thesis_ready_fp_fn_analysis.md`
-- `setup_results/manual_error_analysis/all_errors_labeled.csv`
-- `setup_results/manual_error_analysis/stable_error_cases.csv`
-- `setup_results/manual_error_analysis/manual_review_candidates.csv`
-
-### TSTR và augmentation
-
-- `setup_results/setup_e_results/`
-- `setup_results/setup_f_results/`
-- `setup_results/setup_g_results/`
+- Đã loại bỏ các file phân tích cũ của Setup A/B/E/G. Phân tích lỗi mới sẽ được thực hiện trên benchmark chính.
 
 ---
 
@@ -586,7 +504,6 @@ Các bảng/biểu đồ nên cân nhắc:
 - [ ] Có phân tích cả Recall/FN và Precision/FP không?
 - [ ] Có tránh kể tuần tự theo Setup A–G không?
 - [ ] Distillation có đang được trình bày đúng như một cấu hình benchmark không?
-- [ ] TSTR có đang được đặt đúng trong phần phân tích synthetic data không?
 - [ ] Kết luận có chỉ ra giới hạn của bằng chứng không?
 - [ ] Các hình/bảng có thực sự hỗ trợ câu hỏi đang trả lời không?
 
@@ -600,6 +517,5 @@ Các bảng/biểu đồ nên cân nhắc:
 4. Triển khai result analysis trên dev theo độ dài và `obfuscation_level`.
 5. Mở rộng sang `data_origin`, category, URL, số điện thoại và sender type.
 6. Thực hiện phân tích lỗi giữa các mô hình đại diện.
-7. Rút gọn TSTR và các setup augmentation thành câu trả lời cho RQ4.
-8. Viết bảng tổng hợp RQ1–RQ4.
-9. Chỉnh lại phần EDA ở Chương 3 để tạo tiền đề cho phân tích kết quả.
+7. Viết bảng tổng hợp RQ1–RQ3.
+8. Chỉnh lại phần EDA ở Chương 3 để tạo tiền đề cho phân tích kết quả.

@@ -1,0 +1,5 @@
+model,params,size_mb,cpu_latency_ms_per_msg,throughput_sms_per_s,peak_ram_mb,f1_label_1,status,latency_note
+PhoBERT-base,134999810,514.9834060668945,,,,0.8266666666666667,runtime_not_measured_missing_weights_size_estimated,not measured
+TextCNN hard,87553,0.3417215347290039,2.1862649999093264,566.4592190660228,352.078125,0.8378378378378378,ok,measured on CPU
+TextCNN vanilla KD,87553,0.3418073654174804,2.43392499996844,602.2286512484003,370.9921875,0.7692307692307693,ok,measured on CPU
+TextCNN risk-aware KD,87553,0.3419113159179687,1.4243199999327771,902.5750381496406,370.77734375,0.85,ok,measured on CPU

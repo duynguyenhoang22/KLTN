@@ -45,27 +45,13 @@ Bảng 5.1 trình bày kết quả của 17 cấu hình trên tập dev và test
 
 *Ghi chú: In đậm thể hiện giá trị tốt nhất trong cột tương ứng.*
 
-Xét theo tiêu chí chính là Macro-F1 trên dev, Gemma 2B đạt kết quả cao nhất với 0,9553. Mô hình này đồng thời đứng đầu về F1 Label 1 với 0,9167, cho thấy sự cân bằng tốt nhất giữa hiệu năng trên hai nhãn và chất lượng phân loại lớp smishing tại ngưỡng 0,5. Confusion matrix tương ứng gồm 2 FP và 4 FN trên dev. Kết quả này đưa Gemma 2B trở thành mô hình được ưu tiên theo tiêu chí tổng thể của benchmark.
+Theo tiêu chí chính là Macro-F1 trên dev, Gemma 2B là cấu hình tốt nhất với 0,9553. Mô hình này đồng thời đứng đầu F1 Label 1 với 0,9167 và chỉ tạo 2 FP, 4 FN trên dev, nên được chọn là mô hình cân bằng tổng thể tốt nhất trong benchmark. Tuy vậy, “tốt nhất” còn phụ thuộc mục tiêu vận hành: DistilBERT multilingual đạt Recall Label 1 cao nhất trên dev (0,9459), còn Qwen2.5 0.5B đạt PR-AUC cao nhất (0,9648), cho thấy khả năng xếp hạng mẫu smishing tốt trên nhiều ngưỡng.
 
-Tuy nhiên, Gemma 2B không đứng đầu ở mọi độ đo. Recall Label 1 cao nhất trên dev thuộc về DistilBERT multilingual với 0,9459, tương ứng phát hiện đúng 35 trong 37 mẫu smishing và chỉ bỏ sót 2 mẫu. Đổi lại, mô hình tạo ra 7 FP và đạt F1 Label 1 bằng 0,8861, thấp hơn Gemma 2B. Qwen2.5 0.5B đứng đầu về PR-AUC với 0,9648, đồng thời đạt Recall Label 1 bằng 0,9189. Điều này cho thấy mô hình xếp hạng các mẫu smishing tốt trên nhiều mức ngưỡng, dù Macro-F1 tại ngưỡng 0,5 đạt 0,9433 và đứng sau Gemma 2B cùng CafeBERT.
+Xét theo nhóm mô hình, các mô hình pretrained chiếm ưu thế rõ rệt so với nhóm character-level. Trong nhóm encoder PLM, CafeBERT là cấu hình tốt nhất trên dev với Macro-F1 0,9472 và F1 Label 1 0,9014; ViCLSR theo sát với Macro-F1 0,9419. Nhóm LLM cho kết quả mạnh nhất về tổng thể, nhưng quy mô tham số không quyết định hoàn toàn thứ hạng: Qwen2.5 0.5B vượt nhiều mô hình lớn hơn ở PR-AUC, trong khi Gemma 2B vượt Gemma 3 1B ở cả bốn độ đo dev.
 
-Sự khác biệt trên dẫn đến ba cách nhìn bổ sung thay vì một khái niệm “tốt nhất” duy nhất. Gemma 2B là mô hình cân bằng tổng thể tốt nhất theo Macro-F1 và F1 Label 1; DistilBERT multilingual phù hợp hơn nếu ưu tiên tối đa Recall tại ngưỡng hiện tại; còn Qwen2.5 0.5B có chất lượng xếp hạng xác suất tốt nhất theo PR-AUC. Theo nguyên tắc đã xác lập ở Chương 4, Macro-F1 trên dev vẫn là tiêu chí lựa chọn chính, trong khi Recall và PR-AUC được dùng để mô tả các trade-off vận hành.
+Nhóm character-level có hiệu năng thấp hơn các mô hình pretrained nhưng có ý nghĩa triển khai. TextCNN là cấu hình tốt nhất của nhóm trên dev với Macro-F1 0,9170 và F1 Label 1 0,8451, vượt BiLSTM ở cả hai độ đo này. Distillation chưa tạo cải thiện nhất quán về Macro-F1: BiLSTM distilled thấp hơn BiLSTM hard-label, còn TextCNN distilled thấp hơn TextCNN hard-label nhẹ về Macro-F1 nhưng tăng Recall Label 1 từ 0,8108 lên 0,8378 và PR-AUC từ 0,8529 lên 0,8818. Do đó, distillation trong benchmark chính nên được hiểu là một trade-off về độ nhạy và chất lượng xếp hạng, không phải một cải thiện mặc định.
 
-Trong nhóm encoder PLM, CafeBERT đạt Macro-F1 cao nhất trên dev với 0,9472 và F1 Label 1 bằng 0,9014. Mô hình chỉ tạo 2 FP và 5 FN, thể hiện xu hướng dự đoán thận trọng hơn DistilBERT multilingual. ViCLSR theo sát với Macro-F1 bằng 0,9419, F1 Label 1 bằng 0,8919 và PR-AUC bằng 0,9441. Hai kết quả này cho thấy các mô hình được tiền huấn luyện trên tiếng Việt hoặc miền văn bản có tính phi chuẩn có thể cạnh tranh tốt trong bài toán smishing, nhưng lợi thế này không xuất hiện đồng đều ở mọi mô hình cùng nhóm: VisoBERT chỉ đạt Macro-F1 bằng 0,8958 và F1 Label 1 bằng 0,8056.
-
-Các encoder đa ngữ cũng cho kết quả không đồng nhất. DistilBERT multilingual đạt Recall cao nhất toàn benchmark nhưng PR-AUC chỉ bằng 0,8959. mBERT đạt Macro-F1 0,9338 và F1 Label 1 0,8767, trong khi XLM-RoBERTa-base đạt lần lượt 0,9090 và 0,8312. Phiên bản XLM-RoBERTa-large cải thiện hai độ đo này lên 0,9211 và 0,8533. Như vậy, tri thức đa ngữ có thể chuyển giao hiệu quả sang smishing tiếng Việt, nhưng hiệu năng còn phụ thuộc đáng kể vào kiến trúc, quy mô và miền tiền huấn luyện.
-
-So sánh trong cùng họ mô hình cho thấy phiên bản large đều cải thiện so với phiên bản base trong hai cặp được khảo sát. PhoBERT-large cao hơn PhoBERT-base 0,0225 điểm Macro-F1, 0,0430 điểm F1 Label 1 và 0,1081 điểm Recall Label 1 trên dev. XLM-RoBERTa-large cũng cao hơn bản base 0,0121 điểm Macro-F1 và 0,0222 điểm F1 Label 1, dù Recall không thay đổi. Kết quả này cho thấy quy mô lớn hơn có thể mang lại lợi ích trong cùng một họ kiến trúc. Tuy nhiên, quy mô không quyết định toàn bộ thứ hạng: CafeBERT và ViCLSR vẫn vượt cả PhoBERT-large và XLM-RoBERTa-large về Macro-F1 trên dev.
-
-Kết quả của nhóm LLM tiếp tục cho thấy số lượng tham số lớn hơn không tự động bảo đảm ưu thế tuyệt đối. Gemma 2B đứng đầu benchmark, nhưng Qwen2.5 0.5B — có quy mô nhỏ hơn đáng kể — vẫn đứng thứ ba về Macro-F1 trên dev và đứng đầu về PR-AUC. Ngược lại, Qwen3 0.6B đạt Macro-F1 0,9236, thấp hơn Qwen2.5 0.5B. Trong cùng họ Gemma, Gemma 2B vượt Gemma 3 1B ở cả bốn độ đo dev. Do cả bốn LLM sử dụng chung cấu hình LoRA, kết quả cho thấy lựa chọn mô hình nền có ảnh hưởng rõ rệt; không thể suy ra hiệu năng chỉ từ quy mô danh nghĩa.
-
-Nhóm character-level có hiệu năng thấp hơn hai nhóm pretrained khi xét các mô hình đứng đầu. TextCNN hard-label là cấu hình tốt nhất của nhóm trên dev với Macro-F1 bằng 0,9170 và F1 Label 1 bằng 0,8451. BiLSTM đạt lần lượt 0,8984 và 0,8108. Khoảng cách giữa TextCNN và BiLSTM gợi ý rằng các mẫu ký tự cục bộ có thể hữu ích hơn biểu diễn tuần tự trong thiết lập hiện tại. Dù vậy, TextCNN vẫn thấp hơn Gemma 2B 0,0383 điểm Macro-F1 và thấp hơn CafeBERT 0,0302 điểm. Kết quả này thể hiện mức đánh đổi về chất lượng của mô hình gọn nhẹ; ý nghĩa triển khai của mức đánh đổi sẽ được đánh giá cùng độ trễ, kích thước và bộ nhớ sau khi hoàn thành benchmark tài nguyên.
-
-Ảnh hưởng của distillation không đồng nhất giữa hai kiến trúc student. Trên dev, BiLSTM distilled thấp hơn BiLSTM hard-label 0,0145 điểm Macro-F1, 0,0270 điểm F1 Label 1 và 0,0270 điểm Recall Label 1. Như vậy, soft target từ PhoBERT-base không cải thiện BiLSTM trong tiêu chí lựa chọn chính. Với TextCNN, phiên bản distilled cũng thấp hơn hard-label 0,0041 điểm Macro-F1 và 0,0072 điểm F1 Label 1, nhưng Recall tăng từ 0,8108 lên 0,8378 và PR-AUC tăng từ 0,8529 lên 0,8818. Distillation trong trường hợp này làm mô hình nhạy hơn với lớp smishing và cải thiện chất lượng xếp hạng, nhưng chưa cải thiện cân bằng tổng thể tại ngưỡng 0,5.
-
-Kết quả distillation cần được diễn giải tương đối với năng lực của teacher. PhoBERT-base chỉ đạt Macro-F1 0,8750 và F1 Label 1 0,7671 trên dev, thấp hơn cả hai student TextCNN. Điều này giới hạn lượng thông tin hữu ích mà soft target có thể truyền sang student và có thể giải thích vì sao cải thiện không đồng đều. Vì vậy, kết quả hiện tại không ủng hộ kết luận rằng distillation luôn nâng cao chất lượng dự đoán; giá trị rõ ràng hơn của phương pháp cần được xem xét trong mối quan hệ giữa hiệu năng được giữ lại và tài nguyên triển khai được tiết kiệm.
-
-Để đánh giá liệu các student có tạo ra lợi ích triển khai thực tế hay không, PhoBERT-base, BiLSTM distilled và TextCNN distilled được đo lại trên benchmark dev split trong cùng môi trường CPU (sử dụng một luồng xử lý). Độ trễ được đo với batch size 1 sau ba lượt warm-up và 20 lần lặp; throughput được đo với batch size 128. Các metric chất lượng được tính lại từ dự đoán của chính checkpoint được đo, nhờ đó bảo đảm bảng tài nguyên và bảng benchmark sử dụng cùng mô hình.
+Để kiểm tra ý nghĩa triển khai của các student distilled, PhoBERT-base, BiLSTM distilled và TextCNN distilled được đo lại trên benchmark dev split trong cùng môi trường CPU. Bảng 5.2 cho thấy hai student nhỏ hơn teacher hơn 1.500 lần về kích thước checkpoint và nhanh hơn khoảng 96-154 lần về latency.
 
 **Bảng 5.2: So sánh chất lượng dự đoán và chi phí triển khai của PhoBERT-base với các student distilled trên benchmark dev split**
 
@@ -75,23 +61,9 @@ Kết quả distillation cần được diễn giải tương đối với năng
 | **BiLSTM distilled** | 80.065 | 0,314 | 2,57 | 1.004,88 | 400,00 | 0,8839 | 0,7838 | 0,7838 | 0,8241 |
 | **TextCNN distilled** | 87.553 | 0,342 | 1,62 | 1.001,77 | 407,89 | 0,9129 | 0,8378 | 0,8378 | 0,8818 |
 
-So với teacher, BiLSTM distilled giảm khoảng 1.686 lần số tham số và 1.648 lần kích thước checkpoint. Độ trễ CPU giảm từ 248,14 xuống 2,57 ms mỗi tin nhắn, tương ứng nhanh hơn khoảng 96,5 lần; throughput tăng từ 4,20 lên khoảng 1.004,88 tin nhắn/giây. Peak RAM giảm khoảng 77,6%. Mức tiết kiệm này không đi kèm suy giảm ở các metric phụ thuộc ngưỡng trên dev: Macro-F1 tăng 0,0088 điểm, F1 Label 1 tăng 0,0167 và Recall tăng 0,0270. Tuy nhiên, PR-AUC giảm 0,0198, cho thấy chất lượng xếp hạng xác suất trên nhiều ngưỡng chưa được bảo toàn hoàn toàn.
+Trong hai student, TextCNN distilled tạo trade-off tốt hơn: trên dev, mô hình vừa nhẹ hơn PhoBERT-base đáng kể vừa cao hơn teacher ở cả Macro-F1, F1 Label 1, Recall Label 1 và PR-AUC. Trên test, Gemma 2B tiếp tục đứng đầu cả bốn độ đo, củng cố lựa chọn từ dev. Một số thứ hạng thay đổi giữa dev và test, nhưng mỗi split chỉ có 37 mẫu Label 1 nên vài FP/FN có thể làm metric dao động đáng kể; test vì vậy được dùng để kiểm tra tính ổn định, không dùng để đảo ngược tiêu chí lựa chọn.
 
-TextCNN distilled tạo ra trade-off thuận lợi hơn. Mô hình giảm khoảng 1.542 lần số tham số và 1.513 lần kích thước checkpoint so với PhoBERT-base. Độ trễ chỉ còn 1,62 ms mỗi tin nhắn, nhanh hơn teacher khoảng 153,6 lần, trong khi peak RAM giảm khoảng 77,2%. Đồng thời, TextCNN distilled cao hơn teacher 0,0379 điểm Macro-F1, 0,0707 điểm F1 Label 1, 0,0811 điểm Recall Label 1 và 0,0379 điểm PR-AUC trên dev. Trong thiết lập này, student không chỉ nhẹ hơn mà còn vượt teacher ở cả bốn độ đo.
-
-Kết quả trên test cho thấy lợi ích chất lượng của hai student không ổn định như nhau. BiLSTM distilled thấp hơn teacher 0,0397 điểm Macro-F1, 0,0734 điểm F1 Label 1, 0,0541 điểm Recall và 0,1918 điểm PR-AUC. Ngược lại, TextCNN distilled vẫn cao hơn teacher 0,0121 điểm Macro-F1, 0,0233 điểm F1 Label 1 và 0,0811 điểm Recall, dù PR-AUC thấp hơn 0,0415. Do đó, BiLSTM distilled chủ yếu mang lại lợi ích tài nguyên nhưng đánh đổi chất lượng tổng quát hóa, trong khi TextCNN distilled duy trì trade-off thuyết phục hơn giữa chất lượng và chi phí triển khai.
-
-Việc student vượt teacher ở một số metric không có nghĩa distillation đã tạo ra một mô hình có năng lực biểu diễn tổng quát hơn PhoBERT-base trong mọi điều kiện. Student khác teacher về kiến trúc, biểu diễn ký tự và hàm mất mát; hơn nữa mỗi split chỉ có 37 mẫu Label 1. Kết quả nên được hiểu là trong benchmark hiện tại, TextCNN distilled tận dụng tốt cả nhãn cứng và soft target để đạt điểm vận hành tốt hơn teacher, đồng thời có chi phí suy luận thấp hơn đáng kể.
-
-Sau khi các nhận xét được hình thành từ dev, kết quả test được sử dụng để kiểm tra mức độ duy trì xu hướng. Gemma 2B tiếp tục đứng đầu về Macro-F1 (0,9585), F1 Label 1 (0,9231), Recall Label 1 (0,9730) và PR-AUC (0,9853). Mô hình chỉ bỏ sót 1 trong 37 mẫu smishing trên test, dù số FP tăng từ 2 trên dev lên 5 trên test. Việc Gemma 2B giữ vị trí dẫn đầu trên cả hai split củng cố lựa chọn mô hình theo dev.
-
-Một số mô hình có thứ hạng thay đổi đáng kể trên test. Qwen3 0.6B tăng Macro-F1 từ 0,9236 lên 0,9485 và trở thành mô hình đứng thứ hai trên test; PhoBERT-large tăng từ 0,8975 lên 0,9370; trong khi Qwen2.5 0.5B giảm từ 0,9433 xuống 0,9248 và CafeBERT giảm từ 0,9472 xuống 0,9355. BiLSTM có mức giảm rõ nhất, từ Macro-F1 0,8984 xuống 0,8471 và Recall Label 1 từ 0,8108 xuống 0,6757.
-
-Những biến động này không nên được hiểu là mô hình “cải thiện” sau khi chuyển sang test. Dev và test có cùng quy mô nhưng chỉ chứa 37 mẫu Label 1; một dự đoán smishing tương ứng khoảng 2,70 điểm phần trăm Recall. Vì vậy, khác biệt vài FP hoặc FN có thể làm thay đổi metric và thứ hạng đáng kể. Test được dùng để quan sát tính ổn định, không dùng để đảo ngược tiêu chí lựa chọn đã xác lập từ dev.
-
-Ở cấp độ nhóm, các mô hình pretrained nhìn chung vẫn chiếm phần lớn vị trí đầu trên test. Bốn trong năm mô hình có Macro-F1 cao nhất là Gemma 2B, Qwen3 0.6B, Gemma 3 1B và ViCLSR; vị trí còn lại thuộc XLM-RoBERTa-large. TextCNN distilled là mô hình character-level tốt nhất trên test với Macro-F1 0,9189 và Recall Label 1 0,9189, nhưng vẫn có khoảng cách với các cấu hình pretrained đứng đầu. Điều này cho thấy mô hình ký tự có thể đạt độ nhạy cao với smishing trong một cấu hình gọn nhẹ, song các mô hình pretrained vẫn có lợi thế về hiệu năng tổng thể.
-
-Tóm lại, RQ1 cho thấy không có một kiến trúc duy nhất tối ưu cho mọi tiêu chí. Gemma 2B là lựa chọn tốt nhất theo tiêu chí chính nhờ đứng đầu Macro-F1 và F1 Label 1 trên dev, đồng thời duy trì vị trí dẫn đầu trên test. DistilBERT multilingual đạt Recall dev cao nhất, còn Qwen2.5 0.5B đạt PR-AUC dev cao nhất. Trong nhóm encoder, CafeBERT là mô hình cân bằng tốt nhất trên dev; trong nhóm character-level, TextCNN vượt BiLSTM. Distillation chưa tạo cải thiện nhất quán về Macro-F1, nhưng TextCNN distilled cho thấy khả năng tăng Recall và duy trì hiệu năng tương đối tốt trên test. Quyết định triển khai cuối cùng cần kết hợp các kết quả này với benchmark tài nguyên thay vì chỉ dựa trên chất lượng dự đoán.
+Tóm lại, Gemma 2B là mô hình tốt nhất theo tiêu chí chính của RQ1. Nếu ưu tiên giảm bỏ sót smishing tại ngưỡng hiện tại, DistilBERT multilingual là lựa chọn đáng chú ý; nếu ưu tiên xếp hạng xác suất trên nhiều ngưỡng, Qwen2.5 0.5B nổi bật theo PR-AUC. Với triển khai nhẹ, TextCNN distilled là cấu hình character-level thuyết phục nhất, nhưng quyết định cuối cùng vẫn cần cân bằng giữa chất lượng dự đoán và chi phí suy luận.
 
 ---
 
@@ -246,6 +218,10 @@ Phân tích số liệu từ Bảng 5.7 chỉ ra các đặc điểm tâm lý h�
 - **Thủ đoạn đánh vào nỗi sợ (`fear`) và Mạo danh uy quyền (`authority`)**: Đây là những nhóm thủ đoạn khó nhất. Khi kẻ xấu đe dọa tài khoản bị khóa hoặc yêu cầu cập nhật khẩn cấp dưới danh nghĩa cơ quan công quyền, Recall của CafeBERT và hai mô hình TextCNN trên nhóm `fear` chỉ đạt 33,33% (bỏ sót 2 trên 3 mẫu). DistilBERT multilingual đạt Recall tốt hơn ở mức 66,67% nhưng đổi lại phải đánh đổi bằng việc tăng FP trên nhóm `authority` (F1-score giảm xuống 0,5714).
 - **Thủ đoạn đe dọa trừng phạt (`threat`)**: CafeBERT và TextCNN distilled đạt hiệu năng vượt trội với F1-score 0,9091 và Recall 83,33% (chỉ bỏ sót 1 mẫu). Điều này cho thấy khả năng hiểu ngữ cảnh đe dọa mang tính hình sự/pháp luật của CafeBERT đã được chuyển giao một cách hiệu quả sang student TextCNN thông qua hàm mục tiêu chưng cất tri thức.
 
+![Hình 5.2: Heatmap Recall Label 1 theo các lát cắt dữ liệu tiêu biểu trên tập dev](../figures/chapter5_rq2_slice_recall_heatmap.png)
+
+**Hình 5.2: Heatmap Recall Label 1 theo các lát cắt dữ liệu tiêu biểu trên tập dev.** Hình này tổng hợp các lát cắt có ý nghĩa nhất từ RQ2, cho thấy URL và hành động truy cập liên kết là tín hiệu dễ cho hầu hết mô hình, trong khi các nhóm không URL, đòi nợ, đánh vào nỗi sợ và tin nhắn dài tạo ra các vùng yếu khác nhau giữa PLM và TextCNN.
+
 Tóm lại, phân tích lát cắt sâu sắc ở RQ2 chỉ ra rằng các mô hình pre-trained transformer và mô hình ký tự có những điểm mạnh - yếu rất bổ trợ cho nhau. Các mô hình pre-trained transformers nhạy bén với các liên kết URL và các từ khóa mang tính dụ dỗ/tặng thưởng, nhưng dễ suy giảm hiệu năng khi tin nhắn quá dài hoặc khi tin nhắn Smishing không chứa URL. Ngược lại, các mô hình ký tự (TextCNN) thể hiện sự bền vững trên các văn bản dài nhưng lại gặp khó khăn rõ rệt với tin nhắn không chứa URL và các thủ đoạn mạo danh uy quyền hoặc đánh vào nỗi sợ hãi.
 
 ---
@@ -280,37 +256,149 @@ Kết quả từ Bảng 5.9 chỉ ra:
 - **CafeBERT và DistilBERT multilingual**: Có mức độ giao thoa lỗi cực kỳ thấp (Jaccard = 0,1429, chỉ chung nhau đúng 2 lỗi). Điều này khẳng định hai kiến trúc này học được các không gian biểu diễn rất khác nhau: CafeBERT đơn ngữ hóa tối ưu việc kiểm soát FP, trong khi DistilBERT đa ngữ hóa nhạy bén tối đa hóa Recall và chấp nhận nhiều FP hơn.
 - **TextCNN và TextCNN distilled**: Có mức độ giao thoa lỗi rất lớn (Jaccard = 0,7692, chung nhau đến 10 lỗi trên tổng số 13 lỗi gộp). Sự tương đồng cao này chứng tỏ cơ chế chưng cất tri thức từ PhoBERT-base sang TextCNN chủ yếu giúp student tinh chỉnh xác suất đầu ra ở các mẫu biên để tăng độ nhạy, nhưng chưa thể tái định hình hoàn toàn ranh giới quyết định vốn bị giới hạn bởi cấu trúc trích xuất đặc trưng dạng ký tự cục bộ của TextCNN.
 
+![Hình 5.3: Hồ sơ lỗi và độ giao thoa lỗi giữa các mô hình đại diện trên tập dev](../figures/chapter5_rq3_error_profile_jaccard.png)
+
+**Hình 5.3: Hồ sơ lỗi và độ giao thoa lỗi giữa các mô hình đại diện trên tập dev.** Cột bên trái cho thấy số lượng FP/FN và số lỗi có độ tin cậy cao; heatmap bên phải cho thấy các lỗi của CafeBERT và DistilBERT ít trùng nhau, trong khi TextCNN và TextCNN distilled gần như lặp lại cùng vùng thất bại.
+
 ### 5.3.1. Phân tích định tính các nhóm lỗi tiêu biểu
 
-Thông qua việc khớp nối các mẫu lỗi với nhãn metadata v2.1, chúng ta xác định được 4 nhóm nguyên nhân gây lỗi chính của mô hình:
+Để tránh phụ thuộc vào các metadata cũ trong file lỗi, các mẫu lỗi được ánh xạ lại sang metadata v2.1 bằng `sample_id`. Phân tích dưới đây chỉ sử dụng các trường v2 như `message_domain`, `sender_type`, `surface_features`, `requested_actions.types`, `target_audience.roles`, `persuasion_tactics`, `text_phenomena` và `obfuscation.present/severity`. Trên 39 lượt lỗi của bốn mô hình đại diện, các nhóm lỗi có ý nghĩa nhất không tách theo một nhãn đơn lẻ, mà theo tổ hợp metadata phản ánh ngữ cảnh tin nhắn.
 
-#### Nhóm 1: Tin nhắn Smishing đòi nợ không chứa URL (Lỗi FN chung của cả 4 mô hình)
-Chỉ có duy nhất 1 mẫu lỗi bị cả 4 mô hình dự đoán sai trên tập dev, đó là mẫu `ViSmish_07960`. Tin nhắn đòi nợ này có nội dung: *"Nhan thay co hanh vi LOI DUNG TIN NHIEM, CHIEM DOAT TAI SAN. yc tt gap truoc 13g 16/2/2025, neu van bat hop tac ben toi ban giao HS den CIC... LH 0867256447 de giai quyet."* 
+#### Nhóm FN 1: Smishing đòi nợ không URL, vai trò `debtor`, thủ đoạn đe dọa
 
-Đây là tin nhắn Smishing đòi nợ thuộc lĩnh vực `debt_collection`, sử dụng thủ đoạn đe dọa (`threat`) kết hợp thúc giục thời gian (`urgency`). Điểm đặc biệt của tin nhắn này là sử dụng văn phong hành chính pháp lý rất tự nhiên và **không chứa bất kỳ liên kết URL nào**. Cả 4 mô hình đều dự đoán nhãn Benign với độ tin cậy rất cao (từ 0,9682 đến 0,9997) vì cấu trúc ngữ pháp và từ vựng của nó nằm sâu trong vùng phân phối của các tin nhắn cảnh báo hoặc đòi nợ hợp lệ của các tổ chức tài chính. Điều này cho thấy rào cản lớn nhất của các mô hình hiện tại là nhận diện smishing dựa trên ngữ nghĩa đe dọa thuần túy khi không có sự hỗ trợ của các đặc trưng bề mặt lộ liễu như URL.
+Nhóm này gồm các mẫu `message_domain=debt_collection`, `sender_type=personal_number`, `has_url=false`, `target_audience.roles=debtor`, thường đi kèm `urgency`, `threat`, `fear` hoặc `authority`. Mẫu `ViSmish_07960` bị cả bốn mô hình dự đoán sai thành Benign với độ tin cậy rất cao; `ViSmish_03368` cũng bị DistilBERT multilingual bỏ sót. Điểm chung của nhóm này là hành động yêu cầu không dựa vào URL mà dựa vào gọi điện hoặc đến điểm giao dịch (`call_phone`, `visit_physical_location`), trong khi ngôn ngữ pháp lý/đòi nợ có thể giống tin nhắn hợp lệ. Vì vậy, mô hình dễ xem đây là thông báo nhắc nợ hơn là smishing.
 
-#### Nhóm 2: Tin nhắn Smishing giả danh cảnh báo bảo mật ngân hàng (Lỗi FN của CafeBERT và TextCNN)
-Mẫu điển hình là `ViSmish_04995`: *"ACB CANH BAO SMS LUA DAO: Hien co thu doan SMS GIA MAO dau so ACB moi KH dang nhap link gia, cung cap USER, MAT KHAU, OTP..."*
+#### Nhóm FN 2: Smishing có link nhưng giống thông báo giao dịch hoặc cảnh báo chính thống
 
-Đây là một tin nhắn Smishing giả danh tin cảnh báo lừa đảo của ngân hàng ACB nhưng chèn đường dẫn giả mạo `https://live` hoặc ứng dụng độc hại. CafeBERT (Conf=0,9994) và hai mô hình TextCNN (Conf >0,97) đều dự đoán sai thành nhãn Benign. Nguyên nhân là tin nhắn sử dụng hàng loạt từ khóa phòng thủ bảo mật vốn thường chỉ xuất hiện trong tin nhắn cảnh báo thật của ngân hàng (như "cảnh báo", "lừa đảo", "giả mạo", "không cung cấp OTP"). DistilBERT multilingual bắt được mẫu này (Conf=0,9956) nhờ cơ chế chú ý đa ngữ nhạy bén với liên kết URL giả mạo chèn ở cuối tin nhắn.
+Nhóm này gồm các mẫu `message_domain=banking_finance` hoặc `commerce`, thường có `has_url=true`, `requested_actions=click_or_visit_link` hoặc `provide_personal_information`, và `persuasion_tactics` như `link_lure`, `urgency`, `authority`, `fear`. Các mẫu `ViSmish_03249`, `ViSmish_04995` và `ViSmish_05399` cho thấy URL không phải lúc nào cũng đủ để mô hình phát hiện smishing. Khi tin nhắn mang cấu trúc quen thuộc của cảnh báo bảo mật, giao hàng hoặc kích hoạt ứng dụng ngân hàng, một số mô hình bị kéo về nhãn Benign, đặc biệt khi nội dung mô phỏng rất sát các thông báo dịch vụ thật.
 
-#### Nhóm 3: Tin nhắn tuyển sinh/hội thảo hợp lệ chứa liên kết đăng ký (Lỗi FP của DistilBERT và TextCNN)
-Mẫu điển hình là `ViSmish_07545`: *"[ĐẠI HỌC NGOẠI THƯƠNG] CHÚC MỪNG EM ĐÃ ĐỦ ĐIỀU KIỆN TRÚNG TUYỂN Chương trình Đào tạo Quốc tế... Để lại email để nhận hướng dẫn hồ sơ... SĐT/ZALO: 0906..."*
+#### Nhóm FN 3: Smishing nhiễu bề mặt cao trong miền nhạy cảm
 
-Đây là tin nhắn hợp lệ thuộc lĩnh vực tuyển dụng/giáo dục (`employment`), sử dụng ngôn ngữ chúc mừng trúng tuyển kèm lời mời đăng ký thông tin qua email/số điện thoại. DistilBERT (Conf=0,9995) và hai mô hình TextCNN (Conf >0,93) đều bị đánh lừa và dự đoán thành Smishing. Lý do là tin nhắn chứa đầy đủ các tín hiệu đặc trưng của smishing: brandname tự xưng ở đầu tin, lời chúc mừng trúng tuyển (reward incentive), yêu cầu để lại thông tin cá nhân (requested action), và thông tin liên hệ khẩn cấp. Chỉ CafeBERT (Conf=0,7409) nhận diện đúng nhãn Benign nhờ hiểu được ngữ cảnh tuyển sinh chính thức của trường đại học Việt Nam.
+Một cụm FN khác nằm ở các mẫu `message_domain=gambling` hoặc `adult_service`, `sender_type=personal_number`, có `obfuscation.present=true`, `obfuscation.severity=3`, và nhiều `text_phenomena` như `character_substitution`, `punctuation_insertion`, `whitespace_splitting`, `teencode`. Các mẫu `ViSmish_01624` và `ViSmish_08269` bị các mô hình ký tự và CafeBERT bỏ sót ở nhiều lượt lỗi. Đây là nhóm cho thấy nhiễu bề mặt không chỉ làm mô hình cảnh báo sai; khi nhiễu quá mạnh, tín hiệu smishing cũng có thể bị vỡ, khiến mô hình không gom được các mảnh ký tự thành ý định lừa đảo.
 
-#### Nhóm 4: Tin nhắn cá nhân chứa teencode phi chuẩn (Lỗi FP của hai mô hình TextCNN)
-Mẫu điển hình là `ViSmish_08060`: *"t cx muốn nuôi capybara!!!!!"*
+#### Nhóm FP 1: Tin nhắn cá nhân/hội thoại không có hành động yêu cầu
 
-Đây là tin nhắn hội thoại cá nhân thông thường chứa chữ viết tắt ("t cx" - tớ cũng) và nhiều dấu chấm than biểu cảm mạnh. Cả CafeBERT và DistilBERT đều dự đoán đúng nhãn Benign với độ tin cậy tuyệt đối (>0,999). Tuy nhiên, TextCNN (Conf=0,8945) và TextCNN distilled (Conf=0,7560) lại nhầm tưởng là Smishing. Điều này phản ánh hạn chế lớn của mô hình ký tự: chúng rất dễ bị kích hoạt sai (trigger) bởi các cấu trúc viết tắt, teencode phi chuẩn hoặc các ký tự đặc biệt lặp lại, do chúng thiếu cơ chế tự chú ý toàn cục để hiểu ngữ cảnh ngữ nghĩa đời thường của câu nói.
+Nhóm FP lớn nhất thuộc `message_domain=personal_social`, thường có `requested_actions=none`, không có URL hoặc số điện thoại, và chứa `text_phenomena` như `teencode`, `diacritic_omission`, `abbreviation` hoặc `character_repetition`. Các mẫu `ViSmish_01429`, `ViSmish_04765`, `ViSmish_06109` và `ViSmish_08060` cho thấy mô hình, đặc biệt là TextCNN, dễ bị kích hoạt bởi văn bản phi chuẩn hoặc cảm xúc mạnh dù metadata v2 không ghi nhận hành động lừa đảo nào. Đây là lỗi FP do thiếu hiểu biết ngữ cảnh hội thoại, không phải do đặc trưng tấn công thật.
 
-**Bảng 5.10: Danh sách các lỗi tiêu biểu của mô hình trên tập dev**
+#### Nhóm FP 2: Tin nhắn tuyển sinh/hội thảo hợp lệ có yêu cầu liên hệ hoặc đăng ký
 
-| ID | Nhãn thực | Dự đoán (Độ tin cậy) | Lĩnh vực (Domain) | Nội dung tin nhắn (Rút gọn) | Đặc điểm và Nguyên nhân lỗi |
-| :--- | :---: | :--- | :---: | :--- | :--- |
-| **ViSmish_07960** | 1 | **Tất cả**: 0 (\(>0,96\)) | Đòi nợ | Nhan thay co hanh vi LOI DUNG TIN NHIEM, CHIEM DOAT TAI SAN. yc tt gap truoc 13g 16/2/2025... LH 0867256447 de giai quyet. | Tin nhắn Smishing đòi nợ dùng ngôn ngữ hành chính/pháp lý tự nhiên, không chứa liên kết URL, khiến toàn bộ các mô hình nhầm với tin nhắn hợp lệ. |
-| **ViSmish_04995** | 1 | **CafeBERT**: 0 (0,9994)<br>**DistilBERT**: 1 (0,9956)<br>**TextCNN**: 0 (0,9991)<br>**TextCNN distilled**: 0 (0,9778) | Tài chính | ACB CANH BAO SMS LUA DAO: Hien co thu doan SMS GIA MAO dau so ACB moi KH dang nhap link gia, cung cap USER, MAT KHAU, OTP... | Tin nhắn cảnh báo lừa đảo chứa các từ khóa nhạy cảm và URL giả mạo. Chỉ DistilBERT bắt được, các mô hình khác nhầm với tin nhắn cảnh báo bảo mật hợp lệ. |
-| **ViSmish_07545** | 0 | **CafeBERT**: 0 (0,7409)<br>**DistilBERT**: 1 (0,9995)<br>**TextCNN**: 1 (0,9536)<br>**TextCNN distilled**: 1 (0,9348) | Tuyển dụng | [ĐẠI HỌC NGOẠI THƯƠNG] CHÚC MỪNG EM ĐÃ ĐỦ ĐIỀU KIỆN TRÚNG TUYỂN... Để lại email để nhận hướng dẫn... SĐT/ZALO: 0906... | Tin nhắn tuyển sinh hợp lệ chứa cấu trúc thông báo trúng tuyển kèm đường dẫn đăng ký và thông tin liên hệ, khiến DistilBERT và TextCNN bị đánh lừa. |
-| **ViSmish_08060** | 0 | **CafeBERT**: 0 (0,9998)<br>**DistilBERT**: 0 (0,9992)<br>**TextCNN**: 1 (0,8945)<br>**TextCNN distilled**: 1 (0,7560) | Cá nhân | t cx muốn nuôi capybara!!!!! | Tin nhắn hội thoại cá nhân phi chuẩn (teencode, dấu chấm than kéo dài) bị các mô hình ký tự (TextCNN) cảnh báo sai do nhạy cảm quá mức với ký tự phi chuẩn ngoài ngữ cảnh. |
+Nhóm này có `message_domain=employment`, `target_audience.roles=student`, `sender_type=brandname` hoặc `personal_number`, và `requested_actions` như `click_or_visit_link`, `provide_personal_information`, `contact_off_platform`. Các mẫu `ViSmish_06917` và `ViSmish_07545` tạo FP ở DistilBERT multilingual và hai mô hình TextCNN. Đây là nhóm hard negative quan trọng vì tin nhắn hợp lệ vẫn có nhiều thành phần giống smishing: lời mời tham gia, đường dẫn đăng ký, thông tin liên hệ, và yêu cầu cung cấp dữ liệu. CafeBERT xử lý nhóm này tốt hơn, gợi ý lợi thế của ngữ cảnh tiếng Việt đơn ngữ trong việc nhận diện thông báo tuyển sinh/hội thảo chính thống.
 
-Tóm lại, RQ3 chỉ ra rằng các vùng khó của bài toán Smishing không chỉ giới hạn ở các kỹ thuật cố tình che giấu từ vựng (obfuscation) của kẻ tấn công. Rào cản thực sự nằm ở các tin nhắn lừa đảo không chứa liên kết URL sử dụng văn phong đòi nợ pháp lý, các tin nhắn lừa đảo mạo danh cấu trúc tin cảnh báo bảo mật chính thống, hoặc ngược lại là các tin nhắn hợp lệ (tuyển sinh, hội thảo, cá nhân teencode) có chứa các đặc trưng bề mặt gần giống với tin nhắn lừa đảo. Định hướng cải thiện tiếp theo nên tập trung vào việc bổ sung các ví dụ cực khó (hard negatives và hard positives) vào tập huấn luyện để giúp mô hình tinh chỉnh ranh giới phân biệt ngữ nghĩa sâu thay vì dựa trên các đặc trưng bề mặt.
+#### Nhóm FP 3: Thông báo brandname/cơ quan có link, authority hoặc thông tin tài khoản
+
+Một nhóm FP nhỏ hơn gồm các mẫu `public_service`, `marketing_promotion`, `commerce` hoặc `personal_social` có `sender_type=brandname`, `persuasion_tactics=authority` hoặc `link_lure`, và đôi khi có `has_url=true`. Các mẫu `ViSmish_04373`, `ViSmish_05432`, `ViSmish_08029`, `ViSmish_08246` và `ViSmish_10443` minh họa ranh giới khó giữa thông báo hợp lệ và smishing: survey có link, thông báo cơ quan công quyền, cảnh báo an toàn, hoặc thông tin tài khoản dịch vụ đều có thể mang tín hiệu giống lừa đảo. Với nhóm này, chỉ dựa vào brandname, URL hoặc authority là không đủ; mô hình cần phân biệt được mục đích thực sự của yêu cầu.
+
+**Bảng 5.10: Các nhóm lỗi tiêu biểu theo metadata v2 trên tập dev**
+
+| Nhóm lỗi | Loại lỗi | Metadata v2 nổi bật | Mẫu tiêu biểu | Mô hình bị ảnh hưởng | Diễn giải |
+| :--- | :---: | :--- | :--- | :--- | :--- |
+| Đòi nợ không URL, vai trò con nợ | FN | `message_domain=debt_collection`; `roles=debtor`; `has_url=false`; `tactics=urgency/threat/fear/authority`; `actions=call_phone/visit_physical_location` | `ViSmish_07960`, `ViSmish_03368` | Cả 4 mô hình ở `ViSmish_07960`; DistilBERT ở `ViSmish_03368` | Ngôn ngữ pháp lý và nhắc nợ giống thông báo hợp lệ, không có URL làm tín hiệu bề mặt nên mô hình dễ bỏ sót. |
+| Link-lure giống thông báo giao dịch/cảnh báo | FN | `message_domain=banking_finance/commerce`; `has_url=true`; `actions=click_or_visit_link/provide_personal_information`; `tactics=link_lure/urgency/authority/fear` | `ViSmish_03249`, `ViSmish_04995`, `ViSmish_05399` | CafeBERT, TextCNN, TextCNN distilled | Tin nhắn mô phỏng cảnh báo bảo mật, giao hàng hoặc ứng dụng ngân hàng quá giống thông báo dịch vụ thật. |
+| Miền nhạy cảm, nhiễu bề mặt cao | FN | `message_domain=gambling/adult_service`; `sender_type=personal_number`; `obfuscation.present=true`; `obfuscation.severity=3`; `text_phenomena=character_substitution/punctuation_insertion/whitespace_splitting/teencode` | `ViSmish_01624`, `ViSmish_08269` | CafeBERT và hai mô hình TextCNN | Ký tự bị biến dạng mạnh làm tín hiệu smishing bị phân mảnh, khiến mô hình không nhận ra ý định lừa đảo. |
+| Hội thoại cá nhân không có hành động yêu cầu | FP | `message_domain=personal_social`; `actions=none`; `has_url=false`; `has_phone=false`; `text_phenomena=teencode/diacritic_omission/abbreviation/character_repetition` | `ViSmish_01429`, `ViSmish_04765`, `ViSmish_06109`, `ViSmish_08060` | DistilBERT multilingual, TextCNN, TextCNN distilled; một mẫu với CafeBERT | Văn bản phi chuẩn hoặc cảm xúc mạnh kích hoạt nhầm, dù metadata v2 không có yêu cầu truy cập, liên hệ hay cung cấp thông tin. |
+| Tuyển sinh/hội thảo hợp lệ có yêu cầu đăng ký/liên hệ | FP | `message_domain=employment`; `roles=student`; `actions=click_or_visit_link/provide_personal_information/contact_off_platform`; `sender_type=brandname/personal_number` | `ViSmish_06917`, `ViSmish_07545` | DistilBERT multilingual, TextCNN, TextCNN distilled | Tin hợp lệ vẫn có link, lời mời đăng ký và yêu cầu liên hệ, nên giống hard negative của smishing. |
+| Brandname/cơ quan có authority hoặc link | FP | `message_domain=public_service/marketing_promotion/commerce`; `sender_type=brandname`; `tactics=authority/link_lure`; có thể có `has_url=true` | `ViSmish_04373`, `ViSmish_05432`, `ViSmish_08029`, `ViSmish_08246`, `ViSmish_10443` | Chủ yếu DistilBERT multilingual và TextCNN distilled; một mẫu với CafeBERT | Thông báo hợp lệ từ tổ chức/cơ quan có cấu trúc giống cảnh báo hoặc yêu cầu hành động, làm mô hình đánh đồng authority/link với smishing. |
+
+Tóm lại, RQ3 cho thấy các lỗi FP/FN trên dev có thể được giải thích tốt hơn bằng tổ hợp metadata v2 thay vì các nhãn cũ. FN tập trung ở ba kiểu chính: đòi nợ không URL, smishing có link nhưng giống thông báo chính thống, và tin nhắn miền nhạy cảm có nhiễu bề mặt cao. FP tập trung ở các hard negative hợp lệ: hội thoại cá nhân phi chuẩn, tuyển sinh/hội thảo có yêu cầu đăng ký, và thông báo brandname/cơ quan có authority hoặc link. Định hướng cải thiện tiếp theo nên bổ sung hard positives/hard negatives theo đúng các tổ hợp metadata này, thay vì chỉ tăng thêm mẫu theo nhãn tổng quát.
+
+---
+
+## 5.4. RQ4: Knowledge distillation có giúp mô hình nhẹ hơn đạt trade-off tốt hơn không?
+
+RQ4 đánh giá liệu soft label từ các teacher Transformer có giúp student TextCNN cải thiện so với chính hard-label baseline của nó hay không. Khác với RQ1, mục tiêu của RQ4 không phải tìm mô hình có chất lượng dự đoán cao nhất tuyệt đối, mà kiểm tra một câu hỏi triển khai hẹp hơn: với cùng kiến trúc TextCNN nhẹ, distillation có cải thiện F1/Recall Label 1, PR-AUC hoặc trade-off chất lượng - chi phí hay không.
+
+Pipeline được triển khai theo hướng offline distillation. Teacher được fine-tune trên `train`, sinh xác suất mềm cho `train/dev/test`, sau đó TextCNN được huấn luyện theo ba chế độ: `hard` chỉ dùng nhãn gốc, `vanilla_kd` dùng nhãn gốc kết hợp soft label đồng đều, và `risk_aware_kd` dùng soft label có trọng số theo mức độ đáng tin của teacher. Với các cấu hình KD, thành phần hard-label vẫn giữ vai trò chính (\(\alpha = 0,8\)); soft target dùng xác suất ở temperature \(T=2\). Thiết kế này kế thừa nhận xét từ audit teacher: teacher có thể cung cấp tín hiệu xác suất hữu ích, nhưng không nên được xem như nguồn nhãn thay thế, đặc biệt khi teacher tạo false negative trên lớp smishing.
+
+### 5.4.1. Chất lượng teacher dùng cho distillation
+
+Ba teacher được khảo sát gồm PhoBERT-base, CafeBERT và ViCLSR. Bảng 5.11 trình bày chất lượng của chính teacher outputs được dùng trực tiếp trong quá trình distillation.
+
+**Bảng 5.11: Chất lượng các teacher dùng để sinh soft label cho TextCNN**
+
+| Teacher | Split | Macro-F1 | F1 Label 1 | Recall Label 1 | PR-AUC | FN | FP |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **PhoBERT-base** | dev | 0,8750 | 0,7671 | 0,7568 | 0,8439 | 9 | 8 |
+| | test | 0,9068 | 0,8267 | 0,8378 | 0,9191 | 6 | 7 |
+| **CafeBERT** | dev | 0,9472 | 0,9014 | 0,8649 | 0,9477 | 5 | 2 |
+| | test | 0,9355 | 0,8800 | 0,8919 | 0,9261 | 4 | 5 |
+| **ViCLSR** | dev | 0,9211 | 0,8533 | 0,8649 | 0,9028 | 5 | 6 |
+| | test | 0,9211 | 0,8533 | 0,8649 | 0,9020 | 5 | 6 |
+
+CafeBERT là teacher mạnh nhất trong ba mô hình, đặc biệt trên dev với Macro-F1 0,9472 và F1 Label 1 0,9014. ViCLSR đứng giữa, còn PhoBERT-base là teacher yếu nhất theo chất lượng output dùng cho KD, nhất là trên dev khi Recall Label 1 chỉ đạt 0,7568. Tuy nhiên, chất lượng teacher chỉ là điều kiện đầu vào, không phải bảo đảm rằng student distilled sẽ tốt hơn. Soft label chỉ có ích nếu xác suất của teacher tương thích với năng lực biểu diễn của TextCNN và không kéo ranh giới quyết định của student về phía các lỗi teacher.
+
+### 5.4.2. Kết quả TextCNN distillation theo teacher
+
+Mỗi cấu hình TextCNN được chạy với ba seed \((42, 123, 2025)\). Bảng 5.12 trình bày trung bình và độ lệch chuẩn trên dev/test cho bốn metric chính. Do hard baseline được chạy trong từng study teacher, các giá trị hard có dao động nhỏ giữa các nhóm thí nghiệm; phần diễn giải vì vậy tập trung vào chênh lệch giữa KD mode và hard baseline trong cùng một teacher study.
+
+**Bảng 5.12: Kết quả TextCNN hard/KD theo teacher, trung bình \(\pm\) độ lệch chuẩn qua ba seed**
+
+| Teacher | Split | Mode | Macro-F1 | F1 Label 1 | Recall Label 1 | PR-AUC |
+| :--- | :---: | :--- | :---: | :---: | :---: | :---: |
+| **PhoBERT-base** | dev | Hard | 0,9213 ± 0,0111 | 0,8532 ± 0,0207 | 0,8378 ± 0,0270 | 0,8772 ± 0,0356 |
+| | | Vanilla KD | 0,9147 ± 0,0112 | 0,8411 ± 0,0213 | 0,8378 ± 0,0541 | 0,8710 ± 0,0324 |
+| | | Risk-aware KD | 0,9202 ± 0,0146 | 0,8514 ± 0,0275 | 0,8559 ± 0,0563 | 0,8896 ± 0,0135 |
+| | test | Hard | 0,8898 ± 0,0202 | 0,7949 ± 0,0374 | 0,8018 ± 0,0413 | 0,8706 ± 0,0145 |
+| | | Vanilla KD | 0,8774 ± 0,0032 | 0,7726 ± 0,0058 | 0,8108 ± 0,0000 | 0,8789 ± 0,0195 |
+| | | Risk-aware KD | 0,9069 ± 0,0176 | 0,8276 ± 0,0332 | 0,8919 ± 0,0715 | 0,8791 ± 0,0287 |
+| **CafeBERT** | dev | Hard | 0,9107 ± 0,0163 | 0,8342 ± 0,0297 | 0,8559 ± 0,0156 | 0,8783 ± 0,0287 |
+| | | Vanilla KD | 0,9177 ± 0,0031 | 0,8468 ± 0,0058 | 0,8468 ± 0,0312 | 0,8918 ± 0,0136 |
+| | | Risk-aware KD | 0,9084 ± 0,0116 | 0,8292 ± 0,0218 | 0,8108 ± 0,0541 | 0,8747 ± 0,0157 |
+| | test | Hard | 0,8846 ± 0,0223 | 0,7872 ± 0,0398 | 0,8739 ± 0,0312 | 0,8629 ± 0,0308 |
+| | | Vanilla KD | 0,9036 ± 0,0081 | 0,8218 ± 0,0147 | 0,8919 ± 0,0270 | 0,8701 ± 0,0131 |
+| | | Risk-aware KD | 0,8746 ± 0,0277 | 0,7670 ± 0,0534 | 0,8018 ± 0,1333 | 0,8335 ± 0,0354 |
+| **ViCLSR** | dev | Hard | 0,9074 ± 0,0147 | 0,8282 ± 0,0268 | 0,8649 ± 0,0000 | 0,8707 ± 0,0289 |
+| | | Vanilla KD | 0,9089 ± 0,0117 | 0,8301 ± 0,0213 | 0,8108 ± 0,0270 | 0,8773 ± 0,0103 |
+| | | Risk-aware KD | 0,9107 ± 0,0181 | 0,8337 ± 0,0340 | 0,8378 ± 0,0468 | 0,8829 ± 0,0237 |
+| | test | Hard | 0,8835 ± 0,0221 | 0,7852 ± 0,0397 | 0,8829 ± 0,0413 | 0,8574 ± 0,0227 |
+| | | Vanilla KD | 0,8698 ± 0,0075 | 0,7583 ± 0,0144 | 0,7928 ± 0,0563 | 0,8443 ± 0,0197 |
+| | | Risk-aware KD | 0,8671 ± 0,0291 | 0,7542 ± 0,0545 | 0,8198 ± 0,0826 | 0,8483 ± 0,0410 |
+
+Với PhoBERT-base, `vanilla_kd` không mang lại lợi ích rõ ràng: Macro-F1 và F1 Label 1 giảm trên cả dev và test, dù Recall test tăng nhẹ. Ngược lại, `risk_aware_kd` là cấu hình tốt nhất trên test, tăng Macro-F1 từ 0,8898 lên 0,9069, F1 Label 1 từ 0,7949 lên 0,8276 và Recall Label 1 từ 0,8018 lên 0,8919. Kết quả này phù hợp với động cơ thiết kế risk-aware: khi teacher chưa đủ mạnh và có lỗi đáng kể, soft label cần được dùng có kiểm soát thay vì truyền đồng đều.
+
+Với CafeBERT, xu hướng đảo ngược. `vanilla_kd` là biến thể tốt nhất, tăng Macro-F1 test từ 0,8846 lên 0,9036, F1 Label 1 từ 0,7872 lên 0,8218 và Recall Label 1 từ 0,8739 lên 0,8919. Trong khi đó, `risk_aware_kd` làm giảm cả Macro-F1, F1 Label 1, Recall và PR-AUC. Điều này cho thấy với teacher mạnh và tương đối ổn định, heuristic giảm trọng số hiện tại có thể quá bảo thủ, làm mất tín hiệu xác suất có ích ở các mẫu gần ranh giới.
+
+ViCLSR là phản chứng quan trọng. Dù teacher ViCLSR tốt hơn PhoBERT-base theo các metric teacher output, cả `vanilla_kd` và `risk_aware_kd` đều thấp hơn hard baseline trên test. Recall Label 1 giảm từ 0,8829 xuống 0,7928 với vanilla KD và 0,8198 với risk-aware KD. Như vậy, teacher mạnh hơn hard baseline về chất lượng riêng không đảm bảo soft label của teacher đó phù hợp để cải thiện TextCNN.
+
+### 5.4.3. Kiểm định chênh lệch so với hard baseline
+
+Để tránh diễn giải quá mức từ trung bình qua ba seed, paired bootstrap được dùng để đo chênh lệch giữa từng KD mode và hard baseline trong cùng teacher study. Bảng 5.13 tóm tắt các chênh lệch chính trên test.
+
+**Bảng 5.13: Paired bootstrap delta trên test so với hard baseline**
+
+| Teacher | So sánh | \(\Delta\) Macro-F1 | \(\Delta\) F1 Label 1 | \(\Delta\) Recall Label 1 | \(\Delta\) PR-AUC |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **PhoBERT-base** | Vanilla KD - Hard | -0,0124 | -0,0225 | +0,0093 | +0,0081 |
+| | Risk-aware KD - Hard | +0,0172 | +0,0328 | **+0,0900** | +0,0083 |
+| **CafeBERT** | Vanilla KD - Hard | +0,0192 | +0,0349 | +0,0185 | +0,0071 |
+| | Risk-aware KD - Hard | -0,0103 | -0,0208 | **-0,0723** | -0,0283 |
+| **ViCLSR** | Vanilla KD - Hard | -0,0138 | -0,0270 | **-0,0898** | -0,0133 |
+| | Risk-aware KD - Hard | **-0,0165** | **-0,0314** | **-0,0633** | -0,0093 |
+
+Các khoảng tin cậy bootstrap cho thấy chỉ một số hiệu ứng đủ rõ để xem là tín hiệu mạnh. Với PhoBERT-base, `risk_aware_kd` tăng Recall Label 1 trên test khoảng +0,0900, với CI 95% nằm hoàn toàn trên 0 \([+0,0357; +0,1476]\). Với CafeBERT, `risk_aware_kd` làm giảm Recall Label 1 khoảng -0,0723, CI 95% \([-0,1339; -0,0125]\), cho thấy tác động tiêu cực khá rõ. Với ViCLSR, cả hai biến thể KD đều làm giảm Recall Label 1 trên test; riêng `risk_aware_kd` còn giảm Macro-F1 và F1 Label 1 với CI 95% không vượt qua 0. Các kết quả còn lại có CI chứa 0, nên chỉ nên xem là xu hướng chứ không phải bằng chứng thống kê mạnh.
+
+![Hình 5.4: Chênh lệch Recall Label 1 của các chế độ KD so với TextCNN hard baseline trên test](../figures/chapter5_rq4_kd_recall_delta.png)
+
+**Hình 5.4: Chênh lệch Recall Label 1 của các chế độ KD so với TextCNN hard baseline trên test.** Các thanh thể hiện delta trung bình, còn đường ngang thể hiện CI 95% từ paired bootstrap; hình làm rõ rằng KD gain phụ thuộc vào cặp teacher - chiến lược distillation, không phải hệ quả tự động của việc dùng soft label.
+
+Từ các kết quả này, RQ4 không ủng hộ kết luận rằng distillation luôn cải thiện student. Kết luận đúng hơn là distillation có thể cải thiện TextCNN, nhưng hiệu quả phụ thuộc mạnh vào teacher và cách dùng soft label. PhoBERT-base cần risk-aware weighting để hạn chế truyền lỗi teacher; CafeBERT phù hợp hơn với vanilla KD; còn ViCLSR không nên dùng để distill TextCNN trong cấu hình hiện tại.
+
+### 5.4.4. Trade-off chất lượng và chi phí triển khai
+
+Để đánh giá ý nghĩa triển khai, cấu hình PhoBERT-base được dùng làm đại diện vì đã có phép đo CPU đầy đủ cho các TextCNN student và kích thước checkpoint của teacher. Bảng 5.14 trình bày kích thước, độ trễ và F1 Label 1 của các cấu hình liên quan.
+
+**Bảng 5.14: Trade-off triển khai của PhoBERT-base và các TextCNN student**
+
+| Mô hình | Tham số | Kích thước (MB) | Latency CPU (ms/tin) | Throughput (tin/s) | Peak RAM (MB) | F1 Label 1 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **PhoBERT-base** | 134.999.810 | 514,98 | N/A | N/A | N/A | 0,8267 |
+| **TextCNN hard** | 87.553 | 0,342 | 2,19 | 566,46 | 352,08 | 0,8378 |
+| **TextCNN vanilla KD** | 87.553 | 0,342 | 2,43 | 602,23 | 370,99 | 0,7692 |
+| **TextCNN risk-aware KD** | 87.553 | 0,342 | 1,42 | 902,58 | 370,78 | 0,8500 |
+
+*Ghi chú: Runtime của PhoBERT-base không được đo trực tiếp trong lần benchmark này do thiếu local weights phù hợp; kích thước checkpoint được ước lượng từ artefact model. Do đó không so sánh latency trực tiếp giữa PhoBERT-base và TextCNN trong bảng này.*
+
+Kết quả triển khai cần được diễn giải tách bạch giữa hai nguồn lợi ích. TextCNN nhỏ và nhanh hơn PhoBERT-base là nhờ kiến trúc student cấp ký tự, không phải nhờ distillation. Distillation không làm giảm số tham số của TextCNN vì ba cấu hình TextCNN có cùng kiến trúc và kích thước xấp xỉ 0,342 MB. Vai trò của distillation là thay đổi chất lượng dự đoán của cùng một student.
+
+Trong cấu hình đại diện PhoBERT-base, TextCNN risk-aware KD đạt F1 Label 1 cao nhất trong nhóm đo deployment (0,8500), đồng thời vẫn giữ kích thước khoảng 0,342 MB và latency CPU khoảng 1,42 ms/tin. TextCNN hard cũng đã vượt F1 Label 1 của PhoBERT-base trong benchmark đại diện (0,8378 so với 0,8267), cho thấy student nhẹ có thể cạnh tranh tốt khi dữ liệu huấn luyện phù hợp. Ngược lại, TextCNN vanilla KD là phản ví dụ quan trọng: cùng kiến trúc nhẹ nhưng F1 Label 1 giảm xuống 0,7692. Vì vậy, lợi ích triển khai không đến từ việc "có distillation" nói chung, mà đến từ lựa chọn student nhẹ kết hợp với chiến lược distillation phù hợp.
+
+Tóm lại, RQ4 cho thấy knowledge distillation là một công cụ có điều kiện, không phải một cải thiện mặc định. Với PhoBERT-base, risk-aware KD cải thiện rõ nhất Recall Label 1 trên test và tạo trade-off triển khai tốt cho TextCNN nhẹ. Với CafeBERT, vanilla KD phù hợp hơn và cho xu hướng cải thiện chất lượng tổng thể trên test. Với ViCLSR, cả hai biến thể KD đều làm giảm chất lượng so với hard baseline. Kết quả này củng cố yêu cầu phải luôn so sánh student distilled với hard-label baseline cùng kiến trúc, đồng thời báo cáo riêng Recall Label 1 thay vì chỉ dựa vào Accuracy hoặc Macro-F1.
